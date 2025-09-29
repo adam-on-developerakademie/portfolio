@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DATA } from '../data';
+import { DATA } from '../services/data';
 
 
 @Component({
@@ -11,5 +11,6 @@ import { DATA } from '../data';
 })
 export class Main {
   constructor(public myData: DATA) { }
+  
 
 }
