@@ -1,0 +1,79 @@
+header {
+    width: 1440px;
+    height: 117px;
+    background-color: transparent;
+    padding-top: 24px;
+    padding-right: 77px;
+    padding-bottom: 24px;
+    padding-left: 77px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid #E6E6E6;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 23px;
+
+    >.logo {
+        width: 64px;
+        height: 69px;
+        color: white;
+        background-color: #5988FF;
+    }
+
+    >nav {
+        width: 610px;
+        height: 32px;
+        display: flex;
+        gap: 80px;
+
+        >.links {
+            width: 432px;
+            height: 32px;
+            display: flex;
+            gap: 36px;
+        }
+
+        >.languages {
+            width: 98px;
+            height: 29px;
+            display: flex;
+            gap: 20px;
+            color: #5988FF;
+
+            >.underline {
+                border: 3px solid #0043F0;
+                width: 20px;
+            }}
+        }
+    }
+
+    .button {
+        width: 120px;
+        height: 32px;
+        cursor: pointer;
+        color: #5988FF;
+
+        a {
+            text-decoration: none;
+
+
+            &:hover {
+                animation: textZoom 0.2s steps(4, end) forwards;
+            }
+
+        }
+    }
+
+    @keyframes textZoom {
+        0% {
+            font-weight: 100;
+        }
+
+        100% {
+            font-weight: 700;
+        }
+    }
