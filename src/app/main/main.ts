@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
-//import { Header } from '../header/header';
+import { CommonModule } from '@angular/common';
+import { DATA } from '../data';
+
 
 @Component({
   selector: 'app-main',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './main.html',
   styleUrl: './main.scss'
 })
 export class Main {
-
-DATA={
-  language: 0,
-  languages:{set:true,values:['EN','DE']},
-  header:{
-  aboutMe:{set:false,values:['About me','Über mich']},
-  skillSet:{set:false,values:['Skill set','Fähigkeiten']},
-  myWork:{set:false,values:['My work','Projekt']},
-  }
-}
+  constructor(public myData: DATA) { }
 
 }

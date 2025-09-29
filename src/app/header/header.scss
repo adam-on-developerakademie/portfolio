@@ -52,7 +52,7 @@ header {
     }
 
     .button {
-        width: 120px;
+        //width: 120px;
         height: 32px;
         cursor: pointer;
         color: #5988FF;
@@ -62,7 +62,7 @@ header {
 
 
             &:hover {
-                animation: textZoom 0.2s steps(4, end) forwards;
+                animation: textZoom 0.0s steps(4, end) forwards;
             }
 
         }
