@@ -45,22 +45,29 @@ header {
 
         >.languages {
             width: 98px;
-            height: 29px;
+            height: 25px;
             display: flex;
             gap: 10px;
             color: #5988FF;
 
             >.button {
-                width: 98px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 38px;
                 height: 32px;
                 cursor: pointer;
                 color: #5988FF;
+
+                >.underline {
+                    margin-left: 1px;
+                    width: 30px;
+                    border-bottom: 3px solid #0043F0;
+                    border-radius: 0px 40px 40px 0px;
+                }
             }
 
-            >.underline {
-                border: 3px solid #0043F0;
-                width: 20px;
-            }
+
         }
     }
 }
@@ -69,7 +76,7 @@ a {
     text-decoration: none;
 
     &:hover {
-        animation: textZoom 0.0s steps(4, end) forwards;
+        animation: textZoom 0.2s steps(6, end) forwards;
     }
 
 }
@@ -80,7 +87,23 @@ a {
         font-weight: 100;
     }
 
-    100% {
+    20% {
+        font-weight: 300;
+    }
+
+    40% {
+        font-weight: 500;
+    }
+
+    60% {
         font-weight: 700;
+    }
+
+    80% {
+        font-weight: 800;
+    }
+
+    100% {
+        font-weight: 900;
     }
 }

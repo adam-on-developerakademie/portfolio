@@ -24,12 +24,12 @@
         <div class="languages">
             <div class="button">
             <a (click)="changeLanguage(0)">{{myData.DATA.languages.values[0]}}</a>
-            <div class="underline"></div>
+            <div class="{{myData.DATA.language === 0 ? 'underline' : ''}}"></div>
             </div>
             /
             <div class="button">
             <a (click)="changeLanguage(1)">{{myData.DATA.languages.values[1]}}</a>
-            <div class="underline"></div>
+            <div class="{{myData.DATA.language === 1 ? 'underline' : ''}}"></div>
             </div>
         </div>
     </nav>
