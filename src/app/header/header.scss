@@ -1,23 +1,41 @@
+.button {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 32px;
+    cursor: pointer;
+    color: #5988FF;
+
+    >.underline {
+        margin-left: 1px;
+        border-bottom: 3px solid #0043F0;
+        border-radius: 0px 40px 40px 0px;
+    }
+}
+
 header {
-    width: 1440px;
-    height: 117px;
+    max-width: 1440px;
+    width: 100%;
+    height: auto;
     background-color: transparent;
-    //padding-top: 24px;
-    padding-right: 77px;
-    //padding-bottom: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     padding-left: 77px;
+    padding-right: 77px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    border: 1px solid #E6E6E6;
+    border: 1px solid red;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 23px;
 
     >.logo {
+        border: 1px solid red;
         width: 64px;
         height: 69px;
         color: white;
@@ -25,45 +43,41 @@ header {
     }
 
     >nav {
-        width: 610px;
+        border: 1px solid red;
+        width: auto;
         height: 32px;
         display: flex;
         gap: 80px;
 
         >.links {
-            width: 432px;
+            border: 1px solid red;
+            width: auto;
             height: 32px;
             display: flex;
             gap: 36px;
 
             >.button {
-                height: 32px;
-                cursor: pointer;
-                color: #5988FF;
+                width: 140px;
+
+                >.underline {
+                    width: 60px;
+                }
             }
         }
 
         >.languages {
-            width: 98px;
-            height: 25px;
+            border: 1px solid red;
+            width: 100px;
+            height: 32px;
             display: flex;
             gap: 10px;
             color: #5988FF;
 
             >.button {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
                 width: 38px;
-                height: 32px;
-                cursor: pointer;
-                color: #5988FF;
 
                 >.underline {
-                    margin-left: 1px;
                     width: 30px;
-                    border-bottom: 3px solid #0043F0;
-                    border-radius: 0px 40px 40px 0px;
                 }
             }
 
@@ -74,36 +88,10 @@ header {
 
 a {
     text-decoration: none;
-
+    transition: all 0s steps(2) 0.2s;
     &:hover {
-        animation: textZoom 0.2s steps(6, end) forwards;
+        font-weight: bolder;
     }
 
 }
 
-
-@keyframes textZoom {
-    0% {
-        font-weight: 100;
-    }
-
-    20% {
-        font-weight: 300;
-    }
-
-    40% {
-        font-weight: 500;
-    }
-
-    60% {
-        font-weight: 700;
-    }
-
-    80% {
-        font-weight: 800;
-    }
-
-    100% {
-        font-weight: 900;
-    }
-}

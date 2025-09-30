@@ -3,33 +3,28 @@
     <nav>
         <div class="links">
             <div class="button">
-            <a routerLink="" routerLinkActive="active">
-                <!-- About me</a> -->
-                {{myData.DATA.header.aboutMe.values[myData.DATA.language]}}</a>
-            <div class="underline"></div>
+                <a (click)="goToSection('aboutMe')"> <!-- routerLink="" routerLinkActive="active"> -->
+                    {{myData.DATA.header.aboutMe.values[myData.DATA.language]}}</a>
+                <div class="{{myData.DATA.header.aboutMe.set?'underline':''}}"></div>
             </div>
             <div class="button">
-            <a routerLink="about" routerLinkActive="active">
-                <!-- Skill set</a> -->
-                {{myData.DATA.header.skillSet.values[myData.DATA.language]}}</a>    
-            <div class="underline"></div>
+                <a (click)="goToSection('skillSet')">{{myData.DATA.header.skillSet.values[myData.DATA.language]}}</a>
+                <div class="{{myData.DATA.header.skillSet.set?'underline':''}}"></div>
             </div>
             <div class="button">
-            <a routerLink="projects" routerLinkActive="active">
-                <!-- My work</a> -->
-                {{myData.DATA.header.myWork.values[myData.DATA.language]}}</a>
-            <div class="underline"></div>
+                <a (click)="goToSection('myWork')">{{myData.DATA.header.myWork.values[myData.DATA.language]}}</a>
+                <div class="{{myData.DATA.header.myWork.set?'underline':''}}"></div>
             </div>
         </div>
         <div class="languages">
             <div class="button">
-            <a (click)="changeLanguage(0)">{{myData.DATA.languages.values[0]}}</a>
-            <div class="{{myData.DATA.language === 0 ? 'underline' : ''}}"></div>
+                <a (click)="changeLanguage(1)">{{myData.DATA.languages.values[1]}}</a>
+                <div class="{{myData.DATA.language === 1 ? 'underline' : ''}}"></div>
             </div>
             /
             <div class="button">
-            <a (click)="changeLanguage(1)">{{myData.DATA.languages.values[1]}}</a>
-            <div class="{{myData.DATA.language === 1 ? 'underline' : ''}}"></div>
+                <a (click)="changeLanguage(0)">{{myData.DATA.languages.values[0]}}</a>
+                <div class="{{myData.DATA.language === 0 ? 'underline' : ''}}"></div>
             </div>
         </div>
     </nav>

@@ -17,6 +17,16 @@ export class Header {
         console.log(this.myData.DATA.language);
     }
 
-}
+    goToSection(section: string) {
+       let thisSection = eval(`this.myData.DATA.header.${section}`);
+         thisSection.set = true;
+        let otherSections = ['aboutMe', 'skillSet', 'myWork'].filter(s => s !== section);
+        otherSections.forEach(s => {
+            let sec = eval(`this.myData.DATA.header.${s}`);
+            sec.set = false;
+        });
 
+
+}
+}
 
