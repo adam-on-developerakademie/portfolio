@@ -1,5 +1,5 @@
 .button {
-    border: 1px solid red;
+    //border: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -15,9 +15,10 @@
 }
 
 header {
+    z-index: 1;
     max-width: 1440px;
     width: 100%;
-    height: auto;
+    box-sizing: border-box;
     background-color: transparent;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -28,32 +29,34 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    border: 1px solid red;
+    //border: 1px solid red;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 23px;
 
     >.logo {
-        border: 1px solid red;
+        //border: 1px solid red;
         width: 64px;
         height: 69px;
         color: white;
         background-color: #5988FF;
+        
     }
 
     >nav {
-        border: 1px solid red;
+        //border: 1px solid red;
         width: auto;
         height: 32px;
         display: flex;
         gap: 80px;
 
         >.links {
-            border: 1px solid red;
+            //border: 1px solid red;
             width: auto;
             height: 32px;
             display: flex;
+            padding-left: auto;
             gap: 36px;
 
             >.button {
@@ -66,7 +69,7 @@ header {
         }
 
         >.languages {
-            border: 1px solid red;
+            //border: 1px solid red;
             width: 100px;
             height: 32px;
             display: flex;

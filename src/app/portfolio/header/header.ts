@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DATA } from '../services/data';
+import { DATA } from '../../services/data';
 
 
 @Component({

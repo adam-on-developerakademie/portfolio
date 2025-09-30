@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { Main } from './main/main';
+import { Portfolio } from './portfolio/portfolio';
 
 export const routes: Routes = [
-  { path: '', component: Main }
+  { path: '', component: Portfolio }
 ];
