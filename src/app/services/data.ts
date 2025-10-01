@@ -8,7 +8,7 @@ export class DATA {
 
   public DATA: data = {
     language: 0,
-    mobile: false,
+    mobile: 0,
     languages: { set: true, values: ['EN', 'DE'] },
     header: {
       aboutMe: { set: false, values: ['About me', 'Über mich'] },
@@ -17,7 +17,7 @@ export class DATA {
     },
     hero: {
       photo: { x: [32,0], y: [106,154], width: [761,645] },
-      hello: { x: [731,197], y: [227,0], width: [645,367.72], font: [64,64], values: ['Hello! I am Adam', 'Hallo! Ich bin Adam, ein Frontend Entwickler.'] },
+      hello: { x: [731,197], y: [227,0], width: [645,367.72], height: [61,61], font: [64,64], values: ['Hello! I am Adam', 'Hallo! Ich bin Adam'] },
       profesion: { x: [731,199.28], y: [305,30], width: [645,645], font: [128,128], values: ['Frontend & Backend Developer', 'Frontend und Backend Entwickler'] },
       scroll: { x: [987,731], y: [656,0], width: [95,645], font: [23,23], values: ['Scroll down', 'Runterscrollen'] },
       scrollline: { x: [1034,731], y: [694,0], width: [0,0], height: [330,0] },
