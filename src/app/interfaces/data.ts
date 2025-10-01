@@ -1,17 +1,18 @@
 export interface data {
-language: number;
-languages: {set: boolean,values: string[]};
-header: {
-        aboutMe: {set: boolean, values: string[]}; 
-        skillSet: {set: boolean, values: string[]}; 
-        myWork: {set: boolean, values: string[]};
+        language: number;
+        mobile: boolean;
+        languages: { set: boolean, values: string[] };
+        header: {
+                aboutMe: { set: boolean, values: string[] };
+                skillSet: { set: boolean, values: string[] };
+                myWork: { set: boolean, values: string[] };
         };
-hero: {
-        photo: {xPosition: number, width: number};
-        hello: {xPosition: number, width: number, values: string[]};
-        profesion: {xPosition: number, width: number, values: string[]};
-        scroll: {xPosition: number, width: number, values: string[]};
-        scrollline: {xPosition: number, width: number};
-        socialButtons: {xPosition: number, width: number};
-        };
+        hero: {
+                photo: { x: number[], y: number[], width: number[] };
+                hello: { x: number[], y: number[], width: number[], font: number[], values: string[] };
+                profesion: { x: number[], y: number[], width: number[], font: number[], values: string[] };
+                scroll: { x: number[], y: number[], width: number[], font: number[], values: string[] };
+                scrollline: { x: number[], y: number[], width: number[], height: number[] };
+                socialButtons: { x: number[], y: number[], width: number[], height: number[] };
+        }
 }
