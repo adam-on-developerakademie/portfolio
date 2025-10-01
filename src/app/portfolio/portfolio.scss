@@ -13,14 +13,16 @@
 .header {
   position: relative;
   background-color: transparent;
-  border: 1px solid green;
+  user-select: none;
+  z-index: 1;
 
 }
 
 .main {
   position: relative;
   background-color: transparent;
-  border: 1px solid blue;
+  user-select: none;
+  z-index: 1;
 
 }
 .ball1 {
@@ -28,8 +30,8 @@
   width: 892px;
   height: 892px;
   top: calc(0% + 892px * 0.5 - 71px);
-  left: calc(50% - 1440px * 0.5 + 199px);
-  transform: translate(-50%, -50%);
+  left: calc(25% - 199px );
+  transform: translate(-25%, -50%);
   opacity: 1;
   border-radius: 50%;
   z-index: 0;
@@ -38,15 +40,16 @@
 }
 
 .container{
+  border: 1px solid greenyellow;
   position: absolute;
   overflow: hidden;
+  box-sizing: border-box;
   top: 50%;
-  left: 50%;
+  left: calc(50% - 1440px * 0.25);
   transform: translate(-50%, -50%); 
-  width: 1440px;
+  width: calc(1440px * 0.5);
   height: 100%;
-  z-index: 100;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
-  pointer-events: none;
+  z-index: 0;
+
 
 }
