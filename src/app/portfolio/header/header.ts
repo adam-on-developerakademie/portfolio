@@ -14,6 +14,7 @@ export class Header {
 
     changeLanguage(index: number) {
         this.myData.DATA.language = index;
+        document.documentElement.style.setProperty('--language', this.myData.DATA.language==0? '-0.03em': '-0.082em');
         console.log(this.myData.DATA.language);
     }
 

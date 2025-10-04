@@ -13,25 +13,31 @@ export class Hero {
   constructor(public myData: DATA) {
     document.documentElement.style.setProperty('--screenWidth', this.screenWidth + 'px');
 
-    document.documentElement.style.setProperty('--hello-top', this.myData.DATA.hero.hello.y[this.myData.DATA.mobile] + 'px');
-    document.documentElement.style.setProperty('--hello-width', this.myData.DATA.hero.hello.width[this.myData.DATA.mobile] + 'px');
-    document.documentElement.style.setProperty('--hello-height', this.myData.DATA.hero.hello.height[this.myData.DATA.mobile] + 'px');
-    document.documentElement.style.setProperty('--hello-font', this.myData.DATA.hero.hello.font[this.myData.DATA.mobile] + 'px');
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.screenWidth = window.innerWidth; // Aktualisiert die Breite bei Größenänderung
     (this.myData.DATA.mobile == 0 && this.screenWidth > 1440) ? this.screenWidth = 1440 : '';
-    document.documentElement.style.setProperty('--screenWidth', this.screenWidth + 'px');
-    document.documentElement.style.setProperty('--hello-left', this.myData.DATA.hero.hello.x[this.myData.DATA.mobile] + 'px');
-    console.log(`Hello from Hero component ${this.screenWidth} ${this.myData.DATA.hero.hello.x[this.myData.DATA.mobile]}`);
+    document.documentElement.style.setProperty('--hello-font', this.myData.DATA.hero.hello.font[this.myData.DATA.mobile] * this.screenWidth / 1440 + 'px');
+    document.documentElement.style.setProperty('--profession-font', this.myData.DATA.hero.profession.font[this.myData.DATA.mobile] * this.screenWidth / 1440 + 'px');
+    document.documentElement.style.setProperty('--profession-width', this.myData.DATA.hero.profession.width[this.myData.DATA.mobile] * this.screenWidth / 1440 + 'px');
   }
   ngOnInit() {
     this.screenWidth = window.innerWidth; // Holt die initiale Breite beim Laden der Komponente
     (this.myData.DATA.mobile == 0 && this.screenWidth > 1440) ? this.screenWidth = 1440 : '';
     document.documentElement.style.setProperty('--screenWidth', this.screenWidth + 'px');
+     document.documentElement.style.setProperty('--language', this.myData.DATA.language==0? '-0.03em': '-0.082em');
     document.documentElement.style.setProperty('--hello-left', this.myData.DATA.hero.hello.x[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--hello-top', this.myData.DATA.hero.hello.y[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--hello-width', this.myData.DATA.hero.hello.width[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--hello-height', this.myData.DATA.hero.hello.height[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--hello-font', this.myData.DATA.hero.hello.font[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--profession-left', this.myData.DATA.hero.profession.x[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--profession-top', this.myData.DATA.hero.profession.y[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--profession-width', this.myData.DATA.hero.profession.width[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--profession-height', this.myData.DATA.hero.profession.height[this.myData.DATA.mobile] + 'px');
+    document.documentElement.style.setProperty('--profession-font', this.myData.DATA.hero.profession.font[this.myData.DATA.mobile] * this.screenWidth / 1440 + 'px');
     console.log(`Hello from Hero component ${this.screenWidth} ${this.myData.DATA.hero.hello.x[this.myData.DATA.mobile]}`);
   }
 }

@@ -1,35 +1,83 @@
+$screenWidth: var(--screenWidth);
+$language: var(--language);
+$spacingPart4: $language;
+$hello-top: calc(-117px + var(--hello-top));
+$hello-left: 1420px - 731px; //var(--hello-left);
+$hello-width: var(--hello-width);
+$hello-height: var(--hello-height);
+$hello-font: var(--hello-font);
+$profession-top: calc(-117px + var(--profession-top));
+$profession-left: 1420px - 731px; //var(--profession-left);
+$profession-width: var(--profession-width);
+$profession-height: var(--profession-height);
+$profession-font: var(--profession-font);
 
-$screenWidth:  var(--screenWidth);
-$hello-top: calc(-117px + 227px);
-$hello-left: var(--hello-left);
-$hello-width: 645px;
-$hello-height: 61px;
-$hello-font: 64px;
 
- 
- .hero {
-    max-width: 1440px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+.hero {
+  max-width: 1440px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 1028px;
+  border: 1px solid blue;
+}
+
+.hello {
+  top: $hello-top;
+  left: calc(50% - $screenWidth * 0.5 + $hello-left);
+  width: $hello-width;
+  height: $hello-height;
+  font-size: $hello-font;
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  //letter-spacing: 0%;
+  color: #5988FF;
+}
+
+.profession {
+  //border: 1px solid red;
+  top: $profession-top;
+  left: calc(50% - $screenWidth * 0.5 + $profession-left);
+  width: $profession-width;
+  //height: $profession-height;
+  position: absolute;
+  font-family: 'Baloo2', sans-serif;
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: $profession-font;
+  font-weight: 750;
+  line-height: 80%;
+  color: #5988FF;
+
+  >.professionPart1 {
     width: 100%;
-    height: 1028px;
-    border: 1px solid blue;
+    //border: 1px solid green;
+    letter-spacing: 0.015em;
   }
 
-  .hello {
-    top: $hello-top;
-    left: calc( 50% - $screenWidth * 0.5 + $hello-left);
-    width: $hello-width;
-    height: $hello-height;
-    font-size: $hello-font;
-    position: absolute;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #5988FF;
-    user-select: none;
-    z-index: 1;
+  >.professionPart2 {
+    width: 100%;
+    //border: 1px solid orange;
+    text-align: center;
   }
+
+  >.professionPart3 {
+    width: 100%;
+    //border: 1px solid purple;
+    text-align: justify;
+    letter-spacing: 0.125em;
+  }
+
+  >.professionPart4 {
+    width: 100%;
+    //border: 1px solid pink;
+    letter-spacing: $spacingPart4;
+  }
+
+
+
+}

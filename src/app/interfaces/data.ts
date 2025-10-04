@@ -10,7 +10,7 @@ export interface data {
         hero: {
                 photo: { x: number[], y: number[], width: number[] };
                 hello: { x: number[], y: number[], width: number[], height: number[] , font: number[], values: string[] };
-                profesion: { x: number[], y: number[], width: number[], font: number[], values: string[] };
+                profession: { x: number[], y: number[], width: number[], height: number[], font: number[], values: string[][] };
                 scroll: { x: number[], y: number[], width: number[], font: number[], values: string[] };
                 scrollline: { x: number[], y: number[], width: number[], height: number[] };
                 socialButtons: { x: number[], y: number[], width: number[], height: number[] };
