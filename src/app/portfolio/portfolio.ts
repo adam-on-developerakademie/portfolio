@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { DATA } from '../../services/data';
 import { Header } from "../header/header";
 import { Hero } from './hero/hero';
 import { AboutMe } from '../portfolio/about-me/about-me';
@@ -14,5 +15,6 @@ import { AboutMe } from '../portfolio/about-me/about-me';
   styleUrl: './portfolio.scss'
 })
 export class Portfolio {
+  myData = inject(DATA);
 
 }

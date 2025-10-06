@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+.dnone {
+    display: none;
+}
+
 .background {
     position: absolute;
     top: -5px;
@@ -26,17 +30,102 @@
     overflow: hidden;
     box-sizing: border-box;
 
-        >.ball1 {
-    position: absolute;
-    width: 892px;
-    height: 892px;
-    top: -71px;
-    left: -199px;
-    transform: translate(0%, 0%);
-    border-radius: 50%;
-    z-index: 0;
-    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
-            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
-}
+    >.ball1 {
+        position: absolute;
+        width: 892px;
+        height: 892px;
+        top: -71px;
+        left: -199px;
+        transform: translate(0%, 0%);
+        border-radius: 50%;
+        z-index: 0;
+        background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+                #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    }
+
+    >.hello {
+        //border: 1px solid blue;
+        position: absolute;
+        top: 227px; //$hello-top;
+        left: 731px; //calc(50% - $screenWidth * 0.5 + $hello-left);
+        width: 645px; //$hello-width;
+        height: 61px; //$hello-height;
+        font-size: 64px; // $hello-font;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #5988FF;
+        align-items: start;
+
+    }
+
+
+    >.profession {
+        //border: 1px solid red;
+        position: absolute;
+        top: 305px; //$profession-top;
+        left: 731px; //calc(50% - $screenWidth * 0.5 + $profession-left);
+        width: 645px; //$profession-width;
+        height: 221px; //$profession-height;
+        font-family: 'Baloo2', sans-serif;
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: 128px; //$profession-font;
+        font-weight: 750;
+        line-height: 85%;
+        color: #5988FF;
+        align-items: start;
+
+        >.professionPart1 {
+            //border: 1px solid green;
+            width: 100%;
+            letter-spacing: 0em;
+        }
+
+        >.professionPart2 {
+            //border: 1px solid orange;
+            width: 100%;
+            letter-spacing: -0.025em;
+        }
+    }
+
+    >.scrollText {
+        //border: 1px solid #5988FF;
+        position: absolute;
+        top: 656px; //$scroll-top;
+        left: 987px; //calc(50% - $screenWidth * 0.5 + $scroll-left);
+        width: 95px; //$scroll-width;
+        height: 28px; //$scroll-height;
+        font-size: 23px; //$scroll-font;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-style: medium;
+        font-weight: 500;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #5988FF;
+        align-items: start;
+    }
+
+    >.scrollLine {
+        position: absolute;
+        top: 694px; //$scrollline-top;
+        left: 1034px; //calc(50% - $screenWidth * 0.5 + $scrollline-left);
+        width: 0px; //$scrollline-width;
+        height: 330px; //$scrollline-height;
+        border: 2px solid #5988FF;
+        opacity: 0.5;
+    }
+    >.me{
+        position: absolute;
+        top: 140px; //$photo-top;
+        left: 32px; //calc(50% - $screenWidth * 0.5 + $photo-left);
+        zoom: 1.4; //scale(0.8);
+        width: auto; //$photo-width;
+        height: 917px; //$photo-height;
+
+    }
 
 }

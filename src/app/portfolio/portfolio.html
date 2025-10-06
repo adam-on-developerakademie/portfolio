@@ -1,9 +1,17 @@
 <div class="background">
     <div class="ball1"></div>
-<app-header></app-header>
-<app-hero></app-hero>
-<app-about-me></app-about-me>
-<!--     <app-about-me></app-about-me>
+    <div class="hello">{{ myData.DATA.hero.hello.values[myData.DATA.language] }}</div>
+    <div class="profession">
+        <div class="professionPart1">{{ myData.DATA.hero.profession.values[0][myData.DATA.language] }}</div>
+        <div class="professionPart2">{{ myData.DATA.hero.profession.values[1][myData.DATA.language] }}</div>
+    </div>
+    <div class="scrollText">{{ myData.DATA.hero.scroll.values[myData.DATA.language] }}</div>
+    <div class="scrollLine"></div>
+    <img src="img/me.png" alt="my photo" class="me" />
+    <app-header></app-header>
+    <app-hero></app-hero>
+    <app-about-me></app-about-me>
+    <!--     <app-about-me></app-about-me>
     <app-skill-set></app-skill-set>
     <app-my-work></app-my-work> -->
 </div>
