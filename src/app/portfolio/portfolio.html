@@ -22,4 +22,32 @@
         <div class="ball2"></div>
         <div class="ball3"></div>
     </div>
+    <div class="letsWorkTogether">
+        <div>
+            <div class="letsWorkTogetherLeftSide">
+                <div class="letsWorkTogetherText0">{{
+                    myData.DATA.letsWorkTogether.text.values[0][myData.DATA.language]}}</div>
+                <div class="letsWorkTogetherText1">{{
+                    myData.DATA.letsWorkTogether.text.values[1][myData.DATA.language]}}</div>
+                <div class="letsWorkTogetherIcons">
+                    <div class="letsWorkTogetherIcon"
+                        *ngFor="let icon of myData.DATA.letsWorkTogether.icons.values; let i = index">
+                        <img [src]="'ico/' + myData.DATA.letsWorkTogether.icons.icon[i]" />
+                        <div class="letsWorkTogetherIconText">{{ icon[myData.DATA.language] }}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <div class="letsWorkTogetherRightSide">
+                <div class="letsWorkTogetherText2">{{
+                    myData.DATA.letsWorkTogether.text.values[2][myData.DATA.language]}}</div>
+                <a class="letsWorkTogetherButton"
+                    href="mailto:{{ myData.DATA.letsWorkTogether.button.values[myData.DATA.language] }}">
+                    {{ myData.DATA.letsWorkTogether.button.values[myData.DATA.language] }}
+                </a>
+            </div>
+        </div>
+    </div>
 </main>

@@ -227,4 +227,76 @@
             #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
 }
 }
+
+.letsWorkTogether {
+    position: absolute;
+    top: 1163px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    width: 1440px;
+    height: 407px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-sizing: border-box;
+    z-index: 1;
+
+    > div {
+        border: 1px solid green;
+        width: 606px;
+        height: 407px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    >.letsWorkTogetherText {
+        //border: 1px solid blue;
+        width: 645px;
+        height: 61px;
+        font-size: 64px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #5988FF;
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    >.letsWorkTogetherButton {
+        //border: 1px solid red;
+        width: 300px;
+        height: 60px;
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-style: medium;
+        font-weight: 500;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: white;
+        background-color: #5988FF;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+
+        :hover {
+            background-color: #0043F0;
+            transition: background-color 0.3s ease-in-out;
+            cursor: pointer;
+        }
+    }       
+}
 }

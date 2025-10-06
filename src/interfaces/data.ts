@@ -15,5 +15,11 @@ export interface data {
                 scroll: { x: number[], y: number[], width: number[], font: number[], values: string[] };
                 scrollline: { x: number[], y: number[], width: number[], height: number[] };
                 socialButtons: { x: number[], y: number[], width: number[], height: number[], values: { name: string, icon: string, link: string }[] };
-        }
+        };
+        letsWorkTogether: {
+                text: { x: number[], y: number[], width: number[], height: number[], font: number[], values: string[][] };
+                icons: { icon: string[], values: string[][] };
+                button: { email: string[], values: string[] };
+                
+        };
 }
