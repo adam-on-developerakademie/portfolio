@@ -1,0 +1,31 @@
+<header>
+    <img src="ico/AP_bgw.png" alt="Logo" class="logo" />
+    <nav>
+        <div class="links">
+            <div class="button {{myData.DATA.header.aboutMe.set ? ', bolder' : ''}}">
+                <a (click)="goToSection('aboutMe')"> <!-- routerLink="" routerLinkActive="active"> -->
+                    {{myData.DATA.header.aboutMe.values[myData.DATA.language]}}</a>
+                <div class="{{myData.DATA.header.aboutMe.set?'underline':''}}"></div>
+            </div>
+            <div class="button {{myData.DATA.header.skillSet.set ? ', bolder' : ''}}">
+                <a (click)="goToSection('skillSet')">{{myData.DATA.header.skillSet.values[myData.DATA.language]}}</a>
+                <div class="{{myData.DATA.header.skillSet.set?'underline':''}}"></div>
+            </div>
+            <div class="button {{myData.DATA.header.myWork.set ? ', bolder' : ''}}">
+                <a (click)="goToSection('myWork')">{{myData.DATA.header.myWork.values[myData.DATA.language]}}</a>
+                <div class="{{myData.DATA.header.myWork.set?'underline':''}}"></div>
+            </div>
+        </div>
+        <div class="languages">
+            <div class="button {{myData.DATA.language === 1 ? ', bolder' : ''}}">
+                <a (click)="changeLanguage(1)">{{myData.DATA.languages.values[1]}}</a>
+                <div class="{{myData.DATA.language === 1 ? 'underline' : ''}}"></div>
+            </div>
+            /
+            <div class="button {{myData.DATA.language === 0 ? ', bolder' : ''}}">
+                <a (click)="changeLanguage(0)">{{myData.DATA.languages.values[0]}}</a>
+                <div class="{{myData.DATA.language === 0 ? 'underline' : ''}}"></div>
+            </div>
+        </div>
+    </nav>
+</header>

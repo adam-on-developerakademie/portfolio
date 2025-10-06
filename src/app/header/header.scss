@@ -1,0 +1,125 @@
+.button {
+    //border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 32px;
+    cursor: pointer;
+    color: #5988FF;
+    white-space: nowrap;
+
+    >.underline {
+        margin-left: 1px;
+        border-bottom: 3px solid #0043F0;
+        border-radius: 0px 40px 40px 0px;
+    }
+}
+
+header {
+    margin: 0;
+    border: 1px solid green;
+    max-width: 1440px;
+    width: 100%;
+    height: 117px;
+    z-index: 1;
+    box-sizing: border-box;
+    background-color: transparent;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 77px;
+    padding-right: 77px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 23px;
+
+    >.logo {
+        //border: 1px solid red;
+        width: 64px;
+        height: 69px;
+        color: white;
+        background-color: transparent;
+
+    }
+
+    >nav {
+        //border: 1px solid red;
+        width: auto;
+        height: 32px;
+        display: flex;
+        gap: 80px;
+
+        >.links {
+            //border: 1px solid red;
+            width: auto;
+            height: 32px;
+            display: flex;
+            padding-left: auto;
+            gap: 36px;
+
+            >.button {
+                width: 140px;
+
+                >.underline {
+                    width: 60px;
+                }
+            }
+        }
+
+        >.languages {
+            //border: 1px solid red;
+            width: 100px;
+            height: 32px;
+            display: flex;
+            gap: 10px;
+            color: #5988FF;
+
+            >.button {
+                width: 38px;
+
+                >.underline {
+                    width: 30px;
+                }
+            }
+
+
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    header {
+        >nav {
+            gap: 32px;
+            >.links {
+                gap: 24px;
+                >.button {
+                    width: auto;
+                }
+            }
+
+            >.languages {
+                gap: 6px;
+            }
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    transition: all 0s steps(2) 0.2s;
+
+    &:hover {
+        font-weight: bolder;
+    }
+}
+
+.bolder {
+    font-weight: bolder;
+}
