@@ -12,7 +12,7 @@
     display: none;
 }
 
-.background {
+.main {
     position: absolute;
     top: -5px;
     left: 50%;
@@ -118,14 +118,51 @@
         border: 2px solid #5988FF;
         opacity: 0.5;
     }
-    >.me{
+
+    >.me {
         position: absolute;
-        top: 140px; //$photo-top;
+        top: 106px; //$photo-top;
         left: 32px; //calc(50% - $screenWidth * 0.5 + $photo-left);
         zoom: 1.4; //scale(0.8);
         width: auto; //$photo-width;
         height: 917px; //$photo-height;
 
+    }
+
+    >.mainSocialButtons {
+        position: absolute;
+        //border: 1px solid black;
+        top: 789px; //$socialButtons-top;
+        left: 1300px; //calc(50% - $screenWidth * 0.5 + $socialButtons-left);
+        width: 40px; //$socialButtons-width;
+        height: 170px; //$socialButtons-height;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+
+        >.mainSocialButton {
+            //border: 1px solid red;
+            width: 30px; //$socialButton-width;
+            height: 30px; //$socialButton-height;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            transition: all 1s ease-in-out ;
+            //animation-direction: alternate;
+
+            :hover {
+                position: relative;
+                animation: goLeft 0.1s ease-in normal forwards;
+                @keyframes goLeft {
+                    0% {left: -1px;}
+                    20% {left: -2px;}
+                    40% {left: -3px;}
+                    60% {left: -4px;}
+                    100% {left: -5px;}
+                }
+            }
+        }
     }
 
 }
