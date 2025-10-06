@@ -6,13 +6,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+
 
 .dnone {
     display: none;
 }
 
-.main {
+.hero {
     position: absolute;
     top: -5px;
     left: 50%;
@@ -26,9 +26,10 @@
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-color: transparent;
+    background-color: white;
     overflow: hidden;
     box-sizing: border-box;
+    z-index: 1;
 
     >.ball1 {
         position: absolute;
@@ -148,21 +149,82 @@
             display: flex;
             justify-content: center;
             align-items: end;
-            transition: all 1s ease-in-out ;
+            transition: all 1s ease-in-out;
             //animation-direction: alternate;
 
             :hover {
                 position: relative;
                 animation: goLeft 0.1s ease-in normal forwards;
+
                 @keyframes goLeft {
-                    0% {left: -1px;}
-                    20% {left: -2px;}
-                    40% {left: -3px;}
-                    60% {left: -4px;}
-                    100% {left: -5px;}
+                    0% {
+                        left: -1px;
+                    }
+
+                    20% {
+                        left: -2px;
+                    }
+
+                    40% {
+                        left: -3px;
+                    }
+
+                    60% {
+                        left: -4px;
+                    }
+
+                    100% {
+                        left: -5px;
+                    }
                 }
             }
         }
     }
 
+}
+
+.balls {    
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1440px;
+    height: 1697px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 0;
+
+.ball2 {
+    position: absolute;
+    width: 206px;
+    height: 206px;
+    top: 921px;
+    left: 628px;
+    transform: translate(0%, 0%);
+    border-radius: 50%;
+    z-index: 0;
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+}
+.ball3 {
+    position: absolute;
+    width: 82px;
+    height: 82px;
+    top: 1056px;
+    left: 1034px;
+    transform: translate(0%, 0%);
+    border-radius: 50%;
+    z-index: 0;
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+}
+}
 }

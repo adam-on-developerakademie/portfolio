@@ -1,24 +1,25 @@
-<div class="main">
-    <div class="ball1"></div>
-    <div class="hello">{{ myData.DATA.hero.hello.values[myData.DATA.language] }}</div>
-    <div class="profession">
-        <div class="professionPart1">{{ myData.DATA.hero.profession.values[0][myData.DATA.language] }}</div>
-        <div class="professionPart2">{{ myData.DATA.hero.profession.values[1][myData.DATA.language] }}</div>
-    </div>
-    <div class="scrollText">{{ myData.DATA.hero.scroll.values[myData.DATA.language] }}</div>
-    <div class="scrollLine"></div>
-    <img src="img/me.png" alt="my photo" class="me" />
-    <div class="mainSocialButtons">
-        <div class="mainSocialButton" *ngFor="let button of myData.DATA.hero.socialButtons.values">
-            <a [href]="button.link" target="_blank">
-                <img [src]="'ico/' + button.icon" [alt]="button.name" />
-            </a>
+<app-header></app-header>
+<main>
+    <div class="hero">
+        <div class="ball1"></div>
+        <div class="hello">{{ myData.DATA.hero.hello.values[myData.DATA.language] }}</div>
+        <div class="profession">
+            <div class="professionPart1">{{ myData.DATA.hero.profession.values[0][myData.DATA.language] }}</div>
+            <div class="professionPart2">{{ myData.DATA.hero.profession.values[1][myData.DATA.language] }}</div>
+        </div>
+        <div class="scrollText">{{ myData.DATA.hero.scroll.values[myData.DATA.language] }}</div>
+        <div class="scrollLine"></div>
+        <img src="img/me.png" alt="my photo" class="me" />
+        <div class="mainSocialButtons">
+            <div class="mainSocialButton" *ngFor="let button of myData.DATA.hero.socialButtons.values">
+                <a [href]="button.link" target="_blank">
+                    <img [src]="'ico/' + button.icon" [alt]="button.name" />
+                </a>
+            </div>
         </div>
     </div>
-    <app-header></app-header>
-    <app-hero></app-hero>
-    <app-about-me></app-about-me>
-    <!--     <app-about-me></app-about-me>
-    <app-skill-set></app-skill-set>
-    <app-my-work></app-my-work> -->
-</div>
+    <div class="balls">
+        <div class="ball2"></div>
+        <div class="ball3"></div>
+    </div>
+</main>
