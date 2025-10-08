@@ -29,12 +29,12 @@ export class DATA {
           { name: 'LinkedIn', icon: 'linkedin.png', link: 'https://www.linkedin.com/in//' },
         ]
       }
-    }, 
+    },
     letsWorkTogether: {
-      text: { x: [32, 32], y: [1432, 1200], width: [1376, 736], height: [153, 153], font: [64, 64], values: [['Let\'s work together!', 'Lass uns zusammenarbeiten!'], ['I am', 'Ich bin'], ['Write some information about yourself that is IT related. Why are you passionate about programming? What is your source of inspiration for improving your coding skills? Show a desire to learn new technologies. </br> Describe your approach to problem solving. Do you learn from each challenge to find the most efficient or elegant solution? You can include some key attributes such as: analytical thinking, creativity, persistence and collaboration.', 'Schreiben Sie einige Informationen über sich selbst, die mit IT zu tun haben. Warum programmieren Sie leidenschaftlich gern? Was inspiriert Sie, Ihre Programmierkenntnisse zu verbessern? Zeigen Sie den Wunsch, neue Technologien zu erlernen. </br> Beschreiben Sie Ihren Ansatz zur Problemlösung. Lernen Sie aus jeder Herausforderung, um die effizienteste oder eleganteste Lösung zu finden? Sie können einige Schlüsselattribute wie analytisches Denken, Kreativität, Ausdauer und Teamgeist erwähnen.']] },
-      icons: { icon:['located.png','remote.png','relocate.png'], values: [['located in Bad Sassendorf', 'zuhause in Bad Sassendorf'], ['open to work remote','offen für Remote-Arbeit'], ['open to relocate', 'offen für einen Umzug']] },
-      button: { email: [ 'adam.piskorek@gmx.com', 'adam.piskorek@gmx.com' ], values: ['Send message', 'Kontaktiere mich'] },
-      
+      text: { x: [32, 32], y: [1432, 1200], width: [1376, 736], height: [153, 153], font: [64, 64], values: [['Let\'s work together', 'Lass uns beginnen'], ['I am', 'Ich bin'], ['As a passionate fullstack developer, I combine in-depth knowledge of both frontend and backend technologies with a strong enthusiasm for innovative solutions. I draw my inspiration from the opportunity to create real value with my code.', 'Als leidenschaftlicher Fullstack-Entwickler vereine ich fundierte Kenntnisse in Frontend- und Backend-Technologien mit einer ausgeprägten Begeisterung für innovative Lösungen. Meine Inspiration ziehe ich aus der Möglichkeit, mit meinem Code echten Mehrwert zu schaffen.'], ['The connecting creative user interfaces with efficient, scalable logic in the background. My constant drive to learn new things motivates me to regularly explore modern frameworks, programming languages, and best practices, and to integrate them into my work. For me, lifelong learning is a part of my personal motivation.','Die Verbindung von kreativer Benutzeroberfläche mit effizienter, skalierbarer Logik im Hintergrund zu verbinden. Mein stetiger Drang, Neues zu lernen, treibt mich an, regelmäßig moderne Frameworks, Programmiersprachen und Best Practices zu erforschen und in meine Arbeit zu integrieren. Für mich ist lebenslanges Lernen Teil meiner persönlichen Motivation.']]},
+      icons: { icon: ['located.png', 'remote.png', 'relocate.png'], values: [['located in Bad Sassendorf', 'zuhause in Bad Sassendorf'], ['open to work remote', 'offen für Fernarbeit'], ['open to relocate', 'offen für Umzug']] },
+      button: { email: ['adam.piskorek@gmx.com', 'adam.piskorek@gmx.com'], values: ['Send message', 'Kontaktiere mich'] },
+
     }
   };
 }
