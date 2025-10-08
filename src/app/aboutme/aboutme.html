@@ -1,0 +1,36 @@
+<div class="letsWorkTogether">
+    <div>
+        <div class="letsWorkTogetherLeftSide">
+            <div class="letsWorkTogetherLeftSideTop">
+                <p class="letsWorkTogetherText0">{{
+                    myData.DATA.letsWorkTogether.text.values[0][myData.DATA.language]}}</p>
+            </div>
+            <div class="letsWorkTogetherLeftSideBottom">
+                <p class="letsWorkTogetherText1">{{
+                    myData.DATA.letsWorkTogether.text.values[1][myData.DATA.language]}}</p>
+                <div class="letsWorkTogetherIcons">
+                    <div class="letsWorkTogetherIcon"
+                        *ngFor="let icon of myData.DATA.letsWorkTogether.icons.values; let i = index">
+                        <div class="letsWorkTogetherIconContainer{{i}}">
+                            <img class='dYes' [src]="'ico/' + myData.DATA.letsWorkTogether.icons.icon[i][0]" />
+                            <img class='dNone' [src]="'ico/' + myData.DATA.letsWorkTogether.icons.icon[i][1]" />
+                        </div>
+                        <p class="letsWorkTogetherIconText">{{ icon[myData.DATA.language] }}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="letsWorkTogetherRightSide">
+            <p class="letsWorkTogetherText2">
+                {{myData.DATA.letsWorkTogether.text.values[2][myData.DATA.language]}}<br /><br />{{myData.DATA.letsWorkTogether.text.values[3][myData.DATA.language]}}
+            </p>
+            <a class="letsWorkTogetherButton"
+                href="mailto:{{ myData.DATA.letsWorkTogether.button.values[myData.DATA.language] }}">
+                {{ myData.DATA.letsWorkTogether.button.values[myData.DATA.language] }}
+            </a>
+        </div>
+    </div>
+</div>

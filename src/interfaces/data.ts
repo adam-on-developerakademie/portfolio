@@ -18,7 +18,7 @@ export interface data {
         };
         letsWorkTogether: {
                 text: { x: number[], y: number[], width: number[], height: number[], font: number[], values: string[][] };
-                icons: { icon: string[], values: string[][] };
+                icons: { icon: string[][], values: string[][] };
                 button: { email: string[], values: string[] };
                 
         };
