@@ -149,39 +149,21 @@
                 display: flex;
                 justify-content: center;
                 align-items: end;
-                transition: all 1s ease-in-out;
-                //animation-direction: alternate;
 
-                :hover {
+                transition-property: transform;
+                transition-duration: 0.2s;
+                transition-timing-function: ease;
+                transition-delay: 0.1s;
+
+                &:hover {
                     position: relative;
-                    animation: goLeft 0.1s ease-in normal forwards;
-
-                    @keyframes goLeft {
-                        0% {
-                            left: -1px;
-                        }
-
-                        20% {
-                            left: -2px;
-                        }
-
-                        40% {
-                            left: -3px;
-                        }
-
-                        60% {
-                            left: -4px;
-                        }
-
-                        100% {
-                            left: -5px;
-                        }
-                    }
+                    transform: translateX(-10px);
                 }
             }
         }
-
     }
+
+
 
     .balls {
         //border: 1px solid black;

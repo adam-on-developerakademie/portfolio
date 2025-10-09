@@ -140,6 +140,7 @@
 
                         &:hover {
                             cursor: pointer;
+
                             >.letsWorkTogetherIconContainer0 {
                                 //border: 1px solid orange;
                                 position: relative;
@@ -197,29 +198,62 @@
             }
 
             >.letsWorkTogetherButton {
-                //border: 1px solid blue;
-                width: 232px;
-                height: 56px;
-                background: #5988FF;
-                border-radius: 28px;
+                border: 2px solid #5988FF;
+                border-radius: 10px;
+                height: 48px;
                 font-family: 'Montserrat', sans-serif;
                 font-style: normal;
                 font-weight: 500;
                 font-size: 18px;
                 line-height: 120%;
                 text-align: center;
-                color: #FFFFFF;
+                white-space: nowrap;
+                color: #5988FF;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 text-decoration: none;
+                padding-top: 15px;
+                padding-right: 30px;
+                padding-bottom: 15px;
+                padding-left: 30px;
+                gap: 10px;
 
-                :hover {
-                    background: #0043F0;
+                transition-property: transform;
+                transition-timing-function: ease-in-out;
+                transition-duration: 0.3s;
+                transform-origin: top left;
+
+                &:hover {
                     cursor: pointer;
-                    transform: scale(1.05);
-                    transition: all 0.3s ease-in-out;
+                    position: relative;
+
+                    transform: scale(1.2);
+                    animation-name: colorize;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: forwards;
+                    animation-duration: 0.15s;
+                    animation-iteration-count: 1;
+
+                    box-shadow: 5px 5px 15px 0px #00000026;
+
+                    @keyframes colorize {
+                        0% {
+                            background: linear-gradient(104.85deg, #5988FF -90.22%, #5988FF -49.45%, #0043F0 27.88%, #FFFFFF 33.64%, #FFFFFF 39.44%, #FFFFFF 90.08%);
+                        }
+
+                        50% {
+                            background: linear-gradient(104.4deg, #5988FF 9.21%, #5988FF 27.52%, #0043F0 62.24%, #FFFFFF 64.83%, #FFFFFF 67.43%, #FFFFFF 90.18%);
+                        }
+
+                        100% {
+                            background: radial-gradient(74.22% 74.22% at 19.79% 22.42%, #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+                            color: white;
+                            border: none;
+                        }
+                    }
                 }
+
             }
         }
     }
