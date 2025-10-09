@@ -1,5 +1,5 @@
 .SkillSet {
-    border: 1px solid black;
+    //border: 1px solid black;
     position: absolute;
     box-sizing: border-box;
     top: 1697px;
@@ -19,7 +19,7 @@
     z-index: 1;
 
     >.title {
-        border: 1px solid yellow;
+       //border: 1px solid yellow;
         position: absolute;
         box-sizing: border-box;
         font-family: 'Baloo2', sans-serif;
@@ -35,7 +35,7 @@
     }
 
     >.skills {
-        border: 1px solid yellow;
+        //border: 1px solid yellow;
         position: absolute;
         box-sizing: border-box;
         max-width: 1036px;
@@ -47,42 +47,88 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px 103px;
-
-        .skill {
-            border: 1px solid rgb(230, 0, 255);
-            box-sizing: border-box;
-            width: 86px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: end;
-            gap: 10px;
-
-            >img {
-                width: 70px;
-                height: 75px;
-            }
-
-            >p {
-                font-family: 'montserrat', sans-serif;
-                font-weight: 400;
-                font-style: normal;
-                font-size: 16px;
-                line-height: 120%;
-                text-align: center;
-                margin: 0;
-            }
-
-            &:hover {
-                cursor: pointer;
-                >p{
-                    font-style: bold;
-                    font-weight: 700;
-                }
-                gap: 21px 0px;
-            }
-        }
     }
 
+}
+
+.skill {
+    //border: 1px solid rgb(230, 0, 255);
+    box-sizing: border-box;
+    width: 86px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+
+    >img {
+        width: 70px;
+        height: 75px;
+    }
+
+    >p {
+        font-family: 'montserrat', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 120%;
+        text-align: center;
+        margin: 0;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        >p {
+            font-style: bold;
+            font-weight: 700;
+        }
+
+        gap: 21px 0px;
+    }
+}
+
+.growMindset {
+    //border: 1px solid rgb(230, 0, 255);
+    box-sizing: border-box;
+    width: 86px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+
+    >img {
+        width: 76px;
+        height: 75px;
+    }
+
+    >p {
+        font-family: 'montserrat', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 120%;
+        text-align: center;
+        margin: 0;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        >p {
+            font-style: bold;
+            font-weight: 700;
+        }
+
+        img {
+            width: 330px;
+            height: 250px;
+            padding-left: 127px;
+            padding-bottom: 10px;
+            content: url('/ico/growMindsetHover.png');
+        }
+    }
 }
