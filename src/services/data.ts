@@ -31,10 +31,31 @@ export class DATA {
       }
     },
     letsWorkTogether: {
-      text: { x: [32, 32], y: [1432, 1200], width: [1376, 736], height: [153, 153], font: [64, 64], values: [['Let\'s work together', 'Lass uns beginnen'], ['I am', 'Ich bin'], ['As a passionate fullstack developer, I combine in-depth knowledge of both frontend and backend technologies with a strong enthusiasm for innovative solutions. I draw my inspiration from the opportunity to create real value with my code.', 'Als leidenschaftlicher Fullstack-Entwickler vereine ich fundierte Kenntnisse in Frontend- und Backend-Technologien mit Begeisterung für innovative Lösungen. Meine Inspiration ziehe ich aus der Möglichkeit, mit meinem Code echten Mehrwert zu schaffen.'], ['The connecting creative user interfaces with efficient, scalable logic in the background. My constant drive to learn new things motivates me to regularly explore modern frameworks, programming languages, and best practices, and to integrate them into my work. For me, lifelong learning is a part of my personal motivation.','Mich reitzt dei Verbindung von kreativer Benutzeroberfläche mit effizienter, skalierbarer Logik im Hintergrund. Mein stetiger Drang, Neues zu lernen, treibt mich an, regelmäßig moderne Frameworks, Programmiersprachen und Best Practices zu erforschen und in meine Arbeit zu integrieren. Für mich ist lebenslanges Lernen Teil meiner persönlichen Motivation.']]},
-      icons: { icon: [['located.png','locatedPlus.png'],['remote.png','remotePlus.png'],['relocate.png','relocatePlus.png']], values: [['located in Bad Sassendorf', 'zuhause in Bad Sassendorf'], ['open to work remote', 'offen für Fernarbeit'], ['open to relocate', 'offen für Umzug']] },
+      text: { x: [32, 32], y: [1432, 1200], width: [1376, 736], height: [153, 153], font: [64, 64], values: [['Let\'s work together', 'Lass uns beginnen'], ['I am', 'Ich bin'], ['As a passionate fullstack developer, I combine in-depth knowledge of both frontend and backend technologies with a strong enthusiasm for innovative solutions. I draw my inspiration from the opportunity to create real value with my code.', 'Als leidenschaftlicher Fullstack-Entwickler vereine ich fundierte Kenntnisse in Frontend- und Backend-Technologien mit Begeisterung für innovative Lösungen. Meine Inspiration ziehe ich aus der Möglichkeit, mit meinem Code echten Mehrwert zu schaffen.'], ['The connecting creative user interfaces with efficient, scalable logic in the background. My constant drive to learn new things motivates me to regularly explore modern frameworks, programming languages, and best practices, and to integrate them into my work. For me, lifelong learning is a part of my personal motivation.', 'Mich reitzt dei Verbindung von kreativer Benutzeroberfläche mit effizienter, skalierbarer Logik im Hintergrund. Mein stetiger Drang, Neues zu lernen, treibt mich an, regelmäßig moderne Frameworks, Programmiersprachen und Best Practices zu erforschen und in meine Arbeit zu integrieren. Für mich ist lebenslanges Lernen Teil meiner persönlichen Motivation.']] },
+      icons: { icon: [['located.png', 'locatedPlus.png'], ['remote.png', 'remotePlus.png'], ['relocate.png', 'relocatePlus.png']], values: [['located in Bad Sassendorf', 'zuhause in Bad Sassendorf'], ['open to work remote', 'offen für Fernarbeit'], ['open to relocate', 'offen für Umzug']] },
       button: { email: ['adam.piskorek@gmx.com', 'adam.piskorek@gmx.com'], values: ['Send a message', 'Kontaktiere mich'] },
+    },
+    skillSet: {
+      title: { values: ['Skill set', 'Fähigkeiten'] },
+      skills: {
+        values: [
+          { name: 'Angular', icon: 'Angular.png', level: 75 },
+          { name: 'TypeScript', icon: 'TypeScript.png', level: 80 },
+          { name: 'JavaScript', icon: 'JavaScript.png', level: 85 },
+          { name: 'HTML', icon: 'HTML.png', level: 90 },
+          { name: 'MSSQL', icon: 'MSSQL.png', level: 90 },
+          { name: 'Firebase', icon: 'Firebase.png', level: 70 },
+          { name: 'Scrum', icon: 'Scrum.png', level: 70 },
+          { name: 'Git', icon: 'Git.png', level: 70 },
+          { name: 'CSS', icon: 'CSS.png', level: 80 },
+          { name: 'REST-API', icon: 'REST-API.png', level: 70 },
+          { name: 'Material Design', icon: 'MaterialDesign.png', level: 60 },
+          { name: 'Growth Mindset', icon: 'GrowthMindset.png', level: 50 },
 
+
+
+        ]
+      }
     }
   };
 }

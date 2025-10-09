@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { DATA } from '../../services/data';
 import { Header } from "../header/header";
 import { Aboutme } from '../aboutme/aboutme';
-//import { SkillSet } from '../skill-set/skill-set';
+import { SkillSet } from '../skillset/skillset';
 //import { MyWork } from '../my-work/my-work';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [CommonModule, Header, Aboutme //, SkillSet, MyWork
+  imports: [CommonModule, Header, Aboutme, SkillSet //, MyWork
 
   ],
   templateUrl: './portfolio.html',

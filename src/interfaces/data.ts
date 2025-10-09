@@ -22,4 +22,8 @@ export interface data {
                 button: { email: string[], values: string[] };
                 
         };
+        skillSet: {
+                title: { values: string[] };
+                skills: { values: { name: string, icon: string, level: number }[] };
+        };
 }
