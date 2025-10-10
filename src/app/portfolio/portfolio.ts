@@ -1,18 +1,16 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DATA } from '../../services/data';
+import { Component } from '@angular/core';
 import { Header } from "../header/header";
+import { Main } from '../main/main';
 import { Aboutme } from '../aboutme/aboutme';
 import { SkillSet } from '../skillset/skillset';
 import { MyWork } from '../mywork/mywork';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [CommonModule, Header, Aboutme, SkillSet, MyWork],
+  imports: [ Header, Main, Aboutme, SkillSet, MyWork],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss'
 })
 export class Portfolio {
-  myData = inject(DATA);
 
 }

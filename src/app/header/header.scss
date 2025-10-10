@@ -1,3 +1,5 @@
+$header-height: 117px;
+
 .button {
     //border: 1px solid red;
     display: flex;
@@ -18,12 +20,13 @@
 
 header {
     //border: 1px solid green;
+    position: absolute;
+    box-sizing: border-box;
     margin: 0;
     max-width: 1440px;
     width: 100%;
-    height: 117px;
+    height: $header-height;
     z-index: 2;
-    box-sizing: border-box;
     background-color: transparent;
     padding-top: 24px;
     padding-bottom: 24px;
