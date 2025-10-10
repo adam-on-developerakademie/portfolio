@@ -11,11 +11,11 @@ export class DATA {
     mobile: 0,
     screenWidth: ['1440px', '800px'],
     languages: { set: true, values: ['EN', 'DE'] },
-    header: {
-      aboutMe: { set: false, values: ['About me', 'Über mich'] },
-      skillSet: { set: false, values: ['Skill set', 'Fähigkeiten'] },
-      myWork: { set: false, values: ['My work', 'Projekt'] },
-    },
+    header: [
+      { name: 'aboutMe', set: false, values: ['About me', 'Über mich'] },
+      { name: 'skillSet', set: false, values: ['Skill set', 'Fähigkeiten'] },
+      { name: 'myWork', set: false, values: ['My work', 'Projekt'] }
+    ],
     hero: {
       photo: { x: [32, 0], y: [106, 154], width: [761, 645] },
       hello: { x: [731, 197], y: [227, 0], width: [645, 367.72], height: [61, 61], font: [64, 64], values: ['Hello! I am Adam', 'Hallo! Ich bin Adam'] },

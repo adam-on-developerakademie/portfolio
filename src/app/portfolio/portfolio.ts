@@ -4,13 +4,11 @@ import { DATA } from '../../services/data';
 import { Header } from "../header/header";
 import { Aboutme } from '../aboutme/aboutme';
 import { SkillSet } from '../skillset/skillset';
-//import { MyWork } from '../my-work/my-work';
+import { MyWork } from '../mywork/mywork';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [CommonModule, Header, Aboutme, SkillSet //, MyWork
-
-  ],
+  imports: [CommonModule, Header, Aboutme, SkillSet, MyWork],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss'
 })

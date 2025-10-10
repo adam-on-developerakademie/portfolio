@@ -1,32 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { DATA } from '../../services/data';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
 export class Header {
 
-      constructor(public myData: DATA) { };
+  constructor(public myData: DATA) { };
 
-    changeLanguage(index: number) {
-        this.myData.DATA.language = index;
-        document.documentElement.style.setProperty('--language', this.myData.DATA.language==0? '-0.03em': '-0.082em');
-        console.log(this.myData.DATA.language);
-    }
-
-    goToSection(section: string) {
-       let thisSection = eval(`this.myData.DATA.header.${section}`);
-         thisSection.set = true;
-        let otherSections = ['aboutMe', 'skillSet', 'myWork'].filter(s => s !== section);
-        otherSections.forEach(s => {
-            let sec = eval(`this.myData.DATA.header.${s}`);
-            sec.set = false;
-        });
-
-
-}
+  goToSection(section: string) {
+      this.myData.DATA.header.filter(s => s.name === section)[0].set = true;
+      this.myData.DATA.header.filter(s => s.name !== section).forEach(s => s.set = false);
+  }
 
 }

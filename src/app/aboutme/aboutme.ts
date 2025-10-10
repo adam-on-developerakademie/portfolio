@@ -10,4 +10,7 @@ import { DATA } from '../../services/data';
 })
 export class Aboutme {
   myData = inject(DATA);
+
+  static  letsWorkTogetherButton = document.getElementById('letsWorkTogetherButton') as HTMLButtonElement;
+
 }

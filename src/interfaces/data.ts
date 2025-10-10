@@ -3,11 +3,11 @@ export interface data {
         mobile: number;
         screenWidth: string[];
         languages: { set: boolean, values: string[] };
-        header: {
-                aboutMe: { set: boolean, values: string[] };
-                skillSet: { set: boolean, values: string[] };
-                myWork: { set: boolean, values: string[] };
-        };
+        header: [
+                {name: string, set: boolean, values: string[] },
+                {name: string, set: boolean, values: string[] },
+                {name: string, set: boolean, values: string[] }
+        ];
         hero: {
                 photo: { x: number[], y: number[], width: number[] };
                 hello: { x: number[], y: number[], width: number[], height: number[], font: number[], values: string[] };

@@ -64,11 +64,13 @@ header {
             padding-left: auto;
             gap: 36px;
 
-            >.button {
-                width: 140px;
+            >.link {
+                >.button {
+                    width: 140px;
 
-                >.underline {
-                    width: 60px;
+                    >.underline {
+                        width: 60px;
+                    }
                 }
             }
         }
@@ -98,8 +100,10 @@ header {
     header {
         >nav {
             gap: 32px;
+
             >.links {
                 gap: 24px;
+
                 >.button {
                     width: auto;
                 }
