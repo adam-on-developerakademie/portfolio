@@ -1,13 +1,19 @@
+$screenWidth: 1440px;
+$skillSetTop: 1697px;
+$skillSetHeight: 632px;
+
+
 .SkillSet {
     //border: 1px solid black;
     position: absolute;
     box-sizing: border-box;
-    top: 1697px;
+    top: $skillSetTop;
     left: 50%;
     transform: translate(-50%, 0%);
     max-width: 1440px;
     width: 100%;
-    min-height: 632px;
+    height: $skillSetHeight;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;

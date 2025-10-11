@@ -1,259 +1,264 @@
-    .dNone {
-        display: none;
+$screenWidth: 1440px;
+$heroHeight: calc(1029px - 5px);
+$aboutMeHeight: 407px;
+$aboutMeTop: 1163px;
+
+.dNone {
+    display: none;
+}
+
+.letsWorkTogether {
+    //border: 1px solid red;
+    position: absolute;
+    top: $aboutMeTop;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    height: $aboutMeHeight;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-sizing: border-box;
+    z-index: 1;
+
+    >div {
+        //border: 1px solid green;
+        width: 606px;
+        height: 100%;
     }
 
-    .letsWorkTogether {
-        //border: 1px solid red;
-        position: absolute;
-        top: 1163px;
-        left: 50%;
-        transform: translate(-50%, 0%);
-
+    .letsWorkTogetherLeftSide {
+        //border: 1px solid purple;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
         gap: 40px;
         width: 100%;
-        height: 407px;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: white;
-        box-sizing: border-box;
-        z-index: 1;
+        height: 100%;
 
-        >div {
-            //border: 1px solid green;
-            width: 606px;
-            height: 407px;
+        >.letsWorkTogetherLeftSideTop {
+            //border: 1px solid red;
+            width: 100%;
+            height: auto;
+
+            >.letsWorkTogetherText0 {
+                //border: 1px solid pink;
+                font-family: 'Baloo2', sans-serif;
+                font-style: normal;
+                font-weight: 750;
+                font-size: 121px;
+                line-height: 95%;
+                letter-spacing: 0.01em;
+                color: #5988FF;
+                align-items: start;
+            }
         }
 
-        .letsWorkTogetherLeftSide {
-            //border: 1px solid purple;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+        >.letsWorkTogetherLeftSideBottom {
+            //border: 1px solid red;
             width: 100%;
             height: 100%;
-
-            >.letsWorkTogetherLeftSideTop {
-                //border: 1px solid red;
-                width: 100%;
-                height: auto;
-
-                >.letsWorkTogetherText0 {
-                    //border: 1px solid pink;
-                    font-family: 'Baloo2', sans-serif;
-                    font-style: normal;
-                    font-weight: 750;
-                    font-size: 121px;
-                    line-height: 95%;
-                    letter-spacing: 0.01em;
-                    color: #5988FF;
-                    align-items: start;
-                }
-            }
-
-            >.letsWorkTogetherLeftSideBottom {
-                //border: 1px solid red;
-                width: 100%;
-                height: 100%;
-                gap: 32px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-
-                >.letsWorkTogetherText1 {
-                    //border: 1px solid pink;
-                    font-family: 'Baloo2', sans-serif;
-                    font-style: normal;
-                    font-weight: 750;
-                    font-size: 45px;
-                    line-height: 95%;
-                    letter-spacing: 0.01em;
-                    color: #5988FF;
-                    align-items: center;
-                }
-
-                >.letsWorkTogetherIcons {
-                    //border: 1px solid blue;
-                    width: 100%;
-                    height: 51px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    gap: 36px;
-
-
-                    >.letsWorkTogetherIcon {
-                        //border: 1px solid red;
-                        width: auto;
-                        height: inherit;
-                        display: flex;
-                        align-items: center;
-                        flex-direction: row;
-
-                        >.letsWorkTogetherIconContainer0 {
-                            //border: 1px solid orange;
-                            height: inherit;
-                            width: 45px;
-                            display: flex;
-                            align-items: center;
-
-
-                        }
-
-                        >.letsWorkTogetherIconContainer1 {
-                            //border: 1px solid orange;
-                            position: relative;
-                            top: -6px;
-                            height: inherit;
-                            width: 96px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: end;
-                        }
-
-                        >.letsWorkTogetherIconContainer2 {
-                            //border: 1px solid orange;
-                            height: inherit;
-                            width: 60px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: start;
-                        }
-
-
-
-                        p {
-                            //border: 1px solid green;
-                            margin-left: 5px;
-                            font-family: 'Montserrat', sans-serif;
-                            font-style: normal;
-                            font-weight: 500;
-                            font-size: 18px;
-                            line-height: 120%;
-                            color: #5988FF;
-
-                        }
-
-                        &:hover {
-                            cursor: pointer;
-
-                            >.letsWorkTogetherIconContainer0 {
-                                //border: 1px solid orange;
-                                position: relative;
-                                top: +4px;
-                            }
-
-                            >.letsWorkTogetherIconContainer1 {
-                                left: -0.4px;
-                            }
-
-                            >.letsWorkTogetherIconContainer2 {
-                                position: relative;
-                                top: +5px;
-                            }
-
-                            img+.dNone {
-                                position: relative;
-                                top: -4px;
-                                display: flex;
-                                align-items: end;
-                                display: block;
-
-                            }
-
-                            .dYes {
-                                display: none;
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-
-        .letsWorkTogetherRightSide {
-            //border: 1px solid purple;
+            gap: 32px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: start;
-            gap: 32px;
+            align-items: center;
 
-            width: 100%;
-            height: 100%;
-
-            >.letsWorkTogetherText2 {
-                //border: 1px solid red;
-                font-family: 'Montserrat', sans-serif;
+            >.letsWorkTogetherText1 {
+                //border: 1px solid pink;
+                font-family: 'Baloo2', sans-serif;
                 font-style: normal;
-                font-weight: 400;
-                font-size: 22px;
-                line-height: 100%;
-                letter-spacing: -0.02em;
-                color: #000000;
+                font-weight: 750;
+                font-size: 45px;
+                line-height: 95%;
+                letter-spacing: 0.01em;
+                color: #5988FF;
+                align-items: center;
             }
 
-            >.letsWorkTogetherButton {
-                border: 2px solid #5988FF;
-                border-radius: 10px;
-                height: 48px;
-                font-family: 'Montserrat', sans-serif;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 18px;
-                line-height: 120%;
-                text-align: center;
-                white-space: nowrap;
-                color: #5988FF;
+            >.letsWorkTogetherIcons {
+                //border: 1px solid blue;
+                width: 100%;
+                height: 51px;
                 display: flex;
+                flex-direction: row;
                 justify-content: center;
-                align-items: center;
-                text-decoration: none;
-                padding-top: 15px;
-                padding-right: 30px;
-                padding-bottom: 15px;
-                padding-left: 30px;
-                gap: 10px;
+                gap: 36px;
 
-                transition-property: transform;
-                transition-timing-function: ease-in-out;
-                transition-duration: 0.3s;
-                transform-origin: top left;
 
-                &:hover {
-                    cursor: pointer;
-                    position: relative;
+                >.letsWorkTogetherIcon {
+                    //border: 1px solid red;
+                    width: auto;
+                    height: inherit;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
 
-                    transform: scale(1.2);
-                    animation-name: colorize;
-                    animation-timing-function: ease-out;
-                    animation-fill-mode: forwards;
-                    animation-duration: 0.15s;
-                    animation-iteration-count: 1;
+                    >.letsWorkTogetherIconContainer0 {
+                        //border: 1px solid orange;
+                        height: inherit;
+                        width: 45px;
+                        display: flex;
+                        align-items: center;
 
-                    box-shadow: 5px 5px 15px 0px #00000026;
 
-                    @keyframes colorize {
-                        0% {
-                            background: linear-gradient(104.85deg, #5988FF -90.22%, #5988FF -49.45%, #0043F0 27.88%, #FFFFFF 33.64%, #FFFFFF 39.44%, #FFFFFF 90.08%);
+                    }
+
+                    >.letsWorkTogetherIconContainer1 {
+                        //border: 1px solid orange;
+                        position: relative;
+                        top: -6px;
+                        height: inherit;
+                        width: 96px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: end;
+                    }
+
+                    >.letsWorkTogetherIconContainer2 {
+                        //border: 1px solid orange;
+                        height: inherit;
+                        width: 60px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                    }
+
+
+
+                    p {
+                        //border: 1px solid green;
+                        margin-left: 5px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 18px;
+                        line-height: 120%;
+                        color: #5988FF;
+
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+
+                        >.letsWorkTogetherIconContainer0 {
+                            //border: 1px solid orange;
+                            position: relative;
+                            top: +4px;
                         }
 
-                        50% {
-                            background: linear-gradient(104.4deg, #5988FF 9.21%, #5988FF 27.52%, #0043F0 62.24%, #FFFFFF 64.83%, #FFFFFF 67.43%, #FFFFFF 90.18%);
+                        >.letsWorkTogetherIconContainer1 {
+                            left: -0.4px;
                         }
 
-                        100% {
-                            background: radial-gradient(74.22% 74.22% at 19.79% 22.42%, #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
-                            color: white;
-                            border: none;
+                        >.letsWorkTogetherIconContainer2 {
+                            position: relative;
+                            top: +5px;
                         }
+
+                        img+.dNone {
+                            position: relative;
+                            top: -4px;
+                            display: flex;
+                            align-items: end;
+                            display: block;
+
+                        }
+
+                        .dYes {
+                            display: none;
+                        }
+
                     }
                 }
-
             }
         }
     }
+
+    .letsWorkTogetherRightSide {
+        //border: 1px solid purple;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        gap: 32px;
+
+        width: 100%;
+        height: 100%;
+
+        >.letsWorkTogetherText2 {
+            //border: 1px solid red;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 100%;
+            letter-spacing: -0.02em;
+            color: #000000;
+        }
+
+        >.letsWorkTogetherButton {
+            border: 2px solid #5988FF;
+            border-radius: 10px;
+            height: 48px;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 120%;
+            text-align: center;
+            white-space: nowrap;
+            color: #5988FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            padding-top: 15px;
+            padding-right: 30px;
+            padding-bottom: 15px;
+            padding-left: 30px;
+            gap: 10px;
+
+            transition-property: transform;
+            transition-timing-function: ease-in-out;
+            transition-duration: 0.3s;
+            transform-origin: top left;
+
+            &:hover {
+                cursor: pointer;
+                position: relative;
+
+                transform: scale(1.2);
+                animation-name: colorize;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+                animation-duration: 0.15s;
+                animation-iteration-count: 1;
+
+                box-shadow: 5px 5px 15px 0px #00000026;
+
+                @keyframes colorize {
+                    0% {
+                        background: linear-gradient(104.85deg, #5988FF -90.22%, #5988FF -49.45%, #0043F0 27.88%, #FFFFFF 33.64%, #FFFFFF 39.44%, #FFFFFF 90.08%);
+                    }
+
+                    50% {
+                        background: linear-gradient(104.4deg, #5988FF 9.21%, #5988FF 27.52%, #0043F0 62.24%, #FFFFFF 64.83%, #FFFFFF 67.43%, #FFFFFF 90.18%);
+                    }
+
+                    100% {
+                        background: radial-gradient(74.22% 74.22% at 19.79% 22.42%, #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+                        color: white;
+                        border: none;
+                    }
+                }
+            }
+
+        }
+    }
+}

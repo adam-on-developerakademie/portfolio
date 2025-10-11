@@ -1,27 +1,11 @@
 $header-height: 117px;
 
-.button {
-    //border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    height: 32px;
-    cursor: pointer;
-    color: #5988FF;
-    white-space: nowrap;
-    z-index: 2;
-
-    >.underline {
-        margin-left: 1px;
-        border-bottom: 3px solid #0043F0;
-        border-radius: 0px 40px 40px 0px;
-    }
-}
 
 header {
     //border: 1px solid green;
     position: absolute;
     box-sizing: border-box;
+    top: 0px;
     margin: 0;
     max-width: 1440px;
     width: 100%;
@@ -130,4 +114,22 @@ a {
 
 .bolder {
     font-weight: bolder;
+}
+
+.button {
+    //border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 32px;
+    cursor: pointer;
+    color: #5988FF;
+    white-space: nowrap;
+    z-index: 2;
+
+    >.underline {
+        margin-left: 1px;
+        border-bottom: 3px solid #0043F0;
+        border-radius: 0px 40px 40px 0px;
+    }
 }

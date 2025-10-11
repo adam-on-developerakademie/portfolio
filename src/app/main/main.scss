@@ -1,22 +1,21 @@
-.dNone {
-    display: none;
-}
+$screenWidth: 1440px;
+$heroHeight: 1029px;
+$heroTop: -5px;
+
 
 .hero {
     //border: 1px solid black;
     position: absolute;
     box-sizing: border-box;
-    top: -5px;
+    top: $heroTop;
     left: 50%;
     transform: translate(-50%, 0%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 1028px;
+    height: $heroHeight;
     max-width: 1440px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     background: linear-gradient(179.99deg, #FFFFFF 12.89%, #EAF0FF 91.39%);
     overflow: hidden;
     z-index: 1;
@@ -51,7 +50,6 @@
         align-items: start;
 
     }
-
 
     >.profession {
         //border: 1px solid red;
@@ -181,7 +179,6 @@
         height: 206px;
         top: 921px;
         left: 628px;
-        transform: translate(0%, 0%);
         border-radius: 50%;
         z-index: 0;
         background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
@@ -194,7 +191,6 @@
         height: 82px;
         top: 1056px;
         left: 1034px;
-        transform: translate(0%, 0%);
         border-radius: 50%;
         z-index: 0;
         background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
