@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { DATA } from '../../services/data';
+
 
 @Component({
   selector: 'app-mywork',
@@ -7,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './mywork.scss'
 })
 export class MyWork {
+  myData = inject(DATA);
 
 }

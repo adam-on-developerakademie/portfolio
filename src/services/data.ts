@@ -51,11 +51,12 @@ export class DATA {
           { name: 'REST-API', icon: 'REST-API.png', level: 70 },
           { name: 'Material Design', icon: 'MaterialDesign.png', level: 60 },
           { name: 'Growth Mindset', icon: 'GrowthMindset.png', level: 50 },
-
-
-
         ]
       }
+    },
+    myWork: {
+      title: { values: ['My work', 'Projekte'] },
+      text: { values: ['Explore a selection of my work here - Interact with projects to see my skills in action.', 'Entdecken Sie eine Auswahl meiner Arbeiten hier - Interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.'] },
     }
   };
 }

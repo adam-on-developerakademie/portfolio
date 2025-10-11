@@ -2,8 +2,10 @@ $screenWidth: 1440px;
 $skillSetTop: 1697px;
 $skillSetHeight: 632px;
 $myWorkTop: calc($skillSetHeight + $skillSetTop);
-$myWorkBall4Top: calc(66px); //calc(2395px - #{$myWorkTop}); //bei $screenWidth: 1440px;
-$myWorkBall5Top: calc(186px); //calc(25155px - #{$myWorkTop}); //bei $screenWidth: 1440px;
+$myWorkBall4Top: calc(2395px - $myWorkTop);
+$myWorkBall5Top: calc(2515px - $myWorkTop);
+$myWorkHeaderTitleTop: calc(2469px - $myWorkTop);
+$myWorkHeaderTextTop: calc(2605px - $myWorkTop);
 $myWorkHeaderHeight: calc($myWorkBall5Top + 183px);
 $myWorkMainTop: calc($myWorkHeaderHeight);
 $myWorkMainHeight: calc(1985px);
@@ -47,6 +49,37 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
         margin-right: auto;
         background-color: transparent;
 
+        >.myWorkHeaderTitle {
+            border: 1px solid blue;
+            position: absolute;
+            box-sizing: border-box;
+            width: 378px;
+            height: 96px;
+            top: $myWorkHeaderTitleTop;
+            left: 77px;
+            font-family: 'Baloo2', sans-serif;
+            font-weight: 750;
+            font-size: 96px;
+            line-height: 100%;
+            white-space: nowrap;
+            color: #5988FF;
+        }
+
+        >.myWorkHeaderText {
+            border: 1px solid blue;
+            position: absolute;
+            box-sizing: border-box;
+            width: 673px;
+            height: 56px;
+            top: $myWorkHeaderTextTop;
+            left: 77px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 23px;
+            line-height: 120%;
+        }
+
 
         >.ball4 {
             $heightBall4: 108.75px;
@@ -74,14 +107,15 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
     }
 
     >.myWorkMain {
+        $myWorkMainWidth: 1879px;
+        $myWorkMainLeft: -246px;
         border: 1px solid red;
         position: absolute;
         box-sizing: border-box;
-        width: 1879px;
+        width: $myWorkMainWidth;
         top: $myWorkMainTop;
         height: $myWorkMainHeight;
-        left: 50%;
-        transform: translate(-50%, 0%);
+        left: $myWorkMainLeft;
         background-color: transparent;
 
         >.ball6 {
