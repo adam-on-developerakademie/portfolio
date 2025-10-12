@@ -55,8 +55,38 @@ export class DATA {
       }
     },
     myWork: {
-      title: { values: ['My work', 'Projekte'] },
-      text: { values: ['Explore a selection of my work here - Interact with projects to see my skills in action.', 'Entdecken Sie eine Auswahl meiner Arbeiten hier - Interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.'] },
+      title:  ['My work', 'Projekte'] ,
+      text:  ['Explore a selection of my work here - Interact with projects to see my skills in action.', 'Entdecken Sie eine Auswahl meiner Arbeiten hier - Interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.'] ,
+      projects: [
+        {
+          title:  ['Join', 'Join'],
+          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description:  ['Description of Project 1', 'Beschreibung von Projekt 1'] ,
+          image:  'Work1.png',
+          link: 'https://project1.example.com'
+        },
+        {
+          title:  ['El Pollo Loco', 'El Pollo Loco'],
+          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description:  ['Description of Project 2', 'Beschreibung von Projekt 2'],
+          image:  'Work2.png',
+          link: 'https://project2.example.com'
+        },
+        {
+          title:  ['DA Buble', 'DA Buble'],
+          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description:  ['Description of Project 3', 'Beschreibung von Projekt 3'],
+          image:  'Work3.png',
+          link: 'https://project3.example.com'
+        },
+        {
+          title:  ['Pokédex', 'Pokédex'],
+          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description:  ['Description of Project 4', 'Beschreibung von Projekt 4'],
+          image:  'Work4.png',
+          link: 'https://project4.example.com'
+        }
+      ]
     }
   };
 }

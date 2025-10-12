@@ -27,7 +27,9 @@ export interface data {
                 skills: { values: { name: string, icon: string, level: number }[] };
         };
         myWork: {
-                title: { values: string[] };
-                text: { values: string[] };
+                title: string[] ;
+                text:  string[] ;
+                projects: { title: string[], used: string[], description: string[], image: string, link: string }[];
+
         };
 }
