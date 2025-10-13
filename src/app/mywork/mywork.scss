@@ -14,7 +14,6 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
 
 
 .myWork {
-    border: 1px solid rgb(0, 255, 72);
     position: absolute;
     top: $myWorkTop;
     left: 50%;
@@ -23,7 +22,6 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 40px;
     height: $myWorkHeight;
     max-width: 1440px;
     width: 100%;
@@ -31,12 +29,10 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
     margin-right: auto;
     background-color: transparent;
     box-sizing: border-box;
-    z-index: 1;
     overflow: hidden;
 
 
     >.myWorkHeader {
-        border: 1px solid black;
         position: absolute;
         box-sizing: border-box;
         top: 0px;
@@ -50,7 +46,6 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
         background-color: transparent;
 
         >.myWorkHeaderTitle {
-            //border: 1px solid blue;
             position: absolute;
             box-sizing: border-box;
             width: 378px;
@@ -63,10 +58,10 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             line-height: 100%;
             white-space: nowrap;
             color: #5988FF;
+
         }
 
         >.myWorkHeaderText {
-            //border: 1px solid blue;
             position: absolute;
             box-sizing: border-box;
             width: 673px;
@@ -78,6 +73,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             font-style: normal;
             font-size: 23px;
             line-height: 120%;
+
         }
 
 
@@ -109,7 +105,6 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
     >.myWorkMain {
         $myWorkMainWidth: 1879px;
         $myWorkMainLeft: -246px;
-        //border: 1px solid red;
         position: absolute;
         box-sizing: border-box;
         width: $myWorkMainWidth;
@@ -120,7 +115,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
 
         >.ball6 {
             $widthBall6: 393.32px;
-            position: relative;
+            position: absolute;
             width: $widthBall6;
             height: $widthBall6;
             top: calc(177px);
@@ -129,6 +124,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             border-radius: 50%;
             background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                     #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+            z-index: -2;
         }
 
         >.ball7 {
@@ -138,12 +134,13 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             position: absolute;
             width: $widthBall7;
             height: $widthBall7;
-            top: $topBall7;
+            top: calc($topBall7 + 40px);
             left: $leftBall7;
             rotate: 81.57deg;
             border-radius: 50%;
             background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                     #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+            z-index: -2;
         }
 
         >.ball8 {
@@ -159,6 +156,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             border-radius: 50%;
             background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                     #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+            z-index: -2;
         }
 
         >.ball9 {
@@ -174,6 +172,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             border-radius: 50%;
             background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                     #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+            z-index: -2;
         }
 
         >.ball10 {
@@ -189,11 +188,11 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             border-radius: 50%;
             background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                     #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+            z-index: -2;
         }
 
 
         >.myWorkProjects {
-            border: 1px solid green;
             position: absolute;
             box-sizing: border-box;
             top: 0px;
@@ -204,36 +203,28 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             display: flex;
             flex-direction: column;
             gap: 70px;
-            z-index: 2;
 
         }
 
         .myWorkProject {
-            border: 1px solid orange;
             position: relative;
             box-sizing: border-box;
             background-color: transparent;
             width: 100%;
-            display: flex;
-            gap: 35px;
 
             >.myWorkProjectImage {
-                border: 1px solid purple;
                 position: relative;
                 box-sizing: border-box;
                 width: 720px;
                 height: 460px;
                 top: -67px;
-                left: 273px;
                 gap: 10px;
                 background-color: transparent;
                 display: flex;
                 align-items: end;
                 justify-content: center;
-                box-shadow: 5px 5px 15px 0px #00000026;
 
                 &:hover {
-                    transition: all 3.3s ease-in-out;
                     align-items: start;
 
                     >img {
@@ -241,39 +232,160 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                         width: 670px;
                         height: 425px;
                         gap: 10px;
-
-
+                        z-index: -1;
                     }
-
-
                 }
-
-
             }
 
-
             >.myWorkProjectContent {
-                border: 1px solid pink;
-                position: relative;
+                position: absolute;
                 box-sizing: border-box;
                 width: 536px;
                 height: 339px;
                 top: 52px;
-                left: 273px;
                 background-color: transparent;
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 row-gap: 15px;
                 padding-bottom: 20px;
+
+                >.myWorkProjectContentText {
+                    gap: 15px;
+
+                    .myWorkProjectTitle {
+                        box-sizing: border-box;
+                        height: 43px;
+                        font-family: 'Baloo2', sans-serif;
+                        font-weight: 750;
+                        font-size: 45px;
+                        line-height: 120%;
+                        color: #5988FF;
+                        white-space: nowrap;
+                    }
+
+                    .myWorkProjectUsed {
+                        box-sizing: border-box;
+                        height: 32px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 400;
+                        font-style: normal;
+                        font-size: 23px;
+                        line-height: 120%;
+                        color: #5988FF;
+                    }
+
+                    .myWorkProjectDescription {
+                        box-sizing: border-box;
+                        height: 57px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 400;
+                        font-style: normal;
+                        font-size: 16px;
+                        line-height: 120%;
+                        color: #000000;
+                    }
+                }
+
+                .myWorkProjectContentButton {
+                    position: absolute;
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: end;
+
+                    .myWorkProjectLink {
+                        border: 2px solid #5988FF;
+                        border-radius: 10px;
+                        height: 58px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 23px;
+                        line-height: 120%;
+                        text-align: center;
+                        white-space: nowrap;
+                        color: #5988FF;
+                        text-decoration: none;
+                        padding-top: 15px;
+                        padding-right: 30px;
+                        padding-bottom: 15px;
+                        padding-left: 30px;
+                        gap: 10px;
+
+
+                        transition-property: transform;
+                        transition-timing-function: ease-in-out;
+                        transition-duration: 0.3s;
+                        transform-origin: top left;
+
+                        &:hover {
+                            cursor: pointer;
+                            position: relative;
+
+                            transform: scale(1.2);
+                            animation-name: colorize;
+                            animation-timing-function: ease-out;
+                            animation-fill-mode: forwards;
+                            animation-duration: 0.15s;
+                            animation-iteration-count: 1;
+
+                            box-shadow: 5px 5px 15px 0px #00000026;
+
+                            @keyframes colorize {
+                                0% {
+                                    background: linear-gradient(104.85deg, #5988FF -90.22%, #5988FF -49.45%, #0043F0 27.88%, #FFFFFF 33.64%, #FFFFFF 39.44%, #FFFFFF 90.08%);
+                                }
+
+                                50% {
+                                    background: linear-gradient(104.4deg, #5988FF 9.21%, #5988FF 27.52%, #0043F0 62.24%, #FFFFFF 64.83%, #FFFFFF 67.43%, #FFFFFF 90.18%);
+                                }
+
+                                100% {
+                                    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%, #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+                                    color: white;
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .directionNormal {
+
+            .myWorkProjectImage {
+                left: 273px;
             }
 
+            .myWorkProjectContent {
+                left: 1031px;
+                align-items: start;
+            }
 
+            .myWorkProjectContentButton {
+                justify-content: start;
+            }
 
         }
-    }
-}
 
-.directionReverse {
-    flex-direction: row-reverse;
-    left: calc(-25% - 35px);
+        .directionReverse {
+
+            .myWorkProjectImage {
+                left: 890px;
+            }
+
+            .myWorkProjectContent {
+                left: 323px;
+                text-align: end;
+            }
+
+            .myWorkProjectContentButton {
+                justify-content: end;
+            }
+        }
+
+    }
 }

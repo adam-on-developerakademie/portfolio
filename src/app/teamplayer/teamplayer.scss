@@ -1,0 +1,166 @@
+$teamplayerTop: 4826px;
+$teamplayerHeight: 532px;
+$topBall11: calc(5390px - $teamplayerTop );
+$topBall12: calc(5905px - $teamplayerTop );
+$topBall13: calc(6156px - $teamplayerTop );
+$topBall14: calc(6209px - $teamplayerTop );
+
+.teamPlayer {
+    position: absolute;
+    box-sizing: border-box;
+    max-width: 1440px;
+    width: 100%;
+    height: 532px;
+    top: 4826px;
+    color: white;
+    background: linear-gradient(128.94deg,
+            #5988FF -33.96%, #5988FF 36.71%, #0043F0 112.25%);
+
+    >.title {
+        //border: 1px solid yellow;
+        position: absolute;
+        top: 47px;
+        left: 517px;
+        font-family: 'Baloo2', sans-serif;
+        font-weight: 750;
+        font-size: 45px;
+        line-height: 141%;
+        text-align: center;
+    }
+
+    >.description {
+        //border: 1px solid greenyellow;
+        position: absolute;
+        top: 110px;
+        left: 398px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 32px;
+        line-height: 141%;
+        text-align: center;
+    }
+
+    >.teamPlayerContent {
+        //border: 1px solid red;
+        position: absolute;
+        box-sizing: border-box;
+        width: 1035px;
+        height: 246px;
+        top: 221px;
+        left: 203px;
+        display: flex;
+        gap: 70px;
+
+        >.opinion {
+            //border: 1px solid greenyellow;
+            box-sizing: border-box;
+            width: 301px;
+            height: 246px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+
+            >.opinionHeader {
+                //border: 1px solid yellow;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                width: 100%;
+                gap: 8px;
+
+                >.person {
+                    //border: 1px solid yellow;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 700;
+                    font-style: Bold;
+                    font-size: 24px;
+                    line-height: 120%;
+                }
+
+                >.project {
+                    //border: 1px solid yellow;
+                    font-family: 'Montserrat', sans-serif;
+                    width: 100%;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 140%;
+                }
+            }
+
+            >.opinionText {
+                //border: 1px solid yellow;
+                font-family: 'Montserrat', sans-serif;
+                width: 100%;
+                height: 100%;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 120%;
+            }
+
+        }
+
+    }
+}
+
+.ball11 {
+    $ball11Width: 129.91px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball11Width;
+    height: $ball11Width;
+    top: $topBall11;
+    left: 802px;
+    rotate: 81.57deg;
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
+
+}
+
+.ball12 {
+    $ball12Width: 204px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball12Width;
+    height: $ball12Width;
+    top: $topBall12;
+    left: 242px;
+
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
+
+}
+
+.ball13 {
+    $ball13Width: 73px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball13Width;
+    height: $ball13Width;
+    top: $topBall13;
+    left: 1276px;
+
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
+
+}
+
+.ball14 {
+    $ball14Width: 39px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball14Width;
+    height: $ball14Width;
+    top: $topBall14;
+    left: 41px;
+
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
+
+}

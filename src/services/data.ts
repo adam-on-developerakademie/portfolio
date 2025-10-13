@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { data } from '../interfaces/data';
+import { TeamPlayer } from '../app/teamplayer/teamplayer';
 
 @Injectable({
   providedIn: 'root'
@@ -55,38 +56,59 @@ export class DATA {
       }
     },
     myWork: {
-      title:  ['My work', 'Projekte'] ,
-      text:  ['Explore a selection of my work here - Interact with projects to see my skills in action.', 'Entdecken Sie eine Auswahl meiner Arbeiten hier - Interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.'] ,
+      title: ['My work', 'Projekte'],
+      text: ['Explore a selection of my work here - Interact with projects to see my skills in action.', 'Entdecken Sie eine Auswahl meiner Arbeiten hier - Interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.'],
       projects: [
         {
-          title:  ['Join', 'Join'],
-          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description:  ['Description of Project 1', 'Beschreibung von Projekt 1'] ,
-          image:  'Work1.png',
+          title: ['Join', 'Join'],
+          used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description: ['Description of Project 1', 'Beschreibung von Projekt 1'],
+          image: 'Work1.png',
           link: 'https://project1.example.com'
         },
         {
-          title:  ['El Pollo Loco', 'El Pollo Loco'],
-          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description:  ['Description of Project 2', 'Beschreibung von Projekt 2'],
-          image:  'Work2.png',
+          title: ['El Pollo Loco', 'El Pollo Loco'],
+          used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description: ['Description of Project 2', 'Beschreibung von Projekt 2'],
+          image: 'Work2.png',
           link: 'https://project2.example.com'
         },
         {
-          title:  ['DA Buble', 'DA Buble'],
-          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description:  ['Description of Project 3', 'Beschreibung von Projekt 3'],
-          image:  'Work3.png',
+          title: ['DA Buble', 'DA Buble'],
+          used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description: ['Description of Project 3', 'Beschreibung von Projekt 3'],
+          image: 'Work3.png',
           link: 'https://project3.example.com'
         },
         {
-          title:  ['Pokédex', 'Pokédex'],
-          used:  ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description:  ['Description of Project 4', 'Beschreibung von Projekt 4'],
-          image:  'Work4.png',
+          title: ['Pokédex', 'Pokédex'],
+          used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+          description: ['Description of Project 4', 'Beschreibung von Projekt 4'],
+          image: 'Work4.png',
           link: 'https://project4.example.com'
         }
       ]
+    },
+    teamPlayer: {
+      title: ['Need a Teamplayer?', 'Suchen Sie einen Teamplayer?'],
+      text: ['Here what my colleagues said about me', 'Hier ist, was meine Kollegen über mich gesagt haben:'],
+      opinions: [
+        {
+          person: 'James Rugman',
+          project: 'Project Join',
+          opinion: ['‘‘Sofia is a reliable and friendly person. Work in a structured way and write a clear code. I  highly recommend her as a colleague.’’', 'Always willing to help out.']
+        },
+        {
+          person: 'Evelyn Marx',
+          project: 'Project DA Bubble',
+          opinion: ['‘’ Sofia is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code.‘’', 'Brings a positive attitude to the team.']
+        },
+        {
+          person: 'Noah Müller',
+          project: 'Project El Pollo Loco',
+          opinion: ['‘’Sofia  had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person.’’', 'A pleasure to work with.']
+        }
+      ]
     }
-  };
+  }
 }

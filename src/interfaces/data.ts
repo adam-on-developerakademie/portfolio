@@ -4,9 +4,9 @@ export interface data {
         screenWidth: string[];
         languages: { set: boolean, values: string[] };
         header: [
-                {name: string, set: boolean, values: string[] },
-                {name: string, set: boolean, values: string[] },
-                {name: string, set: boolean, values: string[] }
+                { name: string, set: boolean, values: string[] },
+                { name: string, set: boolean, values: string[] },
+                { name: string, set: boolean, values: string[] }
         ];
         hero: {
                 photo: { x: number[], y: number[], width: number[] };
@@ -20,16 +20,21 @@ export interface data {
                 text: { x: number[], y: number[], width: number[], height: number[], font: number[], values: string[][] };
                 icons: { icon: string[][], values: string[][] };
                 button: { email: string[], values: string[] };
-                
+
         };
         skillSet: {
                 title: { values: string[] };
                 skills: { values: { name: string, icon: string, level: number }[] };
         };
         myWork: {
-                title: string[] ;
-                text:  string[] ;
+                title: string[];
+                text: string[];
                 projects: { title: string[], used: string[], description: string[], image: string, link: string }[];
 
         };
+        teamPlayer: {
+                title: string[];
+                text: string[];
+                opinions: { person: string, project: string, opinion: string[] }[];
+        }
 }
