@@ -1,9 +1,9 @@
 <div class="teamPlayer">
-    <h2 class="title">{{myData.DATA.teamPlayer.title[myData.DATA.language]}}</h2>
-    <p class="description">{{myData.DATA.teamPlayer.text[myData.DATA.language]}}</p>
-
+    <div class="teamPlayerHeader">
+        <h2 class="title">{{myData.DATA.teamPlayer.title[myData.DATA.language]}}</h2>
+        <p class="description">{{myData.DATA.teamPlayer.text[myData.DATA.language]}}</p>
+    </div>
     <div class="teamPlayerContent">
-
         <div class="opinion" *ngFor="let o of myData.DATA.teamPlayer.opinions">
             <div class="opinionHeader">
                 <h3 class="person">{{o.person}}</h3>
