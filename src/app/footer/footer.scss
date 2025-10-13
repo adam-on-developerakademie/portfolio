@@ -1,0 +1,16 @@
+$footerTop: 6298px;
+
+.footer {
+    border: 1px solid rgb(0, 255, 208);
+    position: absolute;
+    box-sizing: border-box;
+    max-width: 1440px;
+    width: 100%;
+    top: $footerTop;
+    height: 289px;
+
+    background: radial-gradient(71.18% 335.57% at 28.82% -124.4%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+
+    z-index: 999;
+}

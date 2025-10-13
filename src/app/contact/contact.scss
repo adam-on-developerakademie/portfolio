@@ -1,0 +1,72 @@
+$contactTop: 5552px;
+
+.contact {
+    border: 1px solid red;
+    position: absolute;
+    box-sizing: border-box;
+    max-width: 1440px;
+    width: 100%;
+    top: $contactTop;
+    height: 746px;
+    z-index: 999;
+}
+/* 
+.contact-header {
+    font-family: 'Baloo2', sans-serif;
+    font-weight: 750;
+    font-size: 36px;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        input,
+        textarea {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            resize: vertical;
+
+            &:focus {
+                border-color: #5988FF;
+                outline: none;
+            }
+        }
+    }
+
+    .submit-button {
+        align-self: flex-end;
+        padding: 0.75rem 1.5rem;
+        background-color: #5988FF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-family: 'Baloo2', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #0043F0;
+        }
+    }
+} */
