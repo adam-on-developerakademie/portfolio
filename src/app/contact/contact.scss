@@ -5,16 +5,11 @@ $topBall12: calc(5905px - $topBall );
 $topBall13: calc(6156px - $topBall );
 $topBall14: calc(6209px - $topBall );
 
-#goToHeader {
-    //border: 1px solid yellow;
+.goToHeader {
     position: absolute;
-    box-sizing: border-box;
-    width: 1px;
-    height: 1px;
     top: 0px;
     left: 0px;
-    z-index: 9999;
-
+    visibility: hidden;
 }
 
 .contact {
@@ -107,4 +102,3 @@ $topBall14: calc(6209px - $topBall );
         }
     }
 }
-

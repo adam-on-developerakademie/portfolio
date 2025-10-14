@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { data } from '../interfaces/data';
-import { TeamPlayer } from '../app/teamplayer/teamplayer';
+
 
 @Injectable({
   providedIn: 'root'

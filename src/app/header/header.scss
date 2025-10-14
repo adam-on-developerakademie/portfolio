@@ -1,5 +1,11 @@
+$heroHeight: calc(1029px - 5px);
+$skillSetTop: 1697px;
+$skillSetHeight: 632px;
+$myWorkTop: calc($skillSetHeight + $skillSetTop);
 $header-height: 117px;
-
+$aboutMe: calc($heroHeight + 1px);
+$skillSet: calc($skillSetTop + 1px);
+$myWork: calc($myWorkTop + 1px);
 
 header {
     //border: 1px solid green;
@@ -140,4 +146,28 @@ p {
         border-bottom: 3px solid #0043F0;
         border-radius: 0px 40px 40px 0px;
     }
+}
+
+.aboutMe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    top: $aboutMe + 1px;
+    visibility: hidden;
+}
+
+.skillSet {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    top: $skillSet + 1px;
+    visibility: hidden;
+}
+
+.myWork {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    top: $myWork + 1px;
+    visibility: hidden;
 }

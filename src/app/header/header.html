@@ -6,7 +6,7 @@
             @for(value of myData.DATA.header; track value.name ) {
             <div class="link">
                 <div class="button {{value.set ? ', bolder' : ''}}">
-                    <a (click)="goToSection(value.name)">{{value.values[myData.DATA.language]}}</a>
+                    <a (click)="goToOld(value.name)">{{value.values[myData.DATA.language]}}</a>
                     <div class="{{myData.DATA.header[$index].set ? 'underline' : ''}}"></div>
                 </div>
             </div>
@@ -26,3 +26,6 @@
         </div>
     </nav>
 </header>
+<div #aboutMe id="aboutMe" class="aboutMe"></div>
+<div #skillSet id="skillSet" class="skillSet"></div>
+<div #myWork id="myWork" class="myWork"></div>
