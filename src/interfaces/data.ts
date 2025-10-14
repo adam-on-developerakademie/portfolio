@@ -43,6 +43,8 @@ export interface data {
                 description: string[];
                 contactMe: string[][];
         };
-        footer: { text: string[] };     
-
-}
+        footer: { developer: string[],
+                 impressum: string[],
+                socialButtons: { values: { name: string, icon: string, link: string }[] }
+        };
+}              

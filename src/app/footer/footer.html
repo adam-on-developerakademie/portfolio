@@ -1,3 +1,20 @@
 <div class="footer">
-
+    <div class="footerTop">
+        <img src="ico/AP_bgw.png" alt="">
+        <div class="middle">
+            <h2 class="developer">{{myData.DATA.footer.developer[myData.DATA.language]}}</h2>
+        </div>
+        <div class="socials">
+            @for(button of myData.DATA.footer.socialButtons.values; track button.name ) {
+            <div class="button">
+                <a [href]="button.link" target="_blank">
+                    <img [src]="'ico/' + button.icon" [alt]="button.name" />
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+    <div class="footerBottom">
+    <h3 class="impressum">{{myData.DATA.footer.impressum[myData.DATA.language]}}</h3>
+    </div>
 </div>

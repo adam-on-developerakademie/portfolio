@@ -116,6 +116,16 @@ export class DATA {
       description: ['I am always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out!', 'Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Visionen zu sein. Zögern Sie nicht, mich zu kontaktieren!'],
       contactMe: [['Need a Frontend developer?', 'Brauchen Sie einen Frontend-Entwickler?'], ['Contact me!', 'Kontaktieren Sie mich!']],
     },
-    footer: { text: ['© 2024 Adam Piskorek', '© 2024 Adam Piskorek'] }
-  };
+    footer: {
+      developer: ['© Adam Piskorek 2025', '© Adam Piskorek 2025'],
+      impressum: ['Legal Notice', 'Impressum'],
+      socialButtons: {
+        values: [
+          { name: 'GitHub', icon: 'Github_button.png', link: 'https://github.com/adam-on-developerakademie' },
+          { name: 'Email', icon: 'Email_button.png', link: 'mailto:adam.piskorek@gmx.com' },
+          { name: 'LinkedIn', icon: 'Linkedin_button.png', link: 'https://www.linkedin.com/in//' },
+        ]
+      }
+    }
+  }
 }

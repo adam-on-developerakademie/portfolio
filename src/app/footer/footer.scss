@@ -1,7 +1,7 @@
 $footerTop: 6298px;
 
 .footer {
-    border: 1px solid rgb(0, 255, 208);
+    //border: 1px solid rgb(0, 255, 208);
     position: absolute;
     box-sizing: border-box;
     max-width: 1440px;
@@ -12,5 +12,89 @@ $footerTop: 6298px;
     background: radial-gradient(71.18% 335.57% at 28.82% -124.4%,
             #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
 
-    z-index: 999;
+    .footerTop {
+        //border: 1px solid red;
+        position: absolute;
+        height: 69px;
+        max-width: 1240px;
+        width: 100%;
+        top: 121px;
+        left: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        img {
+            height: 69px;
+            width: auto;
+        }
+
+        .middle {
+            //border: 1px solid white;
+            text-align: center;
+            color: white;
+            width: 300px;
+            justify-content: end;
+
+            .developer {
+                //border: 1px solid white;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                font-size: 23px;
+                line-height: 120%;
+                gap: 42px;
+            }
+        }
+
+        .socials {
+            //border: 1px solid white;
+            width: 174px;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            img {
+                //border: 1px solid white;
+                cursor: pointer;
+                height: 30px;
+                width: 30px;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+
+    .footerBottom {
+        //border: 1px solid green;
+        position: absolute;
+        height: 32px;
+        max-width: 1240px;
+        //width: 121px;
+        width: 100%;
+        top: 199px;
+        //left: 660px;
+        left: 80px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 3px;
+        white-space: nowrap;
+        color: white;
+
+        .impressum {
+            //border: 1px solid yellow;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            font-style: normal;
+            line-height: 120%;
+            text-align: center;
+        }
+    }
 }
