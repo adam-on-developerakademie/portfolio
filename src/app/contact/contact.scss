@@ -1,16 +1,11 @@
 $contactTop: 5552px;
+$contactContentTop: calc(5489px - $contactTop);
 $topBall: 5552px;
 $topBall11: calc(5390px - $topBall );
 $topBall12: calc(5905px - $topBall );
 $topBall13: calc(6156px - $topBall );
 $topBall14: calc(6209px - $topBall );
 
-.goToHeader {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    visibility: hidden;
-}
 
 .contact {
     border: 1px solid red;
@@ -20,8 +15,36 @@ $topBall14: calc(6209px - $topBall );
     width: 100%;
     top: $contactTop;
     height: 746px;
-    z-index: 999;
 }
+
+.contactContent {
+    border: 1px solid blue;
+    position: absolute;
+    box-sizing: border-box;
+    max-width: 1241px;
+    width: 100%;
+    height: 697px;
+    top: $contactContentTop;
+    left: 91px;
+
+}
+
+.title {
+    border: 1px solid green;
+    position: absolute;
+    box-sizing: border-box;
+    width: 600px;
+    height: 108px;
+    font-family: 'Baloo 2', cursive;
+    font-style: normal;
+    font-weight: 750;
+    font-size: 90px;
+    line-height: 120%;
+    text-align: start;
+    color: #5988FF;
+}
+
+
 
 
 
@@ -77,7 +100,8 @@ $topBall14: calc(6209px - $topBall );
     width: $ball14Width;
     height: $ball14Width;
     top: $topBall14;
-    left: 41px;
+    left: 100px;
+    rotate: 41deg;
 
     background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
             #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
@@ -90,6 +114,7 @@ $topBall14: calc(6209px - $topBall );
     >img {
         width: 16px;
         height: 16px;
+         rotate: -41deg;
     }
 
     &:hover {
@@ -101,4 +126,11 @@ $topBall14: calc(6209px - $topBall );
             content: url('/ico/ArrowUpBlue.png');
         }
     }
+}
+
+.goToHeader {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
 }

@@ -12,6 +12,11 @@ export class Header {
 
   constructor(public myData: DATA) { };
 
+  setUnderline(section: string) {
+      this.myData.DATA.header.filter(s => s.name === section)[0].set = true;
+      this.myData.DATA.header.filter(s => s.name !== section).forEach(s => s.set = false);
+  }
+
   goToNew(elementId: HTMLElement) {
     console.log(elementId);
     

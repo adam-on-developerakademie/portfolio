@@ -6,7 +6,7 @@
             @for(value of myData.DATA.header; track value.name ) {
             <div class="link">
                 <div class="button {{value.set ? ', bolder' : ''}}">
-                    <a (click)="goToOld(value.name)">{{value.values[myData.DATA.language]}}</a>
+                    <a (click)="goToOld(value.name); setUnderline(value.name)">{{value.values[myData.DATA.language]}}</a>
                     <div class="{{myData.DATA.header[$index].set ? 'underline' : ''}}"></div>
                 </div>
             </div>

@@ -36,5 +36,13 @@ export interface data {
                 title: string[];
                 text: string[];
                 opinions: { person: string, project: string, opinion: string[] }[];
-        }
+        };
+        contact: {
+                title: string[];
+                ask: string[];
+                description: string[];
+                button: string[][];
+        };
+        footer: { text: string[] };     
+
 }
