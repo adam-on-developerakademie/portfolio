@@ -44,7 +44,7 @@ export class DATA {
           { name: 'TypeScript', icon: 'TypeScript.png', level: 80 },
           { name: 'JavaScript', icon: 'JavaScript.png', level: 85 },
           { name: 'HTML', icon: 'HTML.png', level: 90 },
-          { name: 'MSSQL', icon: 'MSSQL.png', level: 90 },
+          { name: 'SQL', icon: 'SQL.png', level: 90 },
           { name: 'Firebase', icon: 'Firebase.png', level: 70 },
           { name: 'Scrum', icon: 'Scrum.png', level: 70 },
           { name: 'Git', icon: 'Git.png', level: 70 },
@@ -111,10 +111,10 @@ export class DATA {
       ]
     },
     contact: {
-      title: ['Contact', 'Kontaktiere mich'],
+      title: ['Contact', 'Kontakt'],
       ask: ['Got a problem to solve?', 'Haben Sie ein Problem zu lösen?'],
       description: ['I am always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out!', 'Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Visionen zu sein. Zögern Sie nicht, mich zu kontaktieren!'],
-      button: [['Need a Frontend developer?', 'Brauchen Sie einen Frontend-Entwickler?'], ['Contact me!', 'Kontaktieren Sie mich!']],
+      contactMe: [['Need a Frontend developer?', 'Brauchen Sie einen Frontend-Entwickler?'], ['Contact me!', 'Kontaktieren Sie mich!']],
     },
     footer: { text: ['© 2024 Adam Piskorek', '© 2024 Adam Piskorek'] }
   };

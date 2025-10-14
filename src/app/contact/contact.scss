@@ -27,23 +27,95 @@ $topBall14: calc(6209px - $topBall );
     top: $contactContentTop;
     left: 91px;
 
-}
 
-.title {
-    border: 1px solid green;
-    position: absolute;
-    box-sizing: border-box;
-    width: 600px;
-    height: 108px;
-    font-family: 'Baloo 2', cursive;
-    font-style: normal;
-    font-weight: 750;
-    font-size: 90px;
-    line-height: 120%;
-    text-align: start;
-    color: #5988FF;
-}
 
+    .title {
+        border: 1px solid green;
+        position: absolute;
+        box-sizing: border-box;
+        width: 600px;
+        height: 108px;
+        left: 1px;
+        ;
+        font-family: "Baloo2", sans-serif;
+
+        font-style: normal;
+        font-weight: 750;
+        font-size: 90px;
+        line-height: 120%;
+        letter-spacing: -0.00;
+        text-align: start;
+        color: #5988FF;
+        gap: 10px;
+    }
+
+    .ask {
+        border: 1px solid green;
+        position: absolute;
+        box-sizing: border-box;
+        width: 600px;
+        height: 38px;
+        top: 193px;
+        left: 1px;
+        ;
+        font-family: 'Montserrat', sans-serif;
+        font-style: bold;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 120%;
+        letter-spacing: -0.00;
+        text-align: start;
+        color: #5988FF;
+    }
+
+    .description {
+        border: 1px solid green;
+        position: absolute;
+        box-sizing: border-box;
+        width: 600px;
+        height: 57px;
+        top: 266px;
+        left: 1px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: -0.00;
+        text-align: start;
+        color: #000000;
+    }
+
+
+    .contactMe {
+        border: 1px solid green;
+        position: absolute;
+        box-sizing: border-box;
+        width: 600px;
+        height: 22px;
+        top: 348px;
+        left: 1px;
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: -0.00;
+        text-align: start;
+        color: #5988FF;
+        white-space: nowrap;
+
+        >span {
+            font-family: "Baloo2", sans-serif;
+
+            font-size: 18px;
+            font-weight: bolder;
+
+        }
+    }
+
+
+}
 
 
 
@@ -114,7 +186,7 @@ $topBall14: calc(6209px - $topBall );
     >img {
         width: 16px;
         height: 16px;
-         rotate: -41deg;
+        rotate: -41deg;
     }
 
     &:hover {

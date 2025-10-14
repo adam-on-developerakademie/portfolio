@@ -41,7 +41,7 @@ export interface data {
                 title: string[];
                 ask: string[];
                 description: string[];
-                button: string[][];
+                contactMe: string[][];
         };
         footer: { text: string[] };     
 
