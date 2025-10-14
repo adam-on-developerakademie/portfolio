@@ -13,8 +13,9 @@
         <div class="ball10"></div>
 
         <div class="myWorkProjects">
-            <div *ngFor="let project of myData.DATA.myWork.projects; let i=index">
-                <div class="myWorkProject {{ i % 2 === 0 ? 'directionNormal' : 'directionReverse' }}">
+            @for (project of myData.DATA.myWork.projects; track project.title ) {
+            <div>
+                <div class="myWorkProject {{ $index % 2 === 0 ? 'directionNormal' : 'directionReverse' }}">
                     <div class="myWorkProjectImage">
                         <img [src]="'img/' + project.image" alt="project image">
                     </div>
@@ -23,9 +24,10 @@
                             <div>
                                 <span class="myWorkProjectTitle">{{ project.title[myData.DATA.language] }}</span>
                                 <div class="myWorkProjectUsed">
-                                    <span *ngFor="let tech of project.used; let isLast = last">
-                                        {{ tech }}<span *ngIf="!isLast"> | </span>
-                                    </span>
+                                    @for(tech of project.used; track tech ) {
+                                    <span>
+                                        {{ tech }} @if ( !$last ){<span> | </span>}
+                                    </span>}
                                 </div>
                             </div>
                             <span class="myWorkProjectDescription">{{ project.description[myData.DATA.language]
@@ -36,8 +38,7 @@
                             <a class="myWorkProjectLink" [href]="project.link" target="_blank">Github</a>
                         </div>
                     </div>
-
                 </div>
-            </div>
+            </div>}
         </div>
     </div>

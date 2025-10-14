@@ -1,10 +1,10 @@
 <div class="SkillSet">
     <h2 class="title">{{ myData.DATA.skillSet.title.values[myData.DATA.language] }}</h2>
     <div class="skills">
-        <div *ngFor="let skill of myData.DATA.skillSet.skills.values; let i = index">
-            <div class="{{skill.name === 'Growth Mindset' ? 'growMindset' : 'skill'}}" (click)="setFocus()">
-                <img [src]="'ico/' + skill.icon" [alt]="skill.name" />
-                <p>{{ skill.name }} </p>
-            </div>
-        </div>
+        @for( skill of myData.DATA.skillSet.skills.values ; track skill.icon ) {
+        <div class="{{skill.name === 'Growth Mindset' ? 'growMindset' : 'skill'}}" (click)="setFocus()">
+            <img [src]="'ico/' + skill.icon" [alt]="skill.name" />
+            <p>{{ skill.name }} </p>
+
+        </div>}
     </div>

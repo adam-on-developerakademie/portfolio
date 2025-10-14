@@ -10,16 +10,18 @@
         <div class="scrollLine"></div>
         <img src="img/me.png" alt="my photo" class="me" />
         <div class="mainSocialButtons">
-            <div class="mainSocialButton" *ngFor="let button of myData.DATA.hero.socialButtons.values">
+            @for(button of myData.DATA.hero.socialButtons.values; track button.name ) {
+            <div class="mainSocialButton">
                 <a [href]="button.link" target="_blank">
                     <img [src]="'ico/' + button.icon" [alt]="button.name" />
                 </a>
             </div>
+            }
         </div>
     </div>
     <div class="balls">
         <div class="ball2"></div>
         <div class="ball3"></div>
     </div>
-  
+
 </main>

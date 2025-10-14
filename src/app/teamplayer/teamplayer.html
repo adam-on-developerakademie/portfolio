@@ -4,12 +4,12 @@
         <p class="description">{{myData.DATA.teamPlayer.text[myData.DATA.language]}}</p>
     </div>
     <div class="teamPlayerContent">
-        <div class="opinion" *ngFor="let o of myData.DATA.teamPlayer.opinions">
+        @for( o of myData.DATA.teamPlayer.opinions ; track o.person){
+        <div class="opinion">
             <div class="opinionHeader">
                 <h3 class="person">{{o.person}}</h3>
                 <h4 class="project">{{o.project}}</h4>
             </div>
             <p class="opinionText">{{o.opinion[myData.DATA.language]}}</p>
-        </div>
+        </div>}
     </div>
-

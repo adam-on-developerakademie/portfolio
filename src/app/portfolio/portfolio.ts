@@ -17,4 +17,10 @@ import { Footer } from '../footer/footer';
 })
 export class Portfolio {
 
+    goTo(elementId: HTMLElement) {
+    if (elementId) {
+      elementId.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
 }

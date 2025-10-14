@@ -1,5 +1,3 @@
-
-
 <div class="letsWorkTogether">
     <div>
         <div class="letsWorkTogetherLeftSide">
@@ -11,15 +9,15 @@
                 <p class="letsWorkTogetherText1">{{
                     myData.DATA.letsWorkTogether.text.values[1][myData.DATA.language]}}</p>
                 <div class="letsWorkTogetherIcons">
-                    <div class="letsWorkTogetherIcon"
-                        *ngFor="let icon of myData.DATA.letsWorkTogether.icons.values; let i = index">
-                        <div class="letsWorkTogetherIconContainer{{i}}">
-                            <img class='dYes' [src]="'ico/' + myData.DATA.letsWorkTogether.icons.icon[i][0]" />
-                            <img class='dNone' [src]="'ico/' + myData.DATA.letsWorkTogether.icons.icon[i][1]" />
+                    @for (icon of myData.DATA.letsWorkTogether.icons.values; track icon ) {
+                    <div class="letsWorkTogetherIcon">
+
+                        <div class="letsWorkTogetherIconContainer{{$index}}">
+                            <img class='dYes' [src]="'ico/' + myData.DATA.letsWorkTogether.icons.icon[$index][0]" />
+                            <img class='dNone' [src]="'ico/' + myData.DATA.letsWorkTogether.icons.icon[$index][1]" />
                         </div>
                         <p class="letsWorkTogetherIconText">{{ icon[myData.DATA.language] }}</p>
-
-                    </div>
+                    </div>}
                 </div>
             </div>
         </div>

@@ -2,13 +2,17 @@
     <img src="ico/AP_bgw.png" alt="Logo" class="logo" />
     <nav>
         <div class="links">
-            <div class="link" *ngFor="let value of myData.DATA.header; let i = index">
+
+            @for(value of myData.DATA.header; track value.name ) {
+            <div class="link">
                 <div class="button {{value.set ? ', bolder' : ''}}">
                     <a (click)="goToSection(value.name)">{{value.values[myData.DATA.language]}}</a>
-                    <div class="{{myData.DATA.header[i].set ? 'underline' : ''}}"></div>
+                    <div class="{{myData.DATA.header[$index].set ? 'underline' : ''}}"></div>
                 </div>
             </div>
+            }
         </div>
+
         <div class="languages">
             <div class="button {{myData.DATA.language === 1 ? ', bolder' : ''}}">
                 <p (click)="this.myData.DATA.language = 1">{{myData.DATA.languages.values[1]}}</p>

@@ -26,6 +26,7 @@ header {
     font-weight: 400;
     font-style: normal;
     font-size: 23px;
+    line-height: 120%;
 
     >.logo {
         //border: 1px solid red;
@@ -103,17 +104,24 @@ header {
     }
 }
 
-a {
+a,
+p {
     text-decoration: none;
     transition: all 0s steps(2) 0.2s;
 
     &:hover {
-        font-weight: bolder;
+        font-weight: bold;
+        font-weight: 700;
+        animation-timing-function: ease-in;
+        animation-duration: 100ms;
     }
 }
 
 .bolder {
-    font-weight: bolder;
+    font-weight: bold;
+    font-weight: 700;
+    animation-timing-function: ease-in;
+    animation-duration: 100ms;
 }
 
 .button {
