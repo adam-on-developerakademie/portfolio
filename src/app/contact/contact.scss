@@ -5,6 +5,17 @@ $topBall12: calc(5905px - $topBall );
 $topBall13: calc(6156px - $topBall );
 $topBall14: calc(6209px - $topBall );
 
+#goToHeader {
+    //border: 1px solid yellow;
+    position: absolute;
+    box-sizing: border-box;
+    width: 1px;
+    height: 1px;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+
+}
 
 .contact {
     border: 1px solid red;
@@ -16,6 +27,7 @@ $topBall14: calc(6209px - $topBall );
     height: 746px;
     z-index: 999;
 }
+
 
 
 .ball11 {
@@ -76,4 +88,23 @@ $topBall14: calc(6209px - $topBall );
             #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
     border-radius: 50%;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >img {
+        width: 16px;
+        height: 16px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        border: 2px solid #5988FF;
+        background: transparent;
+
+        >img {
+            content: url('/ico/ArrowUpBlue.png');
+        }
+    }
 }
+

@@ -12,4 +12,9 @@ import { DATA } from '../../services/data';
 export class Contact {
   myData = inject(DATA);
 
+  goTo(elementId: HTMLElement) {
+    if (elementId) {
+      elementId.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
