@@ -1,4 +1,10 @@
 $contactTop: 5552px;
+$topBall: 5552px;
+$topBall11: calc(5390px - $topBall );
+$topBall12: calc(5905px - $topBall );
+$topBall13: calc(6156px - $topBall );
+$topBall14: calc(6209px - $topBall );
+
 
 .contact {
     border: 1px solid red;
@@ -10,63 +16,64 @@ $contactTop: 5552px;
     height: 746px;
     z-index: 999;
 }
-/* 
-.contact-header {
-    font-family: 'Baloo2', sans-serif;
-    font-weight: 750;
-    font-size: 36px;
-    margin-bottom: 1rem;
-    color: #333;
+
+
+.ball11 {
+    $ball11Width: 129.91px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball11Width;
+    height: $ball11Width;
+    top: $topBall11;
+    left: 802px;
+    rotate: 81.57deg;
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
+
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 600px;
+.ball12 {
+    $ball12Width: 204px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball12Width;
+    height: $ball12Width;
+    top: $topBall12;
+    left: 242px;
 
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
 
-        label {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: #555;
-        }
+}
 
-        input,
-        textarea {
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            resize: vertical;
+.ball13 {
+    $ball13Width: 73px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball13Width;
+    height: $ball13Width;
+    top: $topBall13;
+    left: 1276px;
 
-            &:focus {
-                border-color: #5988FF;
-                outline: none;
-            }
-        }
-    }
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
 
-    .submit-button {
-        align-self: flex-end;
-        padding: 0.75rem 1.5rem;
-        background-color: #5988FF;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-family: 'Baloo2', sans-serif;
-        font-weight: 600;
-        font-size: 16px;
-        cursor: pointer;
+}
 
-        &:hover {
-            background-color: #0043F0;
-        }
-    }
-} */
+.ball14 {
+    $ball14Width: 39px;
+    position: absolute;
+    box-sizing: border-box;
+    width: $ball14Width;
+    height: $ball14Width;
+    top: $topBall14;
+    left: 41px;
+
+    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    border-radius: 50%;
+
+}
