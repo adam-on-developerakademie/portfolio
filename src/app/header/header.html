@@ -5,23 +5,23 @@
 
             @for(value of myData.DATA.header; track value.name ) {
             <div class="link">
-                <div class="button {{value.set ? ', bolder' : ''}}">
+                <div class="button" [class.bolder]="value.set">
                     <a (click)="goToOld(value.name); setUnderline(value.name)">{{value.values[myData.DATA.language]}}</a>
-                    <div class="{{myData.DATA.header[$index].set ? 'underline' : ''}}"></div>
+                    <div [class.underline]="myData.DATA.header[$index].set"></div>
                 </div>
             </div>
             }
         </div>
 
         <div class="languages">
-            <div class="button {{myData.DATA.language === 1 ? ', bolder' : ''}}">
+            <div class="button" [class.bolder]="myData.DATA.language === 1">
                 <p (click)="this.myData.DATA.language = 1">{{myData.DATA.languages.values[1]}}</p>
-                <div class="{{myData.DATA.language === 1 ? 'underline' : ''}}"></div>
+                <div [class.underline]="myData.DATA.language === 1"></div>
             </div>
             /
-            <div class="button {{myData.DATA.language === 0 ? ', bolder' : ''}}">
+            <div class="button" [class.bolder]="myData.DATA.language === 0">
                 <p (click)="this.myData.DATA.language = 0">{{myData.DATA.languages.values[0]}}</p>
-                <div class="{{myData.DATA.language === 0 ? 'underline' : ''}}"></div>
+                <div [class.underline]="myData.DATA.language === 0"></div>
             </div>
         </div>
     </nav>

@@ -20,8 +20,8 @@ header {
     background-color: transparent;
     padding-top: 24px;
     padding-bottom: 24px;
-    padding-left: 77px;
-    padding-right: 77px;
+    padding-left: 96px;
+    padding-right: 96px;
 
     display: flex;
     justify-content: space-between;
@@ -48,7 +48,7 @@ header {
         width: auto;
         height: 32px;
         display: flex;
-        gap: 80px;
+        gap: 64px;
 
         >.links {
             //border: 1px solid red;
@@ -56,11 +56,11 @@ header {
             height: 32px;
             display: flex;
             padding-left: auto;
-            gap: 36px;
+            gap: 24px;
 
             >.link {
                 >.button {
-                    width: 140px;
+                    width: auto;
 
                     >.underline {
                         width: 60px;
@@ -92,6 +92,9 @@ header {
 
 @media (max-width: 1200px) {
     header {
+        padding-left: 56px;
+        padding-right: 56px;
+
         >nav {
             gap: 32px;
 

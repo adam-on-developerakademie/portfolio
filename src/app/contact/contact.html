@@ -12,5 +12,18 @@
         <p class="description">{{myData.DATA.contact.description[myData.DATA.language]}}</p>
         <a class="contactMe"
             href="mailto:adam.piskorek@gmx.com">{{myData.DATA.contact.contactMe[0][myData.DATA.language]}} <span>{{myData.DATA.contact.contactMe[1][myData.DATA.language]}}</span></a>
+
+        <form class="contactForm" novalidate>
+            <input class="field" type="text" placeholder="Your name" />
+            <input class="field" type="email" placeholder="Your email" />
+            <textarea class="field message" placeholder="Your message"></textarea>
+
+            <label class="policyRow">
+                <input type="checkbox" />
+                <span>I have read the privacy policy and agree to the processing of my data as outlined.</span>
+            </label>
+
+            <button type="button" class="submitButton">Say hello ;)</button>
+        </form>
     </div>
 </div>

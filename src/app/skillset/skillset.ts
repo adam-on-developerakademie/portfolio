@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DATA } from '../../services/data';
-import { Aboutme } from '../aboutme/aboutme';
 
 @Component({
   selector: 'app-skillset',
@@ -12,9 +11,8 @@ import { Aboutme } from '../aboutme/aboutme';
 export class SkillSet {
   myData = inject(DATA);
 
+  // Reserved for future skill-card interactions.
   setFocus() {
-   
-    console.log(Aboutme.letsWorkTogetherButton);
-  
+    return;
   }
 }

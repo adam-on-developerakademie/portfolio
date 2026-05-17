@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { data } from '../interfaces/data';
-import { TeamPlayer } from '../app/teamplayer/teamplayer';
 
 @Injectable({
   providedIn: 'root'
@@ -64,28 +63,28 @@ export class DATA {
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['Description of Project 1', 'Beschreibung von Projekt 1'],
           image: 'Work1.png',
-          link: 'https://project1.example.com'
+          link: 'https://join-1344.developerakademie.net/angular-projects/join2/login'
         },
         {
           title: ['El Pollo Loco', 'El Pollo Loco'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['Description of Project 2', 'Beschreibung von Projekt 2'],
           image: 'Work2.png',
-          link: 'https://project2.example.com'
+          link: 'https://adam-piskorek.developerakademie.net/12_El_Pollo_Loco/'
         },
         {
           title: ['DA Buble', 'DA Buble'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['Description of Project 3', 'Beschreibung von Projekt 3'],
           image: 'Work3.png',
-          link: 'https://project3.example.com'
+          link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/'
         },
         {
           title: ['Pokédex', 'Pokédex'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['Description of Project 4', 'Beschreibung von Projekt 4'],
           image: 'Work4.png',
-          link: 'https://project4.example.com'
+          link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/'
         }
       ]
     },

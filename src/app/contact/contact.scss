@@ -115,6 +115,75 @@ $topBall14: calc(6209px - $topBall );
     }
 
 
+    .contactForm {
+        position: absolute;
+        top: 112px;
+        left: 624px;
+        width: 617px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .field {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #5988FF;
+            padding: 16px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            line-height: 120%;
+            color: #1f1f1f;
+            outline: none;
+            background-color: #ffffff;
+
+            &::placeholder {
+                color: #1f1f1f;
+                opacity: 0.75;
+            }
+        }
+
+        .message {
+            min-height: 202px;
+            resize: vertical;
+        }
+
+        .policyRow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 120%;
+            color: #5988FF;
+
+            >input {
+                width: 18px;
+                height: 18px;
+                border: 2px solid #5988FF;
+            }
+        }
+
+        .submitButton {
+            align-self: center;
+            border: 2px solid #5988FF;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #5988FF;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 120%;
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.04);
+            }
+        }
+    }
+
+
 }
 
 

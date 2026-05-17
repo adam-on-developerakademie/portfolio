@@ -36,8 +36,8 @@ $heroTop: -5px;
     >.hello {
         //border: 1px solid blue;
         position: absolute;
-        top: 227px; //$hello-top;
-        left: 731px; //calc(50% - $screenWidth * 0.5 + $hello-left);
+        top: 214px; //$hello-top;
+        left: 732px; //calc(50% - $screenWidth * 0.5 + $hello-left);
         width: 645px; //$hello-width;
         height: 61px; //$hello-height;
         font-size: 64px; // $hello-font;
@@ -54,8 +54,8 @@ $heroTop: -5px;
     >.profession {
         //border: 1px solid red;
         position: absolute;
-        top: 305px; //$profession-top;
-        left: 731px; //calc(50% - $screenWidth * 0.5 + $profession-left);
+        top: 292px; //$profession-top;
+        left: 732px; //calc(50% - $screenWidth * 0.5 + $profession-left);
         width: 645px; //$profession-width;
         height: 221px; //$profession-height;
         font-family: 'Baloo2', sans-serif;
@@ -83,8 +83,8 @@ $heroTop: -5px;
     >.scrollText {
         //border: 1px solid #5988FF;
         position: absolute;
-        top: 656px; //$scroll-top;
-        left: 987px; //calc(50% - $screenWidth * 0.5 + $scroll-left);
+        top: 650px; //$scroll-top;
+        left: 1012px; //calc(50% - $screenWidth * 0.5 + $scroll-left);
         width: 95px; //$scroll-width;
         height: 28px; //$scroll-height;
         font-size: 23px; //$scroll-font;
@@ -100,8 +100,8 @@ $heroTop: -5px;
 
     >.scrollLine {
         position: absolute;
-        top: 694px; //$scrollline-top;
-        left: 1034px; //calc(50% - $screenWidth * 0.5 + $scrollline-left);
+        top: 689px; //$scrollline-top;
+        left: 1058px; //calc(50% - $screenWidth * 0.5 + $scrollline-left);
         width: 0px; //$scrollline-width;
         height: 330px; //$scrollline-height;
         border: 2px solid #5988FF;
@@ -110,19 +110,18 @@ $heroTop: -5px;
 
     >.me {
         position: absolute;
-        top: 106px; //$photo-top;
-        left: 32px; //calc(50% - $screenWidth * 0.5 + $photo-left);
-        zoom: 1.4; //scale(0.8);
-        width: auto; //$photo-width;
-        height: 917px; //$photo-height;
+        top: 94px; //$photo-top;
+        left: 28px; //calc(50% - $screenWidth * 0.5 + $photo-left);
+        width: 642px; //$photo-width;
+        height: auto; //$photo-height;
 
     }
 
     .mainSocialButtons {
         position: absolute;
         //border: 1px solid black;
-        top: 789px; //$socialButtons-top;
-        left: 1300px; //calc(50% - $screenWidth * 0.5 + $socialButtons-left);
+        top: 782px; //$socialButtons-top;
+        left: 1310px; //calc(50% - $screenWidth * 0.5 + $socialButtons-left);
         width: 40px; //$socialButtons-width;
         height: 170px; //$socialButtons-height;
         display: flex;

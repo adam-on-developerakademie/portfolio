@@ -1,14 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    box-sizing: border-box;
+:host {
+    display: block;
+}
+
+.portfolio-page {
+    --canvas-width: 1440;
+    --canvas-height: 6587;
+
+    position: relative;
     width: 100%;
+    max-width: 1920px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    overflow: hidden;
+    min-height: var(--canvas-scaled-height, 6587px);
+    background-color: #ffffff;
+}
 
-
+.portfolio-canvas {
+    position: relative;
+    width: calc(var(--canvas-width) * 1px);
+    height: calc(var(--canvas-height) * 1px);
+    left: 50%;
+    margin: 0;
+    transform-origin: top center;
+    transform: translateX(-50%) scale(var(--scale, 1));
 }
