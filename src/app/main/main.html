@@ -6,13 +6,15 @@
             <div class="professionPart1">{{ myData.DATA.hero.profession.values[0][myData.DATA.language] }}</div>
             <div class="professionPart2">{{ myData.DATA.hero.profession.values[1][myData.DATA.language] }}</div>
         </h1>
-        <p class="scrollText">{{ myData.DATA.hero.scroll.values[myData.DATA.language] }}</p>
-        <div class="scrollLine"></div>
+        <div class="scrollDown">
+            <p class="scrollText">{{ myData.DATA.hero.scroll.values[myData.DATA.language] }}</p>
+            <img src="ico/ArrowUpBlue.png" alt="scroll down" class="scrollIcon" />
+        </div>
         <img src="img/me.png" alt="my photo" class="me" />
         <div class="mainSocialButtons">
             @for(button of myData.DATA.hero.socialButtons.values; track button.name ) {
             <div class="mainSocialButton">
-                <a [href]="button.link" target="_blank">
+                <a [href]="button.link" target="_blank" rel="noopener noreferrer">
                     <img [src]="'ico/' + button.icon" [alt]="button.name" />
                 </a>
             </div>

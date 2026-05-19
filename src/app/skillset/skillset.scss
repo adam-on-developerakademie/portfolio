@@ -138,3 +138,99 @@ $skillSetHeight: 632px;
         }
     }
 }
+
+@media (max-width: 999px) {
+    .SkillSet {
+        top: 1620px;
+        left: 0;
+        transform: none;
+        max-width: none;
+        width: 100%;
+        height: 760px;
+        gap: 20px;
+
+        >.title {
+            width: 100%;
+            height: auto;
+            top: 40px;
+            left: 0;
+            font-size: 56px;
+            text-align: center;
+        }
+
+        >.skills {
+            max-width: none;
+            width: calc(100% - 32px);
+            top: 146px;
+            left: 16px;
+            min-height: 560px;
+            gap: 22px 26px;
+        }
+    }
+
+    .skill,
+    .growMindset {
+        width: calc(25% - 20px);
+        min-width: 66px;
+        height: 122px;
+        gap: 8px;
+
+        >img {
+            width: 52px;
+            height: 56px;
+        }
+
+        >p {
+            font-size: 13px;
+        }
+
+        &:hover {
+            gap: 8px;
+        }
+    }
+
+    .growMindset {
+        &:hover {
+            img {
+                width: 52px;
+                height: 56px;
+                padding-left: 0;
+                padding-bottom: 0;
+                content: url('/ico/GrowthMindset.png');
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .SkillSet {
+        top: 1600px;
+        height: 790px;
+
+        >.title {
+            top: 30px;
+            font-size: 44px;
+        }
+
+        >.skills {
+            width: calc(100% - 24px);
+            left: 12px;
+            top: 126px;
+            gap: 20px 12px;
+        }
+    }
+
+    .skill,
+    .growMindset {
+        width: calc(25% - 10px);
+
+        >img {
+            width: 46px;
+            height: 50px;
+        }
+
+        >p {
+            font-size: 12px;
+        }
+    }
+}

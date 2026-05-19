@@ -1,12 +1,15 @@
 <header>
     <img src="ico/AP_bgw.png" alt="Logo" class="logo" />
+    <button class="menuButton" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu">
+        <img [src]="menuButtonIcon()" alt="menu button" class="menuButtonIcon" />
+    </button>
     <nav>
         <div class="links">
 
             @for(value of myData.DATA.header; track value.name ) {
             <div class="link">
                 <div class="button" [class.bolder]="value.set">
-                    <a (click)="goToOld(value.name); setUnderline(value.name)">{{value.values[myData.DATA.language]}}</a>
+                    <a (click)="navigateToSection(value.name)">{{value.values[myData.DATA.language]}}</a>
                     <div [class.underline]="myData.DATA.header[$index].set"></div>
                 </div>
             </div>
@@ -26,6 +29,26 @@
         </div>
     </nav>
 </header>
+
+@if(mobileMenuVisible()) {
+<div class="mobileMenu" [class.opening]="mobileMenuPhase() === 'opening'" [class.closing]="mobileMenuPhase() === 'closing'">
+    <div class="mobileOverlayHeader">
+        <img src="ico/AP.png" alt="Logo" class="mobileOverlayLogo" />
+    </div>
+    <div class="mobileLinks">
+        @for(value of myData.DATA.header; track value.name ) {
+        <a (click)="navigateToSection(value.name)">{{value.values[myData.DATA.language]}}</a>
+        }
+        <a (click)="navigateToContact()">{{myData.DATA.contact.title[myData.DATA.language]}}</a>
+        <div class="mobileLanguages">
+            <button type="button" class="languageButton" (click)="setLanguage(1)">DE</button>
+            <span>/</span>
+            <button type="button" class="languageButton" (click)="setLanguage(0)">EN</button>
+        </div>
+    </div>
+</div>
+}
+
 <div #aboutMe id="aboutMe" class="aboutMe"></div>
 <div #skillSet id="skillSet" class="skillSet"></div>
 <div #myWork id="myWork" class="myWork"></div>

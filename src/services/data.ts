@@ -20,13 +20,13 @@ export class DATA {
       photo: { x: [32, 0], y: [106, 154], width: [761, 645] },
       hello: { x: [731, 197], y: [227, 0], width: [645, 367.72], height: [61, 61], font: [64, 64], values: ['Hello! I am Adam', 'Hallo! Ich bin Adam'] },
       profession: { x: [731, 199.28], y: [305, 30], width: [645, 645], height: [61, 61], font: [128, 128], values: [['fullstack ', 'fullstack '], ['developer', 'developer']] },
-      scroll: { x: [987, 731], y: [656, 0], width: [95, 645], font: [23, 23], values: ['SCROLL', 'SCROLL'] },
+      scroll: { x: [987, 731], y: [656, 0], width: [95, 645], font: [23, 23], values: ['Scroll down', 'Scroll down'] },
       scrollline: { x: [1034, 731], y: [694, 0], width: [0, 0], height: [330, 0] },
       socialButtons: {
         x: [1300, 731], y: [789, 0], width: [40, 645], height: [170, 0], values: [
           { name: 'GitHub', icon: 'github.png', link: 'https://github.com/adam-on-developerakademie' },
           { name: 'Email', icon: 'mail.png', link: 'mailto:adam.piskorek@gmx.com' },
-          { name: 'LinkedIn', icon: 'linkedin.png', link: 'https://www.linkedin.com/in//' },
+          { name: 'LinkedIn', icon: 'linkedin.png', link: 'https://www.linkedin.com/in/adam-piskorek' },
         ]
       }
     },
@@ -122,7 +122,7 @@ export class DATA {
         values: [
           { name: 'GitHub', icon: 'Github_button.png', link: 'https://github.com/adam-on-developerakademie' },
           { name: 'Email', icon: 'Email_button.png', link: 'mailto:adam.piskorek@gmx.com' },
-          { name: 'LinkedIn', icon: 'Linkedin_button.png', link: 'https://www.linkedin.com/in//' },
+          { name: 'LinkedIn', icon: 'Linkedin_button.png', link: 'https://www.linkedin.com/in/adam-piskorek' },
         ]
       }
     }

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Header } from "../header/header";
 import { Main } from '../main/main';
 import { Aboutme } from '../aboutme/aboutme';
@@ -16,10 +16,12 @@ import { Footer } from '../footer/footer';
     '(window:resize)': 'updateScale()'
   },
   templateUrl: './portfolio.html',
-  styleUrl: './portfolio.scss'
+  styleUrl: './portfolio.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Portfolio {
-  protected readonly canvasHeight = 6587;
+  readonly canvasHeight = signal(6587);
+  readonly canvasWidth = signal(1440);
   readonly scale = signal(1);
 
   // Initializes responsive canvas scale at component startup.
@@ -29,6 +31,16 @@ export class Portfolio {
 
   // Updates the desktop canvas scale to fit narrower viewports without clipping.
   updateScale() {
+    const isMobileViewport = window.innerWidth < 1000;
+    if (isMobileViewport) {
+      const mobileScale = Math.min(1, window.innerWidth / 390);
+      this.canvasWidth.set(390);
+      this.canvasHeight.set(7120);
+      this.scale.set(mobileScale);
+      return;
+    }
+    this.canvasWidth.set(1440);
+    this.canvasHeight.set(6587);
     this.scale.set(Math.min(1, window.innerWidth / 1440));
   }
 }

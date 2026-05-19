@@ -389,3 +389,200 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
 
     }
 }
+
+@media (max-width: 999px) {
+    .myWork {
+        top: 2390px;
+        left: 0;
+        transform: none;
+        max-width: none;
+        width: 100%;
+        height: 2320px;
+
+        >.myWorkHeader {
+            left: 0;
+            transform: none;
+            width: 100%;
+
+            >.myWorkHeaderTitle {
+                top: 26px;
+                left: 16px;
+                width: calc(100% - 32px);
+                height: auto;
+                font-size: 56px;
+            }
+
+            >.myWorkHeaderText {
+                top: 98px;
+                left: 16px;
+                width: calc(100% - 32px);
+                height: auto;
+                font-size: 16px;
+                line-height: 140%;
+            }
+
+            >.ball4 {
+                width: 60px;
+                height: 60px;
+                top: 14px;
+                left: auto;
+                right: 72px;
+            }
+
+            >.ball5 {
+                width: 96px;
+                height: 96px;
+                top: 74px;
+                left: auto;
+                right: 8px;
+            }
+        }
+
+        >.myWorkMain {
+            width: 100%;
+            left: 0;
+            top: 182px;
+            height: calc(100% - 182px);
+
+            >.ball6,
+            >.ball7,
+            >.ball8,
+            >.ball9,
+            >.ball10 {
+                display: none;
+            }
+
+            >.myWorkProjects {
+                gap: 16px;
+                padding: 0 16px;
+            }
+
+            .myWorkProject {
+                width: 100%;
+                min-height: 520px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                >.myWorkProjectImage {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 210px;
+                    align-items: center;
+
+                    >img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 16px;
+                    }
+
+                    &:hover {
+                        align-items: center;
+
+                        >img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                >.myWorkProjectContent {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    top: 0;
+                    left: 0;
+                    padding-bottom: 0;
+                    row-gap: 14px;
+
+                    >.myWorkProjectContentText {
+                        .myWorkProjectTitle {
+                            height: auto;
+                            font-size: 34px;
+                        }
+
+                        .myWorkProjectUsed {
+                            height: auto;
+                            font-size: 16px;
+                        }
+
+                        .myWorkProjectDescription {
+                            height: auto;
+                            font-size: 14px;
+                            line-height: 140%;
+                        }
+                    }
+
+                    .myWorkProjectContentButton {
+                        position: relative;
+                        width: 100%;
+                        height: auto;
+                        align-items: center;
+                        justify-content: flex-start;
+
+                        .myWorkProjectLink {
+                            height: 46px;
+                            font-size: 16px;
+                            padding: 10px 20px;
+
+                            &:hover {
+                                transform: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .directionNormal,
+            .directionReverse {
+                .myWorkProjectImage,
+                .myWorkProjectContent {
+                    left: 0;
+                    text-align: left;
+                    align-items: flex-start;
+                }
+
+                .myWorkProjectContentButton {
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .myWork {
+        top: 2410px;
+        height: 2400px;
+
+        >.myWorkHeader {
+            >.myWorkHeaderTitle {
+                font-size: 44px;
+            }
+
+            >.myWorkHeaderText {
+                font-size: 14px;
+            }
+        }
+
+        >.myWorkMain {
+            .myWorkProject {
+                min-height: 550px;
+
+                >.myWorkProjectImage {
+                    height: 200px;
+                }
+
+                >.myWorkProjectContent {
+                    >.myWorkProjectContentText {
+                        .myWorkProjectTitle {
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

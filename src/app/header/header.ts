@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DATA } from '../../services/data';
 
@@ -6,12 +6,71 @@ import { DATA } from '../../services/data';
   selector: 'app-header',
   imports: [CommonModule],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrl: './header.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Header {
+export class Header implements OnDestroy {
 
   // Provides shared data service access for header rendering and interactions.
-  constructor(public myData: DATA) { };
+  myData = inject(DATA);
+  readonly mobileMenuVisible = signal(false);
+  readonly mobileMenuPhase = signal<'closed' | 'opening' | 'open' | 'closing'>('closed');
+  readonly mobileButtonState = signal<'normal' | 'medium-normal' | 'close' | 'medium-close'>('normal');
+  private readonly overlayAnimationMs = 220;
+  private overlayTimer: ReturnType<typeof setTimeout> | undefined;
+
+  // Toggles menu phase and icon state to match the 4-state Figma burger behavior.
+  toggleMobileMenu() {
+    if (this.mobileMenuPhase() === 'closed') {
+      this.openMobileMenu();
+      return;
+    }
+    if (this.mobileMenuPhase() === 'open') {
+      this.closeMobileMenu();
+    }
+  }
+
+  // Starts opening animation and switches icon from normal to medium to close.
+  openMobileMenu() {
+    this.clearOverlayTimer();
+    this.mobileMenuVisible.set(true);
+    this.mobileMenuPhase.set('opening');
+    this.mobileButtonState.set('medium-normal');
+    this.overlayTimer = setTimeout(() => {
+      this.mobileMenuPhase.set('open');
+      this.mobileButtonState.set('close');
+    }, this.overlayAnimationMs);
+  }
+
+  // Starts closing animation and switches icon from close to medium to normal.
+  closeMobileMenu() {
+    this.clearOverlayTimer();
+    this.mobileMenuPhase.set('closing');
+    this.mobileButtonState.set('medium-close');
+    this.overlayTimer = setTimeout(() => {
+      this.mobileMenuPhase.set('closed');
+      this.mobileMenuVisible.set(false);
+      this.mobileButtonState.set('normal');
+    }, this.overlayAnimationMs);
+  }
+
+  // Returns the current icon path for the 4-state burger button.
+  menuButtonIcon() {
+    return `ico/burger/burger-${this.mobileButtonState()}.png`;
+  }
+
+  // Clears pending overlay timer before starting a new state transition.
+  clearOverlayTimer() {
+    if (this.overlayTimer) {
+      clearTimeout(this.overlayTimer);
+      this.overlayTimer = undefined;
+    }
+  }
+
+  // Releases pending timers when component is destroyed.
+  ngOnDestroy() {
+    this.clearOverlayTimer();
+  }
 
   // Updates active header state so only the selected section is highlighted.
   setUnderline(section: string) {
@@ -33,5 +92,23 @@ export class Header {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  // Navigates to a section and closes the mobile menu when needed.
+  navigateToSection(section: string) {
+    this.goToOld(section);
+    this.setUnderline(section);
+    this.closeMobileMenu();
+  }
+
+  // Navigates to the contact section from the mobile menu.
+  navigateToContact() {
+    this.goToOld('contact');
+    this.closeMobileMenu();
+  }
+
+  // Updates current app language from desktop or mobile controls.
+  setLanguage(language: 0 | 1) {
+    this.myData.DATA.language = language;
   }
 }

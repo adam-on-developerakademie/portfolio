@@ -1,16 +1,15 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { DATA } from '../../services/data';
 
 @Component({
-  selector: 'app-footer',
-  imports: [CommonModule, RouterModule],
-  templateUrl: './footer.html',
-  styleUrl: './footer.scss',
+  selector: 'app-legal-notice',
+  imports: [CommonModule],
+  templateUrl: './legal-notice.html',
+  styleUrl: './legal-notice.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Footer {
+export class LegalNotice {
   // Provides access to shared application data service.
   myData = inject(DATA);
 }

@@ -7,7 +7,7 @@
         <div class="socials">
             @for(button of myData.DATA.footer.socialButtons.values; track button.name ) {
             <div class="button">
-                <a [href]="button.link" target="_blank">
+                <a [href]="button.link" target="_blank" rel="noopener noreferrer">
                     <img [src]="'ico/' + button.icon" [alt]="button.name" />
                 </a>
             </div>
@@ -15,6 +15,17 @@
         </div>
     </div>
     <div class="footerBottom">
-    <h3 class="impressum">{{myData.DATA.footer.impressum[myData.DATA.language]}}</h3>
+        <h3 class="impressum">{{myData.DATA.footer.impressum[myData.DATA.language]}}</h3>
+        
+        <!-- Legal navigation links to privacy and legal notice pages. -->
+        <nav class="legalLinks">
+            <a routerLink="/privacy-policy">
+                {{ myData.DATA.language === 0 ? 'Privacy Policy' : 'Datenschutz' }}
+            </a>
+            <span class="separator">/</span>
+            <a routerLink="/legal-notice">
+                {{ myData.DATA.language === 0 ? 'Legal Notice' : 'Impressum' }}
+            </a>
+        </nav>
     </div>
 </div>

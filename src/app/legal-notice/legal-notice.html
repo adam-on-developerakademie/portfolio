@@ -1,0 +1,113 @@
+<div class="legal-page">
+    <header class="legal-header">
+        <a href="/" class="back-link">← Back to Portfolio</a>
+    </header>
+
+    <main class="legal-content">
+        <h1>{{ myData.DATA.language === 0 ? 'Legal Notice' : 'Impressum' }}</h1>
+
+        <!-- English Version -->
+        @if(myData.DATA.language === 0) {
+            <section>
+                <h2>Information Provider (according to § 7 TMG)</h2>
+                <p>
+                    <strong>Adam Piskorek</strong><br>
+                    Bad Sassendorf<br>
+                    Germany<br><br>
+                    <strong>Email:</strong> adam.piskorek@gmx.com<br>
+                    <strong>Phone:</strong> [Your Phone Number]
+                </p>
+            </section>
+
+            <section>
+                <h2>Professional Qualification</h2>
+                <p>
+                    Fullstack Developer, certified by Developer Akademie
+                </p>
+            </section>
+
+            <section>
+                <h2>Responsible for Editorial</h2>
+                <p>
+                    Adam Piskorek is responsible for the editorial content of this website in accordance with § 7 TMG (Telemediengesetz).
+                </p>
+            </section>
+
+            <section>
+                <h2>Liability Notice</h2>
+                <p>
+                    As the service provider, I am liable for own content on this website according to general laws (§ 7 Abs. 1 TMG). 
+                    However, service providers are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+                </p>
+            </section>
+
+            <section>
+                <h2>Liability for Links</h2>
+                <p>
+                    My website contains links to external third-party websites. I have no control over the content of these websites and accept no liability for them.
+                </p>
+            </section>
+
+            <section>
+                <h2>Copyright</h2>
+                <p>
+                    The content and works created by the site operator are subject to German copyright law. The duplication, processing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of the author or creator.
+                </p>
+            </section>
+        }
+
+        <!-- German Version -->
+        @if(myData.DATA.language === 1) {
+            <section>
+                <h2>Angaben nach § 7 TMG</h2>
+                <p>
+                    <strong>Adam Piskorek</strong><br>
+                    Bad Sassendorf<br>
+                    Deutschland<br><br>
+                    <strong>E-Mail:</strong> adam.piskorek@gmx.com<br>
+                    <strong>Telefon:</strong> [Ihre Telefonnummer]
+                </p>
+            </section>
+
+            <section>
+                <h2>Berufsqualifikation</h2>
+                <p>
+                    Fullstack Developer, zertifiziert von Developer Akademie
+                </p>
+            </section>
+
+            <section>
+                <h2>Verantwortlich für Redaktion</h2>
+                <p>
+                    Adam Piskorek ist verantwortlich für redaktionelle Inhalte dieser Website gemäß § 7 TMG (Telemediengesetz).
+                </p>
+            </section>
+
+            <section>
+                <h2>Haftungserklärung</h2>
+                <p>
+                    Als Diensteanbieter bin ich für Eigeninhalte auf dieser Website nach allgemeinen Gesetzen verantwortlich (§ 7 Abs. 1 TMG). 
+                    Diensteanbieter sind jedoch nicht verpflichtet, übermittelte oder gespeicherte Fremdinformationen zu überwachen oder nach Umständen zu forschen, 
+                    die auf eine rechtswidrige Tätigkeit hinweisen.
+                </p>
+            </section>
+
+            <section>
+                <h2>Haftung für Links</h2>
+                <p>
+                    Diese Website enthält Links zu externen Websites Dritter. Ich habe keine Kontrolle über die Inhalte dieser Websites 
+                    und übernehme keine Haftung für diese.
+                </p>
+            </section>
+
+            <section>
+                <h2>Urheberrecht</h2>
+                <p>
+                    Die von dem Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. 
+                    Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes 
+                    bedürfen der schriftlichen Zustimmung des Autors oder Urhebers.
+                </p>
+            </section>
+        }
+    </main>
+</div>

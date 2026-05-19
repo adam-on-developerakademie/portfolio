@@ -1,4 +1,4 @@
-<div class="portfolio-page" [style.--scale]="scale()" [style.--canvas-scaled-height.px]="canvasHeight * scale()">
+<div class="portfolio-page" [style.--scale]="scale()" [style.--canvas-width]="canvasWidth()" [style.--canvas-height]="canvasHeight()" [style.--canvas-scaled-height.px]="canvasHeight() * scale()">
 	<div class="portfolio-canvas">
 		<app-header></app-header>
 		<app-main></app-main>

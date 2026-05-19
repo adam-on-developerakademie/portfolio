@@ -1,0 +1,99 @@
+<div class="legal-page">
+    <header class="legal-header">
+        <a href="/" class="back-link">← Back to Portfolio</a>
+    </header>
+
+    <main class="legal-content">
+        <h1>{{ myData.DATA.language === 0 ? 'Privacy Policy' : 'Datenschutzrichtlinie' }}</h1>
+
+        <!-- English Version -->
+        @if(myData.DATA.language === 0) {
+            <section>
+                <h2>1. Introduction</h2>
+                <p>
+                    This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Information We Collect</h2>
+                <p>
+                    We collect information you voluntarily provide through the contact form, including your name, email address, and message content.
+                </p>
+            </section>
+
+            <section>
+                <h2>3. How We Use Your Information</h2>
+                <p>
+                    The information you provide will be used solely to respond to your inquiries and contact requests. We do not share your information with third parties.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Data Security</h2>
+                <p>
+                    We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Your Rights</h2>
+                <p>
+                    You have the right to access, correct, or delete your personal information at any time. Please contact us at adam.piskorek@gmx.com to exercise these rights.
+                </p>
+            </section>
+
+            <section>
+                <h2>6. Contact Us</h2>
+                <p>
+                    If you have any questions about this Privacy Policy, please contact us at: <strong>adam.piskorek@gmx.com</strong>
+                </p>
+            </section>
+        }
+
+        <!-- German Version -->
+        @if(myData.DATA.language === 1) {
+            <section>
+                <h2>1. Einleitung</h2>
+                <p>
+                    Diese Datenschutzrichtlinie erläutert, wie wir Ihre Informationen erfassen, verwenden, offenlegen und schützen, wenn Sie unsere Website besuchen.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Informationen, die wir erfassen</h2>
+                <p>
+                    Wir erfassen Informationen, die Sie freiwillig über das Kontaktformular bereitstellen, einschließlich Ihres Namens, Ihrer E-Mail-Adresse und des Nachrichteninhalts.
+                </p>
+            </section>
+
+            <section>
+                <h2>3. Wie wir Ihre Informationen verwenden</h2>
+                <p>
+                    Die von Ihnen bereitgestellten Informationen werden ausschließlich verwendet, um Ihre Anfragen und Kontaktanfragen zu beantworten. Wir teilen Ihre Informationen nicht mit Dritten.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Datensicherheit</h2>
+                <p>
+                    Wir treffen angemessene technische und organisatorische Maßnahmen, um Ihre persönlichen Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Ihre Rechte</h2>
+                <p>
+                    Sie haben jederzeit das Recht, auf Ihre persönlichen Informationen zuzugreifen, diese zu korrigieren oder zu löschen. Bitte kontaktieren Sie uns unter adam.piskorek@gmx.com, um diese Rechte auszuüben.
+                </p>
+            </section>
+
+            <section>
+                <h2>6. Kontaktieren Sie uns</h2>
+                <p>
+                    Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter: <strong>adam.piskorek@gmx.com</strong>
+                </p>
+            </section>
+        }
+    </main>
+</div>

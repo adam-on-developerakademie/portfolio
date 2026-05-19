@@ -262,3 +262,113 @@ $aboutMeTop: 1163px;
         }
     }
 }
+
+@media (max-width: 999px) {
+    .letsWorkTogether {
+        top: 930px;
+        left: 0;
+        transform: none;
+        max-width: none;
+        height: 650px;
+        padding: 0 16px;
+        flex-direction: column;
+        gap: 28px;
+
+        >div {
+            width: 100%;
+            height: auto;
+        }
+
+        .letsWorkTogetherLeftSide {
+            gap: 20px;
+
+            >.letsWorkTogetherLeftSideTop {
+                >.letsWorkTogetherText0 {
+                    font-size: 56px;
+                    line-height: 90%;
+                }
+            }
+
+            >.letsWorkTogetherLeftSideBottom {
+                align-items: flex-start;
+                gap: 16px;
+
+                >.letsWorkTogetherText1 {
+                    font-size: 28px;
+                }
+
+                >.letsWorkTogetherIcons {
+                    height: auto;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+
+                    >.letsWorkTogetherIcon {
+                        height: 36px;
+
+                        >.letsWorkTogetherIconContainer0,
+                        >.letsWorkTogetherIconContainer1,
+                        >.letsWorkTogetherIconContainer2 {
+                            top: 0;
+                            width: 42px;
+                            justify-content: center;
+                        }
+
+                        p {
+                            margin-left: 8px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .letsWorkTogetherRightSide {
+            gap: 20px;
+
+            >.letsWorkTogetherText2 {
+                font-size: 16px;
+                line-height: 130%;
+            }
+
+            >.letsWorkTogetherButton {
+                width: 100%;
+                height: 48px;
+                font-size: 16px;
+                padding: 0 18px;
+
+                &:hover {
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .letsWorkTogether {
+        top: 900px;
+        height: 680px;
+        padding: 0 12px;
+
+        .letsWorkTogetherLeftSide {
+            >.letsWorkTogetherLeftSideTop {
+                >.letsWorkTogetherText0 {
+                    font-size: 44px;
+                }
+            }
+
+            >.letsWorkTogetherLeftSideBottom {
+                >.letsWorkTogetherText1 {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .letsWorkTogetherRightSide {
+            >.letsWorkTogetherText2 {
+                font-size: 14px;
+            }
+        }
+    }
+}

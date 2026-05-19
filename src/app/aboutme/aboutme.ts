@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DATA } from '../../services/data';
 
@@ -6,7 +6,8 @@ import { DATA } from '../../services/data';
   selector: 'app-aboutme',
   imports: [CommonModule],
   templateUrl: './aboutme.html',
-  styleUrl: './aboutme.scss'
+  styleUrl: './aboutme.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Aboutme {
   myData = inject(DATA);

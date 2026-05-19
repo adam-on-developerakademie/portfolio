@@ -1,6 +1,8 @@
 $screenWidth: 1440px;
-$heroHeight: 1029px;
-$heroTop: -5px;
+$heroHeight: 100vh;
+$heroTop: 0px;
+$figma-blue: #5988FF;
+$figma-white: #FFFFFF;
 
 
 .hero {
@@ -46,7 +48,7 @@ $heroTop: -5px;
         font-weight: 400;
         line-height: 100%;
         letter-spacing: 0%;
-        color: #5988FF;
+        color: $figma-blue;
         align-items: start;
 
     }
@@ -64,7 +66,7 @@ $heroTop: -5px;
         font-size: 128px; //$profession-font;
         font-weight: 750;
         line-height: 85%;
-        color: #5988FF;
+        color: $figma-blue;
         align-items: start;
 
         >.professionPart1 {
@@ -80,32 +82,42 @@ $heroTop: -5px;
         }
     }
 
-    >.scrollText {
-        //border: 1px solid #5988FF;
+    >.scrollDown {
         position: absolute;
-        top: 650px; //$scroll-top;
+        top: 650px;
         left: 1012px; //calc(50% - $screenWidth * 0.5 + $scroll-left);
-        width: 95px; //$scroll-width;
-        height: 28px; //$scroll-height;
-        font-size: 23px; //$scroll-font;
-        font-family: 'Montserrat', sans-serif;
-        text-transform: uppercase;
-        font-style: medium;
-        font-weight: 500;
-        line-height: 120%;
-        letter-spacing: 0%;
-        color: #5988FF;
-        align-items: start;
-    }
+        width: 28px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
 
-    >.scrollLine {
-        position: absolute;
-        top: 689px; //$scrollline-top;
-        left: 1058px; //calc(50% - $screenWidth * 0.5 + $scrollline-left);
-        width: 0px; //$scrollline-width;
-        height: 330px; //$scrollline-height;
-        border: 2px solid #5988FF;
-        opacity: 0.5;
+        >.scrollText {
+            margin: 0;
+            width: 133px;
+            height: 28px;
+            font-size: 23px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: none;
+            font-style: medium;
+            font-weight: 500;
+            line-height: 120%;
+            letter-spacing: 0;
+            color: $figma-blue;
+            text-align: left;
+            transform: rotate(-90deg);
+            transform-origin: center;
+        }
+
+        >.scrollIcon {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin-top: 8px;
+            transform: rotate(180deg);
+            opacity: 1;
+        }
     }
 
     >.me {
@@ -194,5 +206,294 @@ $heroTop: -5px;
         z-index: 0;
         background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                 #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    }
+}
+
+@media (max-width: 999px) {
+    .hero {
+        left: 0;
+        transform: none;
+        max-width: none;
+        width: 100%;
+        height: 620px;
+        min-height: 620px;
+
+        >.ball1 {
+            width: 520px;
+            height: 520px;
+            top: -180px;
+            left: -220px;
+        }
+
+        >.hello {
+            top: 118px;
+            left: 16px;
+            width: auto;
+            max-width: 92%;
+            height: auto;
+            font-size: clamp(30px, 9vw, 36px);
+            color: $figma-white;
+            text-shadow: none;
+            white-space: nowrap;
+        }
+
+        >.profession {
+            top: 166px;
+            left: 16px;
+            width: 250px;
+            height: auto;
+            font-size: clamp(56px, 18vw, 73px);
+            line-height: 96%;
+            color: $figma-white;
+            text-shadow: none;
+        }
+
+        >.me {
+            top: 182px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(236px, 70vw);
+            height: 436px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        >.scrollDown {
+            display: flex;
+            top: 304px;
+            left: auto;
+            right: 8px;
+            transform: none;
+            width: 28px;
+            height: 160px;
+            gap: 0;
+            position: absolute;
+            z-index: 4;
+
+            >.scrollText {
+                position: absolute;
+                top: 52px;
+                left: -52px;
+                width: 133px;
+                height: 28px;
+                font-size: 23px;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                line-height: 120%;
+                letter-spacing: 0;
+                color: $figma-blue;
+                opacity: 1;
+                transform: rotate(-90deg);
+                transform-origin: center;
+            }
+
+            >.scrollIcon {
+                position: absolute;
+                bottom: 0;
+                left: 2px;
+                width: 24px;
+                height: 24px;
+                margin-top: 0;
+            }
+        }
+
+        .mainSocialButtons {
+            display: none;
+            top: 588px;
+            left: auto;
+            right: 14px;
+            width: 40px;
+            height: 170px;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 25px;
+
+            >.mainSocialButton {
+                width: 30px;
+                height: 30px;
+
+                &:hover {
+                    transform: none;
+                }
+            }
+        }
+    }
+
+    .balls {
+        left: 0;
+        transform: none;
+        width: 100%;
+        max-width: none;
+
+        .ball2 {
+            width: 128px;
+            height: 128px;
+            top: 654px;
+            left: 18px;
+        }
+
+        .ball3 {
+            width: 52px;
+            height: 52px;
+            top: 716px;
+            left: 272px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        >.hello {
+            top: 114px;
+            width: auto;
+            font-size: 34px;
+            color: $figma-white;
+        }
+
+        >.profession {
+            top: 156px;
+            width: 234px;
+            font-size: 66px;
+            color: $figma-white;
+        }
+
+        >.me {
+            top: 176px;
+            width: min(224px, 68vw);
+            height: 412px;
+            object-position: top;
+        }
+
+        >.scrollDown {
+            top: 292px;
+            right: 6px;
+
+            >.scrollText {
+                font-size: 18px;
+            }
+
+            >.scrollIcon {
+                display: block;
+                width: 22px;
+                height: 22px;
+                margin-top: 6px;
+            }
+        }
+
+        .mainSocialButtons {
+            top: 572px;
+            right: 10px;
+            width: 36px;
+            height: 142px;
+            gap: 20px;
+
+            >.mainSocialButton {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .hero {
+        >.hello {
+            top: 108px;
+            left: 14px;
+            width: auto;
+            font-size: 31px;
+        }
+
+        >.profession {
+            top: 148px;
+            left: 14px;
+            width: 214px;
+            font-size: 60px;
+        }
+
+        >.scrollDown {
+            top: 276px;
+            right: 4px;
+
+            >.scrollText {
+                font-size: 16px;
+            }
+
+            >.scrollIcon {
+                display: block;
+                width: 20px;
+                height: 20px;
+                margin-top: 6px;
+            }
+        }
+
+        .mainSocialButtons {
+            top: 548px;
+            right: 8px;
+            width: 32px;
+            height: 130px;
+            gap: 16px;
+
+            >.mainSocialButton {
+                width: 26px;
+                height: 26px;
+            }
+        }
+    }
+}
+
+@media (max-width: 340px) {
+    .hero {
+        >.hello {
+            top: 102px;
+            left: 12px;
+            width: auto;
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        >.profession {
+            top: 142px;
+            left: 10px;
+            width: 196px;
+            font-size: 52px;
+            line-height: 92%;
+        }
+
+        >.me {
+            top: 184px;
+            width: min(206px, 66vw);
+            height: 386px;
+            object-position: top;
+        }
+
+        >.scrollDown {
+            top: 258px;
+            right: 2px;
+
+            >.scrollText {
+                font-size: 14px;
+            }
+
+            >.scrollIcon {
+                display: block;
+                width: 18px;
+                height: 18px;
+                margin-top: 4px;
+            }
+        }
+
+        .mainSocialButtons {
+            top: 536px;
+            right: 10px;
+            width: 28px;
+            height: 118px;
+            gap: 12px;
+
+            >.mainSocialButton {
+                width: 24px;
+                height: 24px;
+            }
+        }
     }
 }
