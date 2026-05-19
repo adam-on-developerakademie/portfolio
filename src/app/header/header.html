@@ -37,11 +37,11 @@
 
 @if(mobileMenuVisible()) {
 <div class="mobileMenu" [class.opening]="mobileMenuPhase() === 'opening'"
-    [class.closing]="mobileMenuPhase() === 'closing'">
-    <div class="mobileOverlayHeader">
+    [class.closing]="mobileMenuPhase() === 'closing'" (click)="closeMobileMenu()">
+    <div class="mobileOverlayHeader" (click)="$event.stopPropagation()">
         <img src="ico/AP.png" alt="Logo" class="mobileOverlayLogo" />
     </div>
-    <div class="mobileLinks">
+    <div class="mobileLinks" (click)="$event.stopPropagation()">
         @for(value of myData.DATA.header; track value.name ) {
         <div class="mobileLinkBox" [class.bolder]="value.set">
             <span class="mobileLinkBox-dummy">{{value.values[myData.DATA.language]}}</span>
