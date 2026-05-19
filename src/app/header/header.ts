@@ -74,8 +74,7 @@ export class Header implements OnDestroy {
 
   // Updates active header state so only the selected section is highlighted.
   setUnderline(section: string) {
-    this.myData.DATA.header.filter(s => s.name === section)[0].set = true;
-    this.myData.DATA.header.filter(s => s.name !== section).forEach(s => s.set = false);
+    this.myData.DATA.header.forEach(s => s.set = s.name === section);
   }
 
   // Scrolls to an already resolved element reference.
@@ -96,14 +95,8 @@ export class Header implements OnDestroy {
 
   // Navigates to a section and closes the mobile menu when needed.
   navigateToSection(section: string) {
-    this.goToOld(section);
     this.setUnderline(section);
-    this.closeMobileMenu();
-  }
-
-  // Navigates to the contact section from the mobile menu.
-  navigateToContact() {
-    this.goToOld('contact');
+    this.goToOld(section);
     this.closeMobileMenu();
   }
 

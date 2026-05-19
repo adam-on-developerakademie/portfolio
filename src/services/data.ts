@@ -12,9 +12,10 @@ export class DATA {
     screenWidth: ['1440px', '800px'],
     languages: { set: true, values: ['EN', 'DE'] },
     header: [
-      { name: 'aboutMe', set: false, values: ['About me', 'Über mich'] },
-      { name: 'skillSet', set: false, values: ['Skill set', 'Fähigkeiten'] },
-      { name: 'myWork', set: false, values: ['My work', 'Projekt'] }
+      { name: 'aboutMe', set: false, showOnDesktop: true, values: ['About me', 'Über mich'] },
+      { name: 'skillSet', set: false, showOnDesktop: true, values: ['Skill set', 'Fähigkeiten'] },
+      { name: 'myWork', set: false, showOnDesktop: true, values: ['My work', 'Projekt'] },
+      { name: 'contact', set: false, showOnDesktop: false, values: ['Contact', 'Kontakt'] }
     ],
     hero: {
       photo: { x: [32, 0], y: [106, 154], width: [761, 645] },
