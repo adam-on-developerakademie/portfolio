@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DATA } from '../../services/data';
 
@@ -6,8 +6,7 @@ import { DATA } from '../../services/data';
   selector: 'app-skillset',
   imports: [CommonModule],
   templateUrl: './skillset.html',
-  styleUrl: './skillset.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './skillset.scss'
 })
 export class SkillSet {
   myData = inject(DATA);

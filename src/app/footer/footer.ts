@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DATA } from '../../services/data';
@@ -7,8 +7,7 @@ import { DATA } from '../../services/data';
   selector: 'app-footer',
   imports: [CommonModule, RouterModule],
   templateUrl: './footer.html',
-  styleUrl: './footer.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './footer.scss'
 })
 export class Footer {
   // Provides access to shared application data service.
