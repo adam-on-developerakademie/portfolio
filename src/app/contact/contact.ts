@@ -12,6 +12,7 @@ import { DATA } from '../../services/data';
 export class Contact {
   myData = inject(DATA);
 
+  // Scrolls smoothly to the provided anchor element when available.
   goTo(elementId: HTMLElement) {
     if (elementId) {
       elementId.scrollIntoView({ behavior: 'smooth' });
