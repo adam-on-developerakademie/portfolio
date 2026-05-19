@@ -382,17 +382,32 @@ p {
                 color: $figma-blue;
                 line-height: 120%;
 
-                >.languageButton {
-                    border: none;
-                    background: transparent;
-                    padding: 0;
-                    margin: 0;
-                    font-family: inherit;
-                    font-size: inherit;
-                    color: inherit;
-                    line-height: inherit;
-                    cursor: pointer;
-                    font-weight: 400;
+                >.button {
+                    width: 38px;
+                    height: auto;
+
+                    &:hover > .languageButton,
+                    &.bolder > .languageButton {
+                        color: #0043F0;
+                        font-weight: 700;
+                    }
+
+                    >.underline {
+                        width: 30px;
+                    }
+
+                    >.languageButton {
+                        border: none;
+                        background: transparent;
+                        padding: 0;
+                        margin: 0;
+                        font-family: inherit;
+                        font-size: inherit;
+                        color: inherit;
+                        line-height: inherit;
+                        cursor: pointer;
+                        font-weight: inherit;
+                    }
                 }
             }
         }

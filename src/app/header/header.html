@@ -50,9 +50,15 @@
         </div>
         }
         <div class="mobileLanguages">
-            <button type="button" class="languageButton" [class.bolder]="myData.DATA.language === 1" (click)="setLanguage(1)">DE</button>
+            <div class="button" [class.bolder]="myData.DATA.language === 1">
+                <button type="button" class="languageButton" (click)="setLanguage(1)">DE</button>
+                <div [class.underline]="myData.DATA.language === 1"></div>
+            </div>
             <span class="mobileLanguageSeparator">/</span>
-            <button type="button" class="languageButton" [class.bolder]="myData.DATA.language === 0" (click)="setLanguage(0)">EN</button>
+            <div class="button" [class.bolder]="myData.DATA.language === 0">
+                <button type="button" class="languageButton" (click)="setLanguage(0)">EN</button>
+                <div [class.underline]="myData.DATA.language === 0"></div>
+            </div>
         </div>
     </div>
 </div>
