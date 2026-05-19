@@ -134,6 +134,7 @@ p {
     animation-duration: 100ms;
 }
 
+
 .button {
     //border: 1px solid red;
     display: flex;
@@ -150,6 +151,43 @@ p {
         border-bottom: 3px solid #0043F0;
         border-radius: 0px 40px 40px 0px;
     }
+}
+
+
+.buttonBox {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+.buttonBox-dummy {
+    visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+    display: inline-block;
+    font-weight: 400;
+    box-sizing: content-box;
+    padding-left: 4px;
+    padding-right: 4px;
+    min-width: 0;
+}
+.buttonBox > a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    box-sizing: content-box;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 1;
+}
+.buttonBox {
+    min-width: 0;
+    /* 8px extra Breite */
+    padding-right: 8px;
 }
 
 .aboutMe {

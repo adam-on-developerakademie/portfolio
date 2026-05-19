@@ -9,7 +9,10 @@
             @for(value of myData.DATA.header; track value.name ) {
             <div class="link">
                 <div class="button" [class.bolder]="value.set">
-                    <a (click)="navigateToSection(value.name)">{{value.values[myData.DATA.language]}}</a>
+                    <div class="buttonBox">
+                        <span class="buttonBox-dummy">{{value.values[myData.DATA.language]}}</span>
+                        <a (click)="navigateToSection(value.name)">{{value.values[myData.DATA.language]}}</a>
+                    </div>
                     <div [class.underline]="myData.DATA.header[$index].set"></div>
                 </div>
             </div>
@@ -31,7 +34,8 @@
 </header>
 
 @if(mobileMenuVisible()) {
-<div class="mobileMenu" [class.opening]="mobileMenuPhase() === 'opening'" [class.closing]="mobileMenuPhase() === 'closing'">
+<div class="mobileMenu" [class.opening]="mobileMenuPhase() === 'opening'"
+    [class.closing]="mobileMenuPhase() === 'closing'">
     <div class="mobileOverlayHeader">
         <img src="ico/AP.png" alt="Logo" class="mobileOverlayLogo" />
     </div>
