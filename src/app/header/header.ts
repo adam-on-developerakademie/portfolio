@@ -56,7 +56,7 @@ export class Header implements OnDestroy {
 
   // Returns the current icon path for the 4-state burger button.
   menuButtonIcon() {
-    return `ico/burger/burger-${this.mobileButtonState()}.png`;
+    return `ico/burger-${this.mobileButtonState()}.png`;
   }
 
   // Clears pending overlay timer before starting a new state transition.

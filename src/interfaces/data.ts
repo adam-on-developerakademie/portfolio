@@ -20,7 +20,7 @@ export interface data {
         };
         skillSet: {
                 title: { values: string[] };
-                skills: { values: { name: string, icon: string, level: number }[] };
+                skills: { groups: { title: string[], values: { name: string, icon: string, level: number }[] }[] };
         };
         myWork: {
                 title: string[];

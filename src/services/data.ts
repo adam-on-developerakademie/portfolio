@@ -39,19 +39,38 @@ export class DATA {
     skillSet: {
       title: { values: ['Skill set', 'Fähigkeiten'] },
       skills: {
-        values: [
-          { name: 'Angular', icon: 'Angular.png', level: 75 },
-          { name: 'TypeScript', icon: 'TypeScript.png', level: 80 },
-          { name: 'JavaScript', icon: 'JavaScript.png', level: 85 },
-          { name: 'HTML', icon: 'HTML.png', level: 90 },
-          { name: 'SQL', icon: 'SQL.png', level: 90 },
-          { name: 'Firebase', icon: 'Firebase.png', level: 70 },
-          { name: 'Scrum', icon: 'Scrum.png', level: 70 },
-          { name: 'Git', icon: 'Git.png', level: 70 },
-          { name: 'CSS', icon: 'CSS.png', level: 80 },
-          { name: 'REST-API', icon: 'REST-API.png', level: 70 },
-          { name: 'Material Design', icon: 'MaterialDesign.png', level: 60 },
-          { name: 'Growth Mindset', icon: 'GrowthMindset.png', level: 50 },
+        groups: [
+          {
+            title: ['Frontend', 'Frontend'],
+            values: [
+              { name: 'Angular', icon: 'Angular.png', level: 75 },
+              { name: 'TypeScript', icon: 'TypeScript.png', level: 80 },
+              { name: 'JavaScript', icon: 'JavaScript.png', level: 85 },
+              { name: 'HTML', icon: 'HTML.png', level: 90 },
+              { name: 'CSS', icon: 'CSS.png', level: 80 },
+              { name: 'RxJS', icon: 'RxJs.png', level: 70 },
+              { name: 'Material Design', icon: 'MaterialDesign.png', level: 60 },
+              { name: 'REST-API', icon: 'REST-API.png', level: 70 },
+              { name: 'Git', icon: 'Git.png', level: 70 },
+              { name: 'Scrum', icon: 'Scrum.png', level: 70 },
+              { name: 'Growth Mindset', icon: 'GrowthMindset.png', level: 50 },
+            ]
+          },
+          {
+            title: ['Backend', 'Backend'],
+            values: [
+              { name: 'Python', icon: 'Python.png', level: 75 },
+              { name: 'Flask', icon: 'Flask.png', level: 70 },
+              { name: 'Docker', icon: 'Docker.png', level: 65 },
+              { name: 'Linux', icon: 'Linux.png', level: 70 },
+              { name: 'PostgreSQL', icon: 'PostgreSQL.png', level: 70 },
+              { name: 'Redis', icon: 'Redis.png', level: 65 },
+              { name: 'Heroku', icon: 'Heroku.png', level: 60 },
+              { name: 'Cloud', icon: 'Cloud.png', level: 65 },
+              { name: 'Firebase', icon: 'Firebase.png', level: 70 },
+              { name: 'SQL', icon: 'SQL.png', level: 90 },
+            ]
+          }
         ]
       }
     },
