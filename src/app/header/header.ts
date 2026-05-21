@@ -103,5 +103,8 @@ export class Header implements OnDestroy {
   // Updates current app language from desktop or mobile controls.
   setLanguage(language: 0 | 1) {
     this.myData.DATA.language = language;
+    if (this.mobileMenuPhase() !== 'closed') {
+      this.closeMobileMenu();
+    }
   }
 }

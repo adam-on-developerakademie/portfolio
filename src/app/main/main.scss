@@ -122,7 +122,6 @@ $figma-white: #FFFFFF;
             width: 24px;
             height: 24px;
             margin-top: 8px;
-            transform: rotate(180deg);
             opacity: 1;
         }
     }
@@ -236,30 +235,32 @@ $figma-white: #FFFFFF;
             top: 118px;
             left: 16px;
             width: auto;
-            max-width: 92%;
+            max-width: 82%;
             height: auto;
-            font-size: clamp(30px, 9vw, 36px);
+            font-size: clamp(30px, 9vw, 26px);
             color: $figma-white;
             text-shadow: none;
             white-space: nowrap;
+            overflow: hidden;
         }
 
         >.profession {
             top: 166px;
             left: 16px;
-            width: 250px;
+            max-width: 82%;
             height: auto;
-            font-size: clamp(56px, 18vw, 73px);
+            font-size: clamp(56px, 18vw, 63px);
             line-height: 96%;
             color: $figma-white;
             text-shadow: none;
+            overflow: hidden;
         }
 
         >.me {
-            top: 182px;
-            left: 50%;
+            top: 290px;
+            left: 47%;
             transform: translateX(-50%);
-            width: min(236px, 70vw);
+            width: min(436px, 70vw);
             height: 436px;
             object-fit: cover;
             object-position: top;
@@ -276,6 +277,7 @@ $figma-white: #FFFFFF;
             gap: 0;
             position: absolute;
             z-index: 4;
+            
 
             >.scrollText {
                 position: absolute;
@@ -292,6 +294,7 @@ $figma-white: #FFFFFF;
                 opacity: 1;
                 transform: rotate(-90deg);
                 transform-origin: center;
+                rotate: 180deg;
             }
 
             >.scrollLine {
