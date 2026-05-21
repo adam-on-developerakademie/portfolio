@@ -247,9 +247,9 @@ $figma-white: #FFFFFF;
         >.profession {
             top: 166px;
             left: 16px;
-            max-width: 82%;
+            max-width: 92%;
             height: auto;
-            font-size: clamp(56px, 18vw, 63px);
+            font-size: clamp(50px, 18vw, 55px);
             line-height: 96%;
             color: $figma-white;
             text-shadow: none;
@@ -277,7 +277,7 @@ $figma-white: #FFFFFF;
             gap: 0;
             position: absolute;
             z-index: 4;
-            
+
 
             >.scrollText {
                 position: absolute;
@@ -353,5 +353,20 @@ $figma-white: #FFFFFF;
             top: 716px;
             left: 272px;
         }
+    }
+}
+
+@media (max-width: 420px) {
+    .hero {
+        >.me {
+            top: 290px;
+            left: 47%;
+            transform: translateX(-50%);
+            width: min(436px, 90vw);
+            height: 436px;
+            object-fit: cover;
+            object-position: top;
+        }
+
     }
 }
