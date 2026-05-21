@@ -6,8 +6,10 @@
             <div class="professionPart1">{{ myData.DATA.hero.profession.values[0][myData.DATA.language] }}</div>
             <div class="professionPart2">{{ myData.DATA.hero.profession.values[1][myData.DATA.language] }}</div>
         </h1>
-        <div class="scrollDown">
-            <p class="scrollText">{{ myData.DATA.hero.scroll.values[myData.DATA.language] }}</p>
+        <div class="scrollDown" role="button" tabindex="0" (click)="goToAboutMe()" (keydown.enter)="goToAboutMe()"
+            (keydown.space)="goToAboutMe(); $event.preventDefault()">
+            <p class="scrollText scrollTextDesktop">SCROLL</p>
+            <p class="scrollText scrollTextMobile">{{ myData.DATA.hero.scroll.values[myData.DATA.language] }}</p>
             <div class="scrollLine"></div>
             <img src="ico/arrow-down-line.png" alt="scroll down" class="scrollIcon" />
         </div>

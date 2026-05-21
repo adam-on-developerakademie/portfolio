@@ -10,4 +10,12 @@ import { DATA } from '../../services/data';
 })
 export class Main {
   myData = inject(DATA);
+
+  // Scrolls to the about-me section from the hero scroll-down control.
+  goToAboutMe() {
+    const element = document.getElementById('aboutMe');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
