@@ -187,6 +187,7 @@ $skillSetHeight: 632px;
             top: 132px;
             left: 16px;
             transform: none;
+            height: auto;
             min-height: 560px;
             grid-template-columns: 1fr;
             gap: 20px;
@@ -232,49 +233,6 @@ $skillSetHeight: 632px;
                 padding-bottom: 0;
                 content: url('/ico/GrowthMindset.png');
             }
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .SkillSet {
-        top: 1600px;
-        height: 810px;
-
-        >.title {
-            top: 30px;
-            font-size: 44px;
-        }
-
-        >.skills {
-            width: calc(100% - 24px);
-            left: 12px;
-            top: 122px;
-            gap: 14px;
-        }
-    }
-
-    .groupTitle {
-        font-size: 21px;
-    }
-
-    .groupSkills {
-        grid-template-columns: repeat(3, minmax(54px, 1fr));
-        gap: 10px 8px;
-    }
-
-    .skill,
-    .growMindset {
-        width: 62px;
-        height: 84px;
-
-        >img {
-            width: 36px;
-            height: 38px;
-        }
-
-        >p {
-            font-size: 10px;
         }
     }
 }
