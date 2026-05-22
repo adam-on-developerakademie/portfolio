@@ -412,6 +412,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
         height: auto;
         min-height: fit-content;
         padding-top: $myWorkHeaderTopMobile;
+        padding-bottom: 20px;
         overflow-x: hidden;
         overflow-y: visible;
 
@@ -582,7 +583,8 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                         position: relative;
                         width: 100%;
                         height: auto;
-                        top: 50px;
+                        top: 0;
+                        margin-top: 50px;
                         padding-bottom: 60px;
                         row-gap: 14px;
 
@@ -618,6 +620,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                             height: auto;
                             align-items: center;
                             justify-content: center;
+                            padding-top: 0;
 
                             .myWorkProjectLink {
                                 height: 42px;

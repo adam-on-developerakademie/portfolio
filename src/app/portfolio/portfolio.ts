@@ -85,11 +85,13 @@ export class Portfolio implements AfterViewInit {
     if (!this.mobileGaps) {
       this.mobileGaps = this.captureMobileGaps(hero, about, skill, myWork, team, contact, footer);
     }
+    document.documentElement.style.setProperty('--teamplayer-top', `${team.offsetTop}px`);
+    document.documentElement.style.setProperty('--teamplayer-height', `${team.offsetHeight}px`);
     const gaps = this.mobileGaps;
     const aboutTop = hero.offsetTop + hero.offsetHeight + gaps.heroToAbout;
     const skillTop = aboutTop + about.offsetHeight + gaps.aboutToSkill;
     const workTop = skillTop + skill.offsetHeight + gaps.skillToWork;
-    const teamTop = workTop + myWork.offsetHeight + gaps.workToTeam;
+    const teamTop = workTop + myWork.offsetHeight;
     const contactTop = teamTop + team.offsetHeight + gaps.teamToContact;
     const footerTop = contactTop + contact.offsetHeight + gaps.contactToFooter;
     document.documentElement.style.setProperty('--aboutme-mobile-top', `${aboutTop}px`);
