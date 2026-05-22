@@ -21,19 +21,25 @@
                     </div>
                     <div class="myWorkProjectContent">
                         <div class="myWorkProjectContentText">
-                                <span class="myWorkProjectTitle">{{ project.title[myData.DATA.language] }}</span>
-                                <div class="myWorkProjectUsed">
-                                    @for(tech of project.used; track tech ) {
-                                    <span>
-                                        {{ tech }} @if ( !$last ){<span> | </span>}
-                                    </span>}
-                                </div>
+                            <span class="myWorkProjectTitle">{{ project.title[myData.DATA.language] }}</span>
+                            <div class="myWorkProjectUsed">
+                                @for(tech of project.used; track tech ) {
+                                <span>
+                                    {{ tech }} @if ( !$last ){<span> | </span>}
+                                </span>}
+                            </div>
                             <span class="myWorkProjectDescription">{{ project.description[myData.DATA.language]
                                 }}</span>
                         </div>
-                        <div class="myWorkProjectContentButton">
-
-                            <a class="myWorkProjectLink" [href]="project.link" target="_blank" rel="noopener noreferrer">Github</a>
+                        <div class="myWorkProjectContentButtons">
+                            <div class="myWorkProjectContentButton">
+                                <a class="myWorkProjectLink myWorkProjectLinkPrimary" [href]="project.link" target="_blank"
+                                    rel="noopener noreferrer">Live test</a>
+                            </div>
+                            <div class="myWorkProjectContentButton">
+                                <a class="myWorkProjectLink" [href]="project.githubLink" target="_blank"
+                                    rel="noopener noreferrer">Github</a>
+                            </div>
                         </div>
                     </div>
                 </div>

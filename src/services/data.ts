@@ -83,28 +83,32 @@ export class DATA {
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. '],
           image: 'Work1.png',
-          link: 'https://join-1344.developerakademie.net/angular-projects/join2/login'
+          link: 'https://join-1344.developerakademie.net/angular-projects/join2/login',
+          githubLink: 'https://github.com/adam-on-developerakademie'
         },
         {
           title: ['El Pollo Loco', 'El Pollo Loco'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'],
           image: 'Work2.png',
-          link: 'https://adam-piskorek.developerakademie.net/12_El_Pollo_Loco/'
+          link: 'https://adam-piskorek.developerakademie.net/12_El_Pollo_Loco/',
+          githubLink: 'https://github.com/adam-on-developerakademie'
         },
         {
           title: ['DA Buble', 'DA Buble'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['A very Simple Customer Relationship Management system working with CRUD functionality. '],
           image: 'Work3.png',
-          link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/'
+          link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/',
+          githubLink: 'https://github.com/adam-on-developerakademie'
         },
         {
           title: ['Pokédex', 'Pokédex'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
           description: ['Based on the PokéAPI a simple library that provides and catalogues pokemon information.'],
           image: 'Work4.png',
-          link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/'
+          link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/',
+          githubLink: 'https://github.com/adam-on-developerakademie'
         }
       ]
     },

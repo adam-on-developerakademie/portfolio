@@ -25,7 +25,7 @@ export interface data {
         myWork: {
                 title: string[];
                 text: string[];
-                projects: { title: string[], used: string[], description: string[], image: string, link: string }[];
+                projects: { title: string[], used: string[], description: string[], image: string, link: string, githubLink: string }[];
 
         };
         teamPlayer: {
