@@ -229,8 +229,8 @@ $figma-white: #FFFFFF;
         transform: none;
         max-width: none;
         width: 100%;
-        height: 600px;
-        min-height: 600px;
+        height: var(--mobile-hero-height);
+        min-height: var(--mobile-hero-height);
 
         >.ball1 {
             width: 520px;
