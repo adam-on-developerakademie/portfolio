@@ -24,6 +24,8 @@
     margin: 0;
     transform-origin: top center;
     transform: translateX(-50%) scale(var(--scale, 1));
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 @media (max-width: 999px) {
