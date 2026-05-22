@@ -120,12 +120,14 @@ $teamplayerHeight: 532px;
 
 @media (max-width: 999px) {
     .teamPlayer {
-        top: 4720px;
-        height: 900px;
+        top: 4900px;
+        height: auto;
         left: 0;
+        padding: 24px 0 36px;
 
         >.teamPlayerHeader {
-            top: 24px;
+            position: relative;
+            top: 0;
 
             >.title {
                 position: relative;
@@ -146,10 +148,12 @@ $teamplayerHeight: 532px;
         }
 
         >.teamPlayerContent {
+            position: relative;
             width: calc(100% - 32px);
             height: auto;
-            top: 170px;
+            top: 0;
             left: 16px;
+            margin-top: 28px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -184,8 +188,7 @@ $teamplayerHeight: 532px;
 
 @media (max-width: 480px) {
     .teamPlayer {
-        top: 4820px;
-        height: 940px;
+        top: 5000px;
 
         >.teamPlayerHeader {
             >.title {
@@ -198,7 +201,7 @@ $teamplayerHeight: 532px;
         }
 
         >.teamPlayerContent {
-            top: 158px;
+            margin-top: 24px;
 
             >.opinion {
                 min-height: 240px;

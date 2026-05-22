@@ -399,13 +399,19 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
         left: 0;
         transform: none;
         width: 100%;
+        height: auto;
+        min-height: fit-content;
+        padding-top: $myWorkHeaderTopMobile;
+        overflow-x: hidden;
+        overflow-y: visible;
 
         >.myWorkHeader {
+            position: relative;
             left: 0;
-            top: $myWorkHeaderTopMobile;
+            top: 0;
             transform: none;
             width: 100%;
-            height: auto;
+            height: 210px;
 
             >.ball4 {
                 width: 45px;
@@ -435,8 +441,14 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
         }
 
         >.myWorkMain {
+            position: relative;
             width: 100%;
             left: 0;
+            top: 0;
+            height: auto;
+            margin-top: 12px;
+            overflow-x: hidden;
+            overflow-y: visible;
 
             >.ball5,
             >.ball6,
@@ -448,6 +460,9 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
             }
 
             >.myWorkProjects {
+                position: relative;
+                top: 0;
+                height: auto;
                 gap: 16px;
                 padding: 0 16px;
 
@@ -469,7 +484,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                     --bubble-left: -150px;
                     --bubble-right: auto;
                     --bubble-top: auto;
-                    --bubble-bottom: -100px;
+                    --bubble-bottom: -95px;
                     --bubble-rotate: calc(180deg - 81.57deg);
                 }
 
@@ -484,17 +499,23 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                 }
 
                 >div[data-project='DA Buble'] {
-                    --bubble-width: 160px;
-                    --bubble-height: 160px;
-                    --bubble-right: -10px;
-                    --bubble-bottom: -36px;
+                    --bubble-width: 134px;
+                    --bubble-height: 134px;
+                    --bubble-left: -16px;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: 60px;
+                    --bubble-rotate: calc(90deg - 81.57deg);
                 }
 
                 >div[data-project='Pokédex'] {
-                    --bubble-width: 176px;
-                    --bubble-height: 176px;
-                    --bubble-right: -24px;
-                    --bubble-bottom: -34px;
+                    --bubble-height: 269px;
+                    --bubble-width: 269px;
+                    --bubble-left: 200px;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: -75px;
+                    --bubble-rotate: calc(180deg - 81.57deg);
                 }
 
                 .myWorkProject {
@@ -532,7 +553,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
-                            border-radius: 16px;
+                            border-radius: 0;
                             position: relative;
                             z-index: 1;
                         }
