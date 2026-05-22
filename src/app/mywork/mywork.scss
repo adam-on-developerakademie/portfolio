@@ -474,10 +474,13 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                 }
 
                 >div[data-project='El Pollo Loco'] {
-                    --bubble-width: 188px;
-                    --bubble-height: 188px;
-                    --bubble-right: -30px;
-                    --bubble-bottom: -42px;
+                    --bubble-height: 269px;
+                    --bubble-width: 269px;
+                    --bubble-left: 200px;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: -75px;
+                    --bubble-rotate: calc(180deg - 81.57deg);
                 }
 
                 >div[data-project='DA Buble'] {
@@ -496,7 +499,9 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
 
                 .myWorkProject {
                     width: 100%;
+                    height: auto;
                     gap: 10px;
+                    padding-bottom: 50px;
 
                     >.myWorkProjectImage {
                         top: 0;
@@ -546,8 +551,8 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                         position: relative;
                         width: 100%;
                         height: auto;
-                        top: 0;
-                        padding-bottom: 0;
+                        top: 50px;
+                        padding-bottom: 60px;
                         row-gap: 14px;
 
                         >.myWorkProjectContentText {
@@ -570,6 +575,8 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                                 height: auto;
                                 font-size: 14px;
                                 line-height: 140%;
+                                padding-bottom: 24px;
+                                text-align: center;
                             }
                         }
 

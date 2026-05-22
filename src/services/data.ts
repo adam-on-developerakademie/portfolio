@@ -81,28 +81,28 @@ export class DATA {
         {
           title: ['Join', 'Join'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description: ['Description of Project 1', 'Beschreibung von Projekt 1'],
+          description: ['Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. '],
           image: 'Work1.png',
           link: 'https://join-1344.developerakademie.net/angular-projects/join2/login'
         },
         {
           title: ['El Pollo Loco', 'El Pollo Loco'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description: ['Description of Project 2', 'Beschreibung von Projekt 2'],
+          description: ['Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'],
           image: 'Work2.png',
           link: 'https://adam-piskorek.developerakademie.net/12_El_Pollo_Loco/'
         },
         {
           title: ['DA Buble', 'DA Buble'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description: ['Description of Project 3', 'Beschreibung von Projekt 3'],
+          description: ['A very Simple Customer Relationship Management system working with CRUD functionality. '],
           image: 'Work3.png',
           link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/'
         },
         {
           title: ['Pokédex', 'Pokédex'],
           used: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-          description: ['Description of Project 4', 'Beschreibung von Projekt 4'],
+          description: ['Based on the PokéAPI a simple library that provides and catalogues pokemon information.'],
           image: 'Work4.png',
           link: 'https://adam-piskorek.developerakademie.net/08_Pokedex/'
         }
