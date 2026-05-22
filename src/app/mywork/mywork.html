@@ -21,7 +21,6 @@
                     </div>
                     <div class="myWorkProjectContent">
                         <div class="myWorkProjectContentText">
-                            <div>
                                 <span class="myWorkProjectTitle">{{ project.title[myData.DATA.language] }}</span>
                                 <div class="myWorkProjectUsed">
                                     @for(tech of project.used; track tech ) {
@@ -29,7 +28,6 @@
                                         {{ tech }} @if ( !$last ){<span> | </span>}
                                     </span>}
                                 </div>
-                            </div>
                             <span class="myWorkProjectDescription">{{ project.description[myData.DATA.language]
                                 }}</span>
                         </div>
