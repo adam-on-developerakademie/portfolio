@@ -164,7 +164,7 @@ $skillSetHeight: 632px;
 
 @media (max-width: 999px) {
     .SkillSet {
-        top: 1620px;
+        top: var(--skillset-mobile-top, 1620px);
         left: 0;
         transform: none;
         max-width: none;

@@ -120,7 +120,7 @@ $teamplayerHeight: 532px;
 
 @media (max-width: 999px) {
     .teamPlayer {
-        top: 4900px;
+        top: var(--teamplayer-mobile-top, 4900px);
         height: auto;
         left: 0;
         padding: 24px 0 36px;
@@ -188,7 +188,7 @@ $teamplayerHeight: 532px;
 
 @media (max-width: 480px) {
     .teamPlayer {
-        top: 5000px;
+        top: var(--teamplayer-mobile-top, 5000px);
 
         >.teamPlayerHeader {
             >.title {

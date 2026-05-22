@@ -266,7 +266,7 @@ $aboutMeTopMobile: 800px;
 
 @media (max-width: 999px) {
     .letsWorkTogether {
-        top: $aboutMeTopMobile;
+        top: var(--aboutme-mobile-top, #{$aboutMeTopMobile});
         left: 0;
         transform: none;
         max-width: none;

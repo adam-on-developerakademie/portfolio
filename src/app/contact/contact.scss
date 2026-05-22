@@ -322,7 +322,7 @@ $topBall14: calc(6209px - $topBall );
 
 @media (max-width: 999px) {
     .contact {
-        top: 5960px;
+        top: var(--contact-mobile-top, 5960px);
         left: 0;
         max-width: none;
         width: 100%;
@@ -411,7 +411,7 @@ $topBall14: calc(6209px - $topBall );
 
 @media (max-width: 480px) {
     .contact {
-        top: 6100px;
+        top: var(--contact-mobile-top, 6100px);
         height: 920px;
         padding: 0 12px;
     }

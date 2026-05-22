@@ -303,6 +303,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                     justify-content: center;
                     width: auto;
                     flex: 0 0 auto;
+                    padding-top: 20px;
 
                     .myWorkProjectLink {
                         border: 2px solid #5988FF;
@@ -401,6 +402,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
         position: relative;
         display: flex;
         flex-direction: column;
+        top: var(--mywork-mobile-top, #{$myWorkTop});
         left: 0;
         transform: none;
         width: 100%;
