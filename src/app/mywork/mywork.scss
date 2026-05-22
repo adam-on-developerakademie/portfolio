@@ -309,6 +309,9 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                         border: 2px solid #5988FF;
                         border-radius: 10px;
                         height: 58px;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
                         font-family: 'Montserrat', sans-serif;
                         font-style: normal;
                         font-weight: 400;
@@ -318,9 +321,9 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                         white-space: nowrap;
                         color: #5988FF;
                         text-decoration: none;
-                        padding-top: 15px;
+                        padding-top: 0;
                         padding-right: 40px;
-                        padding-bottom: 15px;
+                        padding-bottom: 0;
                         padding-left: 40px;
                         gap: 10px;
 
@@ -617,9 +620,12 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                             justify-content: center;
 
                             .myWorkProjectLink {
-                                height: 46px;
+                                height: 42px;
                                 font-size: 16px;
-                                padding: 10px 30px 10px 30px;
+                                padding-top: 0;
+                                padding-right: 29px;
+                                padding-bottom: 0;
+                                padding-left: 29px;
 
                                 &:hover {
                                     transform: none;
