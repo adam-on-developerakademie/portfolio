@@ -451,6 +451,49 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                 gap: 16px;
                 padding: 0 16px;
 
+                >div {
+                    --bubble-width: 170px;
+                    --bubble-height: 170px;
+                    --bubble-left: auto;
+                    --bubble-right: -20px;
+                    --bubble-top: auto;
+                    --bubble-bottom: -36px;
+                    --bubble-rotate: 0deg;
+                }
+
+
+
+                >div[data-project='Join'] {
+                    --bubble-width: 223px;
+                    --bubble-height: 238px;
+                    --bubble-left: -150px;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: -100px;
+                    --bubble-rotate: calc(180deg - 81.57deg);
+                }
+
+                >div[data-project='El Pollo Loco'] {
+                    --bubble-width: 188px;
+                    --bubble-height: 188px;
+                    --bubble-right: -30px;
+                    --bubble-bottom: -42px;
+                }
+
+                >div[data-project='DA Buble'] {
+                    --bubble-width: 160px;
+                    --bubble-height: 160px;
+                    --bubble-right: -10px;
+                    --bubble-bottom: -36px;
+                }
+
+                >div[data-project='Pokédex'] {
+                    --bubble-width: 176px;
+                    --bubble-height: 176px;
+                    --bubble-right: -24px;
+                    --bubble-bottom: -34px;
+                }
+
                 .myWorkProject {
                     width: 100%;
                     gap: 10px;
@@ -459,13 +502,34 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                         top: 0;
                         width: 100%;
                         height: 210px;
+                        position: relative;
+                        isolation: isolate;
                         align-items: center;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: var(--bubble-width);
+                            height: var(--bubble-height);
+                            left: var(--bubble-left);
+                            right: var(--bubble-right);
+                            top: var(--bubble-top);
+                            bottom: var(--bubble-bottom);
+                            transform: rotate(var(--bubble-rotate));
+                            border-radius: 50%;
+                            background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+                                    #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+                            z-index: 0;
+                            pointer-events: none;
+                        }
 
                         >img {
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
                             border-radius: 16px;
+                            position: relative;
+                            z-index: 1;
                         }
 
                         &:hover {

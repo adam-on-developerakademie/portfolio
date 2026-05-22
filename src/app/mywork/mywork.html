@@ -14,7 +14,7 @@
 
         <div class="myWorkProjects">
             @for (project of myData.DATA.myWork.projects; track project.title ) {
-            <div>
+            <div [attr.data-project]="project.title[0]">
                 <div class="myWorkProject {{ $index % 2 === 0 ? 'directionNormal' : 'directionReverse' }}">
                     <div class="myWorkProjectImage">
                         <img [src]="'img/' + project.image" alt="project image">
