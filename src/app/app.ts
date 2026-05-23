@@ -11,4 +11,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('portfolio');
+
+  // Disables the native context menu app-wide as requested.
+  constructor() {
+    document.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+    });
+  }
 }
