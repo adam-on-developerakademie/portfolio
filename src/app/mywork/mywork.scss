@@ -225,6 +225,10 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                 align-items: end;
                 justify-content: center;
 
+                >img {
+                    box-shadow: 5px 5px 15px 0px #00000026;
+                }
+
                 &:hover {
                     align-items: start;
 
@@ -234,6 +238,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                         height: 425px;
                         gap: 10px;
                         z-index: -1;
+                        box-shadow: 5px 5px 15px 0px #00000026;
                     }
                 }
             }
@@ -520,13 +525,13 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                 }
 
                 >div[data-project='Pokédex'] {
-                    --bubble-height: 269px;
-                    --bubble-width: 269px;
-                    --bubble-left: 200px;
+                    --bubble-height: 30px;
+                    --bubble-width: 30px;
+                    --bubble-left: 101%;
                     --bubble-right: auto;
                     --bubble-top: auto;
-                    --bubble-bottom: -75px;
-                    --bubble-rotate: calc(180deg - 81.57deg);
+                    --bubble-bottom: -100px;
+                    --bubble-rotate: calc(90deg - 81.57deg);
                 }
 
                 .myWorkProject {
@@ -567,6 +572,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
                             border-radius: 0;
                             position: relative;
                             z-index: 1;
+                            box-shadow: 5px 5px 15px 0px #00000026;
                         }
 
                         &:hover {
