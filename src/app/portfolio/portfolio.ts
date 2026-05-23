@@ -67,6 +67,11 @@ export class Portfolio implements AfterViewInit {
         return;
       }
       this.applyMeasuredMobileOffsets();
+      requestAnimationFrame(() => {
+        if (window.innerWidth < 1000) {
+          this.applyMeasuredMobileOffsets();
+        }
+      });
     });
   }
 
@@ -137,5 +142,7 @@ export class Portfolio implements AfterViewInit {
     document.documentElement.style.removeProperty('--teamplayer-mobile-top');
     document.documentElement.style.removeProperty('--contact-mobile-top');
     document.documentElement.style.removeProperty('--footer-mobile-top');
+    document.documentElement.style.removeProperty('--teamplayer-top');
+    document.documentElement.style.removeProperty('--teamplayer-height');
   }
 }
