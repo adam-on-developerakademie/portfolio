@@ -7,9 +7,15 @@
         <div class="socials">
             @for(button of myData.DATA.footer.socialButtons.values; track button.name ) {
             <div class="button">
-                <a [href]="button.link" target="_blank" rel="noopener noreferrer">
-                    <img [src]="'ico/' + button.icon" [alt]="button.name" />
-                </a>
+                @if(button.name === 'LinkedIn' || button.name === 'Facebook') {
+                    <a routerLink="/social-media-notice">
+                        <img [src]="'ico/' + button.icon" [alt]="button.name" />
+                    </a>
+                } @else {
+                    <a [href]="button.link" target="_blank" rel="noopener noreferrer">
+                        <img [src]="'ico/' + button.icon" [alt]="button.name" />
+                    </a>
+                }
             </div>
             }
         </div>

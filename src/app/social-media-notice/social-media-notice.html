@@ -1,0 +1,43 @@
+<div class="legal-page">
+  <header class="legal-header">
+    <a href="/" class="back-link">← Back to Portfolio</a>
+  </header>
+
+  <main class="legal-content">
+    <h1>{{ myData.DATA.language === 0 ? 'Social Media Notice' : 'Hinweis zu Social Media' }}</h1>
+
+    @if(myData.DATA.language === 0) {
+      <section>
+        <h2>Why no social media profile?</h2>
+        <p>
+          I intentionally do not maintain active social media profiles for professional communication.
+          This decision helps me stay focused, protect privacy, and keep communication direct and purposeful.
+        </p>
+      </section>
+      <section>
+        <h2>How to reach me</h2>
+        <p>
+          For project requests or collaboration, please contact me directly via email:
+          <strong>adam.piskorek@gmx.com</strong>
+        </p>
+      </section>
+    }
+
+    @if(myData.DATA.language === 1) {
+      <section>
+        <h2>Warum kein Social-Media-Profil?</h2>
+        <p>
+          Ich nutze bewusst keine aktiven Social-Media-Profile fur die berufliche Kommunikation.
+          Diese Entscheidung hilft mir, fokussiert zu bleiben, Privatsphare zu schutzen und den Austausch direkt zu halten.
+        </p>
+      </section>
+      <section>
+        <h2>Kontakt</h2>
+        <p>
+          Fur Projektanfragen oder Zusammenarbeit kontaktieren Sie mich bitte direkt per E-Mail:
+          <strong>adam.piskorek@gmx.com</strong>
+        </p>
+      </section>
+    }
+  </main>
+</div>

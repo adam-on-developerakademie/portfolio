@@ -19,6 +19,11 @@
 				<app-legal-notice></app-legal-notice>
 			</div>
 		}
+		@if (overlayPage() === 'social') {
+			<div class="legal-overlay-panel">
+				<app-social-media-notice></app-social-media-notice>
+			</div>
+		}
 		<app-footer></app-footer>
 	</div>
 </div>

@@ -11,11 +11,12 @@ import { Contact } from '../contact/contact';
 import { Footer } from '../footer/footer';
 import { PrivacyPolicy } from '../privacy-policy/privacy-policy';
 import { LegalNotice } from '../legal-notice/legal-notice';
+import { SocialMediaNotice } from '../social-media-notice/social-media-notice';
 
 
 @Component({
   selector: 'app-portfolio',
-  imports: [ Header, Main, Aboutme, SkillSet, MyWork, TeamPlayer, Contact, Footer, PrivacyPolicy, LegalNotice],
+  imports: [Header, Main, Aboutme, SkillSet, MyWork, TeamPlayer, Contact, Footer, PrivacyPolicy, LegalNotice, SocialMediaNotice],
   host: {
     '(window:resize)': 'updateScale()'
   },
@@ -28,7 +29,7 @@ export class Portfolio implements AfterViewInit {
   readonly canvasHeight = signal(6587);
   readonly canvasWidth = signal(1440);
   readonly scale = signal(1);
-  readonly overlayPage = signal<'none' | 'privacy' | 'legal'>('none');
+  readonly overlayPage = signal<'none' | 'privacy' | 'legal' | 'social'>('none');
   readonly isOverlayOpen = computed(() => this.overlayPage() !== 'none');
   private readonly mobileSectionGap = 24;
   private mobileGaps: {
@@ -199,6 +200,11 @@ export class Portfolio implements AfterViewInit {
     }
     if (path === '/legal-notice') {
       this.overlayPage.set('legal');
+      this.scrollToTop();
+      return;
+    }
+    if (path === '/social-media-notice') {
+      this.overlayPage.set('social');
       this.scrollToTop();
       return;
     }

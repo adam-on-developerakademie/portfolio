@@ -5,5 +5,6 @@ import { Portfolio } from './portfolio/portfolio';
 export const routes: Routes = [
   { path: '', component: Portfolio },
   { path: 'privacy-policy', component: Portfolio },
-  { path: 'legal-notice', component: Portfolio }
+  { path: 'legal-notice', component: Portfolio },
+  { path: 'social-media-notice', component: Portfolio }
 ];
