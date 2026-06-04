@@ -127,7 +127,10 @@ $topBall14: calc(6209px - $topBall );
         .fieldWrapper {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 0;
+            min-height: 100px;
+            position: relative;
+            padding-bottom: 22px;
         }
 
         .field {
@@ -162,11 +165,15 @@ $topBall14: calc(6209px - $topBall );
 
         // Error message displayed below invalid fields.
         .errorText {
+            position: absolute;
+            left: 4px;
+            bottom: 0;
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
             color: #e74c3c;
             line-height: 120%;
-            padding-left: 4px;
+            padding-left: 0;
+            pointer-events: none;
         }
 
         // Success message displayed after form submission.
@@ -179,6 +186,19 @@ $topBall14: calc(6209px - $topBall );
             font-family: 'Montserrat', sans-serif;
             font-size: 16px;
             color: #155724;
+            line-height: 120%;
+        }
+
+        // Error message shown when backend submission fails.
+        .errorBanner {
+            background-color: #fff5f5;
+            border: 1px solid #e74c3c;
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: #b71c1c;
             line-height: 120%;
         }
 
@@ -199,6 +219,15 @@ $topBall14: calc(6209px - $topBall );
             }
         }
 
+        .policyWrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            min-height: 50px;
+            position: relative;
+            padding-bottom: 22px;
+        }
+
         .submitButton {
             align-self: center;
             border: 2px solid #5988FF;
@@ -211,18 +240,46 @@ $topBall14: calc(6209px - $topBall );
             line-height: 120%;
             padding: 15px 30px;
             cursor: pointer;
-            transition: transform 0.2s ease, opacity 0.2s ease;
+            transform-origin: top left;
+            transition-property: transform;
+            transition-timing-function: ease-in-out;
+            transition-duration: 0.3s;
 
             &:hover:not(:disabled) {
-                transform: scale(1.04);
+                cursor: pointer;
+                position: relative;
+                transform: scale(1.2);
+                animation-name: colorize;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+                animation-duration: 0.15s;
+                animation-iteration-count: 1;
+                box-shadow: 5px 5px 15px 0px #00000026;
             }
 
-            // Disabled state: grayed out and no hover effect.
-            &:disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-                border-color: #999;
-                color: #999;
+            // Inactive visual state while keeping click available for validation feedback.
+            &.inactive {
+                cursor: pointer;
+                border-color: #5988FF;
+                color: #5988FF;
+                background: #ffffff;
+                opacity: 1;
+            }
+
+            @keyframes colorize {
+                0% {
+                    background: linear-gradient(104.85deg, #5988FF -90.22%, #5988FF -49.45%, #0043F0 27.88%, #FFFFFF 33.64%, #FFFFFF 39.44%, #FFFFFF 90.08%);
+                }
+
+                50% {
+                    background: linear-gradient(104.4deg, #5988FF 9.21%, #5988FF 27.52%, #0043F0 62.24%, #FFFFFF 64.83%, #FFFFFF 67.43%, #FFFFFF 90.18%);
+                }
+
+                100% {
+                    background: radial-gradient(74.22% 74.22% at 19.79% 22.42%, #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+                    color: white;
+                    border: none;
+                }
             }
         }
     }

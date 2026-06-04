@@ -138,6 +138,37 @@ export class DATA {
       ask: ['Got a problem to solve?', 'Haben Sie ein Problem zu lösen?'],
       description: ['I am always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out!', 'Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Visionen zu sein. Zögern Sie nicht, mich zu kontaktieren!'],
       contactMe: [['Need a Frontend developer?', 'Brauchen Sie einen Frontend-Entwickler?'], ['Contact me!', 'Kontaktieren Sie mich!']],
+      form: {
+        placeholders: {
+          name: ['Your name', 'Dein Name'],
+          email: ['Your email', 'Deine E-Mail'],
+          message: ['Your message', 'Deine Nachricht']
+        },
+        privacy: [
+          'I have read the privacy policy and agree to the processing of my data as outlined.',
+          'Ich habe die Datenschutzerklärung gelesen und stimme der beschriebenen Verarbeitung meiner Daten zu.'
+        ],
+        success: [
+          'Message sent successfully.',
+          'Danke! Deine Nachricht wurde erfolgreich gesendet.'
+        ],
+        error: [
+          'Sorry, your message could not be sent. Please try again.',
+          'Leider konnte deine Nachricht nicht gesendet werden. Bitte versuche es erneut.'
+        ],
+        button: {
+          idle: ['Say hello ;)', 'Sag hallo ;)'],
+          sending: ['Sending...', 'Wird gesendet...'],
+          success: ['Message sent successfully.', 'Senden erfolgreich']
+        },
+        validation: {
+          required: ['This field is required', 'Dieses Feld ist erforderlich'],
+          minlengthPrefix: ['Minimum ', 'Mindestens '],
+          minlengthSuffix: [' characters', ' Zeichen'],
+          email: ['Please enter a valid email', 'Bitte gib eine gültige E-Mail-Adresse ein'],
+          invalid: ['Invalid input', 'Ungültige Eingabe']
+        }
+      },
     },
     legalNotice: {
       name: ['Adam Piskorek', 'Adam Piskorek'],

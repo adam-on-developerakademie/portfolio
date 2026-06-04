@@ -12,6 +12,19 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## SMTP Contact Form
+
+The contact form sends messages through a local API server that reads SMTP credentials from `.env`.
+
+1. Ensure `.env` exists and contains valid SMTP values.
+2. Run frontend and API together:
+
+```bash
+npm run start:all
+```
+
+The Angular dev server proxies `/api/*` calls to `http://localhost:3001`.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:

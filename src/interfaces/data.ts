@@ -38,6 +38,20 @@ export interface data {
                 ask: string[];
                 description: string[];
                 contactMe: string[][];
+                form: {
+                        placeholders: { name: string[]; email: string[]; message: string[] };
+                        privacy: string[];
+                        success: string[];
+                        error: string[];
+                        button: { idle: string[]; sending: string[]; success: string[] };
+                        validation: {
+                                required: string[];
+                                minlengthPrefix: string[];
+                                minlengthSuffix: string[];
+                                email: string[];
+                                invalid: string[];
+                        };
+                };
         };
         legalNotice: {
                 name: string[];

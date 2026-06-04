@@ -26,7 +26,7 @@ import { SocialMediaNotice } from '../social-media-notice/social-media-notice';
 })
 export class Portfolio implements AfterViewInit, OnDestroy {
   private readonly router = inject(Router);
-  readonly canvasHeight = signal(6587);
+  readonly canvasHeight = signal(6627);
   readonly canvasWidth = signal(1440);
   readonly scale = signal(1);
   readonly overlayPage = signal<'none' | 'privacy' | 'legal' | 'social'>('none');
@@ -105,7 +105,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
       return;
     }
     this.canvasWidth.set(1440);
-    this.canvasHeight.set(6587);
+    this.canvasHeight.set(6627);
     this.scale.set(Math.min(1, window.innerWidth / 1440));
     this.clearMobileOffsetVars();
   }

@@ -12,14 +12,7 @@
         <a class="contactMe"
             href="mailto:adam.piskorek@gmx.com">{{myData.DATA.contact.contactMe[0][myData.DATA.language]}} <span>{{myData.DATA.contact.contactMe[1][myData.DATA.language]}}</span></a>
 
-        <!-- Success message displayed after successful form submission. -->
-        @if(submissionSuccess) {
-            <div class="successMessage">
-                <p>Thank you! Your message has been sent successfully.</p>
-            </div>
-        }
-
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contactForm" novalidate>
+        <form [formGroup]="contactForm" class="contactForm" novalidate>
             <!-- Name input field with blur validation and error display. -->
             <div class="fieldWrapper">
                 <input 
@@ -27,7 +20,7 @@
                     [class.error]="hasError('name')"
                     type="text" 
                     formControlName="name"
-                    placeholder="Your name" />
+                    [placeholder]="myData.DATA.contact.form.placeholders.name[myData.DATA.language]" />
                 @if(hasError('name')) {
                     <span class="errorText">{{getErrorMessage('name')}}</span>
                 }
@@ -40,7 +33,7 @@
                     [class.error]="hasError('email')"
                     type="email" 
                     formControlName="email"
-                    placeholder="Your email" />
+                    [placeholder]="myData.DATA.contact.form.placeholders.email[myData.DATA.language]" />
                 @if(hasError('email')) {
                     <span class="errorText">{{getErrorMessage('email')}}</span>
                 }
@@ -52,29 +45,32 @@
                     class="field message" 
                     [class.error]="hasError('message')"
                     formControlName="message"
-                    placeholder="Your message"></textarea>
+                    [placeholder]="myData.DATA.contact.form.placeholders.message[myData.DATA.language]"></textarea>
                 @if(hasError('message')) {
                     <span class="errorText">{{getErrorMessage('message')}}</span>
                 }
             </div>
 
             <!-- Privacy policy checkbox required for form submission. -->
-            <label class="policyRow">
-                <input 
-                    type="checkbox" 
-                    formControlName="privacy" />
-                <span>I have read the privacy policy and agree to the processing of my data as outlined.</span>
-            </label>
-            @if(contactForm.get('privacy')?.invalid && (contactForm.get('privacy')?.dirty || contactForm.get('privacy')?.touched)) {
-                <span class="errorText">Please agree to the privacy policy</span>
-            }
+            <div class="policyWrapper">
+                <label class="policyRow">
+                    <input 
+                        type="checkbox" 
+                        formControlName="privacy" />
+                    <span>{{myData.DATA.contact.form.privacy[myData.DATA.language]}}</span>
+                </label>
+                @if(contactForm.get('privacy')?.invalid && (contactForm.get('privacy')?.dirty || contactForm.get('privacy')?.touched)) {
+                    <span class="errorText">{{myData.DATA.contact.form.validation.required[myData.DATA.language]}}</span>
+                }
+            </div>
 
             <!-- Submit button disabled until form is completely valid. -->
             <button 
-                type="submit" 
+                type="button" 
+                (click)="onSubmit()"
                 class="submitButton"
-                [disabled]="contactForm.invalid">
-                Say hello ;)
+                [class.inactive]="contactForm.invalid">
+                {{ getSubmitButtonLabel() }}
             </button>
         </form>
     </div>
