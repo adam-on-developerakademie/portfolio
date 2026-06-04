@@ -84,6 +84,15 @@
     padding-bottom: 24px;
 }
 
+:host ::ng-deep .portfolio-canvas.overlay-mode .legal-page p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+:host ::ng-deep .portfolio-canvas.overlay-mode .legal-page h1,
+:host ::ng-deep .portfolio-canvas.overlay-mode .legal-page h2 {
+    font-family: 'Baloo2', sans-serif;
+}
+
 :host ::ng-deep .portfolio-canvas.overlay-mode .legal-header {
     display: none;
 }
