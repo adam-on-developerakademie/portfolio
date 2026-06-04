@@ -32,7 +32,9 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   readonly overlayPage = signal<'none' | 'privacy' | 'legal' | 'social'>('none');
   readonly isOverlayOpen = computed(() => this.overlayPage() !== 'none');
   private overlayResizeObserver: ResizeObserver | null = null;
+  private observedOverlayHeader: HTMLElement | null = null;
   private observedOverlayPanel: HTMLElement | null = null;
+  private observedOverlayFooter: HTMLElement | null = null;
   private readonly mobileSectionGap = 24;
   private mobileGaps: {
     heroToAbout: number;
@@ -206,34 +208,48 @@ export class Portfolio implements AfterViewInit, OnDestroy {
       return;
     }
     requestAnimationFrame(() => {
-      const panel = this.getElement('.legal-overlay-panel .legal-page');
-      if (!panel) {
-        return;
-      }
-      this.startOverlayObserver(panel);
+      this.startOverlayObserver();
     });
   }
 
-  // Starts observing overlay panel height changes to keep footer fully visible.
-  private startOverlayObserver(panel: HTMLElement) {
-    if (this.observedOverlayPanel === panel && this.overlayResizeObserver) {
+  // Starts observing overlay section size changes to keep footer fully visible.
+  private startOverlayObserver() {
+    const header = this.getElement('app-header header');
+    const panel = this.getElement('.legal-overlay-panel .legal-page');
+    const footer = this.getElement('app-footer .footer');
+    if (!header || !panel || !footer) {
+      return;
+    }
+    const isSameTargets =
+      this.observedOverlayHeader === header &&
+      this.observedOverlayPanel === panel &&
+      this.observedOverlayFooter === footer;
+    if (isSameTargets && this.overlayResizeObserver) {
       return;
     }
     this.stopOverlayObserver();
+    this.observedOverlayHeader = header;
     this.observedOverlayPanel = panel;
+    this.observedOverlayFooter = footer;
     this.overlayResizeObserver = new ResizeObserver(() => this.syncOverlayHeight());
+    this.overlayResizeObserver.observe(header);
     this.overlayResizeObserver.observe(panel);
+    this.overlayResizeObserver.observe(footer);
   }
 
   // Stops active overlay resize observation.
   private stopOverlayObserver() {
     if (!this.overlayResizeObserver) {
+      this.observedOverlayHeader = null;
       this.observedOverlayPanel = null;
+      this.observedOverlayFooter = null;
       return;
     }
     this.overlayResizeObserver.disconnect();
     this.overlayResizeObserver = null;
+    this.observedOverlayHeader = null;
     this.observedOverlayPanel = null;
+    this.observedOverlayFooter = null;
   }
 
   // Synchronizes overlay mode with current route path.
