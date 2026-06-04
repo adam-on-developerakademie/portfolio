@@ -47,6 +47,9 @@ export class Portfolio implements AfterViewInit {
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe(() => {
         this.syncOverlayFromUrl();
+        if (this.isOverlayOpen()) {
+          this.scrollToTop();
+        }
         this.updateScale();
       });
     this.updateScale();
@@ -191,13 +194,28 @@ export class Portfolio implements AfterViewInit {
     const path = this.router.url.split('?')[0];
     if (path === '/privacy-policy') {
       this.overlayPage.set('privacy');
+      this.scrollToTop();
       return;
     }
     if (path === '/legal-notice') {
       this.overlayPage.set('legal');
+      this.scrollToTop();
       return;
     }
     this.overlayPage.set('none');
+  }
+
+  // Resets viewport and container scroll position when legal overlays are opened.
+  private scrollToTop() {
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      const page = this.getElement('.portfolio-page');
+      if (page) {
+        page.scrollTop = 0;
+      }
+    });
   }
 
   // Removes runtime mobile top variables when desktop layout is active.
