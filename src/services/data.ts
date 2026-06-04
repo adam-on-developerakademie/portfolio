@@ -140,8 +140,7 @@ export class DATA {
       contactMe: [['Need a Frontend developer?', 'Brauchen Sie einen Frontend-Entwickler?'], ['Contact me!', 'Kontaktieren Sie mich!']],
     },
     footer: {
-      developer: ['© Adam Piskorek 2025', '© Adam Piskorek 2025'],
-      impressum: ['Legal Notice', 'Impressum'],
+      developer: ['© Adam Piskorek 2026', '© Adam Piskorek 2026'],
       socialButtons: {
         values: [
           { name: 'GitHub', icon: 'Github_button.png', link: 'https://github.com/adam-on-developerakademie' },

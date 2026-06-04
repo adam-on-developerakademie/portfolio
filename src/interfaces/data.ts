@@ -40,7 +40,6 @@ export interface data {
                 contactMe: string[][];
         };
         footer: { developer: string[],
-                 impressum: string[],
                 socialButtons: { values: { name: string, icon: string, link: string }[] }
         };
 }              

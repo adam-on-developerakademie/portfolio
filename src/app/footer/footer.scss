@@ -86,11 +86,10 @@ $footerTop: 6298px;
         color: white;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 12px;
 
         .impressum {
-            //border: 1px solid yellow;
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
             font-size: 16px;
@@ -98,10 +97,11 @@ $footerTop: 6298px;
             line-height: 120%;
             text-align: start;
             margin: 0;
+            
         }
 
         // Navigation links to legal pages with proper styling.
-        .legalLinks {
+        .impressum {
             display: flex;
             gap: 12px;
             align-items: center;
@@ -109,13 +109,55 @@ $footerTop: 6298px;
             font-size: 14px;
 
             a {
+                position: relative;
+                display: inline-block;
                 color: white;
                 text-decoration: none;
-                transition: opacity 0.2s ease;
+                font-weight: 400;
+                line-height: 120%;
+                padding-bottom: 6px;
+                transition: color 0.3s ease, text-shadow 0.3s ease;
 
-                &:hover {
-                    opacity: 0.8;
-                    text-decoration: underline;
+                &::before {
+                    // Reserves the bold width to prevent layout shift on hover.
+                    content: attr(data-text);
+                    display: block;
+                    height: 0;
+                    overflow: hidden;
+                    visibility: hidden;
+                    font-weight: 700;
+                    white-space: nowrap;
+                    pointer-events: none;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    height: 2px;
+                    width: 0;
+                    border-radius: 999px;
+                    background: #ffffff;
+                    opacity: 0;
+                    transition: width 0.32s ease, left 0.32s ease, opacity 0.22s ease;
+                }
+
+                &:visited {
+                    color: white;
+                }
+
+                &:hover,
+                &:focus-visible {
+                    color: rgba(255, 255, 255, 0.92);
+                    font-weight: 700;
+                    text-shadow: 0 0 0.01px #ffffff;
+
+                    &::after {
+                        width: 62%;
+                        left: 19%;
+                        opacity: 1;
+                    }
                 }
             }
 
@@ -134,6 +176,11 @@ $footerTop: 6298px;
         width: 100%;
         height: 360px;
         padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 22px;
 
         .footerTop {
             position: relative;
@@ -143,7 +190,8 @@ $footerTop: 6298px;
             width: 100%;
             height: auto;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
             gap: 18px;
 
             img {
@@ -152,7 +200,7 @@ $footerTop: 6298px;
 
             .middle {
                 width: 100%;
-                text-align: left;
+                text-align: center;
 
                 .developer {
                     font-size: 18px;
@@ -162,6 +210,7 @@ $footerTop: 6298px;
             .socials {
                 width: 150px;
                 height: 32px;
+                margin: 0 auto;
 
                 img {
                     height: 28px;
@@ -176,20 +225,22 @@ $footerTop: 6298px;
 
         .footerBottom {
             position: relative;
-            top: 30px;
+            top: 0;
             left: 0;
             max-width: none;
             width: 100%;
             padding: 0;
             white-space: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             .impressum {
-                font-size: 14px;
-            }
-
-            .legalLinks {
                 font-size: 13px;
                 flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
             }
         }
     }
@@ -210,7 +261,7 @@ $footerTop: 6298px;
         }
 
         .footerBottom {
-            .legalLinks {
+            .impressum {
                 gap: 8px;
             }
         }

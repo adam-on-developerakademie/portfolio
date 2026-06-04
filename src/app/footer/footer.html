@@ -15,15 +15,17 @@
         </div>
     </div>
     <div class="footerBottom">
-        <h3 class="impressum">{{myData.DATA.footer.impressum[myData.DATA.language]}}</h3>
-        
         <!-- Legal navigation links to privacy and legal notice pages. -->
-        <nav class="legalLinks">
-            <a routerLink="/privacy-policy">
+        <nav class="impressum">
+            <a
+                routerLink="/privacy-policy"
+                [attr.data-text]="myData.DATA.language === 0 ? 'Privacy Policy' : 'Datenschutz'">
                 {{ myData.DATA.language === 0 ? 'Privacy Policy' : 'Datenschutz' }}
             </a>
             <span class="separator">/</span>
-            <a routerLink="/legal-notice">
+            <a
+                routerLink="/legal-notice"
+                [attr.data-text]="myData.DATA.language === 0 ? 'Legal Notice' : 'Impressum'">
                 {{ myData.DATA.language === 0 ? 'Legal Notice' : 'Impressum' }}
             </a>
         </nav>
