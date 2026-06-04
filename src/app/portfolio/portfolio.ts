@@ -1,4 +1,6 @@
-import { Component, signal, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
+import { Component, signal, computed, ChangeDetectionStrategy, AfterViewInit, inject } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { Header } from "../header/header";
 import { Main } from '../main/main';
 import { Aboutme } from '../aboutme/aboutme';
@@ -7,11 +9,13 @@ import { MyWork } from '../mywork/mywork';
 import { TeamPlayer } from '../teamplayer/teamplayer';  
 import { Contact } from '../contact/contact';
 import { Footer } from '../footer/footer';
+import { PrivacyPolicy } from '../privacy-policy/privacy-policy';
+import { LegalNotice } from '../legal-notice/legal-notice';
 
 
 @Component({
   selector: 'app-portfolio',
-  imports: [ Header, Main, Aboutme, SkillSet, MyWork, TeamPlayer, Contact, Footer],
+  imports: [ Header, Main, Aboutme, SkillSet, MyWork, TeamPlayer, Contact, Footer, PrivacyPolicy, LegalNotice],
   host: {
     '(window:resize)': 'updateScale()'
   },
@@ -20,9 +24,12 @@ import { Footer } from '../footer/footer';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Portfolio implements AfterViewInit {
+  private readonly router = inject(Router);
   readonly canvasHeight = signal(6587);
   readonly canvasWidth = signal(1440);
   readonly scale = signal(1);
+  readonly overlayPage = signal<'none' | 'privacy' | 'legal'>('none');
+  readonly isOverlayOpen = computed(() => this.overlayPage() !== 'none');
   private readonly mobileSectionGap = 24;
   private mobileGaps: {
     heroToAbout: number;
@@ -35,16 +42,44 @@ export class Portfolio implements AfterViewInit {
 
   // Initializes responsive canvas scale at component startup.
   constructor() {
+    this.syncOverlayFromUrl();
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.syncOverlayFromUrl();
+        this.updateScale();
+      });
     this.updateScale();
   }
 
   // Initializes runtime mobile offsets after first render.
   ngAfterViewInit() {
-    this.syncMobileOffsets();
+    if (this.isOverlayOpen()) {
+      this.syncOverlayHeight();
+      return;
+    }
+    if (!this.isOverlayOpen()) {
+      this.syncMobileOffsets();
+    }
   }
 
   // Updates the desktop canvas scale to fit narrower viewports without clipping.
   updateScale() {
+    if (this.isOverlayOpen()) {
+      const isMobileViewport = window.innerWidth < 1000;
+      if (isMobileViewport) {
+        const mobileScale = Math.min(1, window.innerWidth / 390);
+        this.canvasWidth.set(390);
+        this.scale.set(mobileScale);
+      } else {
+        this.canvasWidth.set(1440);
+        this.scale.set(Math.min(1, window.innerWidth / 1440));
+      }
+      this.canvasHeight.set(1200);
+      this.syncOverlayHeight();
+      this.clearMobileOffsetVars();
+      return;
+    }
     const isMobileViewport = window.innerWidth < 1000;
     if (isMobileViewport) {
       const mobileScale = Math.min(1, window.innerWidth / 390);
@@ -131,6 +166,38 @@ export class Portfolio implements AfterViewInit {
   // Returns the first matching HTMLElement for a selector.
   private getElement(selector: string) {
     return document.querySelector(selector) as HTMLElement | null;
+  }
+
+  // Sizes overlay canvas from real content so footer stays at viewport bottom without extra gap.
+  private syncOverlayHeight() {
+    requestAnimationFrame(() => {
+      if (!this.isOverlayOpen()) {
+        return;
+      }
+      const header = this.getElement('app-header header');
+      const panel = this.getElement('.legal-overlay-panel .legal-page');
+      const footer = this.getElement('app-footer .footer');
+      if (!header || !panel || !footer) {
+        return;
+      }
+      const totalContentHeight = header.offsetHeight + panel.offsetHeight + footer.offsetHeight;
+      const minHeightForViewport = window.innerHeight / Math.max(this.scale(), 0.01);
+      this.canvasHeight.set(Math.ceil(Math.max(totalContentHeight, minHeightForViewport)));
+    });
+  }
+
+  // Synchronizes overlay mode with current route path.
+  private syncOverlayFromUrl() {
+    const path = this.router.url.split('?')[0];
+    if (path === '/privacy-policy') {
+      this.overlayPage.set('privacy');
+      return;
+    }
+    if (path === '/legal-notice') {
+      this.overlayPage.set('legal');
+      return;
+    }
+    this.overlayPage.set('none');
   }
 
   // Removes runtime mobile top variables when desktop layout is active.

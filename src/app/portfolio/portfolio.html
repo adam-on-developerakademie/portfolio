@@ -1,12 +1,24 @@
-<div class="portfolio-page" [style.--scale]="scale()" [style.--canvas-width]="canvasWidth()" [style.--canvas-height]="canvasHeight()" [style.--canvas-scaled-height.px]="canvasHeight() * scale()">
-	<div class="portfolio-canvas">
+<div class="portfolio-page" [class.overlay-open]="isOverlayOpen()" [style.--scale]="scale()" [style.--canvas-width]="canvasWidth()" [style.--canvas-height]="canvasHeight()" [style.--canvas-scaled-height.px]="canvasHeight() * scale()">
+	<div class="portfolio-canvas" [class.overlay-mode]="isOverlayOpen()">
 		<app-header></app-header>
-		<app-main></app-main>
-		<app-aboutme></app-aboutme>
-		<app-skillset></app-skillset>
-		<app-mywork></app-mywork>
-		<app-teamplayer></app-teamplayer>
-		<app-contact></app-contact>
+		@if (!isOverlayOpen()) {
+			<app-main></app-main>
+			<app-aboutme></app-aboutme>
+			<app-skillset></app-skillset>
+			<app-mywork></app-mywork>
+			<app-teamplayer></app-teamplayer>
+			<app-contact></app-contact>
+		}
+		@if (overlayPage() === 'privacy') {
+			<div class="legal-overlay-panel">
+				<app-privacy-policy></app-privacy-policy>
+			</div>
+		}
+		@if (overlayPage() === 'legal') {
+			<div class="legal-overlay-panel">
+				<app-legal-notice></app-legal-notice>
+			</div>
+		}
 		<app-footer></app-footer>
 	</div>
 </div>

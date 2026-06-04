@@ -16,6 +16,13 @@
     background-color: #ffffff;
 }
 
+.portfolio-page.overlay-open {
+    min-height: 100vh;
+    height: var(--canvas-scaled-height, 100vh);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 .portfolio-canvas {
     position: absolute;
     top: 0;
@@ -29,13 +36,102 @@
     will-change: transform;
 }
 
+.portfolio-canvas.overlay-mode {
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: calc(var(--canvas-width) * 1px);
+    max-width: none;
+    transform-origin: top center;
+    transform: translateX(-50%) scale(var(--scale, 1));
+    height: calc(var(--canvas-height) * 1px);
+    min-height: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.legal-overlay-panel {
+    position: relative;
+    z-index: 1;
+    flex: 1 0 auto;
+}
+
+.portfolio-canvas.overlay-mode > app-footer {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+}
+
+:host ::ng-deep .portfolio-canvas.overlay-mode app-header header {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 1440px;
+    width: 100%;
+}
+
+:host ::ng-deep .portfolio-canvas.overlay-mode app-header .aboutMe,
+:host ::ng-deep .portfolio-canvas.overlay-mode app-header .skillSet,
+:host ::ng-deep .portfolio-canvas.overlay-mode app-header .myWork {
+    display: none;
+}
+
+:host ::ng-deep .portfolio-canvas.overlay-mode .legal-page {
+    min-height: auto;
+    background: #ffffff;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+:host ::ng-deep .portfolio-canvas.overlay-mode .legal-header {
+    display: none;
+}
+
+:host ::ng-deep .portfolio-canvas.overlay-mode app-footer .footer {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: none;
+    width: 100%;
+}
+
 @media (max-width: 999px) {
     .portfolio-page {
         height: var(--canvas-scaled-height, 7120px);
     }
 
+    .portfolio-page.overlay-open {
+        min-height: 100vh;
+        height: var(--canvas-scaled-height, 100vh);
+    }
+
     .portfolio-canvas {
         left: 50%;
         transform: translateX(-50%) scale(var(--scale, 1));
+    }
+
+    :host ::ng-deep .portfolio-canvas.overlay-mode app-header header {
+        max-width: none;
+    }
+
+    .portfolio-canvas.overlay-mode {
+        position: relative;
+        top: 0;
+        left: 50%;
+        width: calc(var(--canvas-width) * 1px);
+        height: calc(var(--canvas-height) * 1px);
+        min-height: 0;
+        margin: 0;
+        max-width: none;
+        transform-origin: top center;
+        transform: translateX(-50%) scale(var(--scale, 1));
+    }
+
+    :host ::ng-deep .portfolio-canvas.overlay-mode app-footer .footer .footerTop,
+    :host ::ng-deep .portfolio-canvas.overlay-mode app-footer .footer .footerBottom {
+        left: 0;
+        right: 0;
+        width: 100%;
     }
 }

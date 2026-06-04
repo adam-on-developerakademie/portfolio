@@ -1,5 +1,6 @@
 import { Component, inject, ChangeDetectionStrategy, signal, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { DATA } from '../../services/data';
 
 @Component({
@@ -13,6 +14,7 @@ export class Header implements OnDestroy {
 
   // Provides shared data service access for header rendering and interactions.
   myData = inject(DATA);
+  private readonly router = inject(Router);
   readonly mobileMenuVisible = signal(false);
   readonly mobileMenuPhase = signal<'closed' | 'opening' | 'open' | 'closing'>('closed');
   readonly mobileButtonState = signal<'normal' | 'medium-normal' | 'close' | 'medium-close'>('normal');
@@ -59,6 +61,14 @@ export class Header implements OnDestroy {
     return `ico/burger-${this.mobileButtonState()}.png`;
   }
 
+  // Returns the correct desktop logo variant for the current page background.
+  logoSrc() {
+    if (this.router.url === '/privacy-policy' || this.router.url === '/legal-notice') {
+      return 'ico/AP.png';
+    }
+    return 'ico/AP_bgw.png';
+  }
+
   // Clears pending overlay timer before starting a new state transition.
   clearOverlayTimer() {
     if (this.overlayTimer) {
@@ -87,8 +97,8 @@ export class Header implements OnDestroy {
   // Resolves a section id from the DOM and scrolls to it smoothly.
   goToOld(elementId: string) {
     const element: HTMLElement = document.getElementById(elementId) as HTMLElement;
-    element.id = elementId;
     if (element) {
+      element.id = elementId;
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
@@ -96,8 +106,16 @@ export class Header implements OnDestroy {
   // Navigates to a section and closes the mobile menu when needed.
   navigateToSection(section: string) {
     this.setUnderline(section);
-    this.goToOld(section);
-    this.closeMobileMenu();
+    if (this.router.url !== '/') {
+      this.router.navigateByUrl('/').then(() => {
+        setTimeout(() => this.goToOld(section), 0);
+      });
+    } else {
+      this.goToOld(section);
+    }
+    if (this.mobileMenuPhase() !== 'closed') {
+      this.closeMobileMenu();
+    }
   }
 
   // Updates current app language from desktop or mobile controls.
