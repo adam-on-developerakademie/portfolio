@@ -139,6 +139,17 @@ export class DATA {
       description: ['I am always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out!', 'Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Visionen zu sein. Zögern Sie nicht, mich zu kontaktieren!'],
       contactMe: [['Need a Frontend developer?', 'Brauchen Sie einen Frontend-Entwickler?'], ['Contact me!', 'Kontaktieren Sie mich!']],
     },
+    legalNotice: {
+      name: ['Adam Piskorek', 'Adam Piskorek'],
+      city: ['Hamburg', 'Hamburg'],
+      country: ['Germany', 'Deutschland'],
+      phone: ['+49 152 53935293', '+49 152 53935293'],
+      studentNamesList: ['Adam Piskorek', 'Adam Piskorek'],
+      joinOperatorAddress: ['c/o IP-Management #8631, Ludwig-Erhard-Strasse 18', 'c/o IP-Management #8631, Ludwig-Erhard-Strasse 18'],
+      postcodeCity: ['20459 Hamburg', '20459 Hamburg'],
+      email: ['adam.piskorek@online.de', 'adam.piskorek@online.de'],
+      contactEmail: ['adam.piskorek@online.de', 'adam.piskorek@online.de']
+    },
     footer: {
       developer: ['© Adam Piskorek 2026', '© Adam Piskorek 2026'],
       socialButtons: {

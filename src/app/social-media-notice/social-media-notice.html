@@ -18,7 +18,9 @@
         <h2>How to reach me</h2>
         <p>
           For project requests or collaboration, please contact me directly via email:
-          <strong>adam.piskorek@gmx.com</strong>
+          <a [href]="'mailto:' + myData.DATA.legalNotice.email[myData.DATA.language]">
+            <strong>{{ myData.DATA.legalNotice.email[myData.DATA.language] }}</strong>
+          </a>
         </p>
       </section>
     }
@@ -35,7 +37,9 @@
         <h2>Kontakt</h2>
         <p>
           Fur Projektanfragen oder Zusammenarbeit kontaktieren Sie mich bitte direkt per E-Mail:
-          <strong>adam.piskorek@gmx.com</strong>
+          <a [href]="'mailto:' + myData.DATA.legalNotice.email[myData.DATA.language]">
+            <strong>{{ myData.DATA.legalNotice.email[myData.DATA.language] }}</strong>
+          </a>
         </p>
       </section>
     }

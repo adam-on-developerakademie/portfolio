@@ -39,6 +39,17 @@ export interface data {
                 description: string[];
                 contactMe: string[][];
         };
+        legalNotice: {
+                name: string[];
+                city: string[];
+                country: string[];
+                phone: string[];
+                studentNamesList: string[];
+                joinOperatorAddress: string[];
+                postcodeCity: string[];
+                email: string[];
+                contactEmail: string[];
+        };
         footer: { developer: string[],
                 socialButtons: { values: { name: string, icon: string, link: string }[] }
         };

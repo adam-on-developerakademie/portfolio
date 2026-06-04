@@ -1,4 +1,4 @@
-import { Component, signal, computed, ChangeDetectionStrategy, AfterViewInit, inject } from '@angular/core';
+import { Component, signal, computed, ChangeDetectionStrategy, AfterViewInit, OnDestroy, inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Header } from "../header/header";
@@ -24,13 +24,15 @@ import { SocialMediaNotice } from '../social-media-notice/social-media-notice';
   styleUrl: './portfolio.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Portfolio implements AfterViewInit {
+export class Portfolio implements AfterViewInit, OnDestroy {
   private readonly router = inject(Router);
   readonly canvasHeight = signal(6587);
   readonly canvasWidth = signal(1440);
   readonly scale = signal(1);
   readonly overlayPage = signal<'none' | 'privacy' | 'legal' | 'social'>('none');
   readonly isOverlayOpen = computed(() => this.overlayPage() !== 'none');
+  private overlayResizeObserver: ResizeObserver | null = null;
+  private observedOverlayPanel: HTMLElement | null = null;
   private readonly mobileSectionGap = 24;
   private mobileGaps: {
     heroToAbout: number;
@@ -52,6 +54,7 @@ export class Portfolio implements AfterViewInit {
           this.scrollToTop();
         }
         this.updateScale();
+        this.syncOverlayObservation();
       });
     this.updateScale();
   }
@@ -59,12 +62,18 @@ export class Portfolio implements AfterViewInit {
   // Initializes runtime mobile offsets after first render.
   ngAfterViewInit() {
     if (this.isOverlayOpen()) {
+      this.syncOverlayObservation();
       this.syncOverlayHeight();
       return;
     }
     if (!this.isOverlayOpen()) {
       this.syncMobileOffsets();
     }
+  }
+
+  // Cleans up runtime observers when the component is destroyed.
+  ngOnDestroy() {
+    this.stopOverlayObserver();
   }
 
   // Updates the desktop canvas scale to fit narrower viewports without clipping.
@@ -188,6 +197,43 @@ export class Portfolio implements AfterViewInit {
       const minHeightForViewport = window.innerHeight / Math.max(this.scale(), 0.01);
       this.canvasHeight.set(Math.ceil(Math.max(totalContentHeight, minHeightForViewport)));
     });
+  }
+
+  // Synchronizes overlay resize observation with current route mode.
+  private syncOverlayObservation() {
+    if (!this.isOverlayOpen()) {
+      this.stopOverlayObserver();
+      return;
+    }
+    requestAnimationFrame(() => {
+      const panel = this.getElement('.legal-overlay-panel .legal-page');
+      if (!panel) {
+        return;
+      }
+      this.startOverlayObserver(panel);
+    });
+  }
+
+  // Starts observing overlay panel height changes to keep footer fully visible.
+  private startOverlayObserver(panel: HTMLElement) {
+    if (this.observedOverlayPanel === panel && this.overlayResizeObserver) {
+      return;
+    }
+    this.stopOverlayObserver();
+    this.observedOverlayPanel = panel;
+    this.overlayResizeObserver = new ResizeObserver(() => this.syncOverlayHeight());
+    this.overlayResizeObserver.observe(panel);
+  }
+
+  // Stops active overlay resize observation.
+  private stopOverlayObserver() {
+    if (!this.overlayResizeObserver) {
+      this.observedOverlayPanel = null;
+      return;
+    }
+    this.overlayResizeObserver.disconnect();
+    this.overlayResizeObserver = null;
+    this.observedOverlayPanel = null;
   }
 
   // Synchronizes overlay mode with current route path.

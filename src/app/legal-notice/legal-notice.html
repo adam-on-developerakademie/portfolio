@@ -9,49 +9,90 @@
         <!-- English Version -->
         @if(myData.DATA.language === 0) {
             <section>
-                <h2>Information Provider (according to § 7 TMG)</h2>
+                <h2>Imprint</h2>
                 <p>
-                    <strong>Adam Piskorek</strong><br>
-                    Bad Sassendorf<br>
-                    Germany<br><br>
-                    <strong>Email:</strong> adam.piskorek@gmx.com<br>
-                    <strong>Phone:</strong> [Your Phone Number]
+                    · {{ myData.DATA.legalNotice.studentNamesList[myData.DATA.language] }}<br>
+                    · {{ myData.DATA.legalNotice.joinOperatorAddress[myData.DATA.language] }}<br>
+                    · {{ myData.DATA.legalNotice.postcodeCity[myData.DATA.language] }}
                 </p>
             </section>
 
             <section>
-                <h2>Professional Qualification</h2>
+                <h2>Exploring the Board</h2>
                 <p>
-                    Fullstack Developer, certified by Developer Akademie
+                    Email:
+                    <a [href]="'mailto:' + myData.DATA.legalNotice.email[myData.DATA.language]">
+                        {{ myData.DATA.legalNotice.email[myData.DATA.language] }}
+                    </a>
                 </p>
             </section>
 
             <section>
-                <h2>Responsible for Editorial</h2>
+                <h2>Acceptance of terms</h2>
                 <p>
-                    Adam Piskorek is responsible for the editorial content of this website in accordance with § 7 TMG (Telemediengesetz).
+                    By accessing and using <strong>Portfolio</strong> (Product), you acknowledge and agree to the following terms and conditions, and any
+                    policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students,
+                    may update or change the terms and conditions from time to time without notice.
                 </p>
             </section>
 
             <section>
-                <h2>Liability Notice</h2>
+                <h2>Scope and ownership of the product</h2>
                 <p>
-                    As the service provider, I am liable for own content on this website according to general laws (§ 7 Abs. 1 TMG). 
-                    However, service providers are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+                    <strong>Portfolio</strong> has been developed as part of a student group project in a web development bootcamp at the
+                    <strong>Developer Akademie GmbH</strong>. It has an educational purpose and is not intended for extensive personal & business usage. As such, we
+                    cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.
+                </p>
+                <p>
+                    The design of <strong>Portfolio</strong> is owned by the <strong>Developer Akademie GmbH</strong>. Unauthorized use, reproduction, modification,
+                    distribution, or replication of the design is strictly prohibited.
                 </p>
             </section>
 
             <section>
-                <h2>Liability for Links</h2>
+                <h2>Proprietary rights</h2>
                 <p>
-                    My website contains links to external third-party websites. I have no control over the content of these websites and accept no liability for them.
+                    Aside from the design owned by <strong>Developer Akademie GmbH</strong>, we, the listed students, retain all proprietary rights in
+                    <strong>Portfolio</strong>, including any associated copyrighted material, trademarks, and other proprietary information.
                 </p>
             </section>
 
             <section>
-                <h2>Copyright</h2>
+                <h2>Use of the product</h2>
                 <p>
-                    The content and works created by the site operator are subject to German copyright law. The duplication, processing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of the author or creator.
+                    <strong>Portfolio</strong> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use
+                    of <strong>Portfolio</strong> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are
+                    solely responsible for your interactions with other users of <strong>Portfolio</strong>.
+                </p>
+            </section>
+
+            <section>
+                <h2>Disclaimer of warranties and limitation of liability</h2>
+                <p>
+                    <strong>Portfolio</strong> is provided "as is" without warranty of any kind, whether express or implied, including but not limited to the
+                    implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the
+                    listed students, or the <strong>Developer Akademie</strong>, be liable for any direct, indirect, incidental, special, consequential or
+                    exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible
+                    losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or
+                    performance of <strong>Portfolio</strong>.
+                </p>
+            </section>
+
+            <section>
+                <h2>Indemnity</h2>
+                <p>
+                    You agree to indemnify, defend and hold harmless us, the listed students, the <strong>Developer Akademie</strong>, and our affiliates,
+                    partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability
+                    (including reasonable legal fees) arising out of or relating to your use of <strong>Portfolio</strong> and/or your breach of this Legal Notice.
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    For any questions or notices, please contact us at
+                    <a [href]="'mailto:' + myData.DATA.legalNotice.contactEmail[myData.DATA.language]">
+                        {{ myData.DATA.legalNotice.contactEmail[myData.DATA.language] }}
+                    </a>.
                 </p>
             </section>
         }
@@ -59,53 +100,95 @@
         <!-- German Version -->
         @if(myData.DATA.language === 1) {
             <section>
-                <h2>Angaben nach § 7 TMG</h2>
+                <h2>Impressum</h2>
                 <p>
-                    <strong>Adam Piskorek</strong><br>
-                    Bad Sassendorf<br>
-                    Deutschland<br><br>
-                    <strong>E-Mail:</strong> adam.piskorek@gmx.com<br>
-                    <strong>Telefon:</strong> [Ihre Telefonnummer]
+                    · {{ myData.DATA.legalNotice.studentNamesList[myData.DATA.language] }}<br>
+                    · {{ myData.DATA.legalNotice.joinOperatorAddress[myData.DATA.language] }}<br>
+                    · {{ myData.DATA.legalNotice.postcodeCity[myData.DATA.language] }}
                 </p>
             </section>
 
             <section>
-                <h2>Berufsqualifikation</h2>
+                <h2>Exploring the Board</h2>
                 <p>
-                    Fullstack Developer, zertifiziert von Developer Akademie
+                    E-Mail:
+                    <a [href]="'mailto:' + myData.DATA.legalNotice.email[myData.DATA.language]">
+                        {{ myData.DATA.legalNotice.email[myData.DATA.language] }}
+                    </a>
                 </p>
             </section>
 
             <section>
-                <h2>Verantwortlich für Redaktion</h2>
+                <h2>Akzeptanz der Bedingungen</h2>
                 <p>
-                    Adam Piskorek ist verantwortlich für redaktionelle Inhalte dieser Website gemäß § 7 TMG (Telemediengesetz).
+                    Durch den Zugriff auf und die Nutzung von <strong>Portfolio</strong> (Produkt) erkennen Sie die folgenden Bedingungen,
+                    Richtlinien und eventuelle Änderungen an, die von Zeit zu Zeit bereitgestellt werden können. Wir, die genannten Studierenden,
+                    können diese Bedingungen jederzeit ohne vorherige Ankündigung aktualisieren oder ändern.
                 </p>
             </section>
 
             <section>
-                <h2>Haftungserklärung</h2>
+                <h2>Umfang und Eigentum am Produkt</h2>
                 <p>
-                    Als Diensteanbieter bin ich für Eigeninhalte auf dieser Website nach allgemeinen Gesetzen verantwortlich (§ 7 Abs. 1 TMG). 
-                    Diensteanbieter sind jedoch nicht verpflichtet, übermittelte oder gespeicherte Fremdinformationen zu überwachen oder nach Umständen zu forschen, 
-                    die auf eine rechtswidrige Tätigkeit hinweisen.
+                    <strong>Portfolio</strong> wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der
+                    <strong>Developer Akademie GmbH</strong> entwickelt. Es dient Ausbildungszwecken und ist nicht fur eine umfangreiche private
+                    oder geschäftliche Nutzung vorgesehen. Daher können wir keine durchgehende Verfügbarkeit, Zuverlässigkeit, Genauigkeit
+                    oder sonstige Qualitätsmerkmale dieses Produkts garantieren.
+                </p>
+                <p>
+                    Das Design von <strong>Portfolio</strong> ist Eigentum der <strong>Developer Akademie GmbH</strong>. Unerlaubte Nutzung,
+                    Vervielfältigung, Veränderung, Verbreitung oder Nachbildung des Designs ist streng untersagt.
                 </p>
             </section>
 
             <section>
-                <h2>Haftung für Links</h2>
+                <h2>Urheber- und Eigentumsrechte</h2>
                 <p>
-                    Diese Website enthält Links zu externen Websites Dritter. Ich habe keine Kontrolle über die Inhalte dieser Websites 
-                    und übernehme keine Haftung für diese.
+                    Abgesehen vom Design, das der <strong>Developer Akademie GmbH</strong> gehört, behalten wir, die genannten Studierenden,
+                    alle Eigentumsrechte an <strong>Portfolio</strong>, einschließlich zugehöriger urheberrechtlich geschützter Inhalte,
+                    Marken und sonstiger proprietärer Informationen.
                 </p>
             </section>
 
             <section>
-                <h2>Urheberrecht</h2>
+                <h2>Nutzung des Produkts</h2>
                 <p>
-                    Die von dem Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. 
-                    Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes 
-                    bedürfen der schriftlichen Zustimmung des Autors oder Urhebers.
+                    <strong>Portfolio</strong> darf nur zu rechtmäßigen Zwecken und im Einklang mit allen geltenden Gesetzen und Vorschriften
+                    genutzt werden. Jegliche Nutzung von <strong>Portfolio</strong> für illegale Aktivitäten oder zur Belästigung, Schädigung,
+                    Bedrohung oder Einschüchterung anderer Personen ist untersagt. Für Ihre Interaktionen mit anderen Nutzenden von
+                    <strong>Portfolio</strong> sind Sie allein verantwortlich.
+                </p>
+            </section>
+
+            <section>
+                <h2>Haftungsausschluss und Haftungsbegrenzung</h2>
+                <p>
+                    <strong>Portfolio</strong> wird "wie gesehen" ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt,
+                    einschließlich, aber nicht beschränkt auf marktübliche Eignung, Eignung für einen bestimmten Zweck und Nichtverletzung
+                    von Rechten. In keinem Fall haften wir, die genannten Studierenden, oder die <strong>Developer Akademie</strong> für direkte,
+                    indirekte, zufällige, besondere, Folge- oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden durch
+                    entgangenen Gewinn, Goodwill, Nutzungsausfall, Datenverlust oder sonstige immaterielle Verluste, selbst wenn wir auf die
+                    Möglichkeit solcher Schäden hingewiesen wurden, die aus der Nutzung oder Leistung von <strong>Portfolio</strong> entstehen.
+                </p>
+            </section>
+
+            <section>
+                <h2>Freistellung</h2>
+                <p>
+                    Sie erklären sich damit einverstanden, uns, die genannten Studierenden, die <strong>Developer Akademie</strong> sowie unsere
+                    verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeitenden von allen Ansprüchen,
+                    Forderungen, Verlusten, Schäden, Kosten oder Verbindlichkeiten (einschließlich angemessener Rechtsanwaltskosten)
+                    freizustellen und schadlos zu halten, die aus Ihrer Nutzung von <strong>Portfolio</strong> und/oder einem Verstoß gegen diese
+                    rechtlichen Hinweise entstehen.
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    Bei Fragen oder Hinweisen kontaktieren Sie uns bitte unter
+                    <a [href]="'mailto:' + myData.DATA.legalNotice.contactEmail[myData.DATA.language]">
+                        {{ myData.DATA.legalNotice.contactEmail[myData.DATA.language] }}
+                    </a>.
                 </p>
             </section>
         }
