@@ -1,10 +1,10 @@
 $contactTop: 5435px;
 $contactContentTop: calc(5542px - $contactTop);
 $topBall: 5435px;
-$topBall11: calc(5273px - $topBall );
-$topBall12: calc(5788px - $topBall );
-$topBall13: calc(6039px - $topBall );
-$topBall14: calc(6092px - $topBall );
+$topBall11: calc(5390px - $topBall );
+$topBall12: calc(5950px - $topBall );
+$topBall13: calc(6300px - $topBall );
+$topBall14: calc(6300px - $topBall );
 
 
 .contact {
@@ -461,7 +461,8 @@ $topBall14: calc(6092px - $topBall );
             }
 
             .submitButton {
-                width: 100%;
+                width: auto;
+                max-width: fit-content;
                 font-size: 20px;
                 padding: 12px 16px;
             }
