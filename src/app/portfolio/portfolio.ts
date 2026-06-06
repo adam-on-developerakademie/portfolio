@@ -26,7 +26,7 @@ import { SocialMediaNotice } from '../social-media-notice/social-media-notice';
 })
 export class Portfolio implements AfterViewInit, OnDestroy {
   private readonly router = inject(Router);
-  readonly canvasHeight = signal(6627);
+  readonly canvasHeight = signal(6777);
   readonly canvasWidth = signal(1440);
   readonly scale = signal(1);
   readonly overlayPage = signal<'none' | 'privacy' | 'legal' | 'social'>('none');
@@ -105,7 +105,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
       return;
     }
     this.canvasWidth.set(1440);
-    this.canvasHeight.set(6627);
+    this.canvasHeight.set(6777);
     this.scale.set(Math.min(1, window.innerWidth / 1440));
     this.clearMobileOffsetVars();
   }
@@ -147,8 +147,10 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     const skillTop = aboutTop + about.offsetHeight + gaps.aboutToSkill;
     const workTop = skillTop + skill.offsetHeight + gaps.skillToWork;
     const teamTop = workTop + myWork.offsetHeight;
-    const contactTop = teamTop + team.offsetHeight + gaps.teamToContact;
-    const footerTop = contactTop + contact.offsetHeight + gaps.contactToFooter;
+    const fixedTeamToContactGap = 48;
+    const fixedContactToFooterGap = 48;
+    const contactTop = teamTop + team.offsetHeight + fixedTeamToContactGap;
+    const footerTop = contactTop + contact.offsetHeight + fixedContactToFooterGap;
     document.documentElement.style.setProperty('--aboutme-mobile-top', `${aboutTop}px`);
     document.documentElement.style.setProperty('--skillset-mobile-top', `${skillTop}px`);
     document.documentElement.style.setProperty('--mywork-mobile-top', `${workTop}px`);
@@ -168,13 +170,28 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     contact: HTMLElement,
     footer: HTMLElement
   ) {
+    // Keeps mobile gaps in a realistic range to avoid runaway offsets.
+    const sanitizeGap = (value: number, fallback: number) => {
+      if (!Number.isFinite(value)) return fallback;
+      if (value < 0) return fallback;
+      if (value > 320) return fallback;
+      return value;
+    };
+
+    const heroToAbout = about.offsetTop - (hero.offsetTop + hero.offsetHeight);
+    const aboutToSkill = skill.offsetTop - (about.offsetTop + about.offsetHeight);
+    const skillToWork = myWork.offsetTop - (skill.offsetTop + skill.offsetHeight);
+    const workToTeam = team.offsetTop - (myWork.offsetTop + myWork.offsetHeight);
+    const teamToContact = contact.offsetTop - (team.offsetTop + team.offsetHeight);
+    const contactToFooter = footer.offsetTop - (contact.offsetTop + contact.offsetHeight);
+
     return {
-      heroToAbout: about.offsetTop - (hero.offsetTop + hero.offsetHeight),
-      aboutToSkill: skill.offsetTop - (about.offsetTop + about.offsetHeight),
-      skillToWork: myWork.offsetTop - (skill.offsetTop + skill.offsetHeight),
-      workToTeam: team.offsetTop - (myWork.offsetTop + myWork.offsetHeight),
-      teamToContact: contact.offsetTop - (team.offsetTop + team.offsetHeight),
-      contactToFooter: footer.offsetTop - (contact.offsetTop + contact.offsetHeight)
+      heroToAbout: sanitizeGap(heroToAbout, 24),
+      aboutToSkill: sanitizeGap(aboutToSkill, 24),
+      skillToWork: sanitizeGap(skillToWork, 24),
+      workToTeam: sanitizeGap(workToTeam, 24),
+      teamToContact: sanitizeGap(teamToContact, 48),
+      contactToFooter: sanitizeGap(contactToFooter, 24)
     };
   }
 

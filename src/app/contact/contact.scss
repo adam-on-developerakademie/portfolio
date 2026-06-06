@@ -1,10 +1,10 @@
-$contactTop: 5552px;
-$contactContentTop: calc(5489px - $contactTop);
-$topBall: 5552px;
-$topBall11: calc(5390px - $topBall );
-$topBall12: calc(5905px - $topBall );
-$topBall13: calc(6156px - $topBall );
-$topBall14: calc(6209px - $topBall );
+$contactTop: 5435px;
+$contactContentTop: calc(5542px - $contactTop);
+$topBall: 5435px;
+$topBall11: calc(5273px - $topBall );
+$topBall12: calc(5788px - $topBall );
+$topBall13: calc(6039px - $topBall );
+$topBall14: calc(6092px - $topBall );
 
 
 .contact {
@@ -395,7 +395,8 @@ $topBall14: calc(6209px - $topBall );
         left: 0;
 
         .title {
-            width: calc(100% - 32px);
+            width: calc(100% - 20px);
+            left: 10px;
             height: auto;
             font-size: 56px;
             line-height: 110%;
@@ -428,7 +429,12 @@ $topBall14: calc(6209px - $topBall );
             top: 250px;
             left: 0;
             width: calc(100% - 32px);
-            gap: 18px;
+            gap: 12px;
+
+            .fieldWrapper {
+                min-height: auto;
+                padding-bottom: 18px;
+            }
 
             .field {
                 font-size: 18px;
@@ -443,6 +449,15 @@ $topBall14: calc(6209px - $topBall );
                 align-items: flex-start;
                 font-size: 14px;
                 line-height: 135%;
+            }
+
+            .policyWrapper {
+                min-height: auto;
+                padding-bottom: 18px;
+            }
+
+            .errorText {
+                font-size: 12px;
             }
 
             .submitButton {
@@ -475,7 +490,7 @@ $topBall14: calc(6209px - $topBall );
 
     .contactContent {
         .title {
-            width: calc(100% - 24px);
+            width: calc(100% - 20px);
             font-size: 44px;
         }
 
@@ -502,5 +517,25 @@ $topBall14: calc(6209px - $topBall );
     .ball14 {
         top: 850px;
         right: 14px;
+    }
+}
+
+@media (max-width: 410px) {
+    .contact {
+        padding: 0 10px;
+    }
+
+    .contactContent {
+        width: 100%;
+        left: 0;
+
+        .title,
+        .ask,
+        .description,
+        .contactMe,
+        .contactForm {
+            left: 13px;
+            width: calc(100% - 26px);
+        }
     }
 }
