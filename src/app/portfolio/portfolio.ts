@@ -35,7 +35,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   private observedOverlayHeader: HTMLElement | null = null;
   private observedOverlayPanel: HTMLElement | null = null;
   private observedOverlayFooter: HTMLElement | null = null;
-  private readonly mobileSectionGap = 24;
+  private readonly mobileSectionGap = 0;
   private mobileGaps: {
     heroToAbout: number;
     aboutToSkill: number;
@@ -148,7 +148,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     const workTop = skillTop + skill.offsetHeight + gaps.skillToWork;
     const teamTop = workTop + myWork.offsetHeight;
     const fixedTeamToContactGap = 48;
-    const fixedContactToFooterGap = 48;
+    const fixedContactToFooterGap = 0;
     const contactTop = teamTop + team.offsetHeight + fixedTeamToContactGap;
     const footerTop = contactTop + contact.offsetHeight + fixedContactToFooterGap;
     document.documentElement.style.setProperty('--aboutme-mobile-top', `${aboutTop}px`);

@@ -480,6 +480,11 @@ $topBall14: calc(6300px - $topBall );
         left: auto;
         right: 20px;
     }
+
+    .ball14 {
+        top: $topBall14 - 80px;    
+        left: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -516,8 +521,8 @@ $topBall14: calc(6300px - $topBall );
     }
 
     .ball14 {
-        top: 850px;
-        right: 14px;
+        top: $topBall14 - 80px;    
+        left: 20px;
     }
 }
 
