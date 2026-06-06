@@ -469,22 +469,35 @@ $topBall14: calc(6300px - $topBall );
         }
     }
 
-    .ball11,
-    .ball12,
-    .ball13 {
+    .ball12 {
         display: none;
     }
 
-    .ball14 {
-        top: 760px;
-        left: auto;
-        right: 20px;
+    .ball11,
+    .ball13 {
+        display: block;
+    }
+
+
+    .ball11 {
+        width: 30px;
+        height: 30px;
+        top: $topBall14 - 850px;
+        left: 60%;
+    }
+
+    .ball13 {
+        width: 20px;
+        height: 20px;
+        top: $topBall14 - 68px;
+        left: 102px;
     }
 
     .ball14 {
-        top: $topBall14 - 80px;    
+        top: $topBall14 - 80px;
         left: 20px;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -521,8 +534,22 @@ $topBall14: calc(6300px - $topBall );
     }
 
     .ball14 {
-        top: $topBall14 - 80px;    
+        top: $topBall14 - 80px;
         left: 20px;
+    }
+
+    .ball12 {
+        width: 28px;
+        height: 28px;
+        top: $topBall14 - 90px;
+        left: 60px;
+    }
+
+    .ball13 {
+        width: 18px;
+        height: 18px;
+        top: $topBall14 - 68px;
+        left: 92px;
     }
 }
 
