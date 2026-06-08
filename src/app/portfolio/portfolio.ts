@@ -35,7 +35,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   private observedOverlayHeader: HTMLElement | null = null;
   private observedOverlayPanel: HTMLElement | null = null;
   private observedOverlayFooter: HTMLElement | null = null;
-  private readonly mobileSectionGap = 0;
+  private readonly mobileSectionGap = 120;
   private mobileGaps: {
     heroToAbout: number;
     aboutToSkill: number;

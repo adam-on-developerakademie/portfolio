@@ -473,13 +473,8 @@ $topBall14: calc(6300px - $topBall );
         display: none;
     }
 
-    .ball11,
-    .ball13 {
-        display: block;
-    }
-
-
     .ball11 {
+        display: block;
         width: 70px;
         height: 70px;
         top: $topBall14 - 970px;
@@ -487,14 +482,15 @@ $topBall14: calc(6300px - $topBall );
     }
 
     .ball13 {
-        width: 20px;
-        height: 20px;
-        top: $topBall14 - 68px;
-        left: 102px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        top: $topBall14 - 100px;
+        left: calc(100% - 50px);
     }
 
     .ball14 {
-        top: $topBall14 - 80px;
+        top: $topBall14 - 60px;
         left: 20px;
     }
 
