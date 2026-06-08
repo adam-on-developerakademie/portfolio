@@ -1,72 +1,99 @@
 # Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+Compact guide to run the project locally with full functionality, including contact form email delivery.
 
-## Development server
+## 1) Prerequisites
 
-To start a local development server, run:
+Install the following tools first:
+
+- Git
+- Node.js 20+ (including npm)
+- SMTP credentials from an email provider (for example Gmail App Password, Office365, or a custom SMTP server)
+
+Check your installation:
 
 ```bash
-ng serve
+node -v
+npm -v
+git --version
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 2) Download the project
 
-## SMTP Contact Form
+```bash
+git clone https://github.com/adam-on-developerakademie/portfolio.git
+cd portfolio
+```
 
-The contact form sends messages through a local API server that reads SMTP credentials from `.env`.
+## 3) Install dependencies
 
-1. Ensure `.env` exists and contains valid SMTP values.
-2. Run frontend and API together:
+```bash
+npm install
+```
+
+## 4) Configure environment variables for email
+
+Copy the template:
+
+```bash
+cp .env.example .env
+```
+
+PowerShell alternative:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Then fill in the .env file. Required variables:
+
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM_EMAIL`
+- `SMTP_TO_EMAIL`
+
+Optional variables:
+
+- `PORT` (default: `3001`)
+- `SMTP_FROM_NAME`
+- `SMTP_USE_TLS`
+- `SMTP_USE_SSL`
+
+Important:
+
+- .env.example is only a template.
+- Real credentials must be stored only in .env, never in the repository.
+
+## 5) Start the project (frontend + API)
 
 ```bash
 npm run start:all
 ```
 
-The Angular dev server proxies `/api/*` calls to `http://localhost:3001`.
+This starts:
 
-## Code scaffolding
+- Angular frontend on `http://localhost:4200`
+- Express API on `http://localhost:3001`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The frontend forwards /api/* requests to the API through proxy.conf.json.
 
-```bash
-ng generate component component-name
-```
+## 6) Test email delivery
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Open http://localhost:4200.
+2. Fill out the contact form.
+3. Send the message.
+4. Confirm that the email arrives at SMTP_TO_EMAIL.
 
-```bash
-ng generate --help
-```
+If delivery fails:
 
-## Building
+- Re-check SMTP values in .env.
+- Verify port and TLS/SSL combination (typical: 587 + TLS or 465 + SSL).
+- Review API logs in the terminal with npm run start:api.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 7) Optional: production build
 
 ```bash
-ng test
+npm run build
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
