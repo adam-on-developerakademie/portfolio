@@ -379,7 +379,7 @@ $topBall14: calc(6300px - $topBall );
 
 @media (max-width: 999px) {
     .contact {
-        top: var(--contact-mobile-top, 5960px);
+        top: calc(var(--contact-mobile-top, 5960px) + 120px);
         left: 0;
         max-width: none;
         width: 100%;
@@ -480,9 +480,9 @@ $topBall14: calc(6300px - $topBall );
 
 
     .ball11 {
-        width: 30px;
-        height: 30px;
-        top: $topBall14 - 850px;
+        width: 70px;
+        height: 70px;
+        top: $topBall14 - 970px;
         left: 60%;
     }
 
