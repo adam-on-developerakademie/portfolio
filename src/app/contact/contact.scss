@@ -498,7 +498,7 @@ $topBall14: calc(6300px - $topBall );
 
 @media (max-width: 480px) {
     .contact {
-        top: var(--contact-mobile-top, 6100px);
+        top: calc(var(--contact-mobile-top, 6100px) + 120px);
         height: 920px;
         padding: 0 12px;
     }
@@ -529,11 +529,6 @@ $topBall14: calc(6300px - $topBall );
         }
     }
 
-    .ball14 {
-        top: $topBall14 - 80px;
-        left: 20px;
-    }
-
     .ball12 {
         width: 28px;
         height: 28px;
@@ -541,12 +536,20 @@ $topBall14: calc(6300px - $topBall );
         left: 60px;
     }
 
+
     .ball13 {
-        width: 18px;
-        height: 18px;
-        top: $topBall14 - 68px;
-        left: 92px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        top: $topBall14 - 100px;
+        left: calc(100% - 50px);
     }
+
+    .ball14 {
+        top: $topBall14 - 60px;
+        left: 20px;
+    }
+
 }
 
 @media (max-width: 410px) {
