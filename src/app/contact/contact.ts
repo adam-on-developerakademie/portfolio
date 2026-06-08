@@ -47,9 +47,7 @@ export class Contact {
     if (!this.isFormValid()) {
       return;
     }
-    this.submitted = true;
-    this.submissionError = false;
-    this.isSubmitting = true;
+    this.prepareSubmission();
     try {
       await this.sendContactForm();
       this.handleSubmissionSuccess();
@@ -58,6 +56,13 @@ export class Contact {
     } finally {
       this.isSubmitting = false;
     }
+  }
+
+  // Prepares state flags before sending a contact request.
+  private prepareSubmission() {
+    this.submitted = true;
+    this.submissionError = false;
+    this.isSubmitting = true;
   }
 
   // Checks whether the form is valid before sending it.

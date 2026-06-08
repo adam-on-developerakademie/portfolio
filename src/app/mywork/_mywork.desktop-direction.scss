@@ -1,0 +1,27 @@
+.myWork {
+    >.myWorkMain {
+        .directionNormal {
+
+            .myWorkProjectImage {
+                left: 273px;
+            }
+
+            .myWorkProjectContent {
+                left: 1031px;
+                align-items: start;
+            }
+        }
+
+        .directionReverse {
+
+            .myWorkProjectImage {
+                left: 890px;
+            }
+
+            .myWorkProjectContent {
+                left: 323px;
+                text-align: end;
+            }
+        }
+    }
+}

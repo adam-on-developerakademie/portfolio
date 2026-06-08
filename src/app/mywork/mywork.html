@@ -16,9 +16,10 @@
             @for (project of myData.DATA.myWork.projects; track project.title ) {
             <div [attr.data-project]="project.title[0]">
                 <div class="myWorkProject {{ $index % 2 === 0 ? 'directionNormal' : 'directionReverse' }}">
-                    <div class="myWorkProjectImage">
+                    <a class="myWorkProjectImage" [href]="project.link" target="_blank" rel="noopener noreferrer"
+                        [attr.aria-label]="'Open live test for ' + project.title[myData.DATA.language]">
                         <img [src]="'img/' + project.image" alt="project image">
-                    </div>
+                    </a>
                     <div class="myWorkProjectContent">
                         <div class="myWorkProjectContentText">
                             <span class="myWorkProjectTitle">{{ project.title[myData.DATA.language] }}</span>
