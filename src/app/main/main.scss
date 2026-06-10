@@ -24,6 +24,20 @@ main {
         pointer-events: none;
         z-index: 1;
     }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -71px;
+        left: calc(50% - 919px);
+        width: 892px;
+        height: 892px;
+        border-radius: 50%;
+        background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+                #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+        pointer-events: none;
+        z-index: 2;
+    }
 }
 
 
@@ -47,19 +61,10 @@ main {
     background: transparent;
     overflow: hidden;
     isolation: isolate;
-    z-index: 2;
+    z-index: 3;
 
     >.ball1 {
-        position: absolute;
-        width: 892px;
-        height: 892px;
-        top: -71px;
-        left: -199px;
-        transform: translate(0%, 0%);
-        border-radius: 50%;
-        z-index: 0;
-        background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
-                #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+        display: none;
     }
 
     >.hello {
@@ -221,8 +226,25 @@ main {
     margin-right: auto;
     background-color: transparent;
     overflow: hidden;
+    clip-path: inset(100vh 0 0 0);
+    clip-path: inset(100dvh 0 0 0);
     box-sizing: border-box;
     z-index: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: linear-gradient(179.99deg, #FFFFFF 12.89%, #EAF0FF 91.39%);
+        pointer-events: none;
+        z-index: 1;
+        display: none;
+    }
 
     .ball2 {
         position: absolute;
@@ -250,6 +272,15 @@ main {
 }
 
 @media (max-width: 999px) {
+    main {
+        &::after {
+            top: -22px;
+            left: -160px;
+            width: 520px;
+            height: 520px;
+        }
+    }
+
     .hero {
         left: 0;
         transform: none;
@@ -261,10 +292,7 @@ main {
         min-height: 100dvh;
 
         >.ball1 {
-            width: 520px;
-            height: 520px;
-            top: -22px;
-            left: -160px;
+            display: none;
         }
 
         >.hello {
@@ -419,5 +447,15 @@ main {
             object-position: top;
         }
 
+    }
+}
+
+@supports not (clip-path: inset(1px 0 0 0)) {
+    .balls {
+        clip-path: none;
+
+        &::before {
+            display: block;
+        }
     }
 }

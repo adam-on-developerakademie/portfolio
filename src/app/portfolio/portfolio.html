@@ -1,4 +1,4 @@
-<div class="portfolio-page" [class.overlay-open]="isOverlayOpen()" [style.--scale]="scale()" [style.--canvas-width]="canvasWidth()" [style.--canvas-height]="canvasHeight()" [style.--canvas-scaled-height.px]="canvasHeight() * scale()">
+<div class="portfolio-page" [class.overlay-open]="isOverlayOpen()" [style.--canvas-width]="canvasWidth()" [style.--canvas-height]="canvasHeight()" [style.--canvas-scaled-height.px]="canvasHeight()">
 	<div class="portfolio-canvas" [class.overlay-mode]="isOverlayOpen()">
 		<app-header></app-header>
 		@if (!isOverlayOpen()) {

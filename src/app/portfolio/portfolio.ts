@@ -18,7 +18,7 @@ import { SocialMediaNotice } from '../social-media-notice/social-media-notice';
   selector: 'app-portfolio',
   imports: [Header, Main, Aboutme, SkillSet, MyWork, TeamPlayer, Contact, Footer, PrivacyPolicy, LegalNotice, SocialMediaNotice],
   host: {
-    '(window:resize)': 'updateScale()'
+    '(window:resize)': 'updateLayout()'
   },
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss',
@@ -28,7 +28,6 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   private readonly router = inject(Router);
   readonly canvasHeight = signal(6777);
   readonly canvasWidth = signal(1440);
-  readonly scale = signal(1);
   readonly overlayPage = signal<'none' | 'privacy' | 'legal' | 'social'>('none');
   readonly isOverlayOpen = computed(() => this.overlayPage() !== 'none');
   private overlayResizeObserver: ResizeObserver | null = null;
@@ -45,7 +44,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     contactToFooter: number;
   } | null = null;
 
-  // Initializes responsive canvas scale at component startup.
+  // Initializes responsive runtime layout values at component startup.
   constructor() {
     this.syncOverlayFromUrl();
     this.router.events
@@ -55,10 +54,10 @@ export class Portfolio implements AfterViewInit, OnDestroy {
         if (this.isOverlayOpen()) {
           this.scrollToTop();
         }
-        this.updateScale();
+        this.updateLayout();
         this.syncOverlayObservation();
       });
-    this.updateScale();
+    this.updateLayout();
   }
 
   // Initializes runtime mobile offsets after first render.
@@ -78,51 +77,47 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     this.stopOverlayObserver();
   }
 
-  // Updates the desktop canvas scale to fit narrower viewports without clipping.
-  updateScale() {
+  // Updates runtime layout values for desktop, mobile, and overlay modes.
+  updateLayout() {
     if (this.isOverlayOpen()) {
-      this.applyOverlayScale();
+      this.applyOverlayLayout();
       return;
     }
-    this.applyPortfolioScale();
+    this.applyPortfolioLayout();
   }
 
-  // Applies scaling and layout settings while a legal overlay is active.
-  private applyOverlayScale() {
+  // Applies layout settings while a legal overlay is active.
+  private applyOverlayLayout() {
     if (window.innerWidth < 1000) {
       this.canvasWidth.set(390);
-      this.scale.set(Math.min(1, window.innerWidth / 390));
     } else {
       this.canvasWidth.set(1440);
-      this.scale.set(Math.min(1, window.innerWidth / 1440));
     }
     this.canvasHeight.set(1200);
     this.syncOverlayHeight();
     this.clearMobileOffsetVars();
   }
 
-  // Applies scaling and layout settings for the regular portfolio page.
-  private applyPortfolioScale() {
+  // Applies layout settings for the regular portfolio page.
+  private applyPortfolioLayout() {
     if (window.innerWidth < 1000) {
-      this.applyMobilePortfolioScale();
+      this.applyMobilePortfolioLayout();
       return;
     }
-    this.applyDesktopPortfolioScale();
+    this.applyDesktopPortfolioLayout();
   }
 
-  // Configures the mobile canvas dimensions and keeps mobile offsets in sync.
-  private applyMobilePortfolioScale() {
+  // Configures mobile canvas dimensions and keeps mobile offsets in sync.
+  private applyMobilePortfolioLayout() {
     this.canvasWidth.set(390);
     this.canvasHeight.set(7120);
-    this.scale.set(Math.min(1, window.innerWidth / 390));
     this.syncMobileOffsets();
   }
 
-  // Configures the desktop canvas dimensions and removes temporary mobile vars.
-  private applyDesktopPortfolioScale() {
+  // Configures desktop canvas dimensions and removes temporary mobile vars.
+  private applyDesktopPortfolioLayout() {
     this.canvasWidth.set(1440);
     this.canvasHeight.set(6777);
-    this.scale.set(Math.min(1, window.innerWidth / 1440));
     this.clearMobileOffsetVars();
   }
 
@@ -264,7 +259,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
       return;
     }
     const totalContentHeight = elements.header.offsetHeight + elements.panel.offsetHeight + elements.footer.offsetHeight;
-    const minHeightForViewport = window.innerHeight / Math.max(this.scale(), 0.01);
+    const minHeightForViewport = window.innerHeight;
     this.canvasHeight.set(Math.ceil(Math.max(totalContentHeight, minHeightForViewport)));
   }
 

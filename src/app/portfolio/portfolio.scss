@@ -31,9 +31,8 @@
     left: 50%;
     margin: 0;
     transform-origin: top center;
-    transform: translateX(-50%) scale(var(--scale, 1));
+    transform: translateX(-50%);
     backface-visibility: hidden;
-    will-change: transform;
 }
 
 .portfolio-canvas.overlay-mode {
@@ -43,7 +42,7 @@
     width: calc(var(--canvas-width) * 1px);
     max-width: none;
     transform-origin: top center;
-    transform: translateX(-50%) scale(var(--scale, 1));
+    transform: translateX(-50%);
     height: calc(var(--canvas-height) * 1px);
     min-height: 0;
     margin: 0;
@@ -117,7 +116,7 @@
 
     .portfolio-canvas {
         left: 50%;
-        transform: translateX(-50%) scale(var(--scale, 1));
+        transform: translateX(-50%);
     }
 
     :host ::ng-deep .portfolio-canvas.overlay-mode app-header header {
@@ -134,7 +133,7 @@
         margin: 0;
         max-width: none;
         transform-origin: top center;
-        transform: translateX(-50%) scale(var(--scale, 1));
+        transform: translateX(-50%);
     }
 
     :host ::ng-deep .portfolio-canvas.overlay-mode app-footer .footer .footerTop,
