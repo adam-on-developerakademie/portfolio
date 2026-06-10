@@ -8,9 +8,10 @@ $myWorkHeaderTopMobile: 100px;
 $myWorkHeaderTitleTop: calc(2469px - $myWorkTop);
 $myWorkHeaderTextTop: calc(2605px - $myWorkTop);
 $myWorkHeaderHeight: calc($myWorkBall5Top + 183px);
-$myWorkMainTop: calc($myWorkHeaderHeight);
+$myWorkBelowHeaderOffset: 50px;
+$myWorkMainTop: calc($myWorkHeaderHeight + $myWorkBelowHeaderOffset);
 $myWorkMainHeight: calc(1985px);
-$myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
+$myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight + $myWorkBelowHeaderOffset);
 
 
 

@@ -206,23 +206,23 @@ $aboutMeTopMobile: 800px;
         >.letsWorkTogetherButton {
             border: 2px solid #5988FF;
             border-radius: 10px;
-            height: 48px;
+            height: 58px;
             font-family: 'Montserrat', sans-serif;
             font-style: normal;
-            font-weight: 500;
-            font-size: 18px;
+            font-weight: 400;
+            font-size: 23px;
             line-height: 120%;
             text-align: center;
             white-space: nowrap;
             color: #5988FF;
-            display: flex;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            padding-top: 15px;
-            padding-right: 30px;
-            padding-bottom: 15px;
-            padding-left: 30px;
+            padding-top: 0;
+            padding-right: 40px;
+            padding-bottom: 0;
+            padding-left: 40px;
             gap: 10px;
 
             transition-property: transform;
@@ -346,15 +346,18 @@ $aboutMeTopMobile: 800px;
             }
 
             >.letsWorkTogetherButton {
-                transform: translate(25%);
-                width: 60%;
-                height: 48px;
+                width: auto;
+                max-width: fit-content;
+                height: 42px;
                 font-size: 16px;
+                padding-top: 0;
+                padding-right: 29px;
+                padding-bottom: 0;
+                padding-left: 29px;
                 margin: 24px 0 0 0;
 
                 &:hover {
                     transform: none;
-                    transform: translate(25%);
                 }
             }
         }
