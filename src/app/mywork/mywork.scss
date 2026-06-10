@@ -30,7 +30,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight);
     margin-right: auto;
     background-color: transparent;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
 
 
     >.myWorkHeader {

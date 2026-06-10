@@ -35,6 +35,8 @@ main {
         border-radius: 50%;
         background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                 #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+        clip-path: inset(0 0 max(0px, calc(821px - 100vh)) 0);
+        clip-path: inset(0 0 max(0px, calc(821px - 100dvh)) 0);
         pointer-events: none;
         z-index: 2;
     }
