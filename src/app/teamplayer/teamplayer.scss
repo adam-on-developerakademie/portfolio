@@ -6,8 +6,22 @@
     height: var(--teamplayer-height, 532px);
     top: var(--teamplayer-top, 4810px);
     color: white;
-    background: linear-gradient(128.94deg,
-            #5988FF -33.96%, #5988FF 36.71%, #0043F0 112.25%);
+    background: transparent;
+    isolation: isolate;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 100%;
+        background: linear-gradient(128.94deg,
+                #5988FF -33.96%, #5988FF 36.71%, #0043F0 112.25%);
+        z-index: -1;
+        pointer-events: none;
+    }
 
     >.teamPlayerHeader {
         $teamplayerTitleTop: 47px;
@@ -158,28 +172,11 @@
             overflow-y: hidden;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: #ffffff transparent;
-            -ms-overflow-style: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
 
             &::-webkit-scrollbar {
-                display: block;
-                height: 3px;
-                background: transparent;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background: #ffffff;
-                border-radius: 999px;
-            }
-
-            &::-webkit-scrollbar-track {
-                background: transparent;
-            }
-
-            &::-webkit-scrollbar-button {
                 display: none;
-                width: 0;
                 height: 0;
                 background: transparent;
             }

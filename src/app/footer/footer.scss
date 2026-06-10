@@ -8,9 +8,22 @@ $footerTop: 6488px;
     width: 100%;
     top: $footerTop;
     height: 289px;
+    background: transparent;
+    isolation: isolate;
 
-    background: radial-gradient(71.18% 335.57% at 28.82% -124.4%,
-            #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 100%;
+        background: radial-gradient(71.18% 335.57% at 28.82% -124.4%,
+                #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+        z-index: -1;
+        pointer-events: none;
+    }
 
     .footerTop {
         //border: 1px solid red;
