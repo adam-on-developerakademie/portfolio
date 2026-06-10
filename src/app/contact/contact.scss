@@ -151,10 +151,10 @@ $topBall14: calc(6300px - $topBall );
                 opacity: 0.75;
             }
 
-            // Error state: red border and background tint.
-            &.error {
-                border-color: #e74c3c;
-                background-color: #fff5f5;
+            // Keep native browser field appearance stable across states.
+            &:hover,
+            &:focus {
+                border-color: #5988FF;
             }
         }
 
@@ -377,4 +377,5 @@ $topBall14: calc(6300px - $topBall );
     visibility: hidden;
 }
 
+@import './contact.states';
 @import './contact.mobile';

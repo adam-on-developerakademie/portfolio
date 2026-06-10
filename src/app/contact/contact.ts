@@ -5,6 +5,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { firstValueFrom } from 'rxjs';
 import { DATA } from '../../services/data';
 
+type ContactFieldName = 'name' | 'email' | 'message';
+
 @Component({
   selector: 'app-contact',
   imports: [CommonModule, ReactiveFormsModule],
@@ -26,6 +28,8 @@ export class Contact {
   isSubmitting = false;
   // Stores the current visual state of the submit button label.
   submitButtonState = signal<'idle' | 'sending' | 'success'>('idle');
+  // Stores the currently focused field to render typing state visuals.
+  focusedField = signal<ContactFieldName | null>(null);
 
   // Form definition with validation rules applied on blur event.
   contactForm = this.fb.group({
@@ -128,6 +132,42 @@ export class Contact {
     if (this.isSubmitting || submitButtonState === 'sending') return button.sending[language];
     if (submitButtonState === 'success') return button.success[language];
     return button.idle[language];
+  }
+
+  // Marks one field as focused to show typing visuals.
+  setFocusedField(fieldName: ContactFieldName) {
+    this.focusedField.set(fieldName);
+  }
+
+  // Clears focus state when the currently tracked field loses focus.
+  clearFocusedField(fieldName: ContactFieldName) {
+    if (this.focusedField() === fieldName) {
+      this.focusedField.set(null);
+    }
+  }
+
+  // Returns whether the requested field is currently focused.
+  isFocused(fieldName: ContactFieldName): boolean {
+    return this.focusedField() === fieldName;
+  }
+
+  // Returns whether a field has a non-empty value.
+  hasValue(fieldName: ContactFieldName): boolean {
+    const fieldValue = this.contactForm.get(fieldName)?.value;
+    return String(fieldValue ?? '').trim().length > 0;
+  }
+
+  // Returns whether a field should show the done state icon.
+  isDone(fieldName: ContactFieldName): boolean {
+    const field = this.contactForm.get(fieldName);
+    if (!field) return false;
+    const interacted = field.dirty || field.touched;
+    return field.valid && interacted && !this.isFocused(fieldName);
+  }
+
+  // Returns whether the floating label should be displayed.
+  showFloatingLabel(fieldName: ContactFieldName): boolean {
+    return this.isFocused(fieldName) || this.hasError(fieldName) || this.isDone(fieldName);
   }
 
   // Helper method to check if field has validation error and user interacted.

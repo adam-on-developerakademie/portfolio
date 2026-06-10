@@ -1,0 +1,92 @@
+.contactForm {
+    .fieldControl {
+        position: relative;
+    }
+
+    .field {
+        padding-right: 54px;
+    }
+
+    .floatingLabel {
+        position: absolute;
+        top: 0;
+        left: 16px;
+        transform: translateY(-50%);
+        padding: 0 6px;
+        background: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 28px;
+        line-height: 120%;
+        color: #1f1f1f;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+    }
+
+    .floatingLabel.visible {
+        opacity: 1;
+    }
+
+    .fieldControl.typing {
+        .field::placeholder {
+            opacity: 0;
+        }
+    }
+
+    .statusIcon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .fieldControl.error {
+        .field {
+            border-color: #e61b4d;
+            background-color: #ffffff;
+        }
+
+        .statusIcon {
+            display: inline-flex;
+            background: #e61b4d;
+            color: #ffffff;
+
+            &::before {
+                content: '!';
+            }
+        }
+    }
+
+    .fieldControl.done {
+        .field {
+            border-color: #5988FF;
+        }
+
+        .statusIcon {
+            display: inline-flex;
+            background: #62cf2f;
+            color: #ffffff;
+
+            &::before {
+                content: '\2713';
+            }
+        }
+    }
+
+    .fieldControl.message {
+        .statusIcon {
+            top: 22px;
+            transform: none;
+        }
+    }
+}

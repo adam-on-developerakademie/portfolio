@@ -15,12 +15,16 @@
         <form [formGroup]="contactForm" class="contactForm" novalidate>
             <!-- Name input field with blur validation and error display. -->
             <div class="fieldWrapper">
-                <input 
-                    class="field" 
-                    [class.error]="hasError('name')"
-                    type="text" 
-                    formControlName="name"
-                    [placeholder]="myData.DATA.contact.form.placeholders.name[myData.DATA.language]" />
+                <div class="fieldControl" [class.typing]="isFocused('name')" [class.error]="hasError('name')"
+                    [class.done]="isDone('name')">
+                    <label class="floatingLabel" [class.visible]="showFloatingLabel('name')">
+                        {{myData.DATA.contact.form.placeholders.name[myData.DATA.language]}}
+                    </label>
+                    <input class="field" type="text" formControlName="name"
+                        [placeholder]="myData.DATA.contact.form.placeholders.name[myData.DATA.language]"
+                        (focus)="setFocusedField('name')" (blur)="clearFocusedField('name')" />
+                    <span class="statusIcon" aria-hidden="true"></span>
+                </div>
                 @if(hasError('name')) {
                     <span class="errorText">{{getErrorMessage('name')}}</span>
                 }
@@ -28,12 +32,16 @@
 
             <!-- Email input field with blur validation and error display. -->
             <div class="fieldWrapper">
-                <input 
-                    class="field" 
-                    [class.error]="hasError('email')"
-                    type="email" 
-                    formControlName="email"
-                    [placeholder]="myData.DATA.contact.form.placeholders.email[myData.DATA.language]" />
+                <div class="fieldControl" [class.typing]="isFocused('email')" [class.error]="hasError('email')"
+                    [class.done]="isDone('email')">
+                    <label class="floatingLabel" [class.visible]="showFloatingLabel('email')">
+                        {{myData.DATA.contact.form.placeholders.email[myData.DATA.language]}}
+                    </label>
+                    <input class="field" type="email" formControlName="email"
+                        [placeholder]="myData.DATA.contact.form.placeholders.email[myData.DATA.language]"
+                        (focus)="setFocusedField('email')" (blur)="clearFocusedField('email')" />
+                    <span class="statusIcon" aria-hidden="true"></span>
+                </div>
                 @if(hasError('email')) {
                     <span class="errorText">{{getErrorMessage('email')}}</span>
                 }
@@ -41,11 +49,16 @@
 
             <!-- Message textarea with blur validation and error display. -->
             <div class="fieldWrapper">
-                <textarea 
-                    class="field message" 
-                    [class.error]="hasError('message')"
-                    formControlName="message"
-                    [placeholder]="myData.DATA.contact.form.placeholders.message[myData.DATA.language]"></textarea>
+                <div class="fieldControl message" [class.typing]="isFocused('message')" [class.error]="hasError('message')"
+                    [class.done]="isDone('message')">
+                    <label class="floatingLabel" [class.visible]="showFloatingLabel('message')">
+                        {{myData.DATA.contact.form.placeholders.message[myData.DATA.language]}}
+                    </label>
+                    <textarea class="field message" formControlName="message"
+                        [placeholder]="myData.DATA.contact.form.placeholders.message[myData.DATA.language]"
+                        (focus)="setFocusedField('message')" (blur)="clearFocusedField('message')"></textarea>
+                    <span class="statusIcon" aria-hidden="true"></span>
+                </div>
                 @if(hasError('message')) {
                     <span class="errorText">{{getErrorMessage('message')}}</span>
                 }
