@@ -66,33 +66,12 @@ $skillSetHeight: 632px;
         left: 50%;
         transform: translateX(-50%);
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        grid-template-columns: repeat(7, minmax(72px, 1fr));
+        gap: 16px 18px;
         align-items: start;
+        justify-items: center;
     }
 
-}
-
-.skillGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.groupTitle {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 120%;
-    text-align: left;
-}
-
-.groupSkills {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(72px, 1fr));
-    gap: 14px 18px;
-    justify-items: center;
 }
 
 .skill {
@@ -204,18 +183,10 @@ $skillSetHeight: 632px;
             transform: none;
             height: auto;
             min-height: 560px;
-            grid-template-columns: 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(5, minmax(52px, 1fr));
+            gap: 12px 10px;
+            justify-items: center;
         }
-    }
-
-    .groupTitle {
-        font-size: 24px;
-    }
-
-    .groupSkills {
-        grid-template-columns: repeat(5, minmax(52px, 1fr));
-        gap: 10px 10px;
     }
 
     .skill,
