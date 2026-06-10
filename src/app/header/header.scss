@@ -215,8 +215,15 @@ p {
 
 @media (max-width: 1450px) {
     header {
-        padding-left: 148px;
-        padding-right: 148px;
+        padding-left: 160px;
+        padding-right: 160px;
+    }
+}
+
+@media (max-width: 1250px) {
+    header {
+        padding-left: 240px;
+        padding-right: 240px;
     }
 }
 

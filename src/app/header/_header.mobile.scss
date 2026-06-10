@@ -1,25 +1,3 @@
-@media (max-width: 1200px) {
-    header {
-        padding-left: 56px;
-        padding-right: 56px;
-
-        >nav {
-            gap: 32px;
-
-            >.links {
-                gap: 24px;
-
-                >.button {
-                    width: auto;
-                }
-            }
-
-            >.languages {
-                gap: 6px;
-            }
-        }
-    }
-}
 
 @media (max-width: 999px) {
     header {

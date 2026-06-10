@@ -257,6 +257,15 @@ main {
 }
 
 @media (max-width: 1450px) {
+    main {
+        &::after {
+            top: -50px;
+            left: calc(50% - 860px);
+            width: 820px;
+            height: 820px;
+        }
+    }
+
     .hero {
         >.hello {
             top: 194px;
@@ -286,6 +295,59 @@ main {
         .mainSocialButtons {
             top: 748px;
             left: 1240px;
+        }
+    }
+
+    .balls {
+        .ball2 {
+            left: 560px;
+        }
+
+        .ball3 {
+            left: 980px;
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    main {
+        &::after {
+            top: -30px;
+            left: calc(50% - 800px);
+            width: 720px;
+            height: 720px;
+        }
+    }
+
+    .hero {
+        >.hello {
+            top: 194px;
+            left: 650px;
+            width: 580px;
+            font-size: 58px;
+        }
+
+        >.profession {
+            top: 268px;
+            left: 650px;
+            width: 580px;
+            height: 196px;
+            font-size: 112px;
+        }
+
+        >.scrollDown {
+            left: 900px;
+        }
+
+        >.me {
+            top: 250px;
+            left: 200px;
+            width: 580px;
+        }
+
+        .mainSocialButtons {
+            top: 748px;
+            left: 1100px;
         }
     }
 
