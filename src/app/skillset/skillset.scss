@@ -100,16 +100,6 @@ $skillSetHeight: 632px;
         margin: 0;
     }
 
-    &:hover {
-        cursor: pointer;
-
-        >p {
-            font-style: bold;
-            font-weight: 700;
-        }
-
-        gap: 10px;
-    }
 }
 
 .growMindset {
@@ -138,7 +128,21 @@ $skillSetHeight: 632px;
         margin: 0;
     }
 
-    &:hover {
+}
+
+.SkillSet.hoverEnabled {
+    .skill:hover {
+        cursor: pointer;
+
+        >p {
+            font-style: bold;
+            font-weight: 700;
+        }
+
+        gap: 10px;
+    }
+
+    .growMindset:hover {
         cursor: pointer;
 
         >p {
@@ -205,13 +209,15 @@ $skillSetHeight: 632px;
             font-size: 11px;
         }
 
-        &:hover {
-            gap: 6px;
-        }
     }
 
-    .growMindset {
-        &:hover {
+    .SkillSet.hoverEnabled {
+        .skill:hover,
+        .growMindset:hover {
+            gap: 6px;
+        }
+
+        .growMindset:hover {
             img {
                 width: 40px;
                 height: 42px;

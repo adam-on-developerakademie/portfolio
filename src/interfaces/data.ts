@@ -20,6 +20,7 @@ export interface data {
         };
         skillSet: {
                 title: { values: string[] };
+                hoverEnabled: boolean;
                 skills: { groups: { title: string[], values: { name: string, icon: string, level: number }[] }[] };
         };
         myWork: {
