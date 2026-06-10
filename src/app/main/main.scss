@@ -22,7 +22,7 @@ main {
         height: 100%;
         background: linear-gradient(179.99deg, #FFFFFF 12.89%, #EAF0FF 91.39%);
         pointer-events: none;
-        z-index: 0;
+        z-index: 1;
     }
 }
 
@@ -47,7 +47,7 @@ main {
     background: transparent;
     overflow: hidden;
     isolation: isolate;
-    z-index: 1;
+    z-index: 2;
 
     >.ball1 {
         position: absolute;
@@ -231,7 +231,7 @@ main {
         top: 921px;
         left: 628px;
         border-radius: 50%;
-        z-index: 0;
+        z-index: -1;
         background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                 #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
     }
