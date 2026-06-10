@@ -4,6 +4,15 @@ $heroTop: 0px;
 $figma-blue: #5988FF;
 $figma-white: #FFFFFF;
 
+main {
+    position: relative;
+    display: block;
+    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
+}
+
 
 .hero {
     //border: 1px solid black;
@@ -15,7 +24,10 @@ $figma-white: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: $heroHeight;
+    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
     max-width: 1440px;
     width: 100%;
     backface-visibility: hidden;
@@ -229,8 +241,10 @@ $figma-white: #FFFFFF;
         transform: none;
         max-width: none;
         width: 100%;
-        height: var(--mobile-hero-height);
-        min-height: var(--mobile-hero-height);
+        height: 100vh;
+        min-height: 100vh;
+        height: 100dvh;
+        min-height: 100dvh;
 
         >.ball1 {
             width: 520px;
@@ -265,7 +279,8 @@ $figma-white: #FFFFFF;
         }
 
         >.me {
-            top: 260px;
+            top: auto;
+            bottom: 0;
             left: 47%;
             transform: translateX(-50%);
             width: min(436px, 70vw);
@@ -380,7 +395,8 @@ $figma-white: #FFFFFF;
     .hero {
 
         >.me {
-            top: 260px;
+            top: auto;
+            bottom: 0;
             left: 47%;
             transform: translateX(-50%);
             width: min(436px, 90vw);
