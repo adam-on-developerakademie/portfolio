@@ -7,6 +7,14 @@
   -webkit-touch-callout: none;
 }
 
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 :root {
   --mobile-hero-height: 610px;
 }

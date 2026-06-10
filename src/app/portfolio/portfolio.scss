@@ -11,7 +11,8 @@
     max-width: none;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     height: var(--canvas-scaled-height, 6777px);
     background-color: #ffffff;
 }

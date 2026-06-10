@@ -211,48 +211,31 @@ main {
 
 
 
-.balls {
-    //border: 1px solid black;
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 1440px;
-    height: 1697px;
-    max-width: 100%;
-    backface-visibility: hidden;
+.ballsSection {
+    position: relative;
+    top: auto;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 1440px;
+    height: 170px;
+    pointer-events: none;
+    z-index: 0;
     margin-left: auto;
     margin-right: auto;
-    background-color: transparent;
-    overflow: hidden;
-    clip-path: inset(100vh 0 0 0);
-    clip-path: inset(100dvh 0 0 0);
-    box-sizing: border-box;
-    z-index: 0;
+}
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh;
-        background: linear-gradient(179.99deg, #FFFFFF 12.89%, #EAF0FF 91.39%);
-        pointer-events: none;
-        z-index: 1;
-        display: none;
-    }
+.balls {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
 
     .ball2 {
         position: absolute;
         width: 206px;
         height: 206px;
-        top: 921px;
+        top: -28px;
         left: 628px;
         border-radius: 50%;
         z-index: -1;
@@ -264,7 +247,7 @@ main {
         position: absolute;
         width: 82px;
         height: 82px;
-        top: 1056px;
+        top: 88px;
         left: 1034px;
         border-radius: 50%;
         z-index: 0;
@@ -409,17 +392,21 @@ main {
         }
     }
 
-    .balls {
-
+    .ballsSection {
         left: 0;
         transform: none;
-        width: 100%;
         max-width: none;
+        height: 150px;
+    }
+
+    .balls {
+        width: 100%;
+        height: 100%;
 
         .ball2 {
             width: 128px;
             height: 128px;
-            top: 540px;
+            top: -6px;
             left: 50%;
             transform: translateX(-50%);
         }
@@ -427,7 +414,7 @@ main {
         .ball3 {
             width: 52px;
             height: 52px;
-            top: 640px;
+            top: 92px;
             left: 272px;
             left: 85%;
             transform: translateX(-50%);
@@ -454,10 +441,6 @@ main {
 
 @supports not (clip-path: inset(1px 0 0 0)) {
     .balls {
-        clip-path: none;
-
-        &::before {
-            display: block;
-        }
+        overflow: visible;
     }
 }
