@@ -256,6 +256,50 @@ main {
     }
 }
 
+@media (max-width: 1450px) {
+    .hero {
+        >.hello {
+            top: 194px;
+            left: 720px;
+            width: 580px;
+            font-size: 58px;
+        }
+
+        >.profession {
+            top: 268px;
+            left: 720px;
+            width: 580px;
+            height: 196px;
+            font-size: 112px;
+        }
+
+        >.scrollDown {
+            left: 900px;
+        }
+
+        >.me {
+            top: 200px;
+            left: 100px;
+            width: 580px;
+        }
+
+        .mainSocialButtons {
+            top: 748px;
+            left: 1240px;
+        }
+    }
+
+    .balls {
+        .ball2 {
+            left: 560px;
+        }
+
+        .ball3 {
+            left: 980px;
+        }
+    }
+}
+
 @media (max-width: 999px) {
     main {
         &::after {
