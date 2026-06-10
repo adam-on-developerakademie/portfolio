@@ -264,6 +264,62 @@ $aboutMeTopMobile: 800px;
     }
 }
 
+@media (max-width: 1350px) {
+    .letsWorkTogether {
+        gap: 24px;
+        padding-left: 180px;
+        padding-right: 180px;
+
+        >div {
+            width: calc(50% - 12px);
+        }
+
+        .letsWorkTogetherLeftSide {
+            gap: 24px;
+
+            >.letsWorkTogetherLeftSideTop {
+                >.letsWorkTogetherText0 {
+                    font-size: 98px;
+                }
+            }
+
+            >.letsWorkTogetherLeftSideBottom {
+                gap: 24px;
+
+                >.letsWorkTogetherText1 {
+                    font-size: 38px;
+                }
+
+                >.letsWorkTogetherIcons {
+                    gap: 20px;
+
+                    >.letsWorkTogetherIcon {
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .letsWorkTogetherRightSide {
+            gap: 20px;
+
+            >.letsWorkTogetherText2 {
+                font-size: 19px;
+                line-height: 120%;
+            }
+
+            >.letsWorkTogetherButton {
+                height: 52px;
+                font-size: 20px;
+                padding-right: 34px;
+                padding-left: 34px;
+            }
+        }
+    }
+}
+
 @media (max-width: 999px) {
     .letsWorkTogether {
         top: var(--aboutme-mobile-top, #{$aboutMeTopMobile});
