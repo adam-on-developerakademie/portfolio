@@ -16,7 +16,7 @@
             <!-- Name input field with blur validation and error display. -->
             <div class="fieldWrapper">
                 <div class="fieldControl" [class.typing]="isFocused('name')" [class.error]="hasError('name')"
-                    [class.done]="isDone('name')">
+                    [class.done]="isDone('name')" [class.label-up]="showFloatingLabel('name')">
                     <label class="floatingLabel" [class.visible]="showFloatingLabel('name')">
                         {{myData.DATA.contact.form.placeholders.name[myData.DATA.language]}}
                     </label>
@@ -33,7 +33,7 @@
             <!-- Email input field with blur validation and error display. -->
             <div class="fieldWrapper">
                 <div class="fieldControl" [class.typing]="isFocused('email')" [class.error]="hasError('email')"
-                    [class.done]="isDone('email')">
+                    [class.done]="isDone('email')" [class.label-up]="showFloatingLabel('email')">
                     <label class="floatingLabel" [class.visible]="showFloatingLabel('email')">
                         {{myData.DATA.contact.form.placeholders.email[myData.DATA.language]}}
                     </label>
@@ -50,7 +50,7 @@
             <!-- Message textarea with blur validation and error display. -->
             <div class="fieldWrapper">
                 <div class="fieldControl message" [class.typing]="isFocused('message')" [class.error]="hasError('message')"
-                    [class.done]="isDone('message')">
+                    [class.done]="isDone('message')" [class.label-up]="showFloatingLabel('message')">
                     <label class="floatingLabel" [class.visible]="showFloatingLabel('message')">
                         {{myData.DATA.contact.form.placeholders.message[myData.DATA.language]}}
                     </label>
@@ -82,7 +82,8 @@
                 type="button" 
                 (click)="onSubmit()"
                 class="submitButton"
-                [class.inactive]="contactForm.invalid">
+                [class.inactive]="contactForm.invalid || isSubmitting"
+                [disabled]="contactForm.invalid || isSubmitting">
                 {{ getSubmitButtonLabel() }}
             </button>
         </form>

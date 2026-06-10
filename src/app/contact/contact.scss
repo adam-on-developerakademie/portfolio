@@ -144,7 +144,7 @@ $topBall14: calc(6300px - $topBall );
             color: #1f1f1f;
             outline: none;
             background-color: #ffffff;
-            transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease, border-width 0.2s ease;
 
             &::placeholder {
                 color: #1f1f1f;
@@ -245,6 +245,17 @@ $topBall14: calc(6300px - $topBall );
             transition-timing-function: ease-in-out;
             transition-duration: 0.3s;
 
+            &:disabled,
+            &.inactive {
+                cursor: not-allowed;
+                border-color: #b8bcc6;
+                color: #8f96a3;
+                background: #f3f4f6;
+                box-shadow: none;
+                transform: none;
+                animation: none;
+            }
+
             &:hover:not(:disabled) {
                 cursor: pointer;
                 position: relative;
@@ -255,15 +266,6 @@ $topBall14: calc(6300px - $topBall );
                 animation-duration: 0.15s;
                 animation-iteration-count: 1;
                 box-shadow: 5px 5px 15px 0px #00000026;
-            }
-
-            // Inactive visual state while keeping click available for validation feedback.
-            &.inactive {
-                cursor: pointer;
-                border-color: #5988FF;
-                color: #5988FF;
-                background: #ffffff;
-                opacity: 1;
             }
 
             @keyframes colorize {

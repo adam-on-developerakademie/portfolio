@@ -33,6 +33,18 @@
         }
     }
 
+    .fieldControl.label-up {
+        .field::placeholder {
+            opacity: 0;
+        }
+    }
+
+    .fieldControl:hover {
+        .field {
+            border-width: 3px;
+        }
+    }
+
     .statusIcon {
         position: absolute;
         right: 16px;
@@ -52,7 +64,7 @@
 
     .fieldControl.error {
         .field {
-            border-color: #e61b4d;
+            border-color: #5988FF;
             background-color: #ffffff;
         }
 
@@ -89,4 +101,5 @@
             transform: none;
         }
     }
+
 }
