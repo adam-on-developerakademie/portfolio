@@ -213,4 +213,11 @@ p {
     display: none;
 }
 
+@media (max-width: 1450px) {
+    header {
+        padding-left: 148px;
+        padding-right: 148px;
+    }
+}
+
 @import './header.mobile';
