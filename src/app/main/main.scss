@@ -218,7 +218,7 @@ main {
     transform: none;
     width: 100%;
     max-width: 1440px;
-    height: 170px;
+    height: 200px;
     pointer-events: none;
     z-index: 0;
     margin-left: auto;
@@ -235,7 +235,7 @@ main {
         position: absolute;
         width: 206px;
         height: 206px;
-        top: -28px;
+        top: -50%;
         left: 628px;
         border-radius: 50%;
         z-index: -1;
