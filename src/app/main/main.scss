@@ -3,6 +3,9 @@ $heroHeight: calc(1029px - 5px);
 $heroTop: 0px;
 $figma-blue: #5988FF;
 $figma-white: #FFFFFF;
+$ballsSectionHeight: 200px;
+$ball1Size: 892px;
+
 
 main {
     position: relative;
@@ -28,15 +31,15 @@ main {
     &::after {
         content: '';
         position: absolute;
-        top: -71px;
-        left: calc(50% - 919px);
-        width: 892px;
-        height: 892px;
+        top: calc(-#{$ball1Size} / 2);
+        left: calc(50% - #{$ball1Size} / 2);
+        width: $ball1Size;
+        height: $ball1Size;
         border-radius: 50%;
         background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                 #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
-        clip-path: inset(0 0 max(0px, calc(821px - 100vh)) 0);
-        clip-path: inset(0 0 max(0px, calc(821px - 100dvh)) 0);
+        clip-path: inset(0 0 max(0px, calc($ball1Size - $ballsSectionHeight - 100vh - 2px)) 0);
+        clip-path: inset(0 0 max(0px, calc($ball1Size - $ballsSectionHeight - 100dvh - 2px)) 0);
         pointer-events: none;
         z-index: 2;
     }
