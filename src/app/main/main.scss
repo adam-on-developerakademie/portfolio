@@ -376,8 +376,8 @@ main {
             left: -160px;
             width: calc($ball1Size - 372px);
             height: calc($ball1Size - 372px);
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100vh)) 0);
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100dvh)) 0);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100vh)) calc(160px));
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100dvh)) calc(160px));
         }
     }
 
