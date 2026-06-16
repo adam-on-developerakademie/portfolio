@@ -369,15 +369,86 @@ main {
     }
 }
 
+@media (max-width: 1050px) {
+    main {
+        &::after {
+            top: -30px;
+            left: calc(50% - 800px);
+            width: calc($ball1Size - 172px);
+            height: calc($ball1Size - 172px);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 172px - 30px - 100vh)) 0);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 172px - 30px - 100dvh)) 0);
+        }
+    }
+
+    .hero {
+        >.hello {
+            top: 194px;
+            left: 680px;
+            width: 580px;
+            font-size: 48px;
+        }
+
+        >.profession {
+            top: 268px;
+            left: 680px;
+            width: 580px;
+            height: 196px;
+            font-size: 82px;
+        }
+
+        >.scrollDown {
+            left: 900px;
+        }
+
+        >.me {
+            top: 350px;
+            left: 300px;
+            width: 580px;
+        }
+
+        .mainSocialButtons {
+            top: 748px;
+            left: 1050px;
+        }
+    }
+
+    .balls {
+        .ball2 {
+            left: 560px;
+        }
+
+        .ball3 {
+            left: 980px;
+        }
+    }
+}
+
 @media (max-width: 799px) {
+    main {
+        &::after {
+            top: -62px;
+            left: -300px;
+            width: calc($ball1Size - 152px);
+            height: calc($ball1Size - 152px);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 152px - 22px - 100vh)) 0);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 152px - 22px - 100dvh)) 0);
+        }
+    }
+
+
+
+}
+
+@media (max-width: 599px) {
     main {
         &::after {
             top: -22px;
             left: -160px;
             width: calc($ball1Size - 372px);
             height: calc($ball1Size - 372px);
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100vh)) calc(162px));
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100dvh)) calc(162px));
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100vh)) 0);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100dvh)) 0);
         }
     }
 
@@ -536,6 +607,7 @@ main {
         }
     }
 }
+
 
 @media (max-width: 420px) {
     .hero {
