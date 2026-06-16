@@ -31,15 +31,15 @@ main {
     &::after {
         content: '';
         position: absolute;
-        top: calc(-#{$ball1Size} / 2);
-        left: calc(50% - #{$ball1Size} / 2);
+        top: -71px;
+        left: calc(50% - 919px);
         width: $ball1Size;
         height: $ball1Size;
         border-radius: 50%;
         background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                 #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
-        clip-path: inset(0 0 max(0px, calc($ball1Size - $ballsSectionHeight - 100vh - 2px)) 0);
-        clip-path: inset(0 0 max(0px, calc($ball1Size - $ballsSectionHeight - 100dvh - 2px)) 0);
+        clip-path: inset(0 0 max(0px, calc($ball1Size - 71px - 100vh)) 0);
+        clip-path: inset(0 0 max(0px, calc($ball1Size - 71px - 100dvh)) 0);
         pointer-events: none;
         z-index: 2;
     }
@@ -264,8 +264,10 @@ main {
         &::after {
             top: -50px;
             left: calc(50% - 860px);
-            width: 820px;
-            height: 820px;
+            width: calc($ball1Size - 72px);
+            height: calc($ball1Size - 72px);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 72px - 50px - 100vh)) 0);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 72px - 50px - 100dvh)) 0);
         }
     }
 
@@ -317,8 +319,10 @@ main {
         &::after {
             top: -30px;
             left: calc(50% - 800px);
-            width: 720px;
-            height: 720px;
+            width: calc($ball1Size - 172px);
+            height: calc($ball1Size - 172px);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 172px - 30px - 100vh)) 0);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 172px - 30px - 100dvh)) 0);
         }
     }
 
