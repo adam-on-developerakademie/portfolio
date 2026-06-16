@@ -21,7 +21,7 @@ main {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 100vw;
+        width: 100%;
         height: 100%;
         background: linear-gradient(179.99deg, #FFFFFF 12.89%, #EAF0FF 91.39%);
         pointer-events: none;
@@ -376,8 +376,8 @@ main {
             left: -160px;
             width: calc($ball1Size - 372px);
             height: calc($ball1Size - 372px);
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100vh)) calc(160px));
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100dvh)) calc(160px));
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100vh)) calc(162px));
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 372px - 22px - 100dvh)) calc(162px));
         }
     }
 
