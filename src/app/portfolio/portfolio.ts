@@ -88,7 +88,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
 
   // Applies layout settings while a legal overlay is active.
   private applyOverlayLayout() {
-    if (window.innerWidth < 1000) {
+    if (window.innerWidth < 800) {
       this.canvasWidth.set(390);
     } else {
       this.canvasWidth.set(1440);
@@ -100,7 +100,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
 
   // Applies layout settings for the regular portfolio page.
   private applyPortfolioLayout() {
-    if (window.innerWidth < 1000) {
+    if (window.innerWidth < 800) {
       this.applyMobilePortfolioLayout();
       return;
     }
@@ -124,12 +124,12 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Updates mobile section top offsets from current rendered section heights.
   private syncMobileOffsets() {
     requestAnimationFrame(() => {
-      if (window.innerWidth >= 1000) {
+      if (window.innerWidth >= 800) {
         return;
       }
       this.applyMeasuredMobileOffsets();
       requestAnimationFrame(() => {
-        if (window.innerWidth < 1000) {
+        if (window.innerWidth < 800) {
           this.applyMeasuredMobileOffsets();
         }
       });

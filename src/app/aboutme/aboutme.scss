@@ -320,7 +320,7 @@ $aboutMeTopMobile: 800px;
     }
 }
 
-@media (max-width: 999px) {
+@media (max-width: 799px) {
     .letsWorkTogether {
         top: var(--aboutme-mobile-top, #{$aboutMeTopMobile});
         left: 0;
