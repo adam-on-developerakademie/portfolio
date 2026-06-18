@@ -14,9 +14,12 @@ export class Main {
 
   // Scrolls to the about-me section from the hero scroll-down control.
   goToAboutMe() {
-    const element = document.getElementById('aboutMe');
+    // Uses the same visual target and offset as the header About me navigation.
+    const element = (document.querySelector('app-aboutme .letsWorkTogether')
+      ?? document.getElementById('aboutMe')) as HTMLElement | null;
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const top = window.scrollY + element.getBoundingClientRect().top - 139;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   }
 }

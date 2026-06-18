@@ -26,6 +26,7 @@ $aboutMeTopMobile: 800px;
     background-color: white;
     box-sizing: border-box;
     z-index: 1;
+    padding-top: 60px;
 
     >.letsWorkTogetherBalls {
         position: absolute;
@@ -40,6 +41,7 @@ $aboutMeTopMobile: 800px;
             top: -242px;
             left: 628px;
             border-radius: 50%;
+            clip-path: inset(50% 0 0 0);
             background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
                     #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
         }

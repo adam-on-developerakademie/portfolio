@@ -169,25 +169,22 @@ p {
 
 .aboutMe {
     position: absolute;
-    top: 0px;
     left: 0px;
-    top: $aboutMe + 1px;
+    top: var(--aboutme-mobile-top, var(--aboutme-top, #{$aboutMe}));
     visibility: hidden;
 }
 
 .skillSet {
     position: absolute;
-    top: 0px;
     left: 0px;
-    top: $skillSet + 1px;
+    top: var(--skillset-mobile-top, var(--skillset-top, #{$skillSet}));
     visibility: hidden;
 }
 
 .myWork {
     position: absolute;
-    top: 0px;
     left: 0px;
-    top: $myWork + 1px;
+    top: var(--mywork-mobile-top, var(--mywork-top, #{$myWork}));
     visibility: hidden;
 }
 

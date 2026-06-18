@@ -125,7 +125,7 @@ main {
         top: 650px;
         left: 1012px; //calc(50% - $screenWidth * 0.5 + $scroll-left);
         width: 95px;
-        height: 370px;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -155,7 +155,8 @@ main {
         >.scrollLine {
             margin-top: 10px;
             width: 0;
-            height: 330px;
+            height: max(120px, calc(100vh - 688px));
+            height: max(120px, calc(100dvh - 688px));
             border-left: 2px solid $figma-blue;
             opacity: 0.5;
         }
@@ -182,8 +183,10 @@ main {
     .mainSocialButtons {
         position: absolute;
         //border: 1px solid black;
-        top: 782px; //$socialButtons-top;
+        top: min(782px, calc(100vh - 220px)); //$socialButtons-top;
+        top: min(782px, calc(100dvh - 220px));
         left: 1310px; //calc(50% - $screenWidth * 0.5 + $socialButtons-left);
+        z-index: 5;
         width: 40px; //$socialButtons-width;
         height: 170px; //$socialButtons-height;
         display: flex;
@@ -299,7 +302,8 @@ main {
         }
 
         .mainSocialButtons {
-            top: 748px;
+            top: min(748px, calc(100vh - 220px));
+            top: min(748px, calc(100dvh - 220px));
             left: 1240px;
         }
     }
@@ -354,7 +358,8 @@ main {
         }
 
         .mainSocialButtons {
-            top: 748px;
+            top: min(748px, calc(100vh - 220px));
+            top: min(748px, calc(100dvh - 220px));
             left: 1100px;
         }
     }
@@ -409,7 +414,8 @@ main {
         }
 
         .mainSocialButtons {
-            top: 748px;
+            top: min(748px, calc(100vh - 220px));
+            top: min(748px, calc(100dvh - 220px));
             left: 1050px;
         }
     }

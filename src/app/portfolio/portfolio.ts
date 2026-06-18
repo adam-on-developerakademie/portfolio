@@ -41,7 +41,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     teamToContact: number;
     contactToFooter: number;
   } | null = null;
-  private readonly desktopGaps = { heroToAbout: 139, aboutToSkill: 127, skillToWork: 0, workToTeam: 77, teamToContact: 93, contactToFooter: 0 };
+  private readonly desktopGaps = { heroToAbout: 242 - (206 / 2), aboutToSkill: 127, skillToWork: 0, workToTeam: 77, teamToContact: 93, contactToFooter: 0 };
   // Initializes responsive runtime layout values at component startup.
   constructor() {
     this.syncOverlayFromUrl();

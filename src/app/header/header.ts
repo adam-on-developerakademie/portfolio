@@ -96,10 +96,19 @@ export class Header implements OnDestroy {
 
   // Resolves a section id from the DOM and scrolls to it smoothly.
   goToOld(elementId: string) {
-    const element: HTMLElement = document.getElementById(elementId) as HTMLElement;
+    const selectors: Record<string, string> = {
+      aboutMe: 'app-aboutme .letsWorkTogether',
+      skillSet: 'app-skillset .SkillSet',
+      myWork: 'app-mywork .myWork'
+    };
+    const offsets: Record<string, number> = { aboutMe: -139, skillSet: 0, myWork: 0 };
+    const sectionSelector = selectors[elementId];
+    const element = (sectionSelector
+      ? document.querySelector(sectionSelector)
+      : document.getElementById(elementId)) as HTMLElement | null;
     if (element) {
-      element.id = elementId;
-      element.scrollIntoView({ behavior: 'smooth' });
+      const top = window.scrollY + element.getBoundingClientRect().top + (offsets[elementId] ?? 0);
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   }
 
