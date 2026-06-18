@@ -12,8 +12,6 @@ import { Footer } from '../footer/footer';
 import { PrivacyPolicy } from '../privacy-policy/privacy-policy';
 import { LegalNotice } from '../legal-notice/legal-notice';
 import { SocialMediaNotice } from '../social-media-notice/social-media-notice';
-
-
 @Component({
   selector: 'app-portfolio',
   imports: [Header, Main, Aboutme, SkillSet, MyWork, TeamPlayer, Contact, Footer, PrivacyPolicy, LegalNotice, SocialMediaNotice],
@@ -43,7 +41,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     teamToContact: number;
     contactToFooter: number;
   } | null = null;
-
+  private readonly desktopGaps = { heroToAbout: 139, aboutToSkill: 127, skillToWork: 0, workToTeam: 77, teamToContact: 93, contactToFooter: 0 };
   // Initializes responsive runtime layout values at component startup.
   constructor() {
     this.syncOverlayFromUrl();
@@ -76,7 +74,6 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.stopOverlayObserver();
   }
-
   // Updates runtime layout values for desktop, mobile, and overlay modes.
   updateLayout() {
     if (this.isOverlayOpen()) {
@@ -96,8 +93,8 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     this.canvasHeight.set(1200);
     this.syncOverlayHeight();
     this.clearMobileOffsetVars();
+    this.clearDesktopOffsetVars();
   }
-
   // Applies layout settings for the regular portfolio page.
   private applyPortfolioLayout() {
     if (window.innerWidth < 800) {
@@ -106,20 +103,53 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     }
     this.applyDesktopPortfolioLayout();
   }
-
   // Configures mobile canvas dimensions and keeps mobile offsets in sync.
   private applyMobilePortfolioLayout() {
     this.canvasWidth.set(390);
     this.canvasHeight.set(7120);
+    this.clearDesktopOffsetVars();
     this.syncMobileOffsets();
   }
-
   // Configures desktop canvas dimensions and removes temporary mobile vars.
   private applyDesktopPortfolioLayout() {
     this.canvasWidth.set(1440);
-    this.canvasHeight.set(6777);
     this.clearMobileOffsetVars();
+    this.syncDesktopOffsets();
   }
+
+  // Updates desktop section top offsets from current rendered section heights.
+  private syncDesktopOffsets() {
+    requestAnimationFrame(() => {
+      if (window.innerWidth < 800 || this.isOverlayOpen()) return;
+      this.applyMeasuredDesktopOffsets();
+      requestAnimationFrame(() => {
+        if (window.innerWidth >= 800 && !this.isOverlayOpen()) this.applyMeasuredDesktopOffsets();
+      });
+    });
+  }
+
+  // Measures desktop sections and writes dynamic top vars to avoid overlaps.
+  private applyMeasuredDesktopOffsets() {
+    const sections = this.getMobileSections();
+    if (!sections) return;
+    const tops = this.calculateSectionTops(sections, this.desktopGaps);
+    this.applyDesktopTopVars(tops, sections.team);
+    this.canvasHeight.set(tops.footerTop + sections.footer.offsetHeight);
+  }
+
+  // Writes computed desktop top CSS variables to all absolute-positioned sections.
+  private applyDesktopTopVars(tops: {
+    aboutTop: number; skillTop: number; workTop: number; teamTop: number; contactTop: number; footerTop: number;
+  }, team: HTMLElement) {
+    document.documentElement.style.setProperty('--aboutme-top', `${tops.aboutTop}px`);
+    document.documentElement.style.setProperty('--skillset-top', `${tops.skillTop}px`);
+    document.documentElement.style.setProperty('--mywork-top', `${tops.workTop}px`);
+    document.documentElement.style.setProperty('--teamplayer-top', `${tops.teamTop}px`);
+    document.documentElement.style.setProperty('--teamplayer-height', `${team.offsetHeight}px`);
+    document.documentElement.style.setProperty('--contact-top', `${tops.contactTop}px`);
+    document.documentElement.style.setProperty('--footer-top', `${tops.footerTop}px`);
+  }
+
 
   // Updates mobile section top offsets from current rendered section heights.
   private syncMobileOffsets() {
@@ -143,7 +173,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
       return;
     }
     this.ensureMobileGaps(sections);
-    const tops = this.calculateMobileTops(sections);
+    const tops = this.calculateSectionTops(sections, this.mobileGaps!);
     this.applyMobileTopVars(sections.team, tops);
     this.canvasHeight.set(tops.footerTop + sections.footer.offsetHeight + this.mobileSectionGap);
   }
@@ -173,12 +203,14 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     return { hero, about, skill, myWork, team, contact, footer };
   }
 
-  // Calculates mobile section top positions based on measured heights and fixed gaps.
-  private calculateMobileTops(sections: {
+  // Calculates section top positions based on measured heights and provided gaps.
+  private calculateSectionTops(sections: {
     hero: HTMLElement; about: HTMLElement; skill: HTMLElement; myWork: HTMLElement;
     team: HTMLElement; contact: HTMLElement; footer: HTMLElement;
+  }, gaps: {
+    heroToAbout: number; aboutToSkill: number; skillToWork: number;
+    workToTeam: number; teamToContact: number; contactToFooter: number;
   }) {
-    const gaps = this.mobileGaps!;
     const aboutTop = sections.hero.offsetTop + sections.hero.offsetHeight + gaps.heroToAbout;
     const skillTop = aboutTop + sections.about.offsetHeight + gaps.aboutToSkill;
     const workTop = skillTop + sections.skill.offsetHeight + gaps.skillToWork;
@@ -376,7 +408,16 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     document.documentElement.style.removeProperty('--teamplayer-mobile-top');
     document.documentElement.style.removeProperty('--contact-mobile-top');
     document.documentElement.style.removeProperty('--footer-mobile-top');
+  }
+
+  // Removes runtime desktop top variables when mobile or overlay layout is active.
+  private clearDesktopOffsetVars() {
+    document.documentElement.style.removeProperty('--aboutme-top');
+    document.documentElement.style.removeProperty('--skillset-top');
+    document.documentElement.style.removeProperty('--mywork-top');
     document.documentElement.style.removeProperty('--teamplayer-top');
     document.documentElement.style.removeProperty('--teamplayer-height');
+    document.documentElement.style.removeProperty('--contact-top');
+    document.documentElement.style.removeProperty('--footer-top');
   }
 }

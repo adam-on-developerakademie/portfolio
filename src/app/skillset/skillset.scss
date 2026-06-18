@@ -7,7 +7,7 @@ $skillSetHeight: 632px;
     //border: 1px solid black;
     position: absolute;
     box-sizing: border-box;
-    top: $skillSetTop;
+    top: var(--skillset-top, #{$skillSetTop});
     left: 50%;
     transform: translate(-50%, 0%);
     max-width: 1440px;

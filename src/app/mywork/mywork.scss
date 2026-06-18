@@ -17,7 +17,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight + $myWorkBelowHeader
 
 .myWork {
     position: absolute;
-    top: $myWorkTop;
+    top: var(--mywork-top, #{$myWorkTop});
     left: 50%;
     transform: translate(-50%, 0%);
 

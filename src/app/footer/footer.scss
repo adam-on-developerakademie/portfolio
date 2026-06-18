@@ -6,7 +6,7 @@ $footerTop: 6488px;
     box-sizing: border-box;
     max-width: 1440px;
     width: 100%;
-    top: $footerTop;
+    top: var(--footer-top, #{$footerTop});
     height: 289px;
     background: transparent;
     isolation: isolate;

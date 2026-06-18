@@ -13,7 +13,7 @@ $topBall14: calc(6300px - $topBall );
     box-sizing: border-box;
     max-width: 1440px;
     width: 100%;
-    top: $contactTop;
+    top: var(--contact-top, #{$contactTop});
     height: 1053px;
 
     &::before {
