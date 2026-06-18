@@ -182,9 +182,9 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     const aboutTop = sections.hero.offsetTop + sections.hero.offsetHeight + gaps.heroToAbout;
     const skillTop = aboutTop + sections.about.offsetHeight + gaps.aboutToSkill;
     const workTop = skillTop + sections.skill.offsetHeight + gaps.skillToWork;
-    const teamTop = workTop + sections.myWork.offsetHeight;
-    const contactTop = teamTop + sections.team.offsetHeight + 48;
-    const footerTop = contactTop + sections.contact.offsetHeight;
+    const teamTop = workTop + sections.myWork.offsetHeight + gaps.workToTeam;
+    const contactTop = teamTop + sections.team.offsetHeight + gaps.teamToContact;
+    const footerTop = contactTop + sections.contact.offsetHeight + gaps.contactToFooter;
     return { aboutTop, skillTop, workTop, teamTop, contactTop, footerTop };
   }
 
