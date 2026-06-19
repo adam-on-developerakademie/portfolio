@@ -297,6 +297,7 @@ $aboutMeTopMobile: 800px;
             gap: 24px;
 
             >.letsWorkTogetherLeftSideTop {
+                padding-bottom: 24px;
                 >.letsWorkTogetherText0 {
                     font-size: 98px;
                 }
@@ -349,6 +350,84 @@ $aboutMeTopMobile: 800px;
         >.letsWorkTogetherColumn {
             width: calc(50% - 12px);
             height: 450px;
+        }
+
+        .letsWorkTogetherLeftSide {
+            >.letsWorkTogetherLeftSideTop {
+                padding-bottom: 24px;
+            }
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .letsWorkTogether {
+        gap: 24px;
+        padding-left: 350px;
+        padding-right: 350px;
+        height: 550px;
+
+        >.letsWorkTogetherColumn {
+            width: calc(50% - 12px);
+            height: 550px;
+        }
+
+        .letsWorkTogetherLeftSide {
+            >.letsWorkTogetherLeftSideTop {
+                padding-bottom: 56px;
+
+                >.letsWorkTogetherText0 {
+                    padding: 0px 26px;
+                    font-size: 76px;
+                    line-height: 90%;
+                }
+            }
+
+            >.letsWorkTogetherLeftSideBottom {
+                align-items: center;
+                gap: 16px;
+
+                >.letsWorkTogetherText1 {
+                    font-size: 28px;
+                }
+
+                >.letsWorkTogetherIcons {
+                    width: 80%;
+                    height: auto;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 32px;
+
+                    >.letsWorkTogetherIcon {
+                        height: 36px;
+
+                        >.letsWorkTogetherIconContainer0 {
+                            top: 0;
+                            width: 42px;
+                            justify-content: center;
+                        }
+
+                        >.letsWorkTogetherIconContainer1 {
+                            top: -10px;
+                            left: -8px;
+                            width: 42px;
+                            justify-content: center;
+                        }
+
+                        >.letsWorkTogetherIconContainer2 {
+                            top: 0;
+                            width: 42px;
+                            justify-content: center;
+                        }
+
+                        p {
+                            margin-left: 8px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+            }
         }
     }
 }
