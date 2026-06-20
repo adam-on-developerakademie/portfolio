@@ -128,6 +128,108 @@
     }
 }
 
+@media (max-width: 1100px) {
+    .teamPlayer {
+        height: auto;
+        left: 0;
+        padding: 24px 0 0px;
+
+        >.teamPlayerHeader {
+            position: relative;
+            top: 0;
+
+            >.title {
+                position: relative;
+                height: auto;
+                font-size: 34px;
+                line-height: 120%;
+                padding: 0 16px;
+            }
+
+            >.description {
+                position: relative;
+                top: 6px;
+                height: auto;
+                font-size: 18px;
+                line-height: 130%;
+                padding: 0 16px;
+            }
+        }
+
+        >.teamPlayerContent {
+            position: relative;
+            width: 110%;
+            height: auto;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 28px;
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            padding: 0 16px 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.9) rgba(255, 255, 255, 0.25);
+
+            &::-webkit-scrollbar {
+                height: 8px;
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 999px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+            >.opinion {
+                width: calc(100% - 0px);
+                min-width: calc(100% - -32px);
+                flex: 0 0 calc(100% - 32px);
+                height: auto;
+                min-height: 220px;
+                gap: 38px;
+                background: transparent;
+                border-radius: 0;
+                padding: 16px 64px 0 64px;
+                scroll-snap-align: start;
+                align-items: center;
+                text-align: center;
+
+                >.opinionHeader {
+                    align-items: center;
+
+                    >.person {
+                        font-size: 20px;
+                        text-align: center;
+                    }
+
+                    >.project {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                }
+
+                >.opinionText {
+                    font-size: 15px;
+                    line-height: 135%;
+                    text-align: center;
+                    width: 50%;
+
+                }
+            }
+        }
+    }
+}
+
+
 @media (max-width: 799px) {
     .teamPlayer {
         top: var(--teamplayer-mobile-top, auto);
@@ -159,10 +261,9 @@
 
         >.teamPlayerContent {
             position: relative;
-            width: 100%;
+            width: 110%;
             height: auto;
             top: 0;
-            left: 0;
             margin-top: 28px;
             display: flex;
             flex-direction: row;
@@ -192,7 +293,7 @@
             >.opinion {
                 width: calc(100% - 0px);
                 min-width: calc(100% - -32px);
-                flex: 0 0 calc(100% - 32px );
+                flex: 0 0 calc(100% - 32px);
                 height: auto;
                 min-height: 220px;
                 gap: 18px;
