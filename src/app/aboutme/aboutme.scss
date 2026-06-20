@@ -114,6 +114,7 @@ $aboutMeTopMobile: 800px;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
+                
                 gap: 36px;
 
                 >.letsWorkTogetherIcon {
@@ -434,14 +435,15 @@ $aboutMeTopMobile: 800px;
 
 @media (max-width: 799px) {
     .letsWorkTogether {
-        top: var(--aboutme-mobile-top, #{$aboutMeTopMobile});
+        top: var(--aboutme-mobile-top, 100dvh);
         left: 0;
         transform: none;
         max-width: none;
-        height: 650px;
-        padding: 0 26px;
+        min-height: 860px;
+        height: auto;
+        padding: 0 48px 56px;
         flex-direction: column;
-        gap: 0px;
+        gap: 24px;
 
         >.letsWorkTogetherColumn {
             width: 100%;
@@ -450,49 +452,56 @@ $aboutMeTopMobile: 800px;
 
         >.letsWorkTogetherBalls {
             .ball2 {
-                width: 128px;
-                height: 128px;
-                top: -6px;
+                width: 168px;
+                height: 168px;
+                top: -84px;
                 left: 50%;
                 transform: translateX(-50%);
             }
 
             .ball3 {
-                width: 52px;
-                height: 52px;
-                top: 92px;
-                left: 85%;
+                width: 76px;
+                height: 76px;
+                top: 56px;
+                left: 92%;
                 transform: translateX(-50%);
             }
         }
 
         .letsWorkTogetherLeftSide {
+            margin-top: 148px;
+            gap: 28px;
+
             >.letsWorkTogetherLeftSideTop {
                 >.letsWorkTogetherText0 {
-                    padding: 0px 16px;
-                    font-size: 56px;
-                    line-height: 90%;
+                    padding: 0;
+                    margin: 0;
+                    font-size: clamp(66px, 16vw, 88px);
+                    line-height: 88%;
                 }
             }
 
             >.letsWorkTogetherLeftSideBottom {
                 align-items: center;
-                gap: 16px;
-                padding-bottom: 32px;
+                justify-content: center;
+                gap: 30px;
+                padding-bottom: 0;
 
                 >.letsWorkTogetherText1 {
-                    font-size: 28px;
+                    margin: 0;
+                    align-self: center;
+                    font-size: 56px;
                 }
 
                 >.letsWorkTogetherIcons {
-                    width: 80%;
+                    width: fit-content;
                     height: auto;
                     flex-direction: column;
                     align-items: flex-start;
-                    gap: 32px;
+                    gap: 24px;
 
                     >.letsWorkTogetherIcon {
-                        height: 36px;
+                        height: 42px;
 
                         >.letsWorkTogetherIconContainer0 {
                             top: 0;
@@ -515,7 +524,8 @@ $aboutMeTopMobile: 800px;
 
                         p {
                             margin-left: 8px;
-                            font-size: 16px;
+                            font-size: 20px;
+                            line-height: 120%;
                         }
                     }
                 }
@@ -524,10 +534,12 @@ $aboutMeTopMobile: 800px;
 
         .letsWorkTogetherRightSide {
             gap: 20px;
+            padding-top: 20px;
 
             >.letsWorkTogetherText2 {
-                font-size: 16px;
-                line-height: 130%;
+                margin: 0;
+                font-size: 20px;
+                line-height: 122%;
             }
 
             >.letsWorkTogetherButton {
@@ -544,6 +556,71 @@ $aboutMeTopMobile: 800px;
                 &:hover {
                     transform: none;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .letsWorkTogether {
+        min-height: 760px;
+        padding: 0 26px 42px;
+        gap: 12px;
+
+        >.letsWorkTogetherBalls {
+            .ball2 {
+                width: 128px;
+                height: 128px;
+                top: -64px;
+            }
+
+            .ball3 {
+                width: 52px;
+                height: 52px;
+                top: 74px;
+                left: 88%;
+            }
+        }
+
+        .letsWorkTogetherLeftSide {
+            margin-top: 138px;
+            gap: 24px;
+
+            >.letsWorkTogetherLeftSideTop {
+                >.letsWorkTogetherText0 {
+                    font-size: 76px;
+                }
+            }
+
+            >.letsWorkTogetherLeftSideBottom {
+                justify-content: center;
+                gap: 24px;
+
+                >.letsWorkTogetherText1 {
+                    font-size: 48px;
+                }
+
+                >.letsWorkTogetherIcons {
+                    align-items: flex-start;
+                    gap: 20px;
+
+                    >.letsWorkTogetherIcon {
+                        height: 36px;
+
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .letsWorkTogetherRightSide {
+            padding-top: 14px;
+
+            >.letsWorkTogetherText2 {
+                font-size: 16px;
+                line-height: 130%;
             }
         }
     }

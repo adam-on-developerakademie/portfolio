@@ -617,9 +617,9 @@ main {
 
         >.scrollDown {
             display: flex;
-            top: 350px;
+            top: clamp(350px, 56vh, 470px);
             left: auto;
-            right: 8px;
+            right: clamp(8px, 2.4vw, 18px);
             transform: none;
             width: 28px;
             height: 160px;

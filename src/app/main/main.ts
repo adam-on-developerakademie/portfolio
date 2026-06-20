@@ -12,8 +12,13 @@ import { DATA } from '../../services/data';
 export class Main {
   myData = inject(DATA);
 
-  // Scrolls to the about-me section from the hero scroll-down control.
+  // Scrolls from hero to the next visual section, with mobile ending exactly at hero bottom.
   goToAboutMe() {
+    if (window.innerWidth < 800) {
+      this.scrollToHeroEnd();
+      return;
+    }
+
     // Uses the same visual target and offset as the header About me navigation.
     const element = (document.querySelector('app-aboutme .letsWorkTogether')
       ?? document.getElementById('aboutMe')) as HTMLElement | null;
@@ -21,5 +26,13 @@ export class Main {
       const top = window.scrollY + element.getBoundingClientRect().top - 139;
       window.scrollTo({ top, behavior: 'smooth' });
     }
+  }
+
+  // Scrolls to the exact end of the hero section on mobile.
+  private scrollToHeroEnd() {
+    const hero = document.querySelector('app-main .hero') as HTMLElement | null;
+    if (!hero) return;
+    const top = window.scrollY + hero.getBoundingClientRect().bottom;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
 }
