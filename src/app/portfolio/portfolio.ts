@@ -86,7 +86,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Applies layout settings while a legal overlay is active.
   private applyOverlayLayout() {
     if (window.innerWidth < 800) {
-      this.canvasWidth.set(390);
+      this.canvasWidth.set(window.innerWidth);
     } else {
       this.canvasWidth.set(1440);
     }
@@ -105,7 +105,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   }
   // Configures mobile canvas dimensions and keeps mobile offsets in sync.
   private applyMobilePortfolioLayout() {
-    this.canvasWidth.set(390);
+    this.canvasWidth.set(window.innerWidth);
     this.canvasHeight.set(7120);
     this.clearDesktopOffsetVars();
     this.syncMobileOffsets();
