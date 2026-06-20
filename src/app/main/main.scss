@@ -443,7 +443,113 @@ main {
         }
     }
 
+    .hero {
+        left: 0;
+        transform: none;
+        max-width: none;
+        width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        height: 100dvh;
+        min-height: 100dvh;
 
+        >.ball1 {
+            display: none;
+        }
+
+        >.hello {
+            top: clamp(112px, 14vh, 148px);
+            left: clamp(16px, 3.2vw, 24px);
+            width: auto;
+            max-width: 82%;
+            height: auto;
+            font-size: clamp(30px, 5.2vw, 42px);
+            color: $figma-white;
+            text-shadow: none;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        >.profession {
+            top: clamp(150px, 19vh, 198px);
+            left: clamp(24px, 4.6vw, 36px);
+            max-width: 92%;
+            height: auto;
+            font-size: clamp(50px, 11vw, 88px);
+            line-height: 96%;
+            color: $figma-white;
+            text-shadow: none;
+            overflow: hidden;
+        }
+
+        >.me {
+            top: auto;
+            bottom: 0;
+            left: 47%;
+            transform: translateX(-50%);
+            width: min(520px, 72vw);
+            height: min(520px, 72vw);
+            object-fit: cover;
+            object-position: top;
+        }
+
+        >.scrollDown {
+            display: flex;
+            top: clamp(350px, 56vh, 470px);
+            left: auto;
+            right: clamp(8px, 2.4vw, 18px);
+            transform: none;
+            width: 28px;
+            height: 160px;
+            gap: 0;
+            position: absolute;
+            z-index: 4;
+
+            >.scrollText {
+                position: absolute;
+                top: 52px;
+                left: -52px;
+                width: 133px;
+                height: 28px;
+                font-size: 23px;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                line-height: 120%;
+                letter-spacing: 0;
+                color: $figma-blue;
+                opacity: 1;
+                transform: rotate(-90deg);
+                transform-origin: center;
+                rotate: 180deg;
+            }
+
+            >.scrollTextDesktop {
+                display: none;
+            }
+
+            >.scrollTextMobile {
+                display: block;
+            }
+
+            >.scrollLine {
+                display: none;
+            }
+
+            >.scrollIcon {
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 2px;
+                width: 24px;
+                height: 24px;
+                margin-top: 0;
+            }
+        }
+
+        .mainSocialButtons {
+            display: none;
+        }
+    }
 
 }
 
