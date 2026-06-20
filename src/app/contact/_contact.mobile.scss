@@ -119,7 +119,7 @@
         width: 50px;
         height: 50px;
         top: $topBall14 - 100px;
-        left: calc(100% - 50px);
+        left: calc(100% - 100px);
     }
 
     .ball14 {
@@ -177,7 +177,7 @@
         width: 50px;
         height: 50px;
         top: $topBall14 - 100px;
-        left: calc(100% - 50px);
+        left: calc(100% - 100px);
     }
 
     .ball14 {
@@ -202,6 +202,19 @@
         .contactForm {
             left: 13px;
             width: calc(100% - 26px);
+        }
+    }
+}
+
+@media (max-width: 799px) {
+    .contactContent {
+        .title,
+        .ask,
+        .description,
+        .contactMe,
+        .contactForm {
+            left: 50px;
+            width: calc(100% - 100px);
         }
     }
 }

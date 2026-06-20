@@ -180,7 +180,8 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     const currentWorkTop = parseFloat(getComputedStyle(sections.myWork).top || '0') || 0;
     const workFlowOffset = sections.myWork.offsetTop - currentWorkTop;
     tops.workTop = desiredWorkTop - workFlowOffset;
-    tops.teamTop = tops.workTop + sections.myWork.offsetHeight + this.mobileGaps!.workToTeam;
+    const renderedWorkTop = tops.workTop + workFlowOffset;
+    tops.teamTop = renderedWorkTop + sections.myWork.offsetHeight + this.mobileGaps!.workToTeam;
     tops.contactTop = tops.teamTop + sections.team.offsetHeight + this.mobileGaps!.teamToContact;
     tops.footerTop = tops.contactTop + sections.contact.offsetHeight + this.mobileGaps!.contactToFooter;
     this.applyMobileTopVars(sections.team, tops);
