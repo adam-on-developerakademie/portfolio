@@ -436,10 +436,10 @@ main {
         &::after {
             top: -62px;
             left: -300px;
-            width: calc($ball1Size - 152px);
-            height: calc($ball1Size - 152px);
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 152px - 22px - 100vh)) 0);
-            clip-path: inset(0 0 max(0px, calc($ball1Size - 152px - 22px - 100dvh)) 0);
+            width: calc($ball1Size - 52px);
+            height: calc($ball1Size - 52px);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 52px - 22px - 100vh)) 0);
+            clip-path: inset(0 0 max(0px, calc($ball1Size - 52px - 22px - 100dvh)) 0);
         }
     }
 
