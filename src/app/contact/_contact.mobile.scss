@@ -218,3 +218,16 @@
         }
     }
 }
+
+@media (max-width: 399px) {
+    .contactContent {
+        .title,
+        .ask,
+        .description,
+        .contactMe,
+        .contactForm {
+            left: 20px;
+            width: calc(100% - 40px);
+        }
+    }
+}

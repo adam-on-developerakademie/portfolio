@@ -183,7 +183,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     const renderedWorkTop = tops.workTop + workFlowOffset;
     tops.teamTop = renderedWorkTop + sections.myWork.offsetHeight + this.mobileGaps!.workToTeam;
     tops.contactTop = tops.teamTop + sections.team.offsetHeight + this.mobileGaps!.teamToContact;
-    tops.footerTop = tops.contactTop + sections.contact.offsetHeight + this.mobileGaps!.contactToFooter;
+    tops.footerTop = tops.contactTop + sections.contact.offsetHeight;
     this.applyMobileTopVars(sections.team, tops);
     this.canvasHeight.set(tops.footerTop + sections.footer.offsetHeight + this.mobileSectionGap);
   }
