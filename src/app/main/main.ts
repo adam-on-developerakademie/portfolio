@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, AfterViewInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DATA } from '../../services/data';
@@ -9,8 +9,9 @@ import { DATA } from '../../services/data';
   templateUrl: './main.html',
   styleUrl: './main.scss'
 })
-export class Main {
+export class Main implements AfterViewInit {
   myData = inject(DATA);
+  private ngZone = inject(NgZone);
 
   // Scrolls from hero to the next visual section, with mobile ending exactly at hero bottom.
   goToAboutMe() {
@@ -34,5 +35,43 @@ export class Main {
     if (!hero) return;
     const top = window.scrollY + hero.getBoundingClientRect().bottom;
     window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  // Applies mobile overlap protection after the view is ready.
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.positionMeElement();
+      window.addEventListener('resize', () => this.positionMeElement());
+    });
+  }
+
+  // Keeps the old mobile layout and only moves .me if it overlaps .profession.
+  private positionMeElement() {
+    if (window.innerWidth > 799) {
+      this.clearMeInlinePosition();
+      return;
+    }
+    const profession = document.querySelector('app-main .hero .profession') as HTMLElement | null;
+    const me = document.querySelector('app-main .hero .me') as HTMLElement | null;
+    if (!profession || !me) {
+      return;
+    }
+    this.clearMeInlinePosition();
+    const minTop = profession.offsetTop + profession.offsetHeight + 20;
+    if (me.offsetTop >= minTop) {
+      return;
+    }
+    me.style.top = `${minTop}px`;
+    me.style.bottom = 'auto';
+  }
+
+  // Resets inline position so stylesheet controls the default layout.
+  private clearMeInlinePosition() {
+    const me = document.querySelector('app-main .hero .me') as HTMLElement | null;
+    if (!me) {
+      return;
+    }
+    me.style.top = '';
+    me.style.bottom = '';
   }
 }

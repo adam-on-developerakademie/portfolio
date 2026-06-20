@@ -625,3 +625,15 @@ $aboutMeTopMobile: 800px;
         }
     }
 }
+
+@media (max-width: 349px) {
+    .letsWorkTogether {
+        .letsWorkTogetherLeftSide {
+            >.letsWorkTogetherLeftSideTop {
+                >.letsWorkTogetherText0 {
+                    font-size: 56px;
+                }
+            }
+        }
+    }
+}
