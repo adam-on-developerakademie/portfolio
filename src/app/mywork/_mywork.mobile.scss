@@ -9,7 +9,7 @@
         width: 100%;
         height: auto;
         min-height: fit-content;
-        padding-top: $myWorkHeaderTopMobile;
+        padding-top: 24px;
         padding-bottom: 20px;
         overflow-x: hidden;
         overflow-y: visible;
@@ -32,7 +32,7 @@
             }
 
             >.myWorkHeaderTitle {
-                top: 58px;
+                top: 95px;
                 left: 16px;
                 width: calc(100% - 32px);
                 font-size: 56px;
@@ -40,7 +40,7 @@
             }
 
             >.myWorkHeaderText {
-                top: 128px;
+                top: 213px;
                 left: 16px;
                 width: calc(100% - 32px);
                 font-size: 16px;

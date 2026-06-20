@@ -175,8 +175,11 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     this.ensureMobileGaps(sections);
     const tops = this.calculateSectionTops(sections, this.mobileGaps!);
     tops.aboutTop = sections.hero.offsetTop + sections.hero.offsetHeight;
-    tops.skillTop = tops.aboutTop + sections.about.offsetHeight + this.mobileGaps!.aboutToSkill;
-    tops.workTop = tops.skillTop + sections.skill.offsetHeight + this.mobileGaps!.skillToWork;
+    tops.skillTop = tops.aboutTop + sections.about.offsetHeight;
+    const desiredWorkTop = tops.skillTop + sections.skill.offsetHeight;
+    const currentWorkTop = parseFloat(getComputedStyle(sections.myWork).top || '0') || 0;
+    const workFlowOffset = sections.myWork.offsetTop - currentWorkTop;
+    tops.workTop = desiredWorkTop - workFlowOffset;
     tops.teamTop = tops.workTop + sections.myWork.offsetHeight + this.mobileGaps!.workToTeam;
     tops.contactTop = tops.teamTop + sections.team.offsetHeight + this.mobileGaps!.teamToContact;
     tops.footerTop = tops.contactTop + sections.contact.offsetHeight + this.mobileGaps!.contactToFooter;
