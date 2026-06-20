@@ -163,18 +163,20 @@ $skillSetHeight: 632px;
 @media (max-width: 1100px) {
     .SkillSet {
         height: 900px;
+
         >.skills {
             max-width: none;
             width: 700px;
-            
+
             grid-template-columns: repeat(5, minmax(72px, 1fr));
-             gap: 16px 18px;
-             justify-items: center;
+            gap: 16px 18px;
+            justify-items: center;
         }
     }
 }
 
-@media (max-width: 799px) {
+
+@media (max-width: 700px) {
     .SkillSet {
         top: var(--skillset-mobile-top, 1620px);
         left: 0;
