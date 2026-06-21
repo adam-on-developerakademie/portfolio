@@ -96,7 +96,7 @@ export class Header implements OnDestroy {
 
   // Resolves a section id from the DOM and scrolls to it smoothly.
   goToOld(elementId: string) {
-    if (elementId === 'aboutMe' && window.innerWidth < 800) {
+    if (elementId === 'aboutMe' && window.innerWidth < 950) {
       const hero = document.querySelector('app-main .hero') as HTMLElement | null;
       if (hero) {
         const top = window.scrollY + hero.getBoundingClientRect().bottom;

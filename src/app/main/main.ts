@@ -15,7 +15,7 @@ export class Main implements AfterViewInit {
 
   // Scrolls from hero to the next visual section, with mobile ending exactly at hero bottom.
   goToAboutMe() {
-    if (window.innerWidth < 800) {
+    if (window.innerWidth < 950) {
       this.scrollToHeroEnd();
       return;
     }
@@ -47,7 +47,7 @@ export class Main implements AfterViewInit {
 
   // Keeps the old mobile layout and only moves .me if it overlaps .profession.
   private positionMeElement() {
-    if (window.innerWidth > 799) {
+    if (window.innerWidth > 949) {
       this.clearMeInlinePosition();
       return;
     }

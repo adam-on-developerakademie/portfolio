@@ -32,6 +32,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   private observedOverlayHeader: HTMLElement | null = null;
   private observedOverlayPanel: HTMLElement | null = null;
   private observedOverlayFooter: HTMLElement | null = null;
+  private readonly mobileBreakpoint = 950;
   private readonly mobileSectionGap = 120;
   private mobileGaps: {
     heroToAbout: number;
@@ -85,7 +86,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
 
   // Applies layout settings while a legal overlay is active.
   private applyOverlayLayout() {
-    if (window.innerWidth < 800) {
+    if (window.innerWidth < this.mobileBreakpoint) {
       this.canvasWidth.set(window.innerWidth);
     } else {
       this.canvasWidth.set(1440);
@@ -97,7 +98,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   }
   // Applies layout settings for the regular portfolio page.
   private applyPortfolioLayout() {
-    if (window.innerWidth < 800) {
+    if (window.innerWidth < this.mobileBreakpoint) {
       this.applyMobilePortfolioLayout();
       return;
     }
@@ -120,10 +121,10 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Updates desktop section top offsets from current rendered section heights.
   private syncDesktopOffsets() {
     requestAnimationFrame(() => {
-      if (window.innerWidth < 800 || this.isOverlayOpen()) return;
+      if (window.innerWidth < this.mobileBreakpoint || this.isOverlayOpen()) return;
       this.applyMeasuredDesktopOffsets();
       requestAnimationFrame(() => {
-        if (window.innerWidth >= 800 && !this.isOverlayOpen()) this.applyMeasuredDesktopOffsets();
+        if (window.innerWidth >= this.mobileBreakpoint && !this.isOverlayOpen()) this.applyMeasuredDesktopOffsets();
       });
     });
   }
@@ -154,12 +155,12 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Updates mobile section top offsets from current rendered section heights.
   private syncMobileOffsets() {
     requestAnimationFrame(() => {
-      if (window.innerWidth >= 800) {
+      if (window.innerWidth >= this.mobileBreakpoint) {
         return;
       }
       this.applyMeasuredMobileOffsets();
       requestAnimationFrame(() => {
-        if (window.innerWidth < 800) {
+        if (window.innerWidth < this.mobileBreakpoint) {
           this.applyMeasuredMobileOffsets();
         }
       });

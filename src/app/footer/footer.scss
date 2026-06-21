@@ -182,7 +182,7 @@ $footerTop: 6488px;
     }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 949px) {
     .footer {
         top: calc(var(--footer-mobile-top, 0px) + 120px);
         max-width: none;
