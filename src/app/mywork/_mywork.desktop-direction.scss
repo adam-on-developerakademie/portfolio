@@ -10,7 +10,7 @@
             }
 
             .myWorkProjectContent {
-                left: 1031px;
+                left: 1070px;
                 align-items: start;
             }
         }
@@ -23,8 +23,43 @@
             }
 
             .myWorkProjectContent {
-                left: 323px;
+                left: 320px;
                 text-align: end;
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .myWork {
+        >.myWorkMain {
+
+            .directionNormal {
+
+
+                .myWorkProjectImage {
+                    left: 280px;
+                    justify-content: flex-end;
+                }
+
+                .myWorkProjectContent {
+                    left: 1031px;
+                    align-items: start;
+                }
+            }
+
+            .directionReverse {
+
+                .myWorkProjectImage {
+                    left: 930px;
+                    justify-content: flex-start;
+                }
+
+                .myWorkProjectContent {
+                    left: 360px;
+                    text-align: end;
+                }
             }
         }
     }
