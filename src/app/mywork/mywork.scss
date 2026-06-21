@@ -227,7 +227,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight + $myWorkBelowHeader
                 justify-content: center;
 
                 >img {
-                    width: clamp(460px, 43vw, 620px);
+                    width: clamp(520px, 48vw, 620px);
                     height: auto;
                     max-height: 393px;
                     box-shadow: 5px 5px 15px 0px #00000026;
@@ -238,7 +238,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight + $myWorkBelowHeader
 
                     >img {
                         cursor: pointer;
-                        width: clamp(498px, 46.53vw, 670px);
+                        width: clamp(540px, 51vw, 670px);
                         height: auto;
                         max-height: 425px;
                         gap: 10px;
