@@ -220,16 +220,15 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight + $myWorkBelowHeader
                 width: 720px;
                 height: 460px;
                 top: -67px;
-                gap: 10px;
                 background-color: transparent;
                 display: flex;
                 align-items: end;
                 justify-content: center;
 
                 >img {
-                    width: clamp(520px, 48vw, 620px);
+                    width: clamp(520px, 50vw, 680px);
                     height: auto;
-                    max-height: 393px;
+                    max-height: 500px;
                     box-shadow: 5px 5px 15px 0px #00000026;
                 }
 
@@ -238,9 +237,9 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight + $myWorkBelowHeader
 
                     >img {
                         cursor: pointer;
-                        width: clamp(540px, 51vw, 670px);
+                        width: clamp(550px, 60vw, 700px);
                         height: auto;
-                        max-height: 425px;
+                        max-height: 500px;
                         gap: 10px;
                         z-index: -1;
                         box-shadow: 5px 5px 15px 0px #00000026;
@@ -258,7 +257,7 @@ $myWorkHeight: calc($myWorkHeaderHeight + $myWorkMainHeight + $myWorkBelowHeader
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                row-gap: 15px;
+                row-gap: 25px;
                 padding-bottom: 20px;
 
                 >.myWorkProjectContentText {
