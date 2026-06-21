@@ -46,6 +46,8 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Initializes responsive runtime layout values at component startup.
   constructor() {
     this.syncOverlayFromUrl();
+    // Recalculates mobile offsets after late-loading assets finish and the layout becomes stable.
+    window.addEventListener('load', () => this.updateLayout(), { once: true });
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe(() => {
