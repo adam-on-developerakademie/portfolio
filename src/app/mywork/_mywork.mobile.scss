@@ -1,3 +1,24 @@
+@media (max-width: 1350px) {
+    .myWork {
+        // Binds header offsets to the first desktop project image left edge.
+        // first image left edge = container right edge (273px + 720px) - image width
+        --desktop-project-image-width: clamp(500px, 47vw, 620px);
+        --desktop-first-image-left: calc(790px - var(--desktop-project-image-width));
+        >.myWorkHeader {
+
+            >.ball4 {
+                left: calc(var(--desktop-first-image-left) + 370px);
+            }
+
+            >.myWorkHeaderTitle,
+            >.myWorkHeaderText {
+                left: calc(var(--desktop-first-image-left) - 75px);
+            }
+        }
+    }
+}
+
+
 @media (max-width: 949px) {
     .myWork {
         position: relative;
