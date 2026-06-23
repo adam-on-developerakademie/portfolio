@@ -2,8 +2,9 @@
     .myWork {
         // Binds header offsets to the first desktop project image left edge.
         // first image left edge = container right edge (273px + 720px) - image width
-        --desktop-project-image-width: clamp(500px, 47vw, 620px);
+        --desktop-project-image-width: clamp(300px, 47vw, 620px);
         --desktop-first-image-left: calc(790px - var(--desktop-project-image-width));
+
         >.myWorkHeader {
 
             >.ball4 {
@@ -18,8 +19,261 @@
     }
 }
 
+@media (max-width: 1200px) {
+    .myWork {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: fit-content;
+        padding-top: 24px;
+        padding-bottom: 20px;
 
-@media (max-width: 949px) {
+        >.myWorkHeader {
+            position: relative;
+            top: 0;
+            height: 380px;
+            padding-bottom: 40px;
+
+
+            >.myWorkHeaderTitle {
+                position: absolute;
+                box-sizing: border-box;
+                font-weight: 750;
+                font-size: 96px;
+                line-height: 100%;
+                white-space: nowrap;
+                color: #5988FF;
+            }
+
+            >.myWorkHeaderText {
+                position: absolute;
+                box-sizing: border-box;
+                height: 56px;
+                font-weight: 400;
+                font-size: 23px;
+                line-height: 120%;
+            }
+        }
+
+        >.myWorkMain {
+            position: relative;
+            width: 100%;
+            left: 0;
+            top: 0;
+            height: auto;
+            margin-top: 62px;
+            overflow-x: hidden;
+            overflow-y: visible;
+
+            >.ball6,
+            >.ball7,
+            >.ball8,
+            >.ball9,
+            >.ball10 {
+                display: none;
+            }
+
+            >.myWorkProjects {
+                position: relative;
+                top: 0px;
+                height: auto;
+                gap: 16px;
+                padding: 0 50px;
+
+                >div {
+                    --bubble-width: 170px;
+                    --bubble-height: 170px;
+                    --bubble-left: auto;
+                    --bubble-right: -20px;
+                    --bubble-top: auto;
+                    --bubble-bottom: -36px;
+                    --bubble-rotate: 0deg;
+                }
+
+                >div[data-project='Join'] {
+                    --bubble-width: 223px;
+                    --bubble-height: 238px;
+                    --bubble-left: -150px;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: -95px;
+                    --bubble-rotate: calc(180deg - 81.57deg);
+                }
+
+                >div[data-project='El Pollo Loco'] {
+                    --bubble-height: 269px;
+                    --bubble-width: 269px;
+                    --bubble-left: 200px;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: -75px;
+                    --bubble-rotate: calc(180deg - 81.57deg);
+                }
+
+                >div[data-project='DA Buble'] {
+                    --bubble-width: 134px;
+                    --bubble-height: 134px;
+                    --bubble-left: -16px;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: 60px;
+                    --bubble-rotate: calc(90deg - 81.57deg);
+                }
+
+                >div[data-project='Pokédex'] {
+                    --bubble-height: 30px;
+                    --bubble-width: 30px;
+                    --bubble-left: 101%;
+                    --bubble-right: auto;
+                    --bubble-top: auto;
+                    --bubble-bottom: -100px;
+                    --bubble-rotate: calc(90deg - 81.57deg);
+                }
+
+                .myWorkProject {
+                    width: 100%;
+                    height: auto;
+                    gap: 10px;
+                    padding-bottom: 50px;
+
+                    >.myWorkProjectImage {
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        height: auto;
+                        position: relative;
+                        isolation: isolate;
+                        align-items: center;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: var(--bubble-width);
+                            height: var(--bubble-height);
+                            left: var(--bubble-left);
+                            right: var(--bubble-right);
+                            top: var(--bubble-top);
+                            bottom: var(--bubble-bottom);
+                            transform: rotate(var(--bubble-rotate));
+                            border-radius: 50%;
+                            background: radial-gradient(74.22% 74.22% at 19.79% 22.42%,
+                                    #5988FF 6.25%, #5988FF 51.56%, #0043F0 100%);
+                            z-index: 0;
+                            pointer-events: none;
+                        }
+
+                        >img {
+                            width: 100%;
+                            height: auto;
+                            object-fit: contain;
+                            border-radius: 0;
+                            position: relative;
+                            z-index: 1;
+                            box-shadow: 5px 5px 15px 0px #00000026;
+                        }
+
+                        &:hover {
+                            align-items: center;
+
+                            >img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+
+                    >.myWorkProjectContent {
+                        position: relative;
+                        height: auto;
+                        left:50%;
+                        transform: translateX(-50%);
+                        top: 0;
+                        margin-top: 50px;
+                        padding-bottom: 60px;
+                        row-gap: 14px;
+
+                        >.myWorkProjectContentText {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            .myWorkProjectTitle {
+                                height: auto;
+                                font-size: 34px;
+                            }
+
+                            .myWorkProjectUsed {
+                                height: auto;
+                                font-size: 16px;
+                            }
+
+                            .myWorkProjectDescription {
+                                height: auto;
+                                font-size: 14px;
+                                line-height: 140%;
+                                padding-bottom: 24px;
+                                text-align: center;
+                            }
+                        }
+
+                        .myWorkProjectContentButton {
+                            position: relative;
+                            width: auto;
+                            flex: 0 0 auto;
+                            height: auto;
+                            align-items: center;
+                            justify-content: center;
+                            padding-top: 0;
+
+                            .myWorkProjectLink {
+                                box-sizing: border-box;
+                                width: 138px;
+                                height: 42px;
+                                font-size: 16px;
+                                padding-top: 0;
+                                padding-right: 29px;
+                                padding-bottom: 0;
+                                padding-left: 29px;
+
+                                &:hover {
+                                    transform: none;
+                                }
+                            }
+                        }
+                    }
+
+                    >.myWorkProjectContent {
+                        .myWorkProjectContentButtons {
+                            display: flex;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: space-around;
+                            gap: 12px;
+                        }
+                    }
+                }
+            }
+
+            .directionNormal,
+            .directionReverse {
+
+                .myWorkProjectImage,
+                .myWorkProjectContent {
+                    left: 0;
+                    text-align: left;
+                    align-items: flex-start;
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+@media (max-width: 880px) {
     .myWork {
         position: relative;
         display: flex;
