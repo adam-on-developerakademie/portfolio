@@ -1,6 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { DATA } from '../../services/data';
@@ -13,7 +13,7 @@ type ContactFieldName = 'name' | 'email' | 'message';
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
 })
-export class Contact {
+export class Contact implements OnInit {
   myData = inject(DATA);
   fb = inject(FormBuilder);
   http = inject(HttpClient);
@@ -26,6 +26,12 @@ export class Contact {
   submissionError = false;
   // Tracks whether a request is currently in flight.
   isSubmitting = false;
+  // Tracks backend availability based on health endpoint checks.
+  backendAvailable = signal(true);
+  // Stores a readable backend status hint for the user.
+  backendStatusMessage = signal('');
+  // Stores a readable API error message for failed send attempts.
+  submissionErrorMessage = '';
   // Stores the current visual state of the submit button label.
   submitButtonState = signal<'idle' | 'sending' | 'success'>('idle');
   // Stores the currently focused field to render typing state visuals.
@@ -46,26 +52,62 @@ export class Contact {
     }
   }
 
+  // Performs an initial backend health check when the component is created.
+  ngOnInit() {
+    void this.checkBackendHealth();
+  }
+
   // Handles form submission with validation and feedback handling.
   async onSubmit() {
-    if (!this.isFormValid()) {
-      return;
-    }
+    if (!this.canSubmit()) return;
     this.prepareSubmission();
+    await this.trySubmitContactForm();
+  }
+
+  // Verifies local form state and backend readiness before sending.
+  private canSubmit(): boolean {
+    if (!this.isFormValid()) return false;
+    if (this.backendAvailable()) return true;
+    this.handleBackendUnavailable();
+    return false;
+  }
+
+  // Runs the request and maps success and failure states consistently.
+  private async trySubmitContactForm() {
     try {
       await this.sendContactForm();
       this.handleSubmissionSuccess();
-    } catch {
-      this.handleSubmissionFailure();
+    } catch (error: unknown) {
+      this.handleSubmissionFailure(error);
     } finally {
       this.isSubmitting = false;
     }
+  }
+
+  // Calls the health endpoint and stores availability for submit handling.
+  private async checkBackendHealth() {
+    try {
+      await firstValueFrom(this.http.get('/api/health'));
+      this.backendAvailable.set(true);
+      this.backendStatusMessage.set('');
+    } catch {
+      this.handleBackendUnavailable();
+    }
+  }
+
+  // Applies a clear user-facing state when the backend cannot be reached.
+  private handleBackendUnavailable() {
+    this.backendAvailable.set(false);
+    this.submissionError = true;
+    this.backendStatusMessage.set('Backend is unavailable. Start API with npm run start:all.');
+    this.submissionErrorMessage = this.backendStatusMessage();
   }
 
   // Prepares state flags before sending a contact request.
   private prepareSubmission() {
     this.submitted = true;
     this.submissionError = false;
+    this.submissionErrorMessage = '';
     this.isSubmitting = true;
   }
 
@@ -77,6 +119,7 @@ export class Contact {
     this.contactForm.markAllAsTouched();
     this.markAllFieldsTouched();
     this.submissionError = true;
+    this.submissionErrorMessage = '';
     return false;
   }
 
@@ -90,6 +133,10 @@ export class Contact {
   // Applies the success state and clears the form fields.
   private handleSubmissionSuccess() {
     this.submissionSuccess = true;
+    this.submissionError = false;
+    this.submissionErrorMessage = '';
+    this.backendAvailable.set(true);
+    this.backendStatusMessage.set('');
     this.contactForm.reset({ name: '', email: '', message: '', privacy: false });
     this.submitButtonState.set('success');
     this.hideSuccessAfterDelay();
@@ -97,10 +144,30 @@ export class Contact {
   }
 
   // Restores the error state after a failed send attempt.
-  private handleSubmissionFailure() {
+  private handleSubmissionFailure(error: unknown) {
     this.submissionSuccess = false;
     this.submissionError = true;
+    this.submissionErrorMessage = this.resolveSubmissionErrorMessage(error);
     this.submitButtonState.set('idle');
+  }
+
+  // Resolves a readable message from known HTTP and backend error payloads.
+  private resolveSubmissionErrorMessage(error: unknown): string {
+    if (error instanceof HttpErrorResponse) {
+      const apiMessage = this.readApiErrorPayload(error.error);
+      return apiMessage || error.message || 'Request failed';
+    }
+    return 'Request failed';
+  }
+
+  // Extracts message/details from backend JSON payload when available.
+  private readApiErrorPayload(payload: unknown): string {
+    if (!payload || typeof payload !== 'object') return '';
+    const data = payload as { message?: unknown; details?: unknown };
+    const message = typeof data.message === 'string' ? data.message : '';
+    const details = typeof data.details === 'string' ? data.details : '';
+    if (message && details) return `${message}: ${details}`;
+    return message || details;
   }
 
   // Marks every form field as touched to expose validation messages.

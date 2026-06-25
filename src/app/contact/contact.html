@@ -82,10 +82,18 @@
                 type="button" 
                 (click)="onSubmit()"
                 class="submitButton"
-                [class.inactive]="contactForm.invalid || isSubmitting"
-                [disabled]="contactForm.invalid || isSubmitting">
+                [class.inactive]="contactForm.invalid || isSubmitting || !backendAvailable()"
+                [disabled]="contactForm.invalid || isSubmitting || !backendAvailable()">
                 {{ getSubmitButtonLabel() }}
             </button>
+
+            @if(!backendAvailable()) {
+                <span class="errorText">{{backendStatusMessage()}}</span>
+            }
+
+            @if(submissionError && submissionErrorMessage) {
+                <span class="errorText">{{submissionErrorMessage}}</span>
+            }
         </form>
     </div>
 </div>

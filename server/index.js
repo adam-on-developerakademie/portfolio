@@ -9,6 +9,16 @@ const port = Number(process.env.PORT || 3001);
 
 app.use(express.json({ limit: '1mb' }));
 
+// Returns basic runtime diagnostics for quick backend health checks.
+app.get('/api/health', (_req, res) => {
+  return res.json({
+    success: true,
+    status: 'ok',
+    uptimeSeconds: Math.floor(process.uptime()),
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Parses boolean-like env values safely (true/false, 1/0, yes/no).
 function parseBool(value, fallback) {
   if (value === undefined) return fallback;
