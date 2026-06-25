@@ -35,12 +35,21 @@ header {
     font-size: 23px;
     line-height: 120%;
 
-    >.logo {
-        //border: 1px solid red;
+    >.logoButton {
+        border: none;
+        background: transparent;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    >.logoButton > .logo {
         height: 69px;
         width: auto;
         color: white;
         background-color: transparent;
+        display: block;
 
     }
 
@@ -204,6 +213,19 @@ p {
     display: block;
     width: 30px;
     height: 28px;
+}
+
+.mobileOverlayHeader > .logoButton {
+    border: none;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobileOverlayLogo {
+    display: block;
 }
 
 .mobileMenu {

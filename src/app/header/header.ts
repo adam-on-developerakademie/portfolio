@@ -63,10 +63,22 @@ export class Header implements OnDestroy {
 
   // Returns the correct desktop logo variant for the current page background.
   logoSrc() {
-    if (this.router.url === '/privacy-policy' || this.router.url === '/legal-notice') {
+    if (this.router.url === '/privacy-policy' || this.router.url === '/legal-notice' || this.router.url === '/social-media-notice') {
       return 'ico/AP.png';
     }
     return 'ico/AP_bgw.png';
+  }
+
+  // Scrolls to the hero section and navigates home when the app is on another route.
+  goToHero() {
+    if (this.router.url !== '/') {
+      this.router.navigateByUrl('/').then(() => setTimeout(() => this.scrollToHero(), 0));
+    } else {
+      this.scrollToHero();
+    }
+    if (this.mobileMenuPhase() !== 'closed') {
+      this.closeMobileMenu();
+    }
   }
 
   // Clears pending overlay timer before starting a new state transition.
@@ -75,6 +87,16 @@ export class Header implements OnDestroy {
       clearTimeout(this.overlayTimer);
       this.overlayTimer = undefined;
     }
+  }
+
+  // Resolves the hero section in the DOM and scrolls to its top smoothly.
+  private scrollToHero() {
+    const hero = document.querySelector('app-main .hero') as HTMLElement | null;
+    if (hero) {
+      hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   // Releases pending timers when component is destroyed.

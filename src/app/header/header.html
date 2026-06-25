@@ -1,5 +1,7 @@
 <header>
-    <img [src]="logoSrc()" alt="Logo" class="logo" />
+    <button class="logoButton" type="button" (click)="goToHero()" aria-label="Go to hero section">
+        <img [src]="logoSrc()" alt="Logo" class="logo" />
+    </button>
     <button class="menuButton" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu">
         <img [src]="menuButtonIcon()" alt="menu button" class="menuButtonIcon" />
     </button>
@@ -39,7 +41,9 @@
 <div class="mobileMenu" [class.opening]="mobileMenuPhase() === 'opening'"
     [class.closing]="mobileMenuPhase() === 'closing'" (click)="closeMobileMenu()">
     <div class="mobileOverlayHeader" (click)="$event.stopPropagation()">
-        <img src="ico/AP.png" alt="Logo" class="mobileOverlayLogo" />
+        <button class="logoButton" type="button" (click)="$event.stopPropagation(); goToHero()" aria-label="Go to hero section">
+            <img [src]="logoSrc()" alt="Logo" class="mobileOverlayLogo" />
+        </button>
     </div>
     <div class="mobileLinks" (click)="$event.stopPropagation()">
         @for(value of myData.DATA.header; track value.name ) {

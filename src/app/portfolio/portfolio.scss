@@ -67,6 +67,7 @@
     position: relative;
     top: 0;
     left: 0;
+    transform: none;
     max-width: 1440px;
     width: 100%;
 }
@@ -121,6 +122,8 @@
     }
 
     :host ::ng-deep .portfolio-canvas.overlay-mode app-header header {
+        left: 0;
+        transform: none;
         max-width: none;
     }
 
