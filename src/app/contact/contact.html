@@ -91,7 +91,7 @@
                 <span class="errorText">{{backendStatusMessage()}}</span>
             }
 
-            @if(submissionError && submissionErrorMessage) {
+            @if(submissionError && submissionErrorMessage && backendAvailable()) {
                 <span class="errorText">{{submissionErrorMessage}}</span>
             }
         </form>

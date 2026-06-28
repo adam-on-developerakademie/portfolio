@@ -99,8 +99,15 @@ export class Contact implements OnInit {
   private handleBackendUnavailable() {
     this.backendAvailable.set(false);
     this.submissionError = true;
-    this.backendStatusMessage.set('Backend is unavailable. Start API with npm run start:all.');
-    this.submissionErrorMessage = this.backendStatusMessage();
+    this.backendStatusMessage.set(this.getBackendUnavailableText());
+  }
+
+  // Returns a localized message when backend health checks fail.
+  private getBackendUnavailableText(): string {
+    const language = this.myData.DATA.language;
+    return language === 1
+      ? 'Backend ist nicht erreichbar. Starte die API mit npm run start:all.'
+      : 'Backend is unavailable. Start API with npm run start:all.';
   }
 
   // Prepares state flags before sending a contact request.
@@ -155,9 +162,17 @@ export class Contact implements OnInit {
   private resolveSubmissionErrorMessage(error: unknown): string {
     if (error instanceof HttpErrorResponse) {
       const apiMessage = this.readApiErrorPayload(error.error);
-      return apiMessage || error.message || 'Request failed';
+      return apiMessage || error.message || this.getRequestFailedText();
     }
-    return 'Request failed';
+    return this.getRequestFailedText();
+  }
+
+  // Returns a localized fallback message for unknown HTTP failures.
+  private getRequestFailedText(): string {
+    const language = this.myData.DATA.language;
+    return language === 1
+      ? 'Anfrage fehlgeschlagen. Bitte versuche es erneut.'
+      : 'Request failed. Please try again.';
   }
 
   // Extracts message/details from backend JSON payload when available.
