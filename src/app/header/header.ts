@@ -20,6 +20,12 @@ export class Header implements OnDestroy {
   readonly mobileButtonState = signal<'normal' | 'medium-normal' | 'close' | 'medium-close'>('normal');
   private readonly overlayAnimationMs = 220;
   private overlayTimer: ReturnType<typeof setTimeout> | undefined;
+  private readonly sectionSelectors: Record<string, string> = {
+    aboutMe: 'app-aboutme .letsWorkTogether',
+    skillSet: 'app-skillset .SkillSet',
+    myWork: 'app-mywork .myWork'
+  };
+  private readonly sectionOffsets: Record<string, number> = { aboutMe: -139, skillSet: 0, myWork: 0 };
 
   // Toggles menu phase and icon state to match the 4-state Figma burger behavior.
   toggleMobileMenu() {
@@ -119,26 +125,29 @@ export class Header implements OnDestroy {
   // Resolves a section id from the DOM and scrolls to it smoothly.
   goToOld(elementId: string) {
     if (elementId === 'aboutMe' && window.innerWidth < 950) {
-      const hero = document.querySelector('app-main .hero') as HTMLElement | null;
-      if (hero) {
-        const top = window.scrollY + hero.getBoundingClientRect().bottom;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      this.scrollToHeroBottom();
       return;
     }
+    this.scrollToNamedSection(elementId);
+  }
 
-    const selectors: Record<string, string> = {
-      aboutMe: 'app-aboutme .letsWorkTogether',
-      skillSet: 'app-skillset .SkillSet',
-      myWork: 'app-mywork .myWork'
-    };
-    const offsets: Record<string, number> = { aboutMe: -139, skillSet: 0, myWork: 0 };
-    const sectionSelector = selectors[elementId];
+  // Scrolls to the bottom of the hero section on mobile for aboutMe link.
+  private scrollToHeroBottom() {
+    const hero = document.querySelector('app-main .hero') as HTMLElement | null;
+    if (hero) {
+      const top = window.scrollY + hero.getBoundingClientRect().bottom;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Resolves and scrolls to a named section with custom offset applied.
+  private scrollToNamedSection(elementId: string) {
+    const sectionSelector = this.sectionSelectors[elementId];
     const element = (sectionSelector
       ? document.querySelector(sectionSelector)
       : document.getElementById(elementId)) as HTMLElement | null;
     if (element) {
-      const top = window.scrollY + element.getBoundingClientRect().top + (offsets[elementId] ?? 0);
+      const top = window.scrollY + element.getBoundingClientRect().top + (this.sectionOffsets[elementId] ?? 0);
       window.scrollTo({ top, behavior: 'smooth' });
     }
   }

@@ -51,18 +51,21 @@ export class Main implements AfterViewInit {
       this.clearMeInlinePosition();
       return;
     }
+    const elements = this.getHeroElements();
+    if (!elements) return;
+    this.clearMeInlinePosition();
+    const minTop = elements.profession.offsetTop + elements.profession.offsetHeight + 20;
+    if (elements.me.offsetTop < minTop) {
+      elements.me.style.top = `${minTop}px`;
+      elements.me.style.bottom = 'auto';
+    }
+  }
+
+  // Retrieves hero section elements needed for overlap detection and positioning.
+  private getHeroElements() {
     const profession = document.querySelector('app-main .hero .profession') as HTMLElement | null;
     const me = document.querySelector('app-main .hero .me') as HTMLElement | null;
-    if (!profession || !me) {
-      return;
-    }
-    this.clearMeInlinePosition();
-    const minTop = profession.offsetTop + profession.offsetHeight + 20;
-    if (me.offsetTop >= minTop) {
-      return;
-    }
-    me.style.top = `${minTop}px`;
-    me.style.bottom = 'auto';
+    return (profession && me) ? { profession, me } : null;
   }
 
   // Resets inline position so stylesheet controls the default layout.

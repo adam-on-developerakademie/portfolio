@@ -46,19 +46,26 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Initializes responsive runtime layout values at component startup.
   constructor() {
     this.syncOverlayFromUrl();
-    // Recalculates mobile offsets after late-loading assets finish and the layout becomes stable.
+    this.attachLoadEventListener();
+    this.subscribeToNavigationEvents();
+    this.updateLayout();
+  }
+
+  // Attaches load listener to recalculate offsets after assets finish loading.
+  private attachLoadEventListener() {
     window.addEventListener('load', () => this.updateLayout(), { once: true });
+  }
+
+  // Subscribes to route changes to synchronize overlay and layout state.
+  private subscribeToNavigationEvents() {
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe(() => {
         this.syncOverlayFromUrl();
-        if (this.isOverlayOpen()) {
-          this.scrollToTop();
-        }
+        if (this.isOverlayOpen()) this.scrollToTop();
         this.updateLayout();
         this.syncOverlayObservation();
       });
-    this.updateLayout();
   }
 
   // Initializes runtime mobile offsets after first render.
@@ -77,6 +84,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.stopOverlayObserver();
   }
+
   // Updates runtime layout values for desktop, mobile, and overlay modes.
   updateLayout() {
     if (this.isOverlayOpen()) {
@@ -98,6 +106,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     this.clearMobileOffsetVars();
     this.clearDesktopOffsetVars();
   }
+
   // Applies layout settings for the regular portfolio page.
   private applyPortfolioLayout() {
     if (window.innerWidth < this.mobileBreakpoint) {
@@ -144,16 +153,16 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   private applyDesktopTopVars(tops: {
     aboutTop: number; skillTop: number; workTop: number; teamTop: number; contactTop: number; footerTop: number;
   }, team: HTMLElement) {
-    document.documentElement.style.setProperty('--aboutme-top', `${tops.aboutTop}px`);
-    document.documentElement.style.setProperty('--skillset-top', `${tops.skillTop}px`);
-    document.documentElement.style.setProperty('--mywork-top', `${tops.workTop}px`);
-    document.documentElement.style.setProperty('--teamplayer-top', `${tops.teamTop}px`);
-    document.documentElement.style.setProperty('--teamplayer-height', `${team.offsetHeight}px`);
-    document.documentElement.style.setProperty('--contact-top', `${tops.contactTop}px`);
-    document.documentElement.style.setProperty('--footer-top', `${tops.footerTop}px`);
+    this.setCSSVars({
+      '--aboutme-top': `${tops.aboutTop}px`,
+      '--skillset-top': `${tops.skillTop}px`,
+      '--mywork-top': `${tops.workTop}px`,
+      '--teamplayer-top': `${tops.teamTop}px`,
+      '--teamplayer-height': `${team.offsetHeight}px`,
+      '--contact-top': `${tops.contactTop}px`,
+      '--footer-top': `${tops.footerTop}px`
+    });
   }
-
-
   // Updates mobile section top offsets from current rendered section heights.
   private syncMobileOffsets() {
     requestAnimationFrame(() => {
@@ -172,23 +181,33 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Measures all mobile sections and writes dynamic top vars while preserving current gaps.
   private applyMeasuredMobileOffsets() {
     const sections = this.getMobileSections();
-    if (!sections) {
-      return;
-    }
+    if (!sections) return;
     this.ensureMobileGaps(sections);
     const tops = this.calculateSectionTops(sections, this.mobileGaps!);
-    tops.aboutTop = sections.hero.offsetTop + sections.hero.offsetHeight;
-    tops.skillTop = tops.aboutTop + sections.about.offsetHeight;
-    const desiredWorkTop = tops.skillTop + sections.skill.offsetHeight;
-    const currentWorkTop = parseFloat(getComputedStyle(sections.myWork).top || '0') || 0;
-    const workFlowOffset = sections.myWork.offsetTop - currentWorkTop;
-    tops.workTop = desiredWorkTop - workFlowOffset;
-    const renderedWorkTop = tops.workTop + workFlowOffset;
-    tops.teamTop = renderedWorkTop + sections.myWork.offsetHeight + this.mobileGaps!.workToTeam;
-    tops.contactTop = tops.teamTop + sections.team.offsetHeight + this.mobileGaps!.teamToContact;
-    tops.footerTop = tops.contactTop + sections.contact.offsetHeight;
+    this.applyMobileSectionOffsets(sections, tops);
     this.applyMobileTopVars(sections.team, tops);
     this.canvasHeight.set(tops.footerTop + sections.footer.offsetHeight + this.mobileSectionGap);
+  }
+
+  // Recalculates mobile section positions accounting for dynamic workflow offsets.
+  private applyMobileSectionOffsets(sections: {
+    hero: HTMLElement; about: HTMLElement; skill: HTMLElement; myWork: HTMLElement;
+    team: HTMLElement; contact: HTMLElement; footer: HTMLElement;
+  }, tops: any) {
+    tops.aboutTop = sections.hero.offsetTop + sections.hero.offsetHeight;
+    tops.skillTop = tops.aboutTop + sections.about.offsetHeight;
+    const workOffset = this.calculateWorkflowOffset(sections);
+    tops.workTop = (tops.skillTop + sections.skill.offsetHeight) - workOffset;
+    const rendered = tops.workTop + workOffset;
+    tops.teamTop = rendered + sections.myWork.offsetHeight + this.mobileGaps!.workToTeam;
+    tops.contactTop = tops.teamTop + sections.team.offsetHeight + this.mobileGaps!.teamToContact;
+    tops.footerTop = tops.contactTop + sections.contact.offsetHeight;
+  }
+
+  // Calculates offset between desired and rendered work section positions.
+  private calculateWorkflowOffset(sections: { myWork: HTMLElement }): number {
+    const currentTop = parseFloat(getComputedStyle(sections.myWork).top || '0') || 0;
+    return sections.myWork.offsetTop - currentTop;
   }
 
   // Initializes cached mobile section gaps once from the current measured layout.
@@ -197,10 +216,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     team: HTMLElement; contact: HTMLElement; footer: HTMLElement;
   }) {
     if (this.mobileGaps) return;
-    this.mobileGaps = this.captureMobileGaps(
-      sections.hero, sections.about, sections.skill, sections.myWork,
-      sections.team, sections.contact, sections.footer
-    );
+    this.mobileGaps = this.captureMobileGaps(sections);
   }
 
   // Reads all mobile section elements and returns null when one is missing.
@@ -237,49 +253,34 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   private applyMobileTopVars(team: HTMLElement, tops: {
     aboutTop: number; skillTop: number; workTop: number; teamTop: number; contactTop: number; footerTop: number;
   }) {
-    document.documentElement.style.setProperty('--teamplayer-top', `${team.offsetTop}px`);
-    document.documentElement.style.setProperty('--teamplayer-height', `${team.offsetHeight}px`);
-    document.documentElement.style.setProperty('--aboutme-mobile-top', `${tops.aboutTop}px`);
-    document.documentElement.style.setProperty('--skillset-mobile-top', `${tops.skillTop}px`);
-    document.documentElement.style.setProperty('--mywork-mobile-top', `${tops.workTop}px`);
-    document.documentElement.style.setProperty('--teamplayer-mobile-top', `${tops.teamTop}px`);
-    document.documentElement.style.setProperty('--contact-mobile-top', `${tops.contactTop}px`);
-    document.documentElement.style.setProperty('--footer-mobile-top', `${tops.footerTop}px`);
+    this.setCSSVars({
+      '--teamplayer-top': `${team.offsetTop}px`,
+      '--teamplayer-height': `${team.offsetHeight}px`,
+      '--aboutme-mobile-top': `${tops.aboutTop}px`,
+      '--skillset-mobile-top': `${tops.skillTop}px`,
+      '--mywork-mobile-top': `${tops.workTop}px`,
+      '--teamplayer-mobile-top': `${tops.teamTop}px`,
+      '--contact-mobile-top': `${tops.contactTop}px`,
+      '--footer-mobile-top': `${tops.footerTop}px`
+    });
   }
 
   // Captures current visual gaps once and keeps them while section heights change.
-  private captureMobileGaps(
-    hero: HTMLElement,
-    about: HTMLElement,
-    skill: HTMLElement,
-    myWork: HTMLElement,
-    team: HTMLElement,
-    contact: HTMLElement,
-    footer: HTMLElement
-  ) {
-    // Keeps mobile gaps in a realistic range to avoid runaway offsets.
-    const sanitizeGap = (value: number, fallback: number) => {
-      if (!Number.isFinite(value)) return fallback;
-      if (value < 0) return fallback;
-      if (value > 320) return fallback;
-      return value;
-    };
-
-    const heroToAbout = about.offsetTop - (hero.offsetTop + hero.offsetHeight);
-    const aboutToSkill = skill.offsetTop - (about.offsetTop + about.offsetHeight);
-    const skillToWork = myWork.offsetTop - (skill.offsetTop + skill.offsetHeight);
-    const workToTeam = team.offsetTop - (myWork.offsetTop + myWork.offsetHeight);
-    const teamToContact = contact.offsetTop - (team.offsetTop + team.offsetHeight);
-    const contactToFooter = footer.offsetTop - (contact.offsetTop + contact.offsetHeight);
-
+  private captureMobileGaps(s: any) {
     return {
-      heroToAbout: sanitizeGap(heroToAbout, 24),
-      aboutToSkill: sanitizeGap(aboutToSkill, 24),
-      skillToWork: sanitizeGap(skillToWork, 24),
-      workToTeam: sanitizeGap(workToTeam, 24),
-      teamToContact: sanitizeGap(teamToContact, 48),
-      contactToFooter: sanitizeGap(contactToFooter, 24)
+      heroToAbout: this.sanitizeGap(s.about.offsetTop - (s.hero.offsetTop + s.hero.offsetHeight), 24),
+      aboutToSkill: this.sanitizeGap(s.skill.offsetTop - (s.about.offsetTop + s.about.offsetHeight), 24),
+      skillToWork: this.sanitizeGap(s.myWork.offsetTop - (s.skill.offsetTop + s.skill.offsetHeight), 24),
+      workToTeam: this.sanitizeGap(s.team.offsetTop - (s.myWork.offsetTop + s.myWork.offsetHeight), 24),
+      teamToContact: this.sanitizeGap(s.contact.offsetTop - (s.team.offsetTop + s.team.offsetHeight), 48),
+      contactToFooter: this.sanitizeGap(s.footer.offsetTop - (s.contact.offsetTop + s.contact.offsetHeight), 24)
     };
+  }
+
+  // Validates gap value is within realistic range to avoid runaway offsets.
+  private sanitizeGap(value: number, fallback: number): number {
+    if (!Number.isFinite(value) || value < 0 || value > 320) return fallback;
+    return value;
   }
 
   // Returns the first matching HTMLElement for a selector.
@@ -322,13 +323,11 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Starts observing overlay section size changes to keep footer fully visible.
   private startOverlayObserver() {
     const elements = this.getOverlayElements();
-    if (!elements) {
-      return;
-    }
-    if (this.isObservingSameTargets(elements) && this.overlayResizeObserver) {
-      return;
-    }
-    this.resetOverlayObserverTargets(elements);
+    if (!elements || (this.isObservingSameTargets(elements) && this.overlayResizeObserver)) return;
+    this.stopOverlayObserver();
+    this.observedOverlayHeader = elements.header;
+    this.observedOverlayPanel = elements.panel;
+    this.observedOverlayFooter = elements.footer;
     this.attachOverlayResizeObserver(elements);
   }
 
@@ -348,14 +347,6 @@ export class Portfolio implements AfterViewInit, OnDestroy {
       && this.observedOverlayFooter === elements.footer;
   }
 
-  // Replaces previous observer targets with the current overlay nodes.
-  private resetOverlayObserverTargets(elements: { header: HTMLElement; panel: HTMLElement; footer: HTMLElement }) {
-    this.stopOverlayObserver();
-    this.observedOverlayHeader = elements.header;
-    this.observedOverlayPanel = elements.panel;
-    this.observedOverlayFooter = elements.footer;
-  }
-
   // Attaches a resize observer to all overlay nodes to keep canvas height in sync.
   private attachOverlayResizeObserver(elements: { header: HTMLElement; panel: HTMLElement; footer: HTMLElement }) {
     this.overlayResizeObserver = new ResizeObserver(() => this.syncOverlayHeight());
@@ -366,14 +357,10 @@ export class Portfolio implements AfterViewInit, OnDestroy {
 
   // Stops active overlay resize observation.
   private stopOverlayObserver() {
-    if (!this.overlayResizeObserver) {
-      this.observedOverlayHeader = null;
-      this.observedOverlayPanel = null;
-      this.observedOverlayFooter = null;
-      return;
+    if (this.overlayResizeObserver) {
+      this.overlayResizeObserver.disconnect();
+      this.overlayResizeObserver = null;
     }
-    this.overlayResizeObserver.disconnect();
-    this.overlayResizeObserver = null;
     this.observedOverlayHeader = null;
     this.observedOverlayPanel = null;
     this.observedOverlayFooter = null;
@@ -415,22 +402,24 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   // Removes runtime mobile top variables when desktop layout is active.
   private clearMobileOffsetVars() {
     this.mobileGaps = null;
-    document.documentElement.style.removeProperty('--aboutme-mobile-top');
-    document.documentElement.style.removeProperty('--skillset-mobile-top');
-    document.documentElement.style.removeProperty('--mywork-mobile-top');
-    document.documentElement.style.removeProperty('--teamplayer-mobile-top');
-    document.documentElement.style.removeProperty('--contact-mobile-top');
-    document.documentElement.style.removeProperty('--footer-mobile-top');
+    this.removeCSSVars(['--aboutme-mobile-top', '--skillset-mobile-top', '--mywork-mobile-top',
+      '--teamplayer-mobile-top', '--contact-mobile-top', '--footer-mobile-top']);
   }
 
   // Removes runtime desktop top variables when mobile or overlay layout is active.
   private clearDesktopOffsetVars() {
-    document.documentElement.style.removeProperty('--aboutme-top');
-    document.documentElement.style.removeProperty('--skillset-top');
-    document.documentElement.style.removeProperty('--mywork-top');
-    document.documentElement.style.removeProperty('--teamplayer-top');
-    document.documentElement.style.removeProperty('--teamplayer-height');
-    document.documentElement.style.removeProperty('--contact-top');
-    document.documentElement.style.removeProperty('--footer-top');
+    this.removeCSSVars(['--aboutme-top', '--skillset-top', '--mywork-top', '--teamplayer-top',
+      '--teamplayer-height', '--contact-top', '--footer-top']);
+  }
+
+  // Applies multiple CSS variables to document root in one operation.
+  private setCSSVars(vars: Record<string, string>) {
+    Object.entries(vars).forEach(([key, value]) =>
+      document.documentElement.style.setProperty(key, value));
+  }
+
+  // Removes multiple CSS variables from document root in one operation.
+  private removeCSSVars(names: string[]) {
+    names.forEach(name => document.documentElement.style.removeProperty(name));
   }
 }
