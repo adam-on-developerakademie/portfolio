@@ -7,8 +7,8 @@
         @for( o of myData.DATA.teamPlayer.opinions ; track o.person){
         <div class="opinion">
             <div class="opinionHeader">
-                <h3 class="person">{{o.person}}</h3>
-                <h4 class="project">{{o.project}}</h4>
+                <h3 class="person">{{o.person[myData.DATA.language]}}</h3>
+                <h4 class="project">{{o.project[myData.DATA.language]}}</h4>
             </div>
             <p class="opinionText">{{o.opinion[myData.DATA.language]}}</p>
         </div>}

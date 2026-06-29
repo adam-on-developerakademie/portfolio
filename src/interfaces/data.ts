@@ -32,7 +32,7 @@ export interface data {
         teamPlayer: {
                 title: string[];
                 text: string[];
-                opinions: { person: string, project: string, opinion: string[] }[];
+                opinions: { person: string[], project: string[], opinion: string[] }[];
         };
         contact: {
                 title: string[];

@@ -118,19 +118,19 @@ export class DATA {
       text: ['Here what my colleagues said about me', 'Hier ist, was meine Kollegen über mich gesagt haben:'],
       opinions: [
         {
-          person: 'James Rugman',
-          project: 'Project Join',
-          opinion: ['‘‘Sofia is a reliable and friendly person. Work in a structured way and write a clear code. I  highly recommend her as a colleague.’’', 'Always willing to help out.']
+          person: ['Muhammed Yunus Amini', 'Muhammed Yunus Amini'],
+          project: ['Project Join', 'Project Join'],
+          opinion: ['‘‘Adam war während des gesamten Projekts ein sehr zuverlässiger und hilfsbereiter Teamkollege. Er war immer erreichbar, hat die Gruppe bis zum letzten Feinschliff unterstützt.’’', '‘‘Adam was a very reliable and helpful team member throughout the entire project. He was always available, supported the group until the last finishing touch.’’']
         },
         {
-          person: 'Evelyn Marx',
-          project: 'Project DA Bubble',
-          opinion: ['‘’ Sofia is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code.‘’', 'Brings a positive attitude to the team.']
+          person: ['You could be next', 'Du könntest der Nächste sein'],
+          project: ['Your review here', 'Hier könnte deine Bewertung stehen'],
+          opinion: ['Maybe your collaboration feedback will be the next story here.', 'Vielleicht steht hier bald dein Feedback zur Zusammenarbeit.']
         },
         {
-          person: 'Noah Müller',
-          project: 'Project El Pollo Loco',
-          opinion: ['‘’Sofia  had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person.’’', 'A pleasure to work with.']
+          person: ['Next partner', 'Nächster Partner'],
+          project: ['A place for your recommendation', 'Ein Platz für deine Empfehlung'],
+          opinion: ['If you become my next partner, this spot is yours for a short review.', 'Wenn du mein nächster Partner wirst, gehört dieser Platz deiner kurzen Bewertung.']
         }
       ]
     },
