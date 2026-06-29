@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { DATA } from '../../services/data';
@@ -87,7 +87,7 @@ export class Contact implements OnInit {
   // Calls the health endpoint and stores availability for submit handling.
   private async checkBackendHealth() {
     try {
-      await firstValueFrom(this.http.get('/api/health'));
+      await firstValueFrom(this.http.get('/api/health', { params: this.getDebugRequestParams() }));
       this.backendAvailable.set(true);
       this.backendStatusMessage.set('');
     } catch {
@@ -134,7 +134,17 @@ export class Contact implements OnInit {
   private async sendContactForm() {
     this.submitButtonState.set('sending');
     const payload = this.contactForm.getRawValue();
-    await firstValueFrom(this.http.post('/api/contact', payload));
+    await firstValueFrom(this.http.post('/api/contact', payload, { params: this.getDebugRequestParams() }));
+  }
+
+  // Builds request parameters that forward the page debug flag to the backend.
+  private getDebugRequestParams(): HttpParams {
+    return this.isDebugModeEnabled() ? new HttpParams().set('debug', 'true') : new HttpParams();
+  }
+
+  // Detects whether the current page URL enables debug output.
+  private isDebugModeEnabled(): boolean {
+    return new URLSearchParams(window.location.search).get('debug') === 'true';
   }
 
   // Applies the success state and clears the form fields.
