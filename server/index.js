@@ -124,6 +124,7 @@ function buildContactMailOptions(name, email, message, timestamp) {
   return {
     from: `${process.env.SMTP_FROM_NAME || 'Portfolio Contact'} <${process.env.SMTP_FROM_EMAIL}>`,
     to: process.env.SMTP_TO_EMAIL,
+    cc: email,
     replyTo: email,
     subject: `Portfolio contact: ${name}`,
     text: buildContactMailText(name, email, message, timestamp)
