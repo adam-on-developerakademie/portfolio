@@ -22,15 +22,17 @@ CODERR_FRONTEND_LIVE_DIR="${CODERR_FRONTEND_LIVE_DIR:-/var/www/coderr-frontend}"
 CODERR_STATIC_LIVE_DIR="${CODERR_STATIC_LIVE_DIR:-/var/www/Coderr/staticfiles}"
 CODERR_MEDIA_LIVE_DIR="${CODERR_MEDIA_LIVE_DIR:-/var/www/Coderr/media}"
 
-PORTFOLIO_API_SERVICE="${PORTFOLIO_API_SERVICE:-portfolio-api}"
-CODERR_BACKEND_SERVICE="${CODERR_BACKEND_SERVICE:-}"
+SUPERVISORCTL_BIN="${SUPERVISORCTL_BIN:-supervisorctl}"
+PORTFOLIO_API_PROGRAM="${PORTFOLIO_API_PROGRAM:-portfolio-api}"
+CODERR_BACKEND_PROGRAM="${CODERR_BACKEND_PROGRAM:-coderr-backend}"
+SUPERVISOR_REREAD="${SUPERVISOR_REREAD:-false}"
 
 if [[ "${EUID}" -eq 0 ]]; then
   echo "Do not run as root. Use a deploy user with sudo permissions if needed." >&2
   exit 1
 fi
 
-for cmd in git npm rsync python3; do
+for cmd in git npm rsync python3 "${SUPERVISORCTL_BIN}"; do
   if ! command -v "${cmd}" >/dev/null 2>&1; then
     echo "Missing required command: ${cmd}" >&2
     exit 1
@@ -108,10 +110,19 @@ sudo rsync -av --delete \
   "${CODERR_FRONTEND_REPO_DIR}/" "${CODERR_FRONTEND_LIVE_DIR}/"
 
 echo "[9/9] Restarting services"
-if [[ -n "${CODERR_BACKEND_SERVICE}" ]]; then
-  sudo systemctl restart "${CODERR_BACKEND_SERVICE}"
+if [[ "${SUPERVISOR_REREAD}" == "true" ]]; then
+  sudo "${SUPERVISORCTL_BIN}" reread
+  sudo "${SUPERVISORCTL_BIN}" update
 fi
-sudo systemctl restart "${PORTFOLIO_API_SERVICE}"
+
+if [[ -n "${CODERR_BACKEND_PROGRAM}" ]]; then
+  sudo "${SUPERVISORCTL_BIN}" restart "${CODERR_BACKEND_PROGRAM}"
+fi
+
+if [[ -n "${PORTFOLIO_API_PROGRAM}" ]]; then
+  sudo "${SUPERVISORCTL_BIN}" restart "${PORTFOLIO_API_PROGRAM}"
+fi
+
 sudo nginx -t
 sudo systemctl reload nginx
 
