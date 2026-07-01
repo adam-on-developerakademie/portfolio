@@ -120,7 +120,7 @@ export class DATA {
         {
           person: ['Muhammed Yunus Amini', 'Muhammed Yunus Amini'],
           project: ['Project Join', 'Project Join'],
-          opinion: ['‘‘Adam war während des gesamten Projekts ein sehr zuverlässiger und hilfsbereiter Teamkollege. Er war immer erreichbar, hat die Gruppe bis zum letzten Feinschliff unterstützt.’’', '‘‘Adam was a very reliable and helpful team member throughout the entire project. He was always available, supported the group until the last finishing touch.’’']
+          opinion: ['‘‘Adam was a very reliable and helpful team member throughout the entire project. He was always available, supported the group until the last finishing touch.’’','‘‘Adam war während des gesamten Projekts ein sehr zuverlässiger und hilfsbereiter Teamkollege. Er war immer erreichbar, hat die Gruppe bis zum letzten Feinschliff unterstützt.’’']
         },
         {
           person: ['You could be next', 'Du könntest der Nächste sein'],
