@@ -132,7 +132,6 @@ $skillSetHeight: 632px;
 
 .SkillSet.hoverEnabled {
     .skill:hover {
-        cursor: pointer;
 
         >p {
             font-style: bold;
@@ -143,8 +142,7 @@ $skillSetHeight: 632px;
     }
 
     .growMindset:hover {
-        cursor: pointer;
-
+        
         >p {
             font-style: bold;
             font-weight: 700;

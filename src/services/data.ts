@@ -38,7 +38,7 @@ export class DATA {
     },
     skillSet: {
       title: { values: ['Skill set', 'Fähigkeiten'] },
-      hoverEnabled: false,
+      hoverEnabled: true,
       skills: {
         groups: [
           {
