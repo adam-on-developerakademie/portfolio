@@ -18,9 +18,13 @@ CODERR_FRONTEND_REPO_URL="${CODERR_FRONTEND_REPO_URL:-https://github.com/adam-on
 CODERR_FRONTEND_BRANCH="${CODERR_FRONTEND_BRANCH:-main}"
 
 PORTFOLIO_LIVE_DIR="${PORTFOLIO_LIVE_DIR:-/var/www/portfolio}"
-CODERR_FRONTEND_LIVE_DIR="${CODERR_FRONTEND_LIVE_DIR:-/var/www/coderr-frontend}"
+CODERR_FRONTEND_LIVE_DIR="${CODERR_FRONTEND_LIVE_DIR:-/var/www/codder}"
 CODERR_STATIC_LIVE_DIR="${CODERR_STATIC_LIVE_DIR:-/var/www/Coderr/staticfiles}"
 CODERR_MEDIA_LIVE_DIR="${CODERR_MEDIA_LIVE_DIR:-/var/www/Coderr/media}"
+
+PORTFOLIO_PUBLIC_URL="${PORTFOLIO_PUBLIC_URL:-https://piskorek.de}"
+CODERR_PUBLIC_URL="${CODERR_PUBLIC_URL:-https://codder.piskorek.de}"
+ENABLE_POST_DEPLOY_CHECKS="${ENABLE_POST_DEPLOY_CHECKS:-true}"
 
 SUPERVISORCTL_BIN="${SUPERVISORCTL_BIN:-supervisorctl}"
 PORTFOLIO_API_PROGRAM="${PORTFOLIO_API_PROGRAM:-portfolio-api}"
@@ -32,30 +36,27 @@ if [[ "${EUID}" -eq 0 ]]; then
   exit 1
 fi
 
-for cmd in git npm rsync python3 "${SUPERVISORCTL_BIN}"; do
+for cmd in git npm rsync python3 curl "${SUPERVISORCTL_BIN}"; do
   if ! command -v "${cmd}" >/dev/null 2>&1; then
     echo "Missing required command: ${cmd}" >&2
     exit 1
   fi
 done
 
+# Syncs an existing repository to the target branch or clones it when missing.
 sync_repo() {
-  local repo_dir="$1"
-  local repo_url="$2"
-  local branch="$3"
+  local repo_dir="$1" repo_url="$2" branch="$3"
   if [[ -d "${repo_dir}/.git" ]]; then
     cd "${repo_dir}"
     git fetch --all --prune
     git reset --hard "origin/${branch}"
     git clean -fd
-    return
+  elif [[ -n "${repo_url}" ]]; then
+    mkdir -p "$(dirname "${repo_dir}")"
+    git clone --branch "${branch}" "${repo_url}" "${repo_dir}"
+  else
+    echo "Repository missing at ${repo_dir} and no repo URL set." >&2; exit 1
   fi
-  if [[ -z "${repo_url}" ]]; then
-    echo "Repository missing at ${repo_dir} and no repo URL set." >&2
-    exit 1
-  fi
-  mkdir -p "$(dirname "${repo_dir}")"
-  git clone --branch "${branch}" "${repo_url}" "${repo_dir}"
 }
 
 echo "[1/9] Syncing portfolio repository"
@@ -109,7 +110,7 @@ sudo rsync -av --delete \
   --exclude 'CHANGELOG.md' \
   "${CODERR_FRONTEND_REPO_DIR}/" "${CODERR_FRONTEND_LIVE_DIR}/"
 
-echo "[9/9] Restarting services"
+echo "[9/10] Restarting services"
 if [[ "${SUPERVISOR_REREAD}" == "true" ]]; then
   sudo "${SUPERVISORCTL_BIN}" reread
   sudo "${SUPERVISORCTL_BIN}" update
@@ -121,6 +122,12 @@ fi
 
 if [[ -n "${PORTFOLIO_API_PROGRAM}" ]]; then
   sudo "${SUPERVISORCTL_BIN}" restart "${PORTFOLIO_API_PROGRAM}"
+fi
+
+if [[ "${ENABLE_POST_DEPLOY_CHECKS}" == "true" ]]; then
+  echo "[10/10] Running post-deploy checks"
+  curl -fsS "${PORTFOLIO_PUBLIC_URL}/api/health" >/dev/null
+  curl -IfsS "${CODERR_PUBLIC_URL}/admin/login/" >/dev/null
 fi
 
 sudo nginx -t
