@@ -77,7 +77,7 @@ $skillSetHeight: 632px;
 .skill {
     //border: 1px solid rgb(230, 0, 255);
     box-sizing: border-box;
-    width: 86px;
+    width: 140px;
     height: 112px;
     display: flex;
     flex-direction: column;
@@ -86,7 +86,6 @@ $skillSetHeight: 632px;
     gap: 6px;
 
     >img {
-        width: 52px;
         height: 56px;
     }
 
@@ -105,7 +104,6 @@ $skillSetHeight: 632px;
 .growMindset {
     //border: 1px solid rgb(230, 0, 255);
     box-sizing: border-box;
-    width: 86px;
     height: 112px;
     display: flex;
     flex-direction: column;
@@ -114,7 +112,6 @@ $skillSetHeight: 632px;
     gap: 6px;
 
     >img {
-        width: 58px;
         height: 56px;
     }
 
@@ -168,7 +165,6 @@ $skillSetHeight: 632px;
 
             grid-template-columns: repeat(5, minmax(72px, 1fr));
             gap: 16px 18px;
-            justify-items: center;
         }
     }
 }
@@ -203,19 +199,16 @@ $skillSetHeight: 632px;
             min-height: 560px;
             grid-template-columns: repeat(5, minmax(52px, 1fr));
             gap: 12px 10px;
-            justify-items: center;
         }
     }
 
     .skill,
     .growMindset {
-        width: 70px;
         min-width: 60px;
         height: 86px;
         gap: 5px;
 
         >img {
-            width: 40px;
             height: 42px;
         }
 
@@ -234,7 +227,6 @@ $skillSetHeight: 632px;
 
         .growMindset:hover {
             img {
-                width: 40px;
                 height: 42px;
                 padding-left: 0;
                 padding-bottom: 0;
