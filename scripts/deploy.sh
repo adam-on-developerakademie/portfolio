@@ -2,7 +2,7 @@
 
 set -Eeuo pipefail
 
-# Unified deploy script for portfolio + codder on one server.
+# Unified deploy script for portfolio + coderr on one server.
 # Everything is expected to live under /srv/www and /var/www after migration.
 
 PORTFOLIO_REPO_DIR="${PORTFOLIO_REPO_DIR:-/srv/www/portfolio}"
@@ -18,17 +18,17 @@ CODERR_FRONTEND_REPO_URL="${CODERR_FRONTEND_REPO_URL:-https://github.com/adam-on
 CODERR_FRONTEND_BRANCH="${CODERR_FRONTEND_BRANCH:-main}"
 
 PORTFOLIO_LIVE_DIR="${PORTFOLIO_LIVE_DIR:-/var/www/portfolio}"
-CODERR_FRONTEND_LIVE_DIR="${CODERR_FRONTEND_LIVE_DIR:-/var/www/codder}"
+CODERR_FRONTEND_LIVE_DIR="${CODERR_FRONTEND_LIVE_DIR:-/var/www/coderr}"
 CODERR_STATIC_LIVE_DIR="${CODERR_STATIC_LIVE_DIR:-/var/www/Coderr/staticfiles}"
 CODERR_MEDIA_LIVE_DIR="${CODERR_MEDIA_LIVE_DIR:-/var/www/Coderr/media}"
 
 PORTFOLIO_PUBLIC_URL="${PORTFOLIO_PUBLIC_URL:-https://piskorek.de}"
-CODERR_PUBLIC_URL="${CODERR_PUBLIC_URL:-https://codder.piskorek.de}"
+CODERR_PUBLIC_URL="${CODERR_PUBLIC_URL:-https://coderr.piskorek.de}"
 ENABLE_POST_DEPLOY_CHECKS="${ENABLE_POST_DEPLOY_CHECKS:-true}"
 
 SUPERVISORCTL_BIN="${SUPERVISORCTL_BIN:-supervisorctl}"
 PORTFOLIO_API_PROGRAM="${PORTFOLIO_API_PROGRAM:-portfolio-api}"
-CODERR_BACKEND_PROGRAM="${CODERR_BACKEND_PROGRAM:-coderr-backend}"
+CODERR_BACKEND_PROGRAM="${CODERR_BACKEND_PROGRAM:-coderr-gunicorn}"
 SUPERVISOR_REREAD="${SUPERVISOR_REREAD:-false}"
 
 if [[ "${EUID}" -eq 0 ]]; then
@@ -59,10 +59,10 @@ sync_repo() {
   fi
 }
 
-echo "[1/9] Syncing portfolio repository"
+echo "[1/10] Syncing portfolio repository"
 sync_repo "${PORTFOLIO_REPO_DIR}" "${PORTFOLIO_REPO_URL}" "${PORTFOLIO_BRANCH}"
 
-echo "[2/9] Building portfolio"
+echo "[2/10] Building portfolio"
 cd "${PORTFOLIO_REPO_DIR}"
 npm ci
 npm run build
@@ -73,14 +73,14 @@ if [[ ! -d "${PORTFOLIO_DIST_DIR}" ]]; then
   exit 1
 fi
 
-echo "[3/9] Publishing portfolio static files"
+echo "[3/10] Publishing portfolio static files"
 sudo mkdir -p "${PORTFOLIO_LIVE_DIR}"
 sudo rsync -av --delete "${PORTFOLIO_DIST_DIR}/" "${PORTFOLIO_LIVE_DIR}/"
 
-echo "[4/9] Syncing codder backend repository"
+echo "[4/10] Syncing coderr backend repository"
 sync_repo "${CODERR_BACKEND_REPO_DIR}" "${CODERR_BACKEND_REPO_URL}" "${CODERR_BACKEND_BRANCH}"
 
-echo "[5/9] Installing codder backend dependencies"
+echo "[5/10] Installing coderr backend dependencies"
 cd "${CODERR_BACKEND_REPO_DIR}"
 if [[ -x "${CODERR_BACKEND_REPO_DIR}/.venv/bin/pip" ]]; then
   "${CODERR_BACKEND_REPO_DIR}/.venv/bin/pip" install -r requirements.txt
@@ -91,15 +91,15 @@ else
   DJANGO_PYTHON="${CODERR_BACKEND_REPO_DIR}/.venv/bin/python"
 fi
 
-echo "[6/9] Running collectstatic for codder backend"
+echo "[6/10] Running collectstatic for coderr backend"
 "${DJANGO_PYTHON}" manage.py collectstatic --noinput
 
-echo "[7/9] Publishing codder static and media files"
+echo "[7/10] Publishing coderr static and media files"
 sudo mkdir -p "${CODERR_STATIC_LIVE_DIR}" "${CODERR_MEDIA_LIVE_DIR}"
 sudo rsync -av --delete "${CODERR_BACKEND_REPO_DIR}/staticfiles/" "${CODERR_STATIC_LIVE_DIR}/"
 sudo rsync -av "${CODERR_BACKEND_REPO_DIR}/media/" "${CODERR_MEDIA_LIVE_DIR}/"
 
-echo "[8/9] Syncing codder frontend repository"
+echo "[8/10] Syncing coderr frontend repository"
 sync_repo "${CODERR_FRONTEND_REPO_DIR}" "${CODERR_FRONTEND_REPO_URL}" "${CODERR_FRONTEND_BRANCH}"
 sudo mkdir -p "${CODERR_FRONTEND_LIVE_DIR}"
 sudo rsync -av --delete \
@@ -135,5 +135,5 @@ sudo systemctl reload nginx
 
 echo "Deploy finished successfully."
 echo "Portfolio repo: ${PORTFOLIO_REPO_DIR}"
-echo "Codder backend repo: ${CODERR_BACKEND_REPO_DIR}"
-echo "Codder frontend repo: ${CODERR_FRONTEND_REPO_DIR}"
+echo "coderr backend repo: ${CODERR_BACKEND_REPO_DIR}"
+echo "coderr frontend repo: ${CODERR_FRONTEND_REPO_DIR}"
