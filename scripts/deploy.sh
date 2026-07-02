@@ -18,7 +18,17 @@ CODERR_FRONTEND_REPO_URL="${CODERR_FRONTEND_REPO_URL:-https://github.com/adam-on
 CODERR_FRONTEND_BRANCH="${CODERR_FRONTEND_BRANCH:-main}"
 
 PORTFOLIO_LIVE_DIR="${PORTFOLIO_LIVE_DIR:-/var/www/portfolio}"
-CODERR_FRONTEND_LIVE_DIR="${CODERR_FRONTEND_LIVE_DIR:-/var/www/coderr}"
+
+# Keeps old server setups working by preferring the legacy frontend directory
+# when no explicit CODERR_FRONTEND_LIVE_DIR is provided.
+if [[ -z "${CODERR_FRONTEND_LIVE_DIR:-}" ]]; then
+  if [[ -d "/var/www/coderr-frontend" ]]; then
+    CODERR_FRONTEND_LIVE_DIR="/var/www/coderr-frontend"
+  else
+    CODERR_FRONTEND_LIVE_DIR="/var/www/coderr"
+  fi
+fi
+
 CODERR_STATIC_LIVE_DIR="${CODERR_STATIC_LIVE_DIR:-/var/www/Coderr/staticfiles}"
 CODERR_MEDIA_LIVE_DIR="${CODERR_MEDIA_LIVE_DIR:-/var/www/Coderr/media}"
 
