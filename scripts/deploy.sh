@@ -40,6 +40,7 @@ SUPERVISORCTL_BIN="${SUPERVISORCTL_BIN:-supervisorctl}"
 PORTFOLIO_API_PROGRAM="${PORTFOLIO_API_PROGRAM:-portfolio-api}"
 CODERR_BACKEND_PROGRAM="${CODERR_BACKEND_PROGRAM:-coderr-gunicorn}"
 SUPERVISOR_REREAD="${SUPERVISOR_REREAD:-false}"
+GIT_CLEAN_MODE="${GIT_CLEAN_MODE:-safe}"
 
 if [[ "${EUID}" -eq 0 ]]; then
   echo "Do not run as root. Use a deploy user with sudo permissions if needed." >&2
@@ -60,7 +61,17 @@ sync_repo() {
     cd "${repo_dir}"
     git fetch --all --prune
     git reset --hard "origin/${branch}"
-    git clean -fd
+    if [[ "${GIT_CLEAN_MODE}" == "strict" ]]; then
+      git clean -fd
+    else
+      git clean -fd \
+        -e '.env' \
+        -e '.env.*' \
+        -e 'db.sqlite3' \
+        -e '.venv/' \
+        -e 'media/' \
+        -e 'staticfiles/'
+    fi
   elif [[ -n "${repo_url}" ]]; then
     mkdir -p "$(dirname "${repo_dir}")"
     git clone --branch "${branch}" "${repo_url}" "${repo_dir}"
@@ -101,7 +112,8 @@ else
   DJANGO_PYTHON="${CODERR_BACKEND_REPO_DIR}/.venv/bin/python"
 fi
 
-echo "[6/10] Running collectstatic for coderr backend"
+echo "[6/10] Running migrations and collectstatic for coderr backend"
+"${DJANGO_PYTHON}" manage.py migrate --noinput
 "${DJANGO_PYTHON}" manage.py collectstatic --noinput
 
 echo "[7/10] Publishing coderr static and media files"
